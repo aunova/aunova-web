@@ -1,5 +1,5 @@
 ---
-import Logo from "./Logo.astro";
+
 ---
 
 <style>
@@ -9,8 +9,13 @@ import Logo from "./Logo.astro";
     align-items: center;
     justify-content: center;
   }
+  .header-text {
+    color: #6c0000;
+    font-size: 3rem; /* or whatever size you prefer */
+    font-weight: bold; /* or whatever weight you prefer */
+  }
 </style>
 
 <header>
-  <Logo />
+  <span class="header-text">Aunova</span>
 </header>

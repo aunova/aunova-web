@@ -3,20 +3,22 @@ export interface Props {
   narrow?: boolean;
 }
 
-const {narrow} = Astro.props;
+const { narrow } = Astro.props;
 ---
 
 <div class={`content__container ${narrow && `content__container--narrow`}`}>
-  <slot></slot>
+  <slot />
 </div>
 
 <style>
-.content__container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: var(--container-padding);
-}
-.content__container--narrow {
-  max-width: var(--container-max-width-narrow);
-}
+  .content__container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--container-padding);
+    color: #6c0000; /* Added color property here */
+  }
+  .content__container--narrow {
+    max-width: var(--container-max-width-narrow);
+    color: #6c0000; /* Added color property here */
+  }
 </style>

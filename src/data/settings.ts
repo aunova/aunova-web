@@ -1,6 +1,6 @@
 export const settings = {
-  site: 'https://cannonball.littlesticks.dev',
-  name: 'Little Sticks',
-  title: 'Cannonball by Little Sticks | A splash page template',
-  description: 'This is a simple splash page template built with Astro by Little Sticks',
+  site: 'https://aunova.net',
+  name: 'Aunova',
+  title: 'Aunova Smartcontract Development and Blockchain Consultancy',
+  description: 'Explore the frontier of blockchain technology with Aunova, your trusted guide in smart contract development and blockchain consultancy. Transform your digital landscape and foster innovation with our bespoke solutions. Your journey towards blockchain excellence begins here.',
 }
