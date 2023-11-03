@@ -9,6 +9,7 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features4 from '~/components/widgets/Features4.astro';
+import Cookie from '~/components/widgets/Cookie.astro';
 
 const metadata = {
   title:
@@ -19,7 +20,7 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
-
+  <Cookie />
   <Hero
     actions={[
       {
