@@ -9,7 +9,6 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features4 from '~/components/widgets/Features4.astro';
-import Cookie from '~/components/widgets/Cookie.astro';
 
 const metadata = {
   title:
@@ -19,7 +18,6 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Cookie />
   <!-- Hero Widget ******************* -->
   <Hero
     actions={[
@@ -245,4 +243,6 @@ const metadata = {
       operations. <br class="hidden md:inline" />Embark on your blockchain journey with Aunova today!
     </Fragment>
   </CallToAction>
+  <script is:inline src="https://cmp.osano.com/AzZMqUTuXsSHX1wJa/c7a84647-3abc-492f-ad83-196609c65adf/osano.js"
+  ></script>
 </Layout>
