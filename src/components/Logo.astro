@@ -1,7 +1,9 @@
 ---
-import {Icon} from 'astro-icon';
+import { SITE } from '~/utils/config';
 ---
 
-<!-- Feel free to replace this with the SVG for your own logo -->
-<Icon name="placeholder-logo" height="56px" />
-
+<span
+  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
+>
+  {SITE?.name}
+</span>

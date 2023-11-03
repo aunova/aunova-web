@@ -1,30 +1,247 @@
 ---
-import Layout from "../layouts/Page.astro";
-import Container from "../components/Container.astro";
+import Layout from '~/layouts/PageLayout.astro';
 
-const seo = {
-  title: "Smartcontract Development and Blockchain Consultancy",
-  description:
-    "Explore the frontier of blockchain technology with Aunova, your trusted guide in smart contract development and blockchain consultancy. Transform your digital landscape and foster innovation with our bespoke solutions. Your journey towards blockchain excellence begins here.",
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features4 from '~/components/widgets/Features4.astro';
+
+const metadata = {
+  title:
+    "Experience unparalleled growth with Aunova, a leader in Consultancy and Blockchain Software Solutions. Our team of industry experts delivers innovative and customized strategies, ensuring your business stays ahead in today's competitive market. Explore our cutting-edge blockchain technology and comprehensive consultancy services to transform your operations and achieve success.",
+  ignoreTitleTemplate: true,
 };
 ---
 
-<style>
-  .hero__article {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh;
-    text-align: center;
-  }
-</style>
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
 
-<Layout seo={seo}>
-  <Container narrow>
-    <article class="hero__article">
-      <h1 class="fade-in">Coming Soon</h1>
-      <p class="fade-in">Aunova: Smartcontract Development and Blockchain Consultancy</p>
-    </article>
-  </Container>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Explore Services',
+        href: '/#features',
+        icon: 'tabler:download',
+      },
+      { text: 'Contact Us', href: '/contact' },
+    ]}
+    image={{ src: '~/assets/images/aunova-hero.webp', alt: 'Aunova Consultancy and Blockchain Solutions' }}
+  >
+    <Fragment slot="title">
+      Elevate Your Business with <span class="text-accent dark:text-white hidden xl:inline">Expert Consultancy</span>
+       and
+      <span class="text-accent dark:text-white highlight"> Blockchain Solutions</span> at Aunova
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">Aunova</span> offers tailored consultancy services and innovative blockchain
+        solutions to propel your business forward.</span
+      >
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">Aunova: Your Gateway to Innovation.</span>
+       Perfect for Enterprises, Startups, and SMEs seeking strategic growth, operational efficiency, and a competitive
+      edge in their industry.
+    </Fragment>
+  </Hero>
+
+  <!-- Note Widget ******************* -->
+
+  <Note />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Features"
+    title="What you get with Aunova"
+    subtitle="Empowering your business with innovative solutions and expert consultancy in blockchain technology."
+    items={[
+      {
+        title: 'Integrated Blockchain Solutions',
+        description:
+          'Unlock the potential of blockchain technology with our seamless integration services, enhancing security, transparency, and efficiency in your operations.',
+        icon: 'tabler:brand-tailwind',
+      },
+      {
+        title: 'Expert Consultancy',
+        description:
+          'Leverage our extensive knowledge and experience in business consultancy to navigate complex challenges and drive strategic growth.',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'Strategic Business Planning',
+        description:
+          'Align your business objectives with actionable strategies, ensuring long-term success and adaptability in a rapidly changing market.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Innovative Software Solutions',
+        description:
+          'Transform your business with our cutting-edge software solutions, designed to optimize your operations and enhance your competitive edge.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Comprehensive Market Analysis',
+        description:
+          'Stay ahead of the curve with our thorough market analysis, providing you with the insights needed to make informed and strategic decisions.',
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'Dedicated Support and Training',
+        description:
+          'Benefit from our ongoing support and training services, ensuring your team is equipped with the knowledge and skills needed to excel.',
+        icon: 'tabler:bulb',
+      },
+    ]}
+  />
+
+  <!-- Steps Widget **************** -->
+
+  <Steps
+    title="Embark on Your Blockchain Journey with Aunova."
+    items={[
+      {
+        title: '<span class="font-medium">Step 1: Consultation</span>',
+        description:
+          "Kickstart your blockchain project with a comprehensive consultation with Aunova’s experts. We'll understand your business needs, identify opportunities, and lay the foundation for a successful blockchain integration.",
+        icon: 'tabler:help',
+      },
+      {
+        title: '<span class="font-medium">Step 2: Customized Solutions</span>',
+        description:
+          'Utilize Aunova’s expertise to develop tailored blockchain solutions. Incorporate your brand’s identity and operational requirements to create applications that not only meet but exceed your expectations.',
+        icon: 'tabler:adjustments',
+      },
+      {
+        title: '<span class="font-medium">Step 3: Development & Integration</span>',
+        description:
+          'Witness your blockchain solutions come to life as Aunova’s team of skilled developers work meticulously to ensure seamless integration, ensuring functionality, security, and efficiency.',
+        icon: 'tabler:brand-github',
+      },
+      {
+        title: 'Ready!',
+        description:
+          'Your blockchain solutions are now ready to propel your business to new heights! Leverage the power of blockchain to improve operational efficiency, enhance security, and drive innovation.',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Steps image showing the process of blockchain integration',
+    }}
+  />
+
+  <Features4
+    id="about"
+    title="Meet Our Founders: Pioneers in Blockchain Development"
+    subtitle="At Aunova, we are committed to unleashing the transformative power of blockchain technology for your business. Our team, led by seasoned experts like Teresa & Chris, stands ready to guide you through every step of your blockchain journey, ensuring a seamless transition into the decentralized world."
+    image={{ src: 'src/assets/images/teresaau.webp', alt: 'Co-Founder Teresa' }}
+    items={[
+      {
+        title: 'Expert Developer: Teresa',
+        description:
+          "Teresa boasts several years of hands-on experience with Solidity, and has an impressive track record of winning several hackathons. She's not just a developer but a creator, having launched engaging Web3 games. Her prowess in blockchain development is evident in the innovative projects she's been part of. Explore her work on GitHub at https://github.com/Tisi22",
+      },
+      {
+        title: 'Deep Blockchain & Web3 Background',
+        description:
+          'Our journey in the blockchain realm is marked by a relentless pursuit of knowledge and innovation. We are adept at harnessing the potential of blockchain and web3 technologies to provide groundbreaking solutions.',
+      },
+    ]}
+  />
+
+  <Features4
+    image={{ src: 'src/assets/images/chrisau.webp', alt: 'Co-Founder Chris' }}
+    items={[
+      {
+        title: 'Blockchain Maestro: Chris',
+        description:
+          "With a rich history of over 10 years in the crypto and blockchain landscape, Chris is a cornerstone of Aunova's innovative spirit. His active participation in several Decentralized Autonomous Organizations (DAOs) reflects his unwavering commitment to the blockchain community. Chris spearheads Research, Frontend Development, and Community Management, ensuring Aunova stays at the forefront of blockchain innovation.",
+      },
+      {
+        title: 'Innovative Research & Development',
+        description:
+          'Our expertise is backed by continuous exploration and development in blockchain and web3 technologies. This drive for innovation translates to state-of-the-art solutions for our clients.',
+      },
+    ]}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Delve into the queries below to understand better the robust solutions Aunova provides and how it can transform your business through blockchain technology."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Why choose Aunova for blockchain solutions?',
+        description:
+          'Aunova is at the forefront of blockchain consultancy and development, offering tailored solutions that drive operational efficiency, enhance security, and foster innovation. Our team of seasoned experts is dedicated to helping you navigate the blockchain landscape seamlessly.',
+      },
+      {
+        title: 'What prerequisites are needed to start a blockchain project with Aunova?',
+        description:
+          'Initiating a blockchain project with Aunova requires a clear understanding of your business goals, the challenges you aim to address, and the readiness to embrace innovative solutions. Our team will guide you through a thorough consultation to ensure a successful blockchain integration.',
+      },
+      {
+        title: 'How does Aunova ensure the seamless integration of blockchain technology?',
+        description:
+          "Aunova's structured approach encompasses comprehensive consultation, development of customized blockchain solutions, and meticulous integration, ensuring functionality, security, and efficiency at every step of the way.",
+      },
+      {
+        title: 'What support does Aunova provide post blockchain integration?',
+        description:
+          "We provide dedicated support and training to ensure your team is well-equipped to leverage the full potential of the integrated blockchain solutions. Aunova's support extends beyond project completion, ensuring a smooth transition and continuous improvement.",
+      },
+      {
+        title: 'How does blockchain technology contribute to business growth?',
+        description:
+          'Blockchain technology fosters transparency, enhances security, and enables real-time, immutable records. These features are instrumental in improving operational efficiency, building trust with stakeholders, and enabling innovative solutions that drive business growth.',
+      },
+      {
+        title: 'How can I stay updated on the latest blockchain trends and solutions offered by Aunova?',
+        description:
+          "Stay updated by subscribing to Aunova's newsletter, following us on social media, and regularly checking our blog for the latest insights on blockchain technology, industry trends, and the innovative solutions we offer.",
+      },
+    ]}
+  />
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title="Explore More Insights on Our Blog"
+    information={`Dive deeper into the world of blockchain consultancy and development with Aunova's insightful blog posts. 
+                      Each new article aims to enlighten you with essential knowledge, innovative strategies, and the latest trends in the blockchain sphere, helping you navigate the complex landscape with ease.
+                      Stay updated with Aunova's expertise and empower your business with cutting-edge blockchain solutions. Discover more today.
+              `}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact',
+        href: '/contact',
+        target: '_self',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Aunova&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Blockchain Solutions</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Discover a realm of innovative blockchain solutions and consultancy services tailored to elevate your business
+      operations. <br class="hidden md:inline" />Embark on your blockchain journey with Aunova today!
+    </Fragment>
+  </CallToAction>
 </Layout>
