@@ -15,7 +15,6 @@ const { metadata } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
-
   <slot name="header">
     <Header {...headerData} isSticky showRssFeed />
   </slot>
@@ -25,4 +24,6 @@ const { metadata } = Astro.props;
   <slot name="footer">
     <Footer {...footerData} />
   </slot>
+  <script is:inline src="https://cmp.osano.com/AzZMqUTuXsSHX1wJa/c7a84647-3abc-492f-ad83-196609c65adf/osano.js"
+  ></script>
 </Layout>
