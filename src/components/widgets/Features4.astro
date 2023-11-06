@@ -1,18 +1,14 @@
 ---
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import ItemGrid from '~/components/ui/ItemGrid.astro';
+import ItemGrid3 from '../ui/ItemGrid3.astro';
 import Headline from '~/components/ui/Headline.astro';
-import Image from '~/components/common/Image.astro';
 import type { Features } from '~/types';
 
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
-  linkstitle = await Astro.slots.render('linkstitle'),
-  linkanchor = await Astro.slots.render('linkanchor'),
   tagline = await Astro.slots.render('tagline'),
   items = [],
-  image,
   columns = 2,
   defaultIcon,
   id,
@@ -24,34 +20,9 @@ const {
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline} />
-  <div aria-hidden="true" class="aspect-w-16 aspect-h-7">
-    {
-      image && (
-        <div class="w-[300px] h-automt-4 rounded-xl mx-auto mb-8">
-          {typeof image === 'string' ? (
-            <Fragment set:html={image} />
-          ) : (
-            <Image
-              class="w-[300px] h-automt-4 rounded-xl mx-auto"
-              width="auto"
-              height={320}
-              widths={[400, 768]}
-              layout="fullWidth"
-              {...(image as any)}
-            />
-          )}
-          <div class="flex justify-center items-center h-full">
-            <a href={linkanchor} target="_blank" class="text-center text-blue-800">
-              {linkstitle}
-            </a>
-          </div>
-        </div>
-      )
-    }
-  </div>
 
-  <ItemGrid
-  
+
+  <ItemGrid3
     items={items}
     columns={columns}
     defaultIcon={defaultIcon}

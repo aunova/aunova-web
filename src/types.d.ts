@@ -136,6 +136,8 @@ export interface Item {
   classes?: Record<string, string>;
   callToAction?: CallToAction;
   image?: Image;
+  linkstitle?: string;
+  linkanchor?: string;
 }
 
 export interface Price {
