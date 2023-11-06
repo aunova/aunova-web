@@ -28,6 +28,7 @@ export const footerData = {
   ],
   socialLinks: [
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://bsky.app/profile/aunova.net', target: '_blank' },
+    { ariaLabel: 'Linkedin', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/aunova-ou/', target: '_blank' },
   ],
   footNote: `
     Made by <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://aunova.net"> Aunova</a> · All rights reserved.
