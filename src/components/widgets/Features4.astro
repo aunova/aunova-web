@@ -8,13 +8,13 @@ import type { Features } from '~/types';
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
+  linkstitle = await Astro.slots.render('linkstitle'),
+  linkanchor = await Astro.slots.render('linkanchor'),
   tagline = await Astro.slots.render('tagline'),
   items = [],
   image,
   columns = 2,
-
   defaultIcon,
-
   id,
   isDark = false,
   classes = {},
@@ -40,12 +40,18 @@ const {
               {...(image as any)}
             />
           )}
+          <div class="flex justify-center items-center h-full">
+            <a href={linkanchor} target="_blank" class="text-center text-blue-800">
+              {linkstitle}
+            </a>
+          </div>
         </div>
       )
     }
   </div>
 
   <ItemGrid
+  
     items={items}
     columns={columns}
     defaultIcon={defaultIcon}
