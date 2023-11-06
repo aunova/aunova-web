@@ -18,7 +18,7 @@ metadata:
   openGraph:
     site_name: Aunova
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/TransparentLogowhite.webp'
         width: 1200
         height: 628
     type: website

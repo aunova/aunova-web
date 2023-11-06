@@ -17,5 +17,5 @@
   "yaml.schemas": {
     "./.vscode/astrowind/config-schema.json": "/src/config.yaml"
   },
-  "cSpell.words": ["astro", "Aunova", "partytown", "tabcontent", "tabler", "tsconfigs", "webp"]
+  "cSpell.words": ["astro", "Aunova", "Logowhite", "partytown", "tabcontent", "tabler", "tsconfigs", "webp"]
 }
