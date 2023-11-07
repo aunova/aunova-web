@@ -2,17 +2,16 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features4 from '~/components/widgets/Features4.astro';
+import Projects from '~/components/widgets/Projects.astro';
 
 const metadata = {
-  title:
-    "Experience unparalleled growth with Aunova, a leader in Consultancy and Blockchain Software Solutions. Our team of industry experts delivers innovative and customized strategies, ensuring your business stays ahead in today's competitive market. Explore our cutting-edge blockchain technology and comprehensive consultancy services to transform your operations and achieve success.",
+  title: 'Experience unparalleled growth with Aunova, a leader in Consultancy and Blockchain Software Solutions.',
   ignoreTitleTemplate: true,
 };
 ---
@@ -25,28 +24,17 @@ const metadata = {
         variant: 'primary',
         text: 'Explore Services',
         href: '/#features',
-        icon: 'tabler:download',
+        icon: '',
       },
-      { text: 'Contact Us', href: '/contact' },
+      { variant: 'primary', text: 'Contact Us', href: '/contact' },
     ]}
-    image={{ src: '~/assets/images/aunova-hero.webp', alt: 'Aunova Consultancy and Blockchain Solutions' }}
   >
     <Fragment slot="title">
-      Elevate Your Business with <span class="text-accent dark:text-white hidden xl:inline">Expert Consultancy</span>
+      Navigate the Future with <span class="text-accent dark:text-white hidden xl:inline">Advanced Consultancy</span>
        and
-      <span class="text-accent dark:text-white highlight"> Blockchain Solutions</span> at Aunova
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">Aunova: Your Gateway to Innovation.</span>
-       Perfect for Enterprises, Startups, and SMEs seeking strategic growth, operational efficiency, and a competitive
-      edge in their industry.
+      <span class="text-accent dark:text-white highlight"> Cutting-Edge Blockchain Solutions</span> at Aunova
     </Fragment>
   </Hero>
-
-  <!-- Note Widget ******************* -->
-
-  <Note />
 
   <!-- Features Widget *************** -->
 
@@ -126,21 +114,58 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      src: '~/assets/images/blockchain-office.webp',
       alt: 'Steps image showing the process of blockchain integration',
     }}
+  />
+
+  <Projects
+    id="projects"
+    title="Projects"
+    subtitle="At Aunova, we are committed to unleashing the transformative power of blockchain technology for your business. Our team, led by seasoned experts, stands ready to guide you through every step of your blockchain journey, ensuring a seamless transition into the decentralized world."
+    items={[
+      {
+        title: 'MintWorld Game',
+        description:
+          'MintWorld is a web3-based 2D Monster Catcher RPG with blockchain collectibles, featuring Play & Earn mechanics, MayorDAOs for community-driven governance, and advanced NFT technology like dynamic NFTs.',
+        image: { src: '~/assets/images/mintworldgame.webp', alt: 'MintWorld Game' },
+        linkstitle: 'Learn More',
+        linkanchor: 'https://mintworldgame.com',
+      },
+      {
+        title: 'Cantoverse',
+        description:
+          'Cantoverse offers an immersive 3D art gallery and decentralized marketplace on the Canto blockchain.',
+        image: { src: '~/assets/images/cantoverse.webp', alt: 'Cantoverse' },
+        linkstitle: 'Learn More',
+        linkanchor: 'https://cantoverse.net/',
+      },
+      {
+        title: 'Alice',
+        description:
+          "In Alice, players experience a web3 game on the Gnosis blockchain, following Alice's journey against societal norms.",
+        image: { src: '~/assets/images/alicegame.webp', alt: 'Alice' },
+        linkstitle: 'Learn More',
+        linkanchor: 'https://alicegame.xyz/',
+      },
+      {
+        title: 'MetaEnd Newsletter',
+        description:
+          'MetaEnd is an AI and Web3-focused newsletter, offering weekly digests on the forefront of AI innovation, regulation, and open-source collaboration.',
+        image: { src: '~/assets/images/metaend-newsletter.webp', alt: 'MetaEnd Newsletter' },
+        linkstitle: 'Learn More',
+        linkanchor: 'https://paragraph.xyz/@metaend',
+      },
+    ]}
   />
 
   <Features4
     id="about"
     title="Meet Our Founders: Pioneers in Blockchain Development"
     subtitle="At Aunova, we are committed to unleashing the transformative power of blockchain technology for your business. Our team, led by seasoned experts like Teresa & Chris, stands ready to guide you through every step of your blockchain journey, ensuring a seamless transition into the decentralized world."
-    image={{ src: '~/assets/images/teresaau.webp', alt: 'Co-Founder Teresa' }}
-    linkstitle="LinkedIN"
-    linkanchor="https://www.linkedin.com/in/teresa-esteve-15857990/"
     items={[
       {
-        title: 'Expert Developer: Teresa Esteve',
+        title: 'Teresa Esteve',
         description:
           "Teresa boasts several years of hands-on experience with Solidity, and has an impressive track record of winning several hackathons. She's not just a developer but a creator, having launched engaging Web3 games. Her prowess in blockchain development is evident in the innovative projects she's been part of. Explore her work on GitHub at https://github.com/Tisi22",
         image: { src: '~/assets/images/teresaau.webp', alt: 'Co-Founder Teresa' },
@@ -148,7 +173,7 @@ const metadata = {
         linkanchor: 'https://www.linkedin.com/in/teresa-esteve-15857990/',
       },
       {
-        title: 'Blockchain Maestro: Christian Houy',
+        title: 'Christian Houy',
         description:
           "With a rich history of over 10 years in the crypto and blockchain landscape, Chris is a cornerstone of Aunova's innovative spirit. His active participation in several Decentralized Autonomous Organizations (DAOs) reflects his unwavering commitment to the blockchain community. Chris spearheads Research, Frontend Development, and Community Management, ensuring Aunova stays at the forefront of blockchain innovation.",
         image: { src: '~/assets/images/chrisau.webp', alt: 'Co-Founder Chris' },
@@ -228,7 +253,7 @@ const metadata = {
 
     <Fragment slot="subtitle">
       Discover a realm of innovative blockchain solutions and consultancy services tailored to elevate your business
-      operations. <br class="hidden md:inline" />Embark on your blockchain journey with Aunova today!
+      operations. <br class="hidden md:inline" /> Embark on your blockchain journey with Aunova today!
     </Fragment>
   </CallToAction>
 </Layout>

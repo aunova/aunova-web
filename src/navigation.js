@@ -14,6 +14,7 @@ export const headerData = {
   ],
   actions: [
     { text: 'Services', href: '/#features', target: '_self' },
+    { text: 'Projects', href: '/#projects', target: '_self' },
     { text: 'About Us', href: '/#about', target: '_self' },
     { text: 'Blog', href: '/blog', target: '_self' },
     { text: 'Follow Us', href: 'https://linktr.ee/aunova', target: '_blank' },
@@ -28,7 +29,12 @@ export const footerData = {
   ],
   socialLinks: [
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://bsky.app/profile/aunova.net', target: '_blank' },
-    { ariaLabel: 'Linkedin', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/aunova-ou/', target: '_blank' },
+    {
+      ariaLabel: 'Linkedin',
+      icon: 'tabler:brand-linkedin',
+      href: 'https://www.linkedin.com/company/aunova-ou/',
+      target: '_blank',
+    },
   ],
   footNote: `
     Made by <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://aunova.net"> Aunova</a> · All rights reserved.
