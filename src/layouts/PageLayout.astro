@@ -17,6 +17,10 @@ const { metadata } = Astro.props;
 <Layout metadata={metadata}>
   <slot name="header">
     <Header {...headerData} isSticky showRssFeed />
+    <script
+      is:raw
+      async="async"
+      src="https://static.mobilemonkey.com/js/mm_52cff164-b02d-47d8-a76d-e281f20b880d-96977661.js"></script>
   </slot>
   <main>
     <slot />
