@@ -28,6 +28,7 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
+    { ariaLabel: 'Threads', icon: 'tabler:brand-threads', href: 'https://www.threads.net/@0xaunova', target: '_blank' },
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://bsky.app/profile/aunova.net', target: '_blank' },
     {
       ariaLabel: 'Linkedin',
