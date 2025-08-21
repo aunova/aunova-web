@@ -8,8 +8,8 @@ const t = getTranslation(lang);
 ---
 
 <PageLayout 
-  title="Aunova - Soluciones de Zero-Knowledge e IA"
-  description="Consultoría líder en pruebas de conocimiento cero, IA e integración Web3. Construye soluciones descentralizadas que preservan la privacidad con tecnología de vanguardia."
+  title="Aunova - Soluciones Blockchain, Zero-Knowledge e IA"
+  description="Consultoría blockchain líder especializada en pruebas de conocimiento cero, IA e integración Web3. Construye soluciones blockchain descentralizadas que preservan la privacidad con tecnología de vanguardia."
   lang={lang}
 >
   <!-- Hero Section -->
@@ -130,10 +130,21 @@ const t = getTranslation(lang);
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    /* Darker gradient for light mode for better readability */
+    background: linear-gradient(135deg, var(--color-red-dark) 0%, #8B7F47 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  /* Keep original gradient for dark mode */
+  @media (prefers-color-scheme: dark) {
+    .gradient-text {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
   }
   
   .hero-subtitle {

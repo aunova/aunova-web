@@ -9,8 +9,8 @@ const t = getTranslation(lang);
 ---
 
 <PageLayout 
-  title="Aunova - Zero-Knowledge & AI Solutions"
-  description="Leading consultancy in Zero-Knowledge proofs, AI, and Web3 integration. Build privacy-preserving, decentralized solutions with cutting-edge technology."
+  title="Aunova - Blockchain, Zero-Knowledge & AI Solutions"
+  description="Leading blockchain consultancy specializing in Zero-Knowledge proofs, AI, and Web3 integration. Build privacy-preserving, decentralized blockchain solutions with cutting-edge technology."
   lang={lang}
 >
   <!-- Hero Section -->
@@ -134,10 +134,21 @@ const t = getTranslation(lang);
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    /* Darker gradient for light mode for better readability */
+    background: linear-gradient(135deg, var(--color-red-dark) 0%, #8B7F47 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  /* Keep original gradient for dark mode */
+  @media (prefers-color-scheme: dark) {
+    .gradient-text {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
   }
   
   .hero-subtitle {
