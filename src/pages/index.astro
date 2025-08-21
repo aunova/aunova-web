@@ -1,235 +1,50 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-
-import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Features4 from '~/components/widgets/Features4.astro';
-import Projects from '~/components/widgets/Projects.astro';
-
-const metadata = {
-  /* title: 'Experience unparalleled growth with Aunova, a leader in Consultancy and Blockchain Software Solutions.',
-  ignoreTitleTemplate: true, */
-};
+// This page handles language detection and redirection on the client side
 ---
 
-<Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Explore Services',
-        href: '/#features',
-        icon: '',
-      },
-      { variant: 'primary', text: 'Contact Us', href: '/contact' },
-    ]}
-  >
-    <Fragment slot="title">
-      Navigate the Future with <span class="text-accent dark:text-white hidden xl:inline">Advanced Consultancy</span>
-       and
-      <span class="text-accent dark:text-white highlight"> Cutting-Edge Blockchain Solutions</span> at Aunova
-    </Fragment>
-  </Hero>
-
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with Aunova"
-    subtitle="Empowering your business with innovative solutions and expert consultancy in blockchain technology."
-    items={[
-      {
-        title: 'Integrated Blockchain Solutions',
-        description:
-          'Unlock the potential of blockchain technology with our seamless integration services, enhancing security, transparency, and efficiency in your operations.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Expert Consultancy',
-        description:
-          'Leverage our extensive knowledge and experience in business consultancy to navigate complex challenges and drive strategic growth.',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Strategic Business Planning',
-        description:
-          'Align your business objectives with actionable strategies, ensuring long-term success and adaptability in a rapidly changing market.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Innovative Software Solutions',
-        description:
-          'Transform your business with our cutting-edge software solutions, designed to optimize your operations and enhance your competitive edge.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Comprehensive Market Analysis',
-        description:
-          'Stay ahead of the curve with our thorough market analysis, providing you with the insights needed to make informed and strategic decisions.',
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Dedicated Support and Training',
-        description:
-          'Benefit from our ongoing support and training services, ensuring your team is equipped with the knowledge and skills needed to excel.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
-
-  <!-- Steps Widget **************** -->
-
-  <Steps
-    title="Embark on Your Blockchain Journey with Aunova."
-    items={[
-      {
-        title: '<span class="font-medium">Step 1: Consultation</span>',
-        description:
-          "Kickstart your blockchain project with a comprehensive consultation with Aunova’s experts. We'll understand your business needs, identify opportunities, and lay the foundation for a successful blockchain integration.",
-        icon: 'tabler:help',
-      },
-      {
-        title: '<span class="font-medium">Step 2: Customized Solutions</span>',
-        description:
-          'Utilize Aunova’s expertise to develop tailored blockchain solutions. Incorporate your brand’s identity and operational requirements to create applications that not only meet but exceed your expectations.',
-        icon: 'tabler:adjustments',
-      },
-      {
-        title: '<span class="font-medium">Step 3: Development & Integration</span>',
-        description:
-          'Witness your blockchain solutions come to life as Aunova’s team of skilled developers work meticulously to ensure seamless integration, ensuring functionality, security, and efficiency.',
-        icon: 'tabler:brand-github',
-      },
-      {
-        title: 'Ready!',
-        description:
-          'Your blockchain solutions are now ready to propel your business to new heights! Leverage the power of blockchain to improve operational efficiency, enhance security, and drive innovation.',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/blockchain-office.webp',
-      alt: 'Steps image showing the process of blockchain integration',
-    }}
-  />
-
-  <Projects
-    id="projects"
-    title="Projects"
-    subtitle="At Aunova, we are committed to unleashing the transformative power of blockchain technology for your business. Our team, led by seasoned experts, stands ready to guide you through every step of your blockchain journey, ensuring a seamless transition into the decentralized world."
-    items={[
-      {
-        title: 'MintWorld Game',
-        description:
-          'MintWorld is a web3-based 2D Monster Catcher RPG with blockchain collectibles, featuring Play & Earn mechanics, MayorDAOs for community-driven governance, and advanced NFT technology like dynamic NFTs.',
-        image: { src: '~/assets/images/mintworldgame.webp', alt: 'MintWorld Game' },
-        linkstitle: 'Learn More',
-        linkanchor: 'https://mintworldgame.com',
-      },
-      {
-        title: 'Cantoverse',
-        description:
-          'Cantoverse offers an immersive 3D art gallery and decentralized marketplace on the Canto blockchain.',
-        image: { src: '~/assets/images/cantoverse.webp', alt: 'Cantoverse' },
-        linkstitle: 'Learn More',
-        linkanchor: 'https://cantoverse.net/',
-      },
-      {
-        title: 'Alice',
-        description:
-          "In Alice, players experience a web3 game on the Gnosis blockchain, following Alice's journey against societal norms.",
-        image: { src: '~/assets/images/alicegame.webp', alt: 'Alice' },
-        linkstitle: 'Learn More',
-        linkanchor: 'https://alicegame.xyz/',
-      },
-      {
-        title: 'MetaEnd Newsletter',
-        description:
-          'MetaEnd is an AI and Web3-focused newsletter, offering weekly digests on the forefront of AI innovation, regulation, and open-source collaboration.',
-        image: { src: '~/assets/images/metaend-newsletter.webp', alt: 'MetaEnd Newsletter' },
-        linkstitle: 'Learn More',
-        linkanchor: 'https://paragraph.xyz/@metaend',
-      },
-    ]}
-  />
-
- <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Delve into the queries below to understand better the robust solutions Aunova provides and how it can transform your business through blockchain technology."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why choose Aunova for blockchain solutions?',
-        description:
-          'Aunova is at the forefront of blockchain consultancy and development, offering tailored solutions that drive operational efficiency, enhance security, and foster innovation. Our team of seasoned experts is dedicated to helping you navigate the blockchain landscape seamlessly.',
-      },
-      {
-        title: 'What prerequisites are needed to start a blockchain project with Aunova?',
-        description:
-          'Initiating a blockchain project with Aunova requires a clear understanding of your business goals, the challenges you aim to address, and the readiness to embrace innovative solutions. Our team will guide you through a thorough consultation to ensure a successful blockchain integration.',
-      },
-      {
-        title: 'How does Aunova ensure the seamless integration of blockchain technology?',
-        description:
-          "Aunova's structured approach encompasses comprehensive consultation, development of customized blockchain solutions, and meticulous integration, ensuring functionality, security, and efficiency at every step of the way.",
-      },
-      {
-        title: 'What support does Aunova provide post blockchain integration?',
-        description:
-          "We provide dedicated support and training to ensure your team is well-equipped to leverage the full potential of the integrated blockchain solutions. Aunova's support extends beyond project completion, ensuring a smooth transition and continuous improvement.",
-      },
-      {
-        title: 'How does blockchain technology contribute to business growth?',
-        description:
-          'Blockchain technology fosters transparency, enhances security, and enables real-time, immutable records. These features are instrumental in improving operational efficiency, building trust with stakeholders, and enabling innovative solutions that drive business growth.',
-      },
-      {
-        title: 'How can I stay updated on the latest blockchain trends and solutions offered by Aunova?',
-        description:
-          "Stay updated by subscribing to Aunova's newsletter, following us on social media, and regularly checking our blog for the latest insights on blockchain technology, industry trends, and the innovative solutions we offer.",
-      },
-    ]}
-  />
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Explore More Insights on Our Blog"
-    information={`Dive deeper into the world of blockchain consultancy and development with Aunova's insightful blog posts. 
-                      Each new article aims to enlighten you with essential knowledge, innovative strategies, and the latest trends in the blockchain sphere, helping you navigate the complex landscape with ease.
-                      Stay updated with Aunova's expertise and empower your business with cutting-edge blockchain solutions. Discover more today.
-              `}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Contact',
-        href: '/contact',
-        target: '_self',
-        icon: 'tabler:rocket',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      Aunova&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Blockchain Solutions</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Discover a realm of innovative blockchain solutions and consultancy services tailored to elevate your business
-      operations. <br class="hidden md:inline" /> Embark on your blockchain journey with Aunova today!
-    </Fragment>
-  </CallToAction>
-</Layout>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      // Detect browser language and redirect immediately
+      (function() {
+        // Get the browser's language preference
+        const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+        
+        // Determine target language (Spanish or English)
+        const lang = browserLang.startsWith('es') ? 'es' : 'en';
+        
+        // Redirect to the appropriate language homepage
+        window.location.replace(`/${lang}`);
+      })();
+    </script>
+    <noscript>
+      <!-- Fallback for users with JavaScript disabled -->
+      <meta http-equiv="refresh" content="0; url=/en" />
+    </noscript>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: #f5f5f5;
+      }
+      .loading {
+        text-align: center;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- This content is shown briefly while JavaScript executes -->
+    <div class="loading">
+      <p>Detecting language...</p>
+    </div>
+  </body>
+</html>

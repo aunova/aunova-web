@@ -1,0 +1,245 @@
+---
+const faqs = [
+  {
+    question: "What are Zero-Knowledge Proofs and how can they benefit my business?",
+    answer: "Zero-Knowledge Proofs (ZK Proofs) are cryptographic methods that allow one party to prove to another that a statement is true without revealing any information beyond the validity of the statement itself. For businesses, this means you can verify transactions, authenticate users, or validate data without exposing sensitive information. This is particularly valuable for financial services, healthcare, supply chain, and any industry handling confidential data."
+  },
+  {
+    question: "How does Aunova integrate AI with blockchain technology?",
+    answer: "Aunova specializes in bridging AI and blockchain through multiple approaches: deploying AI models directly on-chain for transparent and verifiable inference, creating decentralized AI marketplaces, implementing AI-powered smart contracts, and building privacy-preserving AI systems using Zero-Knowledge proofs. We help organizations leverage both technologies to create intelligent, trustless, and automated systems."
+  },
+  {
+    question: "What is the difference between ZK-SNARKs and ZK-STARKs?",
+    answer: "ZK-SNARKs (Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge) are compact proofs that require a trusted setup but offer smaller proof sizes. ZK-STARKs (Zero-Knowledge Scalable Transparent Arguments of Knowledge) don't require a trusted setup and are quantum-resistant but produce larger proofs. Aunova helps you choose and implement the right ZK technology based on your specific requirements for security, scalability, and transparency."
+  },
+  {
+    question: "Can Aunova help with existing smart contract audits and optimization?",
+    answer: "Yes, Aunova provides comprehensive smart contract auditing services including security analysis, gas optimization, and best practices review. We use both automated tools and manual review processes to identify vulnerabilities, optimize performance, and ensure your contracts follow industry standards. Our team has experience with Solidity, Rust, Cairo, and other blockchain languages."
+  },
+  {
+    question: "What industries benefit most from Zero-Knowledge and AI integration?",
+    answer: "Industries that handle sensitive data while requiring transparency benefit most: Financial services (DeFi, traditional banking) for private transactions and compliance; Healthcare for patient privacy with AI diagnostics; Supply chain for confidential business logic; Government for secure voting and identity systems; Gaming for fair gameplay verification; and Data marketplaces for privacy-preserving analytics."
+  },
+  {
+    question: "How does privacy-preserving AI work with federated learning?",
+    answer: "Privacy-preserving AI with federated learning allows multiple parties to collaboratively train AI models without sharing their raw data. Aunova implements this by combining federated learning protocols with Zero-Knowledge proofs and homomorphic encryption. This enables organizations to benefit from collective intelligence while maintaining complete data privacy, perfect for healthcare consortiums, financial institutions, or any multi-party collaboration."
+  },
+  {
+    question: "What blockchain networks does Aunova work with?",
+    answer: "Aunova has expertise across multiple blockchain networks including Ethereum, Polygon, Arbitrum, Optimism, StarkNet, zkSync, and other EVM-compatible chains. We also work with specialized ZK-focused chains and can help you choose the right platform based on your requirements for scalability, cost, privacy, and decentralization."
+  },
+  {
+    question: "How long does a typical ZK proof implementation project take?",
+    answer: "Project timelines vary based on complexity. A proof of concept typically takes 4-8 weeks, while a full production implementation can range from 3-6 months. Factors affecting timeline include the type of ZK proof system, integration requirements, performance optimization needs, and regulatory compliance. Aunova provides detailed project roadmaps after initial consultation."
+  },
+  {
+    question: "What makes Aunova different from other blockchain consultancies?",
+    answer: "Aunova uniquely combines deep expertise in both Zero-Knowledge cryptography and AI/ML technologies. While many consultancies focus on general blockchain development, we specialize in privacy-preserving technologies and intelligent systems. Our team includes cryptography researchers and AI specialists who understand both the theoretical foundations and practical implementation challenges of these cutting-edge technologies."
+  },
+  {
+    question: "Do you provide ongoing support after project completion?",
+    answer: "Yes, Aunova offers comprehensive post-deployment support including monitoring, maintenance, updates, and optimization. We provide different support tiers from basic maintenance to 24/7 dedicated support. We also offer training for your team to ensure knowledge transfer and can establish long-term partnerships for continuous innovation and improvement."
+  }
+];
+
+// Generate FAQ structured data for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<section class="faq-section" id="faq">
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+    <p class="faq-description">
+      Get answers to common questions about Zero-Knowledge proofs, Blockchain, and AI integration
+    </p>
+    
+    <div class="faq-grid">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">
+            <span class="faq-question">{faq.question}</span>
+            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<style>
+  .faq-section {
+    padding: var(--space-3xl) 0;
+    background-color: color-mix(in srgb, var(--color-secondary) 3%, var(--color-background));
+  }
+  
+  .faq-section h2 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+  
+  .faq-description {
+    text-align: center;
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    max-width: 700px;
+    margin: 0 auto var(--space-2xl);
+  }
+  
+  .faq-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .faq-item {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 0;
+    transition: all var(--transition-base);
+  }
+  
+  .faq-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .faq-item[open] {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .faq-item summary {
+    padding: var(--space-lg);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    list-style: none;
+    user-select: none;
+  }
+  
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .faq-question {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    flex: 1;
+  }
+  
+  .faq-icon {
+    flex-shrink: 0;
+    transition: transform var(--transition-fast);
+    color: var(--color-primary);
+  }
+  
+  .faq-item[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  
+  .faq-answer {
+    padding: 0 var(--space-lg) var(--space-lg);
+    animation: slideDown var(--transition-base) ease-out;
+  }
+  
+  .faq-answer p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+  
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  @media (max-width: 768px) {
+    .faq-section h2 {
+      font-size: var(--text-2xl);
+    }
+    
+    .faq-question {
+      font-size: var(--text-base);
+    }
+    
+    .faq-item summary {
+      padding: var(--space-md);
+    }
+    
+    .faq-answer {
+      padding: 0 var(--space-md) var(--space-md);
+    }
+  }
+</style>

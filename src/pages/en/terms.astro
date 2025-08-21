@@ -1,0 +1,394 @@
+---
+import Layout from '../../layouts/PageLayout.astro';
+import { getCurrentLanguage, getTranslation } from '../../utils/i18n';
+
+const currentLang = getCurrentLanguage(Astro.url);
+const t = getTranslation(currentLang);
+
+const metadata = {
+  title: 'Terms and Conditions - Aunova',
+  description: 'Terms and Conditions for Aunova - Our terms of service and legal agreements.',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="legal-page">
+    <div class="container">
+      <div class="legal-header">
+        <h1 class="legal-title">Terms and Conditions</h1>
+        <p class="legal-updated">Last updated: November 03, 2023</p>
+      </div>
+
+      <div class="legal-content">
+        <div class="legal-section">
+          <p class="legal-intro">
+            Please read these terms and conditions carefully before using our Service. Your access to and 
+            use of the Service is conditioned on your acceptance of and compliance with these Terms.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Interpretation and Definitions</h2>
+          
+          <h3>Interpretation</h3>
+          <p>
+            The words of which the initial letter is capitalized have meanings defined under the following 
+            conditions. The following definitions shall have the same meaning regardless of whether they 
+            appear in singular or in plural.
+          </p>
+
+          <h3>Definitions</h3>
+          <p>For the purposes of these Terms and Conditions:</p>
+          <ul class="legal-list">
+            <li><strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party.</li>
+            <li><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our") refers to Aunova OÜ.</li>
+            <li><strong>Country</strong> refers to: Estonia</li>
+            <li><strong>Device</strong> means any device that can access the Service such as a computer, cellphone or digital tablet.</li>
+            <li><strong>Service</strong> refers to the Website.</li>
+            <li><strong>Terms and Conditions</strong> (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company.</li>
+            <li><strong>Third-party Social Media Service</strong> means any services or content provided by a third-party.</li>
+            <li><strong>Website</strong> refers to aunova.net, accessible from <a href="https://aunova.net">https://aunova.net</a></li>
+            <li><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>Acknowledgment</h2>
+          <p>
+            These are the Terms and Conditions governing the use of this Service and the agreement that 
+            operates between You and the Company. These Terms and Conditions set out the rights and 
+            obligations of all users regarding the use of the Service.
+          </p>
+          <p>
+            By accessing or using the Service You agree to be bound by these Terms and Conditions. If You 
+            disagree with any part of these Terms and Conditions then You may not access the Service.
+          </p>
+          <p>
+            You represent that you are over the age of 18. The Company does not permit those under 18 to 
+            use the Service.
+          </p>
+          <p>
+            Your access to and use of the Service is also conditioned on Your acceptance of and compliance 
+            with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures 
+            on the collection, use and disclosure of Your personal information when You use the Application 
+            or the Website and tells You about Your privacy rights and how the law protects You.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Our Services</h2>
+          <p>
+            Aunova provides consulting and development services in the following areas:
+          </p>
+          <ul class="legal-list">
+            <li><strong>Zero-Knowledge Proofs:</strong> Implementation and consulting for privacy-preserving solutions</li>
+            <li><strong>AI & Web3 Integration:</strong> Combining artificial intelligence with blockchain technology</li>
+            <li><strong>Hybrid ZK-AI Solutions:</strong> Advanced privacy-preserving AI systems</li>
+            <li><strong>Infrastructure:</strong> Enterprise-grade blockchain and cryptographic infrastructure</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>Intellectual Property Rights</h2>
+          <p>
+            Unless otherwise indicated, the Service and all content, features, and functionality 
+            (including but not limited to all information, software, text, displays, images, video, 
+            and audio, and the design, selection, and arrangement thereof) are owned by the Company, 
+            its licensors, or other providers of such material and are protected by international 
+            copyright, trademark, patent, trade secret, and other intellectual property or proprietary 
+            rights laws.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Acceptable Use</h2>
+          <p>
+            You may not access or use the Service for any purpose other than that for which we make 
+            the Service available. The Service may not be used in connection with any commercial 
+            endeavors except those that are specifically endorsed or approved by us.
+          </p>
+          <p>As a user of the Service, you agree not to:</p>
+          <ul class="legal-list">
+            <li>Systematically retrieve data or content from the Service without written permission</li>
+            <li>Use any automated system to access the Service in a manner that sends more requests than reasonable</li>
+            <li>Engage in unauthorized use of the Service, including collecting usernames or email addresses</li>
+            <li>Use the Service for any illegal or unauthorized purpose</li>
+            <li>Interfere with or disrupt the Service or servers connected to the Service</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>Links to Other Websites</h2>
+          <p>
+            Our Service may contain links to third-party web sites or services that are not owned or 
+            controlled by the Company. The Company has no control over, and assumes no responsibility 
+            for, the content, privacy policies, or practices of any third party web sites or services.
+          </p>
+          <p>
+            We strongly advise You to read the terms and conditions and privacy policies of any 
+            third-party web sites or services that You visit.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Termination</h2>
+          <p>
+            We may terminate or suspend Your access immediately, without prior notice or liability, 
+            for any reason whatsoever, including without limitation if You breach these Terms and Conditions.
+          </p>
+          <p>
+            Upon termination, Your right to use the Service will cease immediately.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Limitation of Liability</h2>
+          <p>
+            Notwithstanding any damages that You might incur, the entire liability of the Company and 
+            any of its suppliers under any provision of this Terms and Your exclusive remedy for all 
+            of the foregoing shall be limited to the amount actually paid by You through the Service.
+          </p>
+          <p>
+            To the maximum extent permitted by applicable law, in no event shall the Company or its 
+            suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever 
+            (including, but not limited to, damages for loss of profits, loss of data or other information, 
+            for business interruption, for personal injury, loss of privacy arising out of or in any way 
+            related to the use of or inability to use the Service, third-party software and/or third-party 
+            hardware used with the Service, or otherwise in connection with any provision of this Terms), 
+            even if the Company or any supplier has been advised of the possibility of such damages and 
+            even if the remedy fails of its essential purpose.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>"AS IS" and "AS AVAILABLE" Disclaimer</h2>
+          <p>
+            The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects 
+            without warranty of any kind. To the maximum extent permitted under applicable law, the 
+            Company, on its own behalf and on behalf of its Affiliates and its and their respective 
+            licensors and service providers, expressly disclaims all warranties, whether express, 
+            implied, statutory or otherwise, with respect to the Service, including all implied 
+            warranties of merchantability, fitness for a particular purpose, title and non-infringement, 
+            and warranties that may arise out of course of dealing, course of performance, usage or 
+            trade practice.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Governing Law</h2>
+          <p>
+            The laws of Estonia, excluding its conflicts of law rules, shall govern this Terms and 
+            Your use of the Service. Your use of the Application may also be subject to other local, 
+            state, national, or international laws.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Disputes Resolution</h2>
+          <p>
+            If You have any concern or dispute about the Service, You agree to first try to resolve 
+            the dispute informally by contacting the Company.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>For European Union (EU) Users</h2>
+          <p>
+            If You are a European Union consumer, you will benefit from any mandatory provisions of 
+            the law of the country in which you are resident in.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Severability and Waiver</h2>
+          
+          <h3>Severability</h3>
+          <p>
+            If any provision of these Terms is held to be unenforceable or invalid, such provision 
+            will be changed and interpreted to accomplish the objectives of such provision to the 
+            greatest extent possible under applicable law and the remaining provisions will continue 
+            in full force and effect.
+          </p>
+
+          <h3>Waiver</h3>
+          <p>
+            Except as provided herein, the failure to exercise a right or to require performance of 
+            an obligation under these Terms shall not affect a party's ability to exercise such right 
+            or require such performance at any time thereafter nor shall the waiver of a breach 
+            constitute a waiver of any subsequent breach.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Translation Interpretation</h2>
+          <p>
+            These Terms and Conditions may have been translated if We have made them available to You 
+            on our Service. You agree that the original English text shall prevail in the case of a dispute.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Changes to These Terms and Conditions</h2>
+          <p>
+            We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. 
+            If a revision is material We will make reasonable efforts to provide at least 30 days' notice 
+            prior to any new terms taking effect.
+          </p>
+          <p>
+            By continuing to access or use Our Service after those revisions become effective, You agree 
+            to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, 
+            please stop using the website and the Service.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Contact Us</h2>
+          <p>If you have any questions about these Terms and Conditions, you can contact us:</p>
+          <ul class="legal-list">
+            <li>By email: <a href="mailto:teresa@aunova.net">teresa@aunova.net</a></li>
+            <li>By visiting our <a href={`/${currentLang}/contact`}>contact page</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: var(--space-3xl) 0 var(--space-5xl);
+    min-height: calc(100vh - var(--header-height));
+  }
+
+  .legal-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .legal-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 5s ease infinite;
+  }
+
+  .legal-updated {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .legal-section h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text);
+  }
+
+  .legal-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-text);
+  }
+
+  .legal-intro {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-section p {
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-md) 0;
+  }
+
+  .legal-list li {
+    position: relative;
+    padding-left: var(--space-xl);
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
+    color: var(--color-text-muted);
+  }
+
+  .legal-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .legal-list li strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .legal-section a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: opacity var(--transition-fast);
+  }
+
+  .legal-section a:hover {
+    opacity: 0.8;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Mobile styles */
+  @media (max-width: 640px) {
+    .legal-page {
+      padding: var(--space-2xl) 0 var(--space-3xl);
+    }
+
+    .legal-header {
+      margin-bottom: var(--space-2xl);
+      padding-bottom: var(--space-xl);
+    }
+
+    .legal-section {
+      margin-bottom: var(--space-xl);
+    }
+
+    .legal-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .legal-section h3 {
+      font-size: 1.125rem;
+    }
+
+    .legal-intro {
+      font-size: 1rem;
+    }
+  }
+</style>

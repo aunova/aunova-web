@@ -1,0 +1,350 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import { getTranslation } from '../../../utils/i18n';
+
+const lang = 'es';
+const t = getTranslation(lang);
+---
+
+<PageLayout 
+  title="Aplicaciones Híbridas ZK-IA - Aunova"
+  description="Combina pruebas de conocimiento cero con IA para crear aplicaciones inteligentes y privadas. Aprendizaje automático que preserva la privacidad, aprendizaje federado y salidas de IA verificables."
+  lang={lang}
+>
+  <section class="service-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Aplicaciones Híbridas ZK-IA</h1>
+        <p class="lead">Donde la privacidad se encuentra con la inteligencia - construyendo la próxima generación de sistemas de IA confidenciales</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="overview-section">
+    <div class="container">
+      <div class="overview-content">
+        <h2>Lo Mejor de Ambos Mundos</h2>
+        <p>
+          Al combinar pruebas de conocimiento cero con inteligencia artificial, creamos oportunidades sin precedentes para aplicaciones inteligentes que preservan la privacidad. Esta fusión permite sistemas de IA que pueden probar que sus salidas son correctas sin revelar datos de entrenamiento sensibles o parámetros del modelo.
+        </p>
+        <p>
+          Nuestras soluciones híbridas ZK-IA abordan la tensión fundamental entre transparencia y privacidad en los sistemas de IA, haciendo posible construir aplicaciones de IA confiables que protegen la privacidad del usuario y la información propietaria.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="container">
+      <h2>Our Hybrid ZK-AI Solutions</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Privacy-Preserving ML</h3>
+          <p>Train and deploy machine learning models that protect sensitive training data and user inputs.</p>
+          <ul>
+            <li>Encrypted model training</li>
+            <li>Private inference</li>
+            <li>Secure multi-party computation</li>
+            <li>Differential privacy</li>
+            <li>Homomorphic encryption</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <h3>Verifiable AI Outputs</h3>
+          <p>Prove AI model outputs are correct and unbiased without revealing the model itself.</p>
+          <ul>
+            <li>ZK proof of model execution</li>
+            <li>Output verification</li>
+            <li>Bias detection</li>
+            <li>Compliance attestation</li>
+            <li>Trustless validation</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <h3>Federated Learning</h3>
+          <p>Enable collaborative AI training across multiple parties without sharing raw data.</p>
+          <ul>
+            <li>Distributed training protocols</li>
+            <li>Secure aggregation</li>
+            <li>Privacy guarantees</li>
+            <li>Incentive mechanisms</li>
+            <li>Cross-organization collaboration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="use-cases-section">
+    <div class="container">
+      <h2>Real-World Applications</h2>
+      <div class="use-cases-grid">
+        <div class="use-case">
+          <h3>Healthcare AI</h3>
+          <p>Enable medical AI models to learn from sensitive patient data across institutions without compromising privacy.</p>
+        </div>
+        <div class="use-case">
+          <h3>Financial Analysis</h3>
+          <p>Perform AI-driven risk assessment and fraud detection on encrypted financial data while maintaining compliance.</p>
+        </div>
+        <div class="use-case">
+          <h3>Private Recommendations</h3>
+          <p>Build recommendation systems that don't require collecting or storing user behavior data.</p>
+        </div>
+        <div class="use-case">
+          <h3>Regulatory Compliance</h3>
+          <p>Prove AI model compliance with regulations without exposing proprietary algorithms or training data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Build Private AI?</h2>
+        <p>Discover how hybrid ZK-AI solutions can transform your approach to privacy-preserving artificial intelligence.</p>
+        <div class="cta-actions">
+          <a href={`/${lang}/contact`} class="btn btn-primary">Get Started</a>
+          <a href="https://cal.com/ngmisl/aunova" target="_blank" rel="noopener" class="btn btn-outline">
+            Schedule Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .service-hero {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--color-background) 0%, color-mix(in srgb, var(--color-primary) 8%, var(--color-background)) 100%);
+  }
+  
+  .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero-content h1 {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .lead {
+    font-size: var(--text-xl);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+  
+  .overview-section {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .overview-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .overview-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+    text-align: center;
+  }
+  
+  .overview-content p {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .features-section {
+    padding: var(--space-3xl) 0;
+    background-color: color-mix(in srgb, var(--color-secondary) 5%, var(--color-background));
+  }
+  
+  .features-section h2 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+  }
+  
+  .feature-card {
+    background-color: var(--color-background);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+  }
+  
+  .feature-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  
+  .feature-card h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+  }
+  
+  .feature-card p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+  }
+  
+  .feature-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .feature-card li {
+    padding-left: var(--space-lg);
+    position: relative;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+  
+  .feature-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+  
+  .use-cases-section {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .use-cases-section h2 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+  }
+  
+  .use-case {
+    text-align: center;
+    padding: var(--space-lg);
+  }
+  
+  .use-case h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+  }
+  
+  .use-case p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+  
+  .cta-section {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 5%, var(--color-background)) 0%, var(--color-background) 100%);
+  }
+  
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .cta-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+  
+  .cta-content p {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .cta-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+  
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    border-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: var(--text-3xl);
+    }
+    
+    .features-grid,
+    .use-cases-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

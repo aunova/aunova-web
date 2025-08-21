@@ -1,0 +1,175 @@
+{
+  "company": {
+    "name": "Aunova",
+    "type": "Technology Consultancy",
+    "founded": "2023",
+    "website": "https://aunova.net",
+    "contact": {
+      "email": "christian@aunova.net",
+      "scheduling": "https://cal.com/ngmisl/aunova"
+    },
+    "description": "Leading consultancy specializing in Zero-Knowledge proofs, AI & Web3 integration, and decentralized infrastructure solutions",
+    "mission": "Empowering organizations to build privacy-preserving, intelligent, and decentralized applications using cutting-edge cryptographic and AI technologies"
+  },
+  "expertise": {
+    "primary_areas": [
+      "Zero-Knowledge Proofs (ZK-SNARKs, ZK-STARKs, PLONK)",
+      "AI and Machine Learning Integration with Blockchain",
+      "Web3 and Decentralized Application Development",
+      "Privacy-Preserving Technologies",
+      "Cryptographic Protocol Design",
+      "Smart Contract Development and Auditing"
+    ],
+    "technologies": {
+      "blockchain": ["Ethereum", "Polygon", "Arbitrum", "StarkNet", "zkSync"],
+      "zk_frameworks": ["Circom", "SnarkJS", "Noir", "Cairo", "Halo2"],
+      "ai_ml": ["TensorFlow", "PyTorch", "ONNX", "Federated Learning", "Homomorphic Encryption"],
+      "languages": ["Solidity", "Rust", "Cairo", "TypeScript", "Python", "Go"],
+      "web3_tools": ["Hardhat", "Foundry", "ethers.js", "web3.js", "IPFS", "The Graph"]
+    }
+  },
+  "services": {
+    "zero_knowledge": {
+      "name": "Zero-Knowledge Proofs & Privacy Solutions",
+      "description": "Implementation of ZK proof systems for privacy-preserving applications",
+      "capabilities": [
+        "ZK-SNARK circuit design and implementation",
+        "ZK-STARK development for scalability",
+        "Privacy-preserving smart contracts",
+        "Zero-knowledge identity solutions",
+        "Confidential transactions and private DeFi",
+        "ZK rollup development"
+      ],
+      "use_cases": [
+        "Private voting systems",
+        "Confidential financial transactions",
+        "Identity verification without data exposure",
+        "Private supply chain tracking",
+        "Regulatory compliance with privacy"
+      ]
+    },
+    "ai_web3": {
+      "name": "AI & Web3 Integration",
+      "description": "Bridging artificial intelligence with blockchain technology",
+      "capabilities": [
+        "On-chain AI model deployment",
+        "Decentralized AI inference networks",
+        "AI-powered smart contract automation",
+        "Machine learning oracles",
+        "Tokenized AI model marketplaces",
+        "AI-driven DeFi strategies"
+      ],
+      "use_cases": [
+        "Decentralized AI marketplaces",
+        "AI-powered trading bots",
+        "Predictive analytics on-chain",
+        "NFT generation with AI",
+        "Automated smart contract generation"
+      ]
+    },
+    "hybrid_zk_ai": {
+      "name": "Hybrid ZK-AI Applications",
+      "description": "Combining Zero-Knowledge proofs with AI for privacy-preserving intelligence",
+      "capabilities": [
+        "Privacy-preserving machine learning",
+        "Federated learning with ZK proofs",
+        "Verifiable AI outputs",
+        "Confidential AI inference",
+        "Encrypted model training",
+        "ZK proofs for AI model integrity"
+      ],
+      "use_cases": [
+        "Healthcare AI with patient privacy",
+        "Financial AI without data exposure",
+        "Private recommendation systems",
+        "Confidential fraud detection",
+        "Privacy-compliant AI analytics"
+      ]
+    },
+    "infrastructure": {
+      "name": "Decentralized Infrastructure & Development Tools",
+      "description": "Enterprise-grade infrastructure and tooling for Web3 applications",
+      "capabilities": [
+        "Multi-chain node infrastructure",
+        "Smart contract frameworks",
+        "Testing and auditing tools",
+        "CI/CD for blockchain",
+        "Monitoring and analytics",
+        "Cross-chain bridges"
+      ],
+      "use_cases": [
+        "DeFi protocol infrastructure",
+        "NFT platform development",
+        "DAO tooling and governance",
+        "Enterprise blockchain solutions",
+        "Cross-chain applications"
+      ]
+    }
+  },
+  "differentiators": [
+    "Deep expertise in both cryptography and AI",
+    "Proven track record in ZK proof implementations",
+    "Focus on privacy-first solutions",
+    "End-to-end development capabilities",
+    "Research-driven approach",
+    "Open-source contributions"
+  ],
+  "target_clients": {
+    "industries": [
+      "Financial Services (DeFi, TradFi)",
+      "Healthcare and Biotech",
+      "Supply Chain and Logistics",
+      "Gaming and Entertainment",
+      "Government and Public Sector",
+      "Data and Analytics Companies"
+    ],
+    "company_types": [
+      "Web3 startups",
+      "Enterprise companies exploring blockchain",
+      "DeFi protocols",
+      "NFT projects",
+      "DAOs and governance platforms",
+      "Privacy-focused applications"
+    ]
+  },
+  "achievements": {
+    "projects": "Multiple successful ZK and AI integration projects",
+    "expertise_recognition": "Recognized experts in Zero-Knowledge cryptography",
+    "community": "Active contributors to Web3 ecosystem"
+  },
+  "keywords": [
+    "zero knowledge proofs",
+    "zk-snarks",
+    "zk-starks",
+    "privacy preserving technology",
+    "blockchain ai integration",
+    "web3 development",
+    "smart contract development",
+    "decentralized ai",
+    "federated learning",
+    "homomorphic encryption",
+    "confidential computing",
+    "defi development",
+    "ethereum development",
+    "layer 2 solutions",
+    "zk rollups",
+    "privacy engineering",
+    "cryptography consulting",
+    "blockchain consulting",
+    "web3 consulting",
+    "ai blockchain consulting"
+  ],
+  "locations": {
+    "primary": "Global (Remote)",
+    "time_zones": "Available across all time zones",
+    "languages": ["English", "Spanish"]
+  },
+  "engagement_models": [
+    "Project-based consulting",
+    "Retainer agreements",
+    "Technical advisory",
+    "Proof of concept development",
+    "Full product development",
+    "Code audits and reviews"
+  ]
+}

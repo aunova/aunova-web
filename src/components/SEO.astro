@@ -1,0 +1,143 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'organization';
+  publishDate?: string;
+  author?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'Aunova - Zero-Knowledge Proofs & AI Web3 Solutions',
+  description = 'Leading consultancy in Zero-Knowledge proofs, blockchain, AI & Web3 integration, and decentralized infrastructure. Transform your business with cutting-edge blockchain solutions.',
+  image = '/images/og-default.webp',
+  type = 'website',
+  publishDate,
+  author = 'Aunova Team',
+  canonical
+} = Astro.props;
+
+const siteUrl = 'https://aunova.net';
+const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const canonicalUrl = canonical || Astro.url.href;
+
+// Organization schema
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Aunova',
+  url: siteUrl,
+  logo: `${siteUrl}/images/logo.webp`,
+  description: 'Leading consultancy in Zero-Knowledge proofs, blockchain, AI & Web3 integration, and decentralized infrastructure.',
+  sameAs: [
+    'https://bsky.app/profile/aunova.net',
+    'https://github.com/aunova'
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'christian@aunova.net',
+    contactType: 'sales',
+    availableLanguage: ['English', 'Spanish']
+  }
+};
+
+// Website schema
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Aunova',
+  url: siteUrl,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteUrl}/en/blog?search={search_term_string}`
+    },
+    'query-input': 'required name=search_term_string'
+  }
+};
+
+// Article schema (for blog posts)
+const articleSchema = type === 'article' ? {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description: description,
+  image: fullImageUrl,
+  datePublished: publishDate,
+  dateModified: publishDate,
+  author: {
+    '@type': 'Person',
+    name: author
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Aunova',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/images/logo.webp`
+    }
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalUrl
+  }
+} : null;
+
+// Service schema for service pages
+const isServicePage = Astro.url.pathname.includes('/services/');
+const serviceSchema = isServicePage ? {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: title.split(' - ')[0],
+  provider: {
+    '@type': 'Organization',
+    name: 'Aunova'
+  },
+  description: description,
+  url: canonicalUrl,
+  areaServed: {
+    '@type': 'Place',
+    name: 'Worldwide'
+  },
+  serviceType: 'Technology Consulting'
+} : null;
+---
+
+<!-- Open Graph Tags -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullImageUrl} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content="Aunova" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullImageUrl} />
+<meta name="twitter:site" content="@aunova" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+{articleSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+)}
+{serviceSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+)}
+
+<!-- Additional SEO Meta Tags -->
+<meta name="author" content={author} />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+{publishDate && <meta property="article:published_time" content={publishDate} />}
+{author && <meta property="article:author" content={author} />}

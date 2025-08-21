@@ -1,0 +1,229 @@
+---
+import { getCurrentLanguage, getTranslation } from '../../utils/i18n';
+
+const currentLang = getCurrentLanguage(Astro.url);
+const t = getTranslation(currentLang);
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href={`/${currentLang}`} class="footer-logo" aria-label="Aunova home">
+          <span class="footer-logo-text">Aunova</span>
+        </a>
+        <p class="footer-description">
+          {currentLang === 'en' 
+            ? 'Leading consultancy in Zero-Knowledge proofs, AI, and Web3 integration.'
+            : 'Consultoría líder en pruebas de conocimiento cero, IA e integración Web3.'
+          }
+        </p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h3>{t.nav.services}</h3>
+          <ul>
+            <li><a href={`/${currentLang}/services/zero-knowledge`}>{t.nav.zeroKnowledge}</a></li>
+            <li><a href={`/${currentLang}/services/ai-web3`}>{t.nav.aiWeb3}</a></li>
+            <li><a href={`/${currentLang}/services/hybrid-zk-ai`}>{t.nav.hybridZkAi}</a></li>
+            <li><a href={`/${currentLang}/services/infrastructure`}>{t.nav.infrastructure}</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>{t.footer.resources}</h3>
+          <ul>
+            <li><a href={`/${currentLang}/blog`}>{t.nav.blog}</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>{t.footer.company}</h3>
+          <ul>
+            <li><a href={`/${currentLang}/about`}>{t.nav.about}</a></li>
+            <li><a href={`/${currentLang}/contact`}>{t.nav.contact}</a></li>
+            <li><a href={`/${currentLang}/privacy`}>{t.footer.privacy}</a></li>
+            <li><a href={`/${currentLang}/terms`}>{t.footer.terms}</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>{t.footer.connect}</h3>
+          <ul>
+            <li>
+              <a href="https://bsky.app/profile/aunova.net" target="_blank" rel="noopener" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                </svg>
+                Bluesky
+              </a>
+            </li>
+            <li>
+              <a href="https://cal.com/ngmisl/aunova" target="_blank" rel="noopener" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                {t.footer.scheduleCall}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">© {currentYear} Aunova. {t.footer.rights}</p>
+      <p class="built-with">{t.footer.builtWith}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-5xl);
+    padding: var(--space-3xl) 0 var(--space-xl);
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .footer-logo {
+    display: inline-flex;
+    color: var(--color-text);
+    transition: opacity var(--transition-fast);
+  }
+  
+  .footer-logo:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+  
+  .footer-logo-text {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: rgb(108 0 1);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-text {
+      color: rgb(108 0 1);
+    }
+  }
+  
+  .footer-description {
+    color: var(--color-text-muted);
+    max-width: 300px;
+    line-height: 1.6;
+  }
+  
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+  }
+  
+  .footer-column h3 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-md);
+    color: var(--color-text);
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column li {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .footer-column a {
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast);
+    font-size: var(--text-sm);
+  }
+  
+  .footer-column a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+  
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .footer-bottom {
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+  
+  .copyright, .built-with {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin: 0;
+  }
+  
+  /* Tablet styles */
+  @media (max-width: 1024px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+    
+    .footer-links {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-xl) var(--space-2xl);
+    }
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 640px) {
+    .footer {
+      padding: var(--space-2xl) 0 var(--space-lg);
+    }
+    
+    .footer-links {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+    
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

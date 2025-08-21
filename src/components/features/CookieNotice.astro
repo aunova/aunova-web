@@ -1,0 +1,141 @@
+---
+import { getCurrentLanguage, getTranslation } from '../../utils/i18n';
+
+const currentLang = getCurrentLanguage(Astro.url);
+const t = getTranslation(currentLang);
+---
+
+<div id="cookie-notice" class="cookie-notice" aria-live="polite" aria-label="Cookie notice" hidden>
+  <div class="container">
+    <div class="cookie-content">
+      <p class="cookie-message">{t.cookie.message}</p>
+      <button class="cookie-accept" onclick="acceptCookies()">
+        {t.cookie.accept}
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-notice {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+    z-index: var(--z-modal);
+    animation: slideUp var(--transition-slow) ease-out;
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .cookie-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xl);
+    padding: var(--space-lg) 0;
+  }
+  
+  .cookie-message {
+    margin: 0;
+    color: var(--color-text);
+    font-size: var(--text-sm);
+  }
+  
+  .cookie-accept {
+    padding: var(--space-sm) var(--space-lg);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+  }
+  
+  .cookie-accept:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    transform: translateY(-1px);
+  }
+  
+  .cookie-accept:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 640px) {
+    .cookie-content {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-md);
+      text-align: center;
+    }
+    
+    .cookie-accept {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Check if cookies have been accepted
+  function checkCookieConsent() {
+    const accepted = localStorage.getItem('cookies-accepted');
+    if (!accepted) {
+      const notice = document.getElementById('cookie-notice');
+      if (notice) {
+        // Small delay to ensure smooth animation
+        setTimeout(() => {
+          notice.hidden = false;
+        }, 500);
+      }
+    }
+  }
+  
+  // Accept cookies function (global)
+  window.acceptCookies = function() {
+    localStorage.setItem('cookies-accepted', 'true');
+    localStorage.setItem('cookies-accepted-date', new Date().toISOString());
+    const notice = document.getElementById('cookie-notice');
+    if (notice) {
+      notice.style.animation = 'slideDown 0.3s ease-out forwards';
+      setTimeout(() => {
+        notice.hidden = true;
+      }, 300);
+    }
+  }
+  
+  // Add slide down animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes slideDown {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(100%);
+      }
+    }
+  `;
+  document.head.appendChild(style);
+  
+  // Check consent on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', checkCookieConsent);
+  } else {
+    checkCookieConsent();
+  }
+</script>

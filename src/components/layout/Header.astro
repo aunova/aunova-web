@@ -1,0 +1,308 @@
+---
+import { getCurrentLanguage, getTranslation } from '../../utils/i18n';
+
+const currentLang = getCurrentLanguage(Astro.url);
+const t = getTranslation(currentLang);
+const otherLang = currentLang === 'en' ? 'es' : 'en';
+
+// Build language switch URL
+const pathWithoutLang = Astro.url.pathname.replace(/^\/(en|es)/, '');
+const langSwitchUrl = `/${otherLang}${pathWithoutLang}`;
+---
+
+<header class="header">
+  <nav class="nav container">
+    <a href={`/${currentLang}`} class="logo" aria-label="Aunova home">
+      <span class="logo-text">Aunova</span>
+    </a>
+    
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <div class="nav-links">
+      <a href={`/${currentLang}`} class="nav-link">{t.nav.home}</a>
+      
+      <div class="dropdown">
+        <button class="nav-link dropdown-toggle" aria-expanded="false">
+          {t.nav.services}
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu">
+          <a href={`/${currentLang}/services/zero-knowledge`} class="dropdown-item">{t.nav.zeroKnowledge}</a>
+          <a href={`/${currentLang}/services/ai-web3`} class="dropdown-item">{t.nav.aiWeb3}</a>
+          <a href={`/${currentLang}/services/hybrid-zk-ai`} class="dropdown-item">{t.nav.hybridZkAi}</a>
+          <a href={`/${currentLang}/services/infrastructure`} class="dropdown-item">{t.nav.infrastructure}</a>
+        </div>
+      </div>
+      
+      <a href={`/${currentLang}/about`} class="nav-link">{t.nav.about}</a>
+      <a href={`/${currentLang}/blog`} class="nav-link">{t.nav.blog}</a>
+      <a href={`/${currentLang}/contact`} class="nav-link">{t.nav.contact}</a>
+      
+      <div class="nav-actions">
+        <a href={langSwitchUrl} class="lang-switch" aria-label="Switch language">
+          {otherLang === 'es' ? '🇪🇸 ES' : '🇬🇧 EN'}
+        </a>
+        <a href={`/${currentLang}/contact`} class="cta-button">
+          {t.hero.cta.secondary}
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(10px);
+    background-color: color-mix(in srgb, var(--color-background) 95%, transparent);
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    position: relative;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    color: var(--color-text);
+    transition: opacity var(--transition-fast);
+  }
+  
+  .logo:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: rgb(108 0 1);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .logo-text {
+      color: rgb(108 0 1);
+    }
+  }
+  
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .menu-toggle span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+    transition: transform var(--transition-base);
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+  
+  .nav-link {
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+  }
+  
+  .nav-link:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: var(--space-sm);
+    min-width: 250px;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-base);
+  }
+  
+  .dropdown:hover .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .dropdown-item {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-text);
+    transition: background-color var(--transition-fast);
+  }
+  
+  .dropdown-item:hover {
+    background-color: var(--color-gray-100);
+    text-decoration: none;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .dropdown-item:hover {
+      background-color: var(--color-gray-800);
+    }
+  }
+  
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-left: var(--space-xl);
+  }
+  
+  .lang-switch {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-gray-100);
+    color: var(--color-text);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+  }
+  
+  .lang-switch:hover {
+    background-color: var(--color-gray-200);
+    text-decoration: none;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .lang-switch {
+      background-color: var(--color-gray-800);
+    }
+    
+    .lang-switch:hover {
+      background-color: var(--color-gray-700);
+    }
+  }
+  
+  .cta-button {
+    padding: var(--space-sm) var(--space-lg);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+  }
+  
+  .cta-button:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+    
+    .nav-links {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--color-background);
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: var(--space-xl);
+      gap: var(--space-lg);
+      transform: translateX(100%);
+      transition: transform var(--transition-base);
+    }
+    
+    .nav-links.active {
+      transform: translateX(0);
+    }
+    
+    .dropdown-menu {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      margin-top: var(--space-sm);
+      margin-left: var(--space-md);
+      box-shadow: none;
+      border: none;
+      background-color: transparent;
+    }
+    
+    .nav-actions {
+      margin-left: 0;
+      margin-top: var(--space-xl);
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .cta-button {
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = navLinks?.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+</script>

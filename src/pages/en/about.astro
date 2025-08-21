@@ -1,0 +1,380 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getTranslation } from '../../utils/i18n';
+
+const lang = 'en';
+const t = getTranslation(lang);
+---
+
+<PageLayout 
+  title="About Aunova - Zero-Knowledge & AI Experts"
+  description="Learn about Aunova's mission to democratize privacy-preserving technologies and decentralized AI. Meet our team of cryptographers, AI researchers, and blockchain engineers."
+  lang={lang}
+>
+  <section class="about-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>{t.about.title}</h1>
+        <p class="lead">Pioneering the intersection of privacy and intelligence</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission-section">
+    <div class="container">
+      <div class="mission-content">
+        <h2>{t.about.mission.title}</h2>
+        <p class="mission-statement">{t.about.mission.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="values-section">
+    <div class="container">
+      <h2>{t.about.values.title}</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l8 3.5v6.5c0 4.5-3.5 8.5-8 10-4.5-1.5-8-5.5-8-10V5.5L12 2z"/>
+            </svg>
+          </div>
+          <h3>{t.about.values.privacy}</h3>
+          <p>{t.about.values.privacyDesc}</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>{t.about.values.innovation}</h3>
+          <p>{t.about.values.innovationDesc}</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
+              <line x1="8" y1="12" x2="16" y2="12"/>
+            </svg>
+          </div>
+          <h3>{t.about.values.transparency}</h3>
+          <p>{t.about.values.transparencyDesc}</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3>{t.about.values.excellence}</h3>
+          <p>{t.about.values.excellenceDesc}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="expertise-section">
+    <div class="container">
+      <h2>Our Expertise</h2>
+      <div class="expertise-grid">
+        <div class="expertise-item">
+          <h3>Blockchain Technology</h3>
+          <p>Deep expertise in blockchain protocols, smart contracts, and decentralized architectures</p>
+        </div>
+        <div class="expertise-item">
+          <h3>Artificial Intelligence</h3>
+          <p>Cutting-edge AI/ML research with focus on privacy-preserving machine learning</p>
+        </div>
+        <div class="expertise-item">
+          <h3>Blockchain Engineering</h3>
+          <p>Years of experience building robust, scalable decentralized applications</p>
+        </div>
+        <div class="expertise-item">
+          <h3>System Architecture</h3>
+          <p>Designing complex distributed systems with security and performance in mind</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="container">
+      <div class="story-content">
+        <h2>Our Story</h2>
+        <p>
+          Founded by a team of blockchain engineers and technology innovators, Aunova emerged from the recognition that the future of technology lies at the intersection of privacy, blockchain, and intelligence. We saw the immense potential of Zero-Knowledge proofs to revolutionize how data is handled, and the transformative power of AI when combined with blockchain technology.
+        </p>
+        <p>
+          Today, we work with organizations worldwide to implement cutting-edge blockchain solutions that protect privacy while enabling innovation. From startups to enterprises, we help our clients navigate the complex landscape of blockchain, Web3, and decentralized technologies to build systems that are secure, scalable, and future-proof.
+        </p>
+        <p>
+          Our commitment to open-source development and knowledge sharing has made us a trusted partner in the blockchain community. We don't just build solutions; we educate, collaborate, and push the boundaries of what's possible.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Work Together?</h2>
+        <p>Let's discuss how we can help you leverage Zero-Knowledge proofs and AI for your next project.</p>
+        <div class="cta-actions">
+          <a href={`/${lang}/contact`} class="btn btn-primary">Get in Touch</a>
+          <a href={`/${lang}/services`} class="btn btn-outline">Explore Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .about-hero {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--color-background) 0%, color-mix(in srgb, var(--color-secondary) 10%, var(--color-background)) 100%);
+  }
+  
+  .hero-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .hero-content h1 {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+  
+  .lead {
+    font-size: var(--text-xl);
+    color: var(--color-text-muted);
+  }
+  
+  .mission-section {
+    padding: var(--space-3xl) 0;
+    background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background));
+  }
+  
+  .mission-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .mission-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .mission-statement {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+  
+  .values-section {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .values-section h2 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+  }
+  
+  .value-card {
+    text-align: center;
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+  }
+  
+  .value-card:hover {
+    background-color: color-mix(in srgb, var(--color-secondary) 10%, var(--color-background));
+    transform: translateY(-4px);
+  }
+  
+  .value-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    border-radius: var(--radius-full);
+    color: var(--color-white);
+  }
+  
+  .value-card h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .value-card p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+  
+  .expertise-section {
+    padding: var(--space-3xl) 0;
+    background-color: var(--color-background);
+  }
+  
+  .expertise-section h2 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+  }
+  
+  .expertise-item {
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+  }
+  
+  .expertise-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .expertise-item h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+  }
+  
+  .expertise-item p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+  
+  .story-section {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--color-background) 0%, color-mix(in srgb, var(--color-secondary) 5%, var(--color-background)) 100%);
+  }
+  
+  .story-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .story-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-xl);
+    text-align: center;
+  }
+  
+  .story-content p {
+    font-size: var(--text-base);
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .cta-section {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .cta-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+  
+  .cta-content p {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .cta-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+  
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    border-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: var(--text-3xl);
+    }
+    
+    .values-grid,
+    .expertise-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

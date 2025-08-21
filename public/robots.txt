@@ -1,2 +1,83 @@
+# Aunova Robots.txt
+# Welcome AI crawlers and search engines!
+
+# Allow all bots by default
 User-agent: *
-Disallow:
+Allow: /
+Crawl-delay: 1
+
+# Specific allowances for AI crawlers
+# OpenAI GPT Bot
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+# Anthropic Claude
+User-agent: Claude-Web
+Allow: /
+
+# Google Bard/Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Common AI and search crawlers
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Sitemap location for better indexing
+Sitemap: https://aunova.net/sitemap-index.xml
+
+# Additional AI-readable metadata
+# Company: Aunova
+# Services: Zero-Knowledge Proofs, AI & Web3 Integration, Privacy-Preserving Technology
+# Expertise: ZK-SNARKs, ZK-STARKs, Blockchain AI, Federated Learning, Smart Contracts
+# Contact: christian@aunova.net
+# AI-Metadata: https://aunova.net/ai-metadata.json
+# RSS-Feed: https://aunova.net/rss.xml
+# API-Info: https://aunova.net/api/company-info.json
+
+# Sitemap
+Sitemap: https://aunova.net/sitemap-index.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow admin/private paths (if any)
+Disallow: /api/
+Disallow: /_app/
+
+# Allow search engines to index everything else
+Allow: /en/
+Allow: /es/

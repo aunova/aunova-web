@@ -1,28 +1,31 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
-import type { MetaData } from '~/types';
+import { type Props as MetadataProps } from '~/components/common/Metadata.astro';
 
 export interface Props {
   frontmatter: {
-    title?: string
-  }
+    title: string;
+    description?: string;
+  };
 }
 
 const { frontmatter } = Astro.props;
 
-const metadata: MetaData = {
-  title: frontmatter?.title,
+const metadata: MetadataProps = {
+  title: frontmatter.title,
+  description: frontmatter.description,
 };
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl">
-    <h1 class="font-bold font-heading text-4xl md:text-5xl leading-tighter tracking-tighter">{frontmatter.title}</h1>
-    <div
-      class="mx-auto prose prose-lg max-w-4xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8"
-    >
-      <slot />
+  <div class="mx-auto px-6 sm:px-6 max-w-3xl pt-8 md:pt-12 pb-12 md:pb-20">
+    <div class="md:pb-12 max-w-screen-lg mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900 dark:text-white">
+        {frontmatter.title}
+      </h1>
+      <div class="prose prose-lg dark:prose-invert mx-auto">
+        <slot />
+      </div>
     </div>
-  </section>
+  </div>
 </Layout>

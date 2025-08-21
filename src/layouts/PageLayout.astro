@@ -1,27 +1,24 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import Header from '~/components/widgets/Header.astro';
-import Footer from '~/components/widgets/Footer.astro';
-
-import { headerData, footerData } from '~/navigation';
-
-import type { MetaData } from '~/types';
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import CookieNotice from '../components/features/CookieNotice.astro';
 
 export interface Props {
-  metadata?: MetaData;
+  title: string;
+  description?: string;
+  image?: string;
+  lang?: 'en' | 'es';
 }
 
-const { metadata } = Astro.props;
+const { title, description, image, lang } = Astro.props;
 ---
 
-<Layout metadata={metadata}>
-  <slot name="header">
-    <Header {...headerData} isSticky showRssFeed />
-  </slot>
+<BaseLayout title={title} description={description} image={image} lang={lang}>
+  <Header />
   <main>
     <slot />
   </main>
-  <slot name="footer">
-    <Footer {...footerData} />
-  </slot>
-</Layout>
+  <Footer />
+  <CookieNotice />
+</BaseLayout>

@@ -1,0 +1,350 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import { getTranslation } from '../../../utils/i18n';
+
+const lang = 'es';
+const t = getTranslation(lang);
+---
+
+<PageLayout 
+  title="Zero-Knowledge y Privacidad - Aunova"
+  description="Implementa zkSNARKs, zkSTARKs y contratos inteligentes que preservan la privacidad. Construye sistemas blockchain verdaderamente privados y escalables."
+  lang={lang}
+>
+  <section class="service-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Zero-Knowledge y Herramientas de Privacidad</h1>
+        <p class="lead">Construye sistemas blockchain que preservan la privacidad sin comprometer la transparencia o seguridad</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="overview-section">
+    <div class="container">
+      <div class="overview-content">
+        <h2>El Poder de las Pruebas de Conocimiento Cero</h2>
+        <p>
+          Las pruebas de conocimiento cero representan uno de los avances más significativos en criptografía moderna. Permiten que una parte demuestre que conoce algo sin revelar qué es ese algo. Esta tecnología revolucionaria es la base de sistemas verdaderamente privados y escalables.
+        </p>
+        <p>
+          En Aunova, nos especializamos en implementar soluciones ZK de vanguardia que permiten a las organizaciones mantener la privacidad de los datos mientras proporcionan transparencia y auditabilidad verificables. Desde transacciones financieras privadas hasta sistemas de identidad que preservan la privacidad, nuestras soluciones ZK están transformando cómo pensamos sobre la privacidad en la era digital.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="container">
+      <h2>Nuestros Servicios de Zero-Knowledge</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Implementación zkSNARK/zkSTARK</h3>
+          <p>Diseña e implementa sistemas de prueba eficientes para tu aplicación blockchain.</p>
+          <ul>
+            <li>Configuración de circuitos personalizados</li>
+            <li>Generación optimizada de pruebas</li>
+            <li>Integración con contratos inteligentes</li>
+            <li>Benchmarking de rendimiento</li>
+            <li>Auditorías de seguridad</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <h3>Contratos Inteligentes Privados</h3>
+          <p>Desarrolla contratos inteligentes que manejen datos sensibles manteniendo la funcionalidad.</p>
+          <ul>
+            <li>Lógica de negocio confidencial</li>
+            <li>Estados privados</li>
+            <li>Actualizaciones verificables</li>
+            <li>Cumplimiento normativo</li>
+            <li>Integración entre cadenas</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <h3>Sistemas de Credenciales Anónimas</h3>
+          <p>Construye sistemas de identidad que preservan la privacidad del usuario mientras permiten la verificación.</p>
+          <ul>
+            <li>Identidad auto-soberana</li>
+            <li>Atributos verificables</li>
+            <li>Revelación selectiva</li>
+            <li>Resistencia a Sybil</li>
+            <li>Cumplimiento de privacidad</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="use-cases-section">
+    <div class="container">
+      <h2>Casos de Uso</h2>
+      <div class="use-cases-grid">
+        <div class="use-case">
+          <h3>DeFi Privado</h3>
+          <p>Habilita trading, préstamos y staking privados sin exponer posiciones o estrategias financieras.</p>
+        </div>
+        <div class="use-case">
+          <h3>Votación Confidencial</h3>
+          <p>Implementa sistemas de votación donde los votos permanecen privados pero los resultados son verificables.</p>
+        </div>
+        <div class="use-case">
+          <h3>Auditorías de Cadena de Suministro</h3>
+          <p>Demuestra cumplimiento y autenticidad sin revelar relaciones comerciales sensibles.</p>
+        </div>
+        <div class="use-case">
+          <h3>Verificación de Cumplimiento</h3>
+          <p>Demuestra cumplimiento regulatorio sin exponer datos comerciales confidenciales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para Implementar Privacidad Real?</h2>
+        <p>Descubre cómo las pruebas de conocimiento cero pueden transformar tu aplicación blockchain.</p>
+        <div class="cta-actions">
+          <a href={`/${lang}/contact`} class="btn btn-primary">Comenzar</a>
+          <a href="https://cal.com/ngmisl/aunova" target="_blank" rel="noopener" class="btn btn-outline">
+            Agendar Consulta
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .service-hero {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--color-background) 0%, color-mix(in srgb, var(--color-primary) 8%, var(--color-background)) 100%);
+  }
+  
+  .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero-content h1 {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .lead {
+    font-size: var(--text-xl);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+  
+  .overview-section {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .overview-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .overview-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+    text-align: center;
+  }
+  
+  .overview-content p {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .features-section {
+    padding: var(--space-3xl) 0;
+    background-color: color-mix(in srgb, var(--color-secondary) 5%, var(--color-background));
+  }
+  
+  .features-section h2 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+  }
+  
+  .feature-card {
+    background-color: var(--color-background);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+  }
+  
+  .feature-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  
+  .feature-card h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+  }
+  
+  .feature-card p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+  }
+  
+  .feature-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .feature-card li {
+    padding-left: var(--space-lg);
+    position: relative;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+  
+  .feature-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+  
+  .use-cases-section {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .use-cases-section h2 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+  }
+  
+  .use-case {
+    text-align: center;
+    padding: var(--space-lg);
+  }
+  
+  .use-case h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+  }
+  
+  .use-case p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+  
+  .cta-section {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 5%, var(--color-background)) 0%, var(--color-background) 100%);
+  }
+  
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .cta-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+  
+  .cta-content p {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .cta-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+  
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    border-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: var(--text-3xl);
+    }
+    
+    .features-grid,
+    .use-cases-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

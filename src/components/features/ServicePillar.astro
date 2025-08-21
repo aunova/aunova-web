@@ -1,0 +1,142 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  features: string[];
+  icon: 'zk' | 'ai' | 'hybrid' | 'infra';
+  href: string;
+  linkText: string;
+}
+
+const { title, description, features, icon, href, linkText } = Astro.props;
+
+const iconPaths = {
+  zk: 'M12 1L2 6v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-10-5zm-2 16l-4-4 1.41-1.41L10 15.17l6.59-6.59L18 10l-8 8z',
+  ai: 'M21 11.5a1 1 0 0 0-1-1h-3.5V7a1 1 0 0 0-1-1h-7a1 1 0 0 0-1 1v3.5H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h3.5V23a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1v-3.5H20a1 1 0 0 0 1-1v-7zm-9 .5a2 2 0 1 1 0 4 2 2 0 0 1 0-4z',
+  hybrid: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z',
+  infra: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'
+};
+---
+
+<article class="pillar">
+  <div class="pillar-icon">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow: visible;">
+      <path d={iconPaths[icon]} stroke={`url(#gradient-${icon})`} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <defs>
+        <linearGradient id={`gradient-${icon}`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:var(--color-primary);stop-opacity:1" />
+          <stop offset="100%" style="stop-color:var(--color-secondary);stop-opacity:1" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+  
+  <h3 class="pillar-title">{title}</h3>
+  <p class="pillar-description">{description}</p>
+  
+  <ul class="pillar-features">
+    {features.map((feature) => (
+      <li>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.5 4.5L6 12L2.5 8.5" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>{feature}</span>
+      </li>
+    ))}
+  </ul>
+  
+  <a href={href} class="pillar-link">
+    {linkText}
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</article>
+
+<style>
+  .pillar {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    transition: all var(--transition-base);
+    container-type: inline-size;
+    overflow: visible;
+  }
+  
+  .pillar:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  
+  .pillar-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    flex-shrink: 0;
+  }
+  
+  .pillar-title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+  }
+  
+  .pillar-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .pillar-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    flex: 1;
+  }
+  
+  .pillar-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    color: var(--color-text);
+    font-size: var(--text-sm);
+  }
+  
+  .pillar-features svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  .pillar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+    margin-top: var(--space-md);
+  }
+  
+  .pillar-link:hover {
+    gap: var(--space-sm);
+    text-decoration: none;
+  }
+  
+  @container (min-width: 400px) {
+    .pillar {
+      padding: var(--space-2xl);
+    }
+  }
+</style>

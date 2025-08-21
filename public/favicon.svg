@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#672042;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E3DCC2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="#0F0F0F"/>
+  
+  <!-- A letter stylized for Aunova -->
+  <path d="M 16 8 L 10 24 L 13 24 L 14.5 19 L 17.5 19 L 19 24 L 22 24 L 16 8 Z M 16 13 L 17 16 L 15 16 L 16 13 Z" fill="url(#gradient)"/>
+  
+  <!-- Decorative dots representing nodes/network -->
+  <circle cx="8" cy="8" r="1" fill="#E3DCC2" opacity="0.6"/>
+  <circle cx="24" cy="8" r="1" fill="#E3DCC2" opacity="0.6"/>
+  <circle cx="8" cy="24" r="1" fill="#672042" opacity="0.6"/>
+  <circle cx="24" cy="24" r="1" fill="#672042" opacity="0.6"/>
+</svg>

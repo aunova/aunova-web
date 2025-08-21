@@ -1,88 +1,41 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-
+// @ts-check
 import { defineConfig } from 'astro/config';
-
-import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
-import partytown from '@astrojs/partytown';
-import compress from 'astro-compress';
-import icon from 'astro-icon';
-import tasks from './src/utils/tasks';
+import sitemap from '@astrojs/sitemap';
 
-import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
-
-import { ANALYTICS, SITE } from './src/utils/config.ts';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const whenExternalScripts = (items = []) =>
-  ANALYTICS.vendors.googleAnalytics.id && ANALYTICS.vendors.googleAnalytics.partytown
-    ? Array.isArray(items)
-      ? items.map((item) => item())
-      : [items()]
-    : [];
-
+// https://astro.build/config
 export default defineConfig({
-  site: SITE.site,
-  base: SITE.base,
-  trailingSlash: SITE.trailingSlash ? 'always' : 'never',
-
+  site: 'https://aunova.net',
   output: 'static',
-
   integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    sitemap(),
     mdx(),
-    icon({
-      include: {
-        tabler: ['*'],
-        'flat-color-icons': [
-          'template',
-          'gallery',
-          'approval',
-          'document',
-          'advertising',
-          'currency-exchange',
-          'voice-presentation',
-          'business-contact',
-          'database',
-        ],
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en',
+          es: 'es',
+        },
       },
-    }),
-
-    ...whenExternalScripts(() =>
-      partytown({
-        config: { forward: ['dataLayer.push'] },
-      })
-    ),
-
-    tasks(),
-
-    compress({
-      CSS: true,
-      HTML: {
-        removeAttributeQuotes: false,
-      },
-      Image: false,
-      JavaScript: true,
-      SVG: true,
-      Logger: 1,
     }),
   ],
-
-  markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
+  compressHTML: true,
+  build: {
+    inlineStylesheets: 'auto',
   },
-
   vite: {
-    resolve: {
-      alias: {
-        '~': path.resolve(__dirname, './src'),
+    build: {
+      cssMinify: true,
+      rollupOptions: {
+        output: {
+          assetFileNames: 'assets/[name].[hash][extname]',
+        },
       },
     },
+    ssr: {
+      noExternal: ['zustand'],
+    },
   },
+  // Disable telemetry
+  telemetry: false,
 });

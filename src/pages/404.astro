@@ -1,24 +1,133 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import { getHomePermalink } from '~/utils/permalinks';
+import PageLayout from '../layouts/PageLayout.astro';
 
-const title = `Error 404`;
+// Detect language from URL or default to English
+const url = Astro.url.pathname;
+const lang = url.startsWith('/es') ? 'es' : 'en';
+
+const content = {
+  en: {
+    title: '404 - Page Not Found',
+    heading: 'Oops! Page Not Found',
+    description: "The page you're looking for doesn't exist or has been moved.",
+    homeButton: 'Go to Homepage',
+    contactButton: 'Contact Us',
+  },
+  es: {
+    title: '404 - Página No Encontrada',
+    heading: '¡Ups! Página No Encontrada',
+    description: 'La página que buscas no existe o ha sido movida.',
+    homeButton: 'Ir al Inicio',
+    contactButton: 'Contáctanos',
+  },
+};
+
+const t = content[lang];
 ---
 
-<Layout metadata={{ title }}>
-  <section class="flex items-center h-full p-16">
-    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <div class="max-w-md text-center">
-        <h2 class="mb-8 font-bold text-9xl">
-          <span class="sr-only">Error</span>
-          <span class="text-primary">404</span>
-        </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
-        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          But dont worry, you can find plenty of other things on our homepage.
-        </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
+<PageLayout 
+  title={t.title}
+  description={t.description}
+  lang={lang}
+>
+  <section class="error-page">
+    <div class="container">
+      <div class="error-content">
+        <div class="error-code">404</div>
+        <h1>{t.heading}</h1>
+        <p>{t.description}</p>
+        <div class="error-actions">
+          <a href={`/${lang}`} class="btn btn-primary">{t.homeButton}</a>
+          <a href={`/${lang}/contact`} class="btn btn-outline">{t.contactButton}</a>
+        </div>
       </div>
     </div>
   </section>
-</Layout>
+</PageLayout>
+
+<style>
+  .error-page {
+    padding: var(--space-5xl) 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .error-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .error-code {
+    font-size: clamp(5rem, 15vw, 10rem);
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .error-content h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--color-text);
+  }
+  
+  .error-content p {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .error-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+  
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    border-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+</style>
