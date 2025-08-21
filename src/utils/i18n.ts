@@ -307,7 +307,17 @@ export function getTranslation(lang: Language = defaultLang) {
 }
 
 export function getCurrentLanguage(url: URL): Language {
-  const [, lang] = url.pathname.split('/');
+  const pathname = url.pathname;
+  
+  // Root path defaults to English
+  if (pathname === '/' || pathname === '') {
+    return 'en';
+  }
+  
+  // Extract language from path
+  const [, lang] = pathname.split('/');
   if (lang in languages) return lang as Language;
+  
+  // Default to English for any unrecognized paths
   return defaultLang;
 }

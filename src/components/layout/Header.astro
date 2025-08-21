@@ -6,13 +6,29 @@ const t = getTranslation(currentLang);
 const otherLang = currentLang === 'en' ? 'es' : 'en';
 
 // Build language switch URL
-const pathWithoutLang = Astro.url.pathname.replace(/^\/(en|es)/, '');
-const langSwitchUrl = `/${otherLang}${pathWithoutLang}`;
+// Handle root path specially
+const pathname = Astro.url.pathname;
+let langSwitchUrl;
+
+if (pathname === '/') {
+  // Root page defaults to English, switch to Spanish home
+  langSwitchUrl = '/es';
+} else if (pathname === '/es' || pathname === '/es/') {
+  // Spanish home, switch to root (English)
+  langSwitchUrl = '/';
+} else {
+  // For other pages, just swap the language prefix
+  const pathWithoutLang = pathname.replace(/^\/(en|es)/, '');
+  langSwitchUrl = `/${otherLang}${pathWithoutLang}`;
+}
+
+// Determine home link based on current language
+const homeLink = currentLang === 'es' ? '/es' : '/';
 ---
 
 <header class="header">
   <nav class="nav container">
-    <a href={`/${currentLang}`} class="logo" aria-label="Aunova home">
+    <a href={homeLink} class="logo" aria-label="Aunova home">
       <span class="logo-text">Aunova</span>
     </a>
     
@@ -23,7 +39,7 @@ const langSwitchUrl = `/${otherLang}${pathWithoutLang}`;
     </button>
     
     <div class="nav-links">
-      <a href={`/${currentLang}`} class="nav-link">{t.nav.home}</a>
+      <a href={homeLink} class="nav-link">{t.nav.home}</a>
       
       <div class="dropdown">
         <button class="nav-link dropdown-toggle" aria-expanded="false">
@@ -46,7 +62,7 @@ const langSwitchUrl = `/${otherLang}${pathWithoutLang}`;
       
       <div class="nav-actions">
         <a href={langSwitchUrl} class="lang-switch" aria-label="Switch language">
-          {otherLang === 'es' ? '🇪🇸 ES' : '🇬🇧 EN'}
+          {currentLang === 'en' ? '🇪🇸 ES' : '🇬🇧 EN'}
         </a>
         <a href={`/${currentLang}/contact`} class="cta-button">
           {t.hero.cta.secondary}
