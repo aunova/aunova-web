@@ -24,9 +24,9 @@ const t = getTranslation(currentLang);
     right: 0;
     background-color: var(--color-background);
     border-top: 1px solid var(--color-border);
-    box-shadow: var(--shadow-lg);
-    z-index: var(--z-modal);
-    animation: slideUp var(--transition-slow) ease-out;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    z-index: calc(var(--z-modal) - 50);
+    animation: slideUp var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   @keyframes slideUp {
@@ -42,18 +42,22 @@ const t = getTranslation(currentLang);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-xl);
-    padding: var(--space-lg) 0;
+    gap: var(--space-lg);
+    padding: var(--space-md) 0;
   }
   
   .cookie-message {
     margin: 0;
     color: var(--color-text);
     font-size: var(--text-sm);
+    line-height: 1.5;
+    flex: 1;
   }
   
   .cookie-accept {
     padding: var(--space-sm) var(--space-lg);
+    min-height: 44px;
+    min-width: 100px;
     background-color: var(--color-primary);
     color: var(--color-white);
     border: none;
@@ -63,6 +67,10 @@ const t = getTranslation(currentLang);
     cursor: pointer;
     transition: all var(--transition-fast);
     white-space: nowrap;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .cookie-accept:hover {
@@ -75,17 +83,60 @@ const t = getTranslation(currentLang);
     outline-offset: 2px;
   }
   
+  /* Tablet styles */
+  @media (max-width: 768px) {
+    .cookie-content {
+      gap: var(--space-md);
+      padding: var(--space-md) 0;
+    }
+    
+    .cookie-message {
+      font-size: 0.875rem;
+    }
+  }
+  
   /* Mobile styles */
-  @media (max-width: 640px) {
+  @media (max-width: 480px) {
+    .cookie-notice {
+      bottom: env(safe-area-inset-bottom, 0);
+    }
+    
     .cookie-content {
       flex-direction: column;
       align-items: stretch;
-      gap: var(--space-md);
-      text-align: center;
+      gap: var(--space-sm);
+      padding: var(--space-md) 0;
+      text-align: left;
+    }
+    
+    .cookie-message {
+      font-size: 0.875rem;
+      line-height: 1.4;
+      padding: 0 var(--space-xs);
     }
     
     .cookie-accept {
       width: 100%;
+      min-height: 48px;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: var(--space-md) var(--space-lg);
+    }
+  }
+  
+  /* Very small mobile devices */
+  @media (max-width: 360px) {
+    .container {
+      padding-left: var(--space-md);
+      padding-right: var(--space-md);
+    }
+    
+    .cookie-message {
+      font-size: 0.8125rem;
+    }
+    
+    .cookie-accept {
+      font-size: 0.9375rem;
     }
   }
 </style>

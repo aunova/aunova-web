@@ -126,6 +126,12 @@ body {
   flex-direction: column;
 }
 
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
 main {
   flex: 1;
 }

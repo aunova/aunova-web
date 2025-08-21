@@ -104,19 +104,38 @@ const langSwitchUrl = `/${otherLang}${pathWithoutLang}`;
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 24px;
-    height: 18px;
+    width: 28px;
+    height: 20px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
+    position: relative;
+    z-index: 1001;
   }
   
   .menu-toggle span {
+    display: block;
     width: 100%;
-    height: 2px;
+    height: 3px;
     background-color: var(--color-text);
-    transition: transform var(--transition-base);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    position: relative;
+  }
+  
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
   }
   
   .nav-links {
@@ -247,19 +266,48 @@ const langSwitchUrl = `/${otherLang}${pathWithoutLang}`;
       top: var(--header-height);
       left: 0;
       right: 0;
-      bottom: 0;
+      height: calc(100vh - var(--header-height));
+      max-height: calc(100vh - var(--header-height));
       background-color: var(--color-background);
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
       padding: var(--space-xl);
+      padding-bottom: calc(var(--space-xl) + env(safe-area-inset-bottom));
       gap: var(--space-lg);
       transform: translateX(100%);
-      transition: transform var(--transition-base);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: var(--z-modal);
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
     }
     
     .nav-links.active {
       transform: translateX(0);
+    }
+    
+    /* Mobile menu overlay */
+    .nav-links::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .nav-links.active::before {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
     
     .dropdown-menu {
@@ -295,7 +343,58 @@ const langSwitchUrl = `/${otherLang}${pathWithoutLang}`;
   
   menuToggle?.addEventListener('click', () => {
     const isOpen = navLinks?.classList.toggle('active');
+    menuToggle.classList.toggle('active');
     menuToggle.setAttribute('aria-expanded', String(isOpen));
+    
+    // Prevent body scroll when menu is open
+    if (isOpen) {
+      document.body.classList.add('menu-open');
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = `-${window.scrollY}px`;
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.classList.remove('menu-open');
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menuToggle?.contains(e.target) && !navLinks?.contains(e.target)) {
+      if (navLinks?.classList.contains('active')) {
+        const scrollY = document.body.style.top;
+        navLinks?.classList.remove('active');
+        menuToggle?.classList.remove('active');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
+  });
+  
+  // Close menu when clicking on a link
+  const navLinkElements = document.querySelectorAll('.nav-links a');
+  navLinkElements.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinks?.classList.contains('active')) {
+        const scrollY = document.body.style.top;
+        navLinks?.classList.remove('active');
+        menuToggle?.classList.remove('active');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    });
   });
   
   dropdownToggles.forEach(toggle => {
