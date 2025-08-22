@@ -1,0 +1,49 @@
+---
+import { z } from 'zod';
+import Button from './Button.astro';
+
+const props = z.object({
+  title: z.string(),
+  description: z.string().optional(),
+  showRss: z.boolean().default(true),
+  rssText: z.string().default('RSS Feed'),
+  class: z.string().optional(),
+}).parse(Astro.props);
+---
+
+<section class:list={['py-12 md:py-16', props.class]}>
+  <div class="container">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+        {props.title}
+      </h1>
+      {props.description && (
+        <p class="text-lg text-muted leading-relaxed mb-6">
+          {props.description}
+        </p>
+      )}
+      {props.showRss && (
+        <div class="flex justify-center">
+          <Button href="/rss.xml" variant="outline" size="md" class="gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 11a9 9 0 0 1 9 9"></path>
+              <path d="M4 4a16 16 0 0 1 16 16"></path>
+              <circle cx="5" cy="19" r="1"></circle>
+            </svg>
+            {props.rssText}
+          </Button>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    background: linear-gradient(
+      135deg,
+      var(--color-background) 0%,
+      color-mix(in srgb, var(--color-secondary) 10%, var(--color-background)) 100%
+    );
+  }
+</style>

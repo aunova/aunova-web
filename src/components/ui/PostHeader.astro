@@ -1,0 +1,52 @@
+---
+import { z } from 'zod';
+import Badge from './Badge.astro';
+
+const props = z.object({
+  title: z.string(),
+  description: z.string(),
+  category: z.string(),
+  author: z.string(),
+  date: z.date(),
+  readingTime: z.number(),
+  readTimeText: z.string().default('min read'),
+  class: z.string().optional(),
+}).parse(Astro.props);
+
+const formattedDate = props.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<header class:list={['max-w-4xl mx-auto text-center mb-8 md:mb-12', props.class]}>
+  <div class="flex items-center justify-center gap-3 mb-4 flex-wrap">
+    <Badge variant="secondary">
+      {props.category}
+    </Badge>
+    <time datetime={props.date.toISOString()} class="text-sm text-muted">
+      {formattedDate}
+    </time>
+    <span class="text-sm text-muted">•</span>
+    <span class="text-sm text-muted">
+      {props.readingTime} {props.readTimeText}
+    </span>
+  </div>
+  
+  <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight tracking-tight">
+    {props.title}
+  </h1>
+  
+  <p class="text-xl text-muted leading-relaxed mb-4">
+    {props.description}
+  </p>
+  
+  <div class="text-sm text-muted">
+    By <span class="font-medium text-foreground">{props.author}</span>
+  </div>
+</header>
+
+<style>
+  /* All styles are handled via utility classes */
+</style>

@@ -3,6 +3,11 @@ import { getCollection } from 'astro:content';
 import PageLayout from '../../../layouts/PageLayout.astro';
 import SocialShare from '../../../components/SocialShare.astro';
 import { getTranslation } from '../../../utils/i18n';
+import PostHeader from '../../../components/ui/PostHeader.astro';
+import Prose from '../../../components/ui/Prose.astro';
+import Badge from '../../../components/ui/Badge.astro';
+import Button from '../../../components/ui/Button.astro';
+import '../../../styles/utilities.css';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ id }) => {
@@ -38,287 +43,88 @@ const readingTime = Math.ceil(words / 200);
   description={post.data.description}
   lang={lang}
 >
-  <article class="blog-post">
+  <article class="py-8 md:py-12">
     <div class="container">
-      <header class="post-header">
-        <div class="post-meta">
-          <span class="post-category">{post.data.category}</span>
-          <time datetime={post.data.publishDate.toISOString()}>
-            {formattedDate}
-          </time>
-          <span class="reading-time">{readingTime} {t.blog.readTime}</span>
-        </div>
-        
-        <h1>{post.data.title}</h1>
-        
-        <p class="post-description">{post.data.description}</p>
-        
-        <div class="post-author">
-          <span>By {post.data.author}</span>
-        </div>
-      </header>
+      <div class="max-w-4xl mx-auto">
+        <PostHeader
+          title={post.data.title}
+          description={post.data.description}
+          category={post.data.category}
+          author={post.data.author}
+          date={post.data.publishDate}
+          readingTime={readingTime}
+          readTimeText={t.blog.readTime}
+        />
 
-      {post.data.image && (
-        <div class="post-image">
-          <img 
-            src={post.data.image.replace('~/assets/images', '/images/blog')} 
-            alt={post.data.imageAlt || post.data.title}
-            loading="eager"
-          />
-        </div>
-      )}
-
-      <div class="post-content">
-        <Content />
-      </div>
-      
-      <SocialShare 
-        title={post.data.title}
-        description={post.data.description}
-      />
-
-      <footer class="post-footer">
-        {post.data.tags && post.data.tags.length > 0 && (
-          <div class="post-tags">
-            <span class="tags-label">Tags:</span>
-            {post.data.tags.map((tag) => (
-              <span class="tag">#{tag}</span>
-            ))}
+        {post.data.image && (
+          <div class="mb-8 md:mb-12 rounded-lg overflow-hidden shadow-xl">
+            <img 
+              src={post.data.image.replace('~/assets/images', '/images/blog')} 
+              alt={post.data.imageAlt || post.data.title}
+              loading="eager"
+              class="w-full h-auto block"
+            />
           </div>
         )}
-        
-        <div class="post-navigation">
-          <a href={`/${lang}/blog`} class="back-to-blog">
-            ← Back to Blog
-          </a>
-          <a href={`/${lang}/contact`} class="cta-link">
-            {t.contact.calendar.button} →
-          </a>
+
+        <div class="post-content-box">
+          <Prose>
+            <Content />
+          </Prose>
         </div>
-      </footer>
+        
+        <div class="mt-8">
+          <SocialShare 
+            title={post.data.title}
+            description={post.data.description}
+          />
+        </div>
+
+        <footer class="mt-12 pt-8 border-t">
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="flex items-center gap-2 flex-wrap mb-8">
+              <span class="font-semibold text-foreground">Tags:</span>
+              {post.data.tags.map((tag) => (
+                <Badge variant="muted" size="sm">
+                  #{tag}
+                </Badge>
+              ))}
+            </div>
+          )}
+          
+          <div class="flex justify-between items-center gap-4 flex-wrap">
+            <Button href={`/${lang}/blog`} variant="ghost">
+              ← Back to Blog
+            </Button>
+            <Button href={`/${lang}/contact`} variant="primary">
+              {t.contact.calendar.button} →
+            </Button>
+          </div>
+        </footer>
+      </div>
     </div>
   </article>
 </PageLayout>
 
 <style>
-  .blog-post {
-    padding: var(--space-3xl) 0 var(--space-5xl);
-  }
-  
-  .post-header {
-    max-width: 800px;
-    margin: 0 auto var(--space-2xl);
-    text-align: center;
-  }
-  
-  .post-meta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    flex-wrap: wrap;
-  }
-  
-  .post-category {
-    background-color: var(--color-secondary);
-    color: var(--color-black);
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-sm);
-    font-weight: 500;
-    text-transform: capitalize;
-  }
-  
-  .reading-time::before {
-    content: "•";
-    margin: 0 var(--space-xs);
-  }
-  
-  .post-header h1 {
-    font-size: var(--text-4xl);
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: var(--space-lg);
-    color: var(--color-text);
-  }
-  
-  .post-description {
-    font-size: var(--text-xl);
-    color: var(--color-text-muted);
-    line-height: 1.6;
-    margin-bottom: var(--space-lg);
-  }
-  
-  .post-author {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-  }
-  
-  .post-image {
-    max-width: 1000px;
-    margin: 0 auto var(--space-3xl);
+  .post-content-box {
+    background-color: var(--color-white);
+    padding: var(--space-2xl);
     border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-gray-100);
   }
-  
-  .post-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .post-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* Blog content typography */
-  .post-content :global(h2) {
-    font-size: var(--text-2xl);
-    font-weight: 700;
-    margin-top: var(--space-2xl);
-    margin-bottom: var(--space-lg);
-  }
-  
-  .post-content :global(h3) {
-    font-size: var(--text-xl);
-    font-weight: 700;
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-md);
-  }
-  
-  .post-content :global(p) {
-    line-height: 1.8;
-    margin-bottom: var(--space-lg);
-  }
-  
-  .post-content :global(ul),
-  .post-content :global(ol) {
-    margin-bottom: var(--space-lg);
-    padding-left: var(--space-xl);
-  }
-  
-  .post-content :global(li) {
-    margin-bottom: var(--space-sm);
-    line-height: 1.8;
-  }
-  
-  .post-content :global(blockquote) {
-    border-left: 4px solid var(--color-primary);
-    padding-left: var(--space-lg);
-    margin: var(--space-xl) 0;
-    font-style: italic;
-    color: var(--color-text-muted);
-  }
-  
-  .post-content :global(a) {
-    color: var(--color-primary);
-    text-decoration: underline;
-  }
-  
-  .post-content :global(a:hover) {
-    text-decoration: none;
-  }
-  
-  .post-content :global(code) {
-    font-family: var(--font-mono);
-    font-size: 0.875em;
-    padding: 0.125rem 0.25rem;
-    background-color: var(--color-gray-100);
-    border-radius: var(--radius-sm);
-  }
-  
+
   @media (prefers-color-scheme: dark) {
-    .post-content :global(code) {
-      background-color: var(--color-gray-800);
-    }
-  }
-  
-  .post-content :global(pre) {
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    padding: var(--space-lg);
-    background-color: var(--color-gray-100);
-    border-radius: var(--radius-md);
-    overflow-x: auto;
-    margin-bottom: var(--space-lg);
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    .post-content :global(pre) {
+    .post-content-box {
       background-color: var(--color-gray-900);
+      border-color: var(--color-gray-800);
     }
   }
-  
-  .post-footer {
-    max-width: 800px;
-    margin: var(--space-3xl) auto 0;
-    padding-top: var(--space-2xl);
-    border-top: 1px solid var(--color-border);
-  }
-  
-  .post-tags {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    flex-wrap: wrap;
-    margin-bottom: var(--space-xl);
-  }
-  
-  .tags-label {
-    font-weight: 600;
-    color: var(--color-text);
-  }
-  
-  .tag {
-    padding: var(--space-xs) var(--space-sm);
-    background-color: var(--color-gray-100);
-    color: var(--color-text);
-    border-radius: var(--radius-sm);
-    font-size: var(--text-sm);
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    .tag {
-      background-color: var(--color-gray-800);
-    }
-  }
-  
-  .post-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-md);
-  }
-  
-  .back-to-blog,
-  .cta-link {
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all var(--transition-fast);
-  }
-  
-  .back-to-blog:hover,
-  .cta-link:hover {
-    text-decoration: underline;
-  }
-  
+
   @media (max-width: 768px) {
-    .post-header h1 {
-      font-size: var(--text-3xl);
-    }
-    
-    .post-description {
-      font-size: var(--text-lg);
-    }
-    
-    .post-navigation {
-      flex-direction: column;
-      align-items: flex-start;
+    .post-content-box {
+      padding: var(--space-lg);
     }
   }
 </style>

@@ -1,0 +1,15 @@
+---
+import { z } from 'zod';
+
+const props = z.object({
+  class: z.string().optional(),
+}).parse(Astro.props);
+---
+
+<div class:list={['prose', props.class]}>
+  <slot />
+</div>
+
+<style>
+  /* All prose styles are defined in utilities.css */
+</style>

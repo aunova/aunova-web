@@ -1,0 +1,42 @@
+---
+import { z } from 'zod';
+
+const props = z.object({
+  variant: z.enum(['primary', 'outline', 'ghost']).default('primary'),
+  size: z.enum(['sm', 'md', 'lg']).default('md'),
+  href: z.string().optional(),
+  class: z.string().optional(),
+  type: z.enum(['button', 'submit', 'reset']).default('button'),
+}).parse(Astro.props);
+
+const variantClasses = {
+  primary: 'btn-primary',
+  outline: 'btn-outline',
+  ghost: 'btn-ghost',
+};
+
+const sizeClasses = {
+  sm: 'px-3 py-1 text-sm',
+  md: 'px-4 py-2 text-sm',
+  lg: 'px-6 py-3 text-base',
+};
+
+const Tag = props.href ? 'a' : 'button';
+---
+
+<Tag
+  href={props.href}
+  type={!props.href ? props.type : undefined}
+  class:list={[
+    'btn',
+    variantClasses[props.variant],
+    sizeClasses[props.size],
+    props.class
+  ]}
+>
+  <slot />
+</Tag>
+
+<style>
+  /* Component-specific styles are in utilities.css */
+</style>

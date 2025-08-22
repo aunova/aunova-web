@@ -1,0 +1,35 @@
+---
+import { z } from 'zod';
+
+const props = z.object({
+  variant: z.enum(['primary', 'secondary', 'muted']).default('muted'),
+  size: z.enum(['sm', 'md']).default('sm'),
+  class: z.string().optional(),
+}).parse(Astro.props);
+
+const variantClasses = {
+  primary: 'badge-primary',
+  secondary: 'badge-secondary',
+  muted: 'badge-muted',
+};
+
+const sizeClasses = {
+  sm: 'text-xs px-2 py-1',
+  md: 'text-sm px-3 py-1',
+};
+---
+
+<span 
+  class:list={[
+    'badge',
+    variantClasses[props.variant],
+    sizeClasses[props.size],
+    props.class
+  ]}
+>
+  <slot />
+</span>
+
+<style>
+  /* Component-specific styles are in utilities.css */
+</style>
