@@ -1,39 +1,39 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://aunova.net',
-  output: 'static',
+  site: "https://aunova.net",
+  output: "static",
   integrations: [
     mdx(),
     sitemap({
       i18n: {
-        defaultLocale: 'en',
+        defaultLocale: "en",
         locales: {
-          en: 'en',
-          es: 'es',
+          en: "en",
+          es: "es",
         },
       },
     }),
   ],
   compressHTML: true,
   build: {
-    inlineStylesheets: 'auto',
+    inlineStylesheets: "auto",
   },
   vite: {
     build: {
       cssMinify: true,
       rollupOptions: {
         output: {
-          assetFileNames: 'assets/[name].[hash][extname]',
+          assetFileNames: "assets/[name].[hash][extname]",
         },
       },
     },
     ssr: {
-      noExternal: ['zustand'],
+      noExternal: ["zustand"],
     },
   },
   // Disable telemetry

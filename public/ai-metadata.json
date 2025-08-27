@@ -5,7 +5,7 @@
     "founded": "2023",
     "website": "https://aunova.net",
     "contact": {
-      "email": "christian@aunova.net",
+      "email": "chris@aunova.net",
       "scheduling": "https://cal.com/ngmisl/aunova"
     },
     "description": "Leading consultancy specializing in Zero-Knowledge proofs, AI & Web3 integration, and decentralized infrastructure solutions",
@@ -23,9 +23,22 @@
     "technologies": {
       "blockchain": ["Ethereum", "Polygon", "Arbitrum", "StarkNet", "zkSync"],
       "zk_frameworks": ["Circom", "SnarkJS", "Noir", "Cairo", "Halo2"],
-      "ai_ml": ["TensorFlow", "PyTorch", "ONNX", "Federated Learning", "Homomorphic Encryption"],
+      "ai_ml": [
+        "TensorFlow",
+        "PyTorch",
+        "ONNX",
+        "Federated Learning",
+        "Homomorphic Encryption"
+      ],
       "languages": ["Solidity", "Rust", "Cairo", "TypeScript", "Python", "Go"],
-      "web3_tools": ["Hardhat", "Foundry", "ethers.js", "web3.js", "IPFS", "The Graph"]
+      "web3_tools": [
+        "Hardhat",
+        "Foundry",
+        "ethers.js",
+        "web3.js",
+        "IPFS",
+        "The Graph"
+      ]
     }
   },
   "services": {
