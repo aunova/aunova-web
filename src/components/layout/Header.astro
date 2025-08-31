@@ -280,8 +280,8 @@ const homeLink = currentLang === 'es' ? '/es' : '/';
     .nav-links {
       position: fixed;
       top: var(--header-height);
-      left: 0;
       right: 0;
+      width: 100vw;
       height: calc(100vh - var(--header-height));
       max-height: calc(100vh - var(--header-height));
       background-color: var(--color-background);
@@ -291,7 +291,7 @@ const homeLink = currentLang === 'es' ? '/es' : '/';
       padding: var(--space-xl);
       padding-bottom: calc(var(--space-xl) + env(safe-area-inset-bottom));
       gap: var(--space-lg);
-      transform: translateX(100%);
+      transform: translateX(100vw);
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: var(--z-modal);
       overflow-y: auto;
