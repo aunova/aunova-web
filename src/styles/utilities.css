@@ -159,12 +159,22 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* Dark Mode Overrides */
 @media (prefers-color-scheme: dark) {
-  .bg-muted { background-color: var(--color-gray-800); }
-  .bg-card { 
+  :root:not([data-theme]) .bg-muted { background-color: var(--color-gray-800); }
+  :root:not([data-theme]) .bg-card { 
     background-color: var(--color-gray-900);
-    border: 1px solid var(--color-gray-800);
+    border: 1px solid var(--color-border);
   }
+}
+
+[data-theme="dark"] .bg-muted { 
+  background-color: var(--color-gray-800); 
+}
+
+[data-theme="dark"] .bg-card { 
+  background-color: var(--color-gray-900);
+  border: 1px solid var(--color-border);
 }
 
 /* ============================================
@@ -357,10 +367,15 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .card {
-    background-color: var(--color-gray-900);
-    border-color: var(--color-gray-700);
+  :root:not([data-theme]) .card {
+    background-color: var(--color-background-elevated);
+    border-color: var(--color-border);
   }
+}
+
+[data-theme="dark"] .card {
+  background-color: var(--color-background-elevated);
+  border-color: var(--color-border);
 }
 
 /* ============================================
@@ -387,8 +402,8 @@
 }
 
 .btn-primary:hover {
-  background-color: var(--color-red-dark);
-  border-color: var(--color-red-dark);
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -417,9 +432,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .btn-ghost:hover {
+  :root:not([data-theme]) .btn-ghost:hover {
     background-color: var(--color-gray-800);
   }
+}
+
+[data-theme="dark"] .btn-ghost:hover {
+  background-color: var(--color-gray-800);
 }
 
 /* ============================================
@@ -451,9 +470,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .badge-muted {
+  :root:not([data-theme]) .badge-muted {
     background-color: var(--color-gray-800);
   }
+}
+
+[data-theme="dark"] .badge-muted {
+  background-color: var(--color-gray-800);
 }
 
 /* ============================================
@@ -543,19 +566,24 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .prose blockquote {
+  :root:not([data-theme]) .prose blockquote {
     background-color: var(--color-gray-900);
   }
 }
 
+[data-theme="dark"] .prose blockquote {
+  background-color: var(--color-gray-900);
+}
+
 .prose a {
-  color: var(--color-primary);
+  color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: all var(--transition-fast);
 }
 
 .prose a:hover {
+  color: var(--color-primary);
   text-decoration-thickness: 2px;
 }
 
@@ -569,9 +597,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .prose code {
+  :root:not([data-theme]) .prose code {
     background-color: var(--color-gray-800);
   }
+}
+
+[data-theme="dark"] .prose code {
+  background-color: var(--color-gray-800);
 }
 
 .prose pre {
@@ -586,9 +618,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .prose pre {
+  :root:not([data-theme]) .prose pre {
     background-color: var(--color-gray-900);
   }
+}
+
+[data-theme="dark"] .prose pre {
+  background-color: var(--color-gray-900);
 }
 
 .prose img {

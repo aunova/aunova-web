@@ -1,196 +1,229 @@
 ---
-import PageLayout from '../../layouts/PageLayout.astro';
-import ServicePillar from '../../components/features/ServicePillar.astro';
-import { getTranslation } from '../../utils/i18n';
+import PageLayout from "../../layouts/PageLayout.astro";
+import ServicePillar from "../../components/features/ServicePillar.astro";
+import { getTranslation } from "../../utils/i18n";
 
-const lang = 'es';
+const lang = "es";
 const t = getTranslation(lang);
 ---
 
-<PageLayout 
-  title="Servicios Blockchain - Aunova"
-  description="Servicios de consultoría blockchain especializados en Zero-Knowledge, IA, Web3 e infraestructura descentralizada. Construye el futuro blockchain con privacidad e inteligencia."
-  lang={lang}
+<PageLayout
+    title="Servicios Blockchain - Aunova"
+    description="Servicios de consultoría blockchain especializados en Zero-Knowledge, IA, Web3 e infraestructura descentralizada. Construye el futuro blockchain con privacidad e inteligencia."
+    lang={lang}
 >
-  <section class="services-hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>{t.services.title}</h1>
-        <p class="lead">{t.services.subtitle}</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="services-grid-section">
-    <div class="container">
-      <div class="services-grid">
-        <ServicePillar
-          title={t.services.pillars.zk.title}
-          description={t.services.pillars.zk.description}
-          features={t.services.pillars.zk.features}
-          icon="zk"
-          href={`/${lang}/services/zero-knowledge`}
-          linkText={t.services.learnMore}
-        />
-        
-        <ServicePillar
-          title={t.services.pillars.ai.title}
-          description={t.services.pillars.ai.description}
-          features={t.services.pillars.ai.features}
-          icon="ai"
-          href={`/${lang}/services/ai-web3`}
-          linkText={t.services.learnMore}
-        />
-        
-        <ServicePillar
-          title={t.services.pillars.hybrid.title}
-          description={t.services.pillars.hybrid.description}
-          features={t.services.pillars.hybrid.features}
-          icon="hybrid"
-          href={`/${lang}/services/hybrid-zk-ai`}
-          linkText={t.services.learnMore}
-        />
-        
-        <ServicePillar
-          title={t.services.pillars.infra.title}
-          description={t.services.pillars.infra.description}
-          features={t.services.pillars.infra.features}
-          icon="infra"
-          href={`/${lang}/services/infrastructure`}
-          linkText={t.services.learnMore}
-        />
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <h2>¿Listo para Comenzar?</h2>
-        <p>Hablemos sobre cómo podemos ayudarte a construir soluciones descentralizadas de próxima generación.</p>
-        <div class="cta-actions">
-          <a href={`/${lang}/contact`} class="btn btn-primary">Contáctanos</a>
-          <a href="https://cal.com/ngmisl/aunova" target="_blank" rel="noopener" class="btn btn-outline">
-            Agendar Consulta
-          </a>
+    <section class="services-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>{t.services.title}</h1>
+                <p class="lead">{t.services.subtitle}</p>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="services-grid-section">
+        <div class="container">
+            <div class="services-grid">
+                <ServicePillar
+                    title={t.services.pillars.zk.title}
+                    description={t.services.pillars.zk.description}
+                    features={t.services.pillars.zk.features}
+                    icon="zk"
+                    href={`/${lang}/services/zero-knowledge`}
+                    linkText={t.services.learnMore}
+                />
+
+                <ServicePillar
+                    title={t.services.pillars.fhe.title}
+                    description={t.services.pillars.fhe.description}
+                    features={t.services.pillars.fhe.features}
+                    icon="fhe"
+                    href={`/${lang}/services/fhe`}
+                    linkText={t.services.learnMore}
+                />
+
+                <ServicePillar
+                    title={t.services.pillars.ai.title}
+                    description={t.services.pillars.ai.description}
+                    features={t.services.pillars.ai.features}
+                    icon="ai"
+                    href={`/${lang}/services/ai-web3`}
+                    linkText={t.services.learnMore}
+                />
+
+                <ServicePillar
+                    title={t.services.pillars.hybrid.title}
+                    description={t.services.pillars.hybrid.description}
+                    features={t.services.pillars.hybrid.features}
+                    icon="hybrid"
+                    href={`/${lang}/services/hybrid-zk-ai`}
+                    linkText={t.services.learnMore}
+                />
+
+                <ServicePillar
+                    title={t.services.pillars.infra.title}
+                    description={t.services.pillars.infra.description}
+                    features={t.services.pillars.infra.features}
+                    icon="infra"
+                    href={`/${lang}/services/infrastructure`}
+                    linkText={t.services.learnMore}
+                />
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para Comenzar?</h2>
+                <p>
+                    Hablemos sobre cómo podemos ayudarte a construir soluciones
+                    descentralizadas de próxima generación.
+                </p>
+                <div class="cta-actions">
+                    <a href={`/${lang}/contact`} class="btn btn-primary"
+                        >Contáctanos</a
+                    >
+                    <a
+                        href="https://cal.com/ngmisl/aunova"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn btn-outline"
+                    >
+                        Agendar Consulta
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 </PageLayout>
 
 <style>
-  .services-hero {
-    padding: var(--space-3xl) 0;
-    background: linear-gradient(135deg, var(--color-background) 0%, color-mix(in srgb, var(--color-secondary) 10%, var(--color-background)) 100%);
-  }
-  
-  .hero-content {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  .hero-content h1 {
-    font-size: var(--text-4xl);
-    font-weight: 700;
-    margin-bottom: var(--space-md);
-  }
-  
-  .lead {
-    font-size: var(--text-xl);
-    color: var(--color-text-muted);
-    line-height: 1.6;
-  }
-  
-  .services-grid-section {
-    padding: var(--space-3xl) 0;
-  }
-  
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-xl);
-  }
-  
-  .cta-section {
-    padding: var(--space-3xl) 0;
-    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 5%, var(--color-background)) 0%, var(--color-background) 100%);
-  }
-  
-  .cta-content {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  .cta-content h2 {
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    margin-bottom: var(--space-md);
-  }
-  
-  .cta-content p {
-    font-size: var(--text-lg);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-2xl);
-  }
-  
-  .cta-actions {
-    display: flex;
-    gap: var(--space-md);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  /* Buttons */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-sm) var(--space-xl);
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    font-size: var(--text-base);
-    transition: all var(--transition-fast);
-    text-decoration: none;
-    cursor: pointer;
-    border: 2px solid transparent;
-  }
-  
-  .btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border-color: var(--color-primary);
-  }
-  
-  .btn-primary:hover {
-    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
-    border-color: color-mix(in srgb, var(--color-primary) 85%, black);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-  
-  .btn-outline {
-    background-color: transparent;
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-  }
-  
-  .btn-outline:hover {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-  
-  @media (max-width: 768px) {
+    .services-hero {
+        padding: var(--space-3xl) 0;
+        background: linear-gradient(
+            135deg,
+            var(--color-background) 0%,
+            color-mix(
+                    in srgb,
+                    var(--color-secondary) 10%,
+                    var(--color-background)
+                )
+                100%
+        );
+    }
+
+    .hero-content {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
     .hero-content h1 {
-      font-size: var(--text-3xl);
+        font-size: var(--text-4xl);
+        font-weight: 700;
+        margin-bottom: var(--space-md);
     }
-    
+
+    .lead {
+        font-size: var(--text-xl);
+        color: var(--color-text-muted);
+        line-height: 1.6;
+    }
+
+    .services-grid-section {
+        padding: var(--space-3xl) 0;
+    }
+
     .services-grid {
-      grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-xl);
     }
-  }
+
+    .cta-section {
+        padding: var(--space-3xl) 0;
+        background: linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--color-primary) 5%, var(--color-background))
+                0%,
+            var(--color-background) 100%
+        );
+    }
+
+    .cta-content {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .cta-content h2 {
+        font-size: var(--text-3xl);
+        font-weight: 700;
+        margin-bottom: var(--space-md);
+    }
+
+    .cta-content p {
+        font-size: var(--text-lg);
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-2xl);
+    }
+
+    .cta-actions {
+        display: flex;
+        gap: var(--space-md);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-sm) var(--space-xl);
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        font-size: var(--text-base);
+        transition: all var(--transition-fast);
+        text-decoration: none;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        border-color: var(--color-primary);
+    }
+
+    .btn-primary:hover {
+        background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+        border-color: color-mix(in srgb, var(--color-primary) 85%, black);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+
+    .btn-outline:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: var(--text-3xl);
+        }
+
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>

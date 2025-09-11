@@ -1,252 +1,294 @@
 ---
-import PageLayout from '../../layouts/PageLayout.astro';
-import ServicePillar from '../../components/features/ServicePillar.astro';
-import { getTranslation } from '../../utils/i18n';
+import PageLayout from "../../layouts/PageLayout.astro";
+import ServicePillar from "../../components/features/ServicePillar.astro";
+import { getTranslation } from "../../utils/i18n";
 
-const lang = 'en';
+const lang = "en";
 const t = getTranslation(lang);
 ---
 
-<PageLayout 
-  title="Blockchain Services - Aunova"
-  description="Explore our comprehensive blockchain, Zero-Knowledge and AI solutions. From zkSNARKs to decentralized AI, we provide cutting-edge blockchain and Web3 development services."
-  lang={lang}
+<PageLayout
+    title="Blockchain Services - Aunova"
+    description="Explore our comprehensive blockchain, Zero-Knowledge and AI solutions. From zkSNARKs to decentralized AI, we provide cutting-edge blockchain and Web3 development services."
+    lang={lang}
 >
-  <section class="services-hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>{t.services.title}</h1>
-        <p class="lead">{t.services.subtitle}</p>
-      </div>
-    </div>
-  </section>
+    <section class="services-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>{t.services.title}</h1>
+                <p class="lead">{t.services.subtitle}</p>
+            </div>
+        </div>
+    </section>
 
-  <section class="services-section">
-    <div class="container">
-      <div class="services-grid">
-        <ServicePillar
-          title={t.services.pillars.zk.title}
-          description={t.services.pillars.zk.description}
-          features={t.services.pillars.zk.features}
-          icon="zk"
-          href={`/${lang}/services/zero-knowledge`}
-          linkText={t.services.learnMore}
-        />
-        
-        <ServicePillar
-          title={t.services.pillars.ai.title}
-          description={t.services.pillars.ai.description}
-          features={t.services.pillars.ai.features}
-          icon="ai"
-          href={`/${lang}/services/ai-web3`}
-          linkText={t.services.learnMore}
-        />
-        
-        <ServicePillar
-          title={t.services.pillars.hybrid.title}
-          description={t.services.pillars.hybrid.description}
-          features={t.services.pillars.hybrid.features}
-          icon="hybrid"
-          href={`/${lang}/services/hybrid-zk-ai`}
-          linkText={t.services.learnMore}
-        />
-        
-        <ServicePillar
-          title={t.services.pillars.infra.title}
-          description={t.services.pillars.infra.description}
-          features={t.services.pillars.infra.features}
-          icon="infra"
-          href={`/${lang}/services/infrastructure`}
-          linkText={t.services.learnMore}
-        />
-      </div>
-    </div>
-  </section>
+    <section class="services-section">
+        <div class="container">
+            <div class="services-grid">
+                <ServicePillar
+                    title={t.services.pillars.zk.title}
+                    description={t.services.pillars.zk.description}
+                    features={t.services.pillars.zk.features}
+                    icon="zk"
+                    href={`/${lang}/services/zero-knowledge`}
+                    linkText={t.services.learnMore}
+                />
 
-  <section class="why-section">
-    <div class="container">
-      <h2>Why Choose Aunova?</h2>
-      <div class="benefits-grid">
-        <div class="benefit">
-          <h3>Deep Technical Expertise</h3>
-          <p>Our team consists of cryptographers, AI researchers, and blockchain engineers with years of experience in their respective fields.</p>
-        </div>
-        <div class="benefit">
-          <h3>Production-Ready Solutions</h3>
-          <p>We don't just theorize – we build scalable, secure systems that solve real business problems.</p>
-        </div>
-        <div class="benefit">
-          <h3>Privacy by Design</h3>
-          <p>Every solution we create puts privacy at its core, ensuring your data remains protected.</p>
-        </div>
-        <div class="benefit">
-          <h3>Future-Proof Technology</h3>
-          <p>We stay ahead of the curve, implementing tomorrow's solutions today.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+                <ServicePillar
+                    title={t.services.pillars.fhe.title}
+                    description={t.services.pillars.fhe.description}
+                    features={t.services.pillars.fhe.features}
+                    icon="fhe"
+                    href={`/${lang}/services/fhe`}
+                    linkText={t.services.learnMore}
+                />
 
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <h2>Ready to Get Started?</h2>
-        <p>Let's discuss how we can help you leverage Zero-Knowledge proofs and AI for your next project.</p>
-        <div class="cta-actions">
-          <a href={`/${lang}/contact`} class="btn btn-primary">Schedule Consultation</a>
-          <a href={`/${lang}/about`} class="btn btn-outline">Learn More About Us</a>
+                <ServicePillar
+                    title={t.services.pillars.ai.title}
+                    description={t.services.pillars.ai.description}
+                    features={t.services.pillars.ai.features}
+                    icon="ai"
+                    href={`/${lang}/services/ai-web3`}
+                    linkText={t.services.learnMore}
+                />
+
+                <ServicePillar
+                    title={t.services.pillars.hybrid.title}
+                    description={t.services.pillars.hybrid.description}
+                    features={t.services.pillars.hybrid.features}
+                    icon="hybrid"
+                    href={`/${lang}/services/hybrid-zk-ai`}
+                    linkText={t.services.learnMore}
+                />
+
+                <ServicePillar
+                    title={t.services.pillars.infra.title}
+                    description={t.services.pillars.infra.description}
+                    features={t.services.pillars.infra.features}
+                    icon="infra"
+                    href={`/${lang}/services/infrastructure`}
+                    linkText={t.services.learnMore}
+                />
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="why-section">
+        <div class="container">
+            <h2>Why Choose Aunova?</h2>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <h3>Deep Technical Expertise</h3>
+                    <p>
+                        Our team consists of cryptographers, AI researchers, and
+                        blockchain engineers with years of experience in their
+                        respective fields.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h3>Production-Ready Solutions</h3>
+                    <p>
+                        We don't just theorize – we build scalable, secure
+                        systems that solve real business problems.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h3>Privacy by Design</h3>
+                    <p>
+                        Every solution we create puts privacy at its core,
+                        ensuring your data remains protected.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h3>Future-Proof Technology</h3>
+                    <p>
+                        We stay ahead of the curve, implementing tomorrow's
+                        solutions today.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>
+                    Let's discuss how we can help you leverage Zero-Knowledge
+                    proofs and AI for your next project.
+                </p>
+                <div class="cta-actions">
+                    <a href={`/${lang}/contact`} class="btn btn-primary"
+                        >Schedule Consultation</a
+                    >
+                    <a href={`/${lang}/about`} class="btn btn-outline"
+                        >Learn More About Us</a
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
 </PageLayout>
 
 <style>
-  .services-hero {
-    padding: var(--space-3xl) 0;
-    background: linear-gradient(135deg, var(--color-background) 0%, color-mix(in srgb, var(--color-secondary) 10%, var(--color-background)) 100%);
-  }
-  
-  .hero-content {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  .hero-content h1 {
-    font-size: var(--text-4xl);
-    font-weight: 700;
-    margin-bottom: var(--space-md);
-  }
-  
-  .lead {
-    font-size: var(--text-xl);
-    color: var(--color-text-muted);
-    line-height: 1.6;
-  }
-  
-  .services-section {
-    padding: var(--space-3xl) 0;
-  }
-  
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-xl);
-  }
-  
-  .why-section {
-    padding: var(--space-3xl) 0;
-    background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background));
-  }
-  
-  .why-section h2 {
-    text-align: center;
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    margin-bottom: var(--space-2xl);
-  }
-  
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-xl);
-  }
-  
-  .benefit {
-    text-align: center;
-    padding: var(--space-lg);
-  }
-  
-  .benefit h3 {
-    font-size: var(--text-lg);
-    font-weight: 700;
-    margin-bottom: var(--space-sm);
-    color: var(--color-primary);
-  }
-  
-  .benefit p {
-    color: var(--color-text-muted);
-    line-height: 1.6;
-  }
-  
-  .cta-section {
-    padding: var(--space-3xl) 0;
-  }
-  
-  .cta-content {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  .cta-content h2 {
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    margin-bottom: var(--space-md);
-  }
-  
-  .cta-content p {
-    font-size: var(--text-lg);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-2xl);
-  }
-  
-  .cta-actions {
-    display: flex;
-    gap: var(--space-md);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-sm) var(--space-xl);
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    font-size: var(--text-base);
-    transition: all var(--transition-fast);
-    text-decoration: none;
-    cursor: pointer;
-    border: 2px solid transparent;
-  }
-  
-  .btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border-color: var(--color-primary);
-  }
-  
-  .btn-primary:hover {
-    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
-    border-color: color-mix(in srgb, var(--color-primary) 85%, black);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-  
-  .btn-outline {
-    background-color: transparent;
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-  }
-  
-  .btn-outline:hover {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-  
-  @media (max-width: 768px) {
+    .services-hero {
+        padding: var(--space-3xl) 0;
+        background: linear-gradient(
+            135deg,
+            var(--color-background) 0%,
+            color-mix(
+                    in srgb,
+                    var(--color-secondary) 10%,
+                    var(--color-background)
+                )
+                100%
+        );
+    }
+
+    .hero-content {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
     .hero-content h1 {
-      font-size: var(--text-3xl);
+        font-size: var(--text-4xl);
+        font-weight: 700;
+        margin-bottom: var(--space-md);
     }
-    
-    .services-grid,
+
+    .lead {
+        font-size: var(--text-xl);
+        color: var(--color-text-muted);
+        line-height: 1.6;
+    }
+
+    .services-section {
+        padding: var(--space-3xl) 0;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-xl);
+    }
+
+    .why-section {
+        padding: var(--space-3xl) 0;
+        background-color: color-mix(
+            in srgb,
+            var(--color-primary) 5%,
+            var(--color-background)
+        );
+    }
+
+    .why-section h2 {
+        text-align: center;
+        font-size: var(--text-3xl);
+        font-weight: 700;
+        margin-bottom: var(--space-2xl);
+    }
+
     .benefits-grid {
-      grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-xl);
     }
-  }
+
+    .benefit {
+        text-align: center;
+        padding: var(--space-lg);
+    }
+
+    .benefit h3 {
+        font-size: var(--text-lg);
+        font-weight: 700;
+        margin-bottom: var(--space-sm);
+        color: var(--color-primary);
+    }
+
+    .benefit p {
+        color: var(--color-text-muted);
+        line-height: 1.6;
+    }
+
+    .cta-section {
+        padding: var(--space-3xl) 0;
+    }
+
+    .cta-content {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .cta-content h2 {
+        font-size: var(--text-3xl);
+        font-weight: 700;
+        margin-bottom: var(--space-md);
+    }
+
+    .cta-content p {
+        font-size: var(--text-lg);
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-2xl);
+    }
+
+    .cta-actions {
+        display: flex;
+        gap: var(--space-md);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-sm) var(--space-xl);
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        font-size: var(--text-base);
+        transition: all var(--transition-fast);
+        text-decoration: none;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        border-color: var(--color-primary);
+    }
+
+    .btn-primary:hover {
+        background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+        border-color: color-mix(in srgb, var(--color-primary) 85%, black);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+
+    .btn-outline:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: var(--text-3xl);
+        }
+
+        .services-grid,
+        .benefits-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>

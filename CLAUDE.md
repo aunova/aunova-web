@@ -174,17 +174,78 @@ const props = z.object({
 ### CSS Modern Features
 
 #### Using attr() with CSS
+The CSS `attr()` function now supports advanced type casting and semantic attribute usage (Chrome 133+). This enables powerful dynamic styling directly from HTML attributes.
+
+**Basic Syntax:**
 ```css
-/* Dynamic color values from data attributes */
+/* With type casting and fallback */
+property: attr(attribute-name type(<type>), fallback-value);
+```
+
+**Available Types:**
+- `<angle>`: deg, turn, rad
+- `<color>`: named colors, rgb, hsl, oklch, etc.
+- `<custom-ident>`: custom identifiers for naming
+- `<integer>`: whole numbers
+- `<length>`: number + unit (px, rem, em, etc.)
+- `<length-percentage>`: length or percentage values
+- `<number>`: fractional numbers
+- `<percentage>`: percentage values
+- `<resolution>`: dpi, dpcm, dppx
+- `<time>`: seconds (s) or milliseconds (ms)
+- `<transform-function>`: rotate(), scale(), etc.
+
+**Dynamic Color Values:**
+```css
+/* Product cards with dynamic colors */
 [data-color] {
-  color: attr(data-color type(<color>));
-  background-color: color-mix(
-    in srgb,
-    attr(data-color type(<color>)),
-    black 40%
+  background-color: attr(data-color type(<color>), var(--color-gray-200));
+  border-color: color-mix(in srgb, attr(data-color type(<color>)), black 20%);
+}
+```
+
+**Star Rating System:**
+```css
+/* Convert rating (0-5) to percentage fill */
+.star-rating {
+  --fill-percent: calc(attr(data-rating type(<number>)) * 20%);
+  background: linear-gradient(
+    to right, 
+    gold var(--fill-percent), 
+    transparent var(--fill-percent)
   );
 }
 ```
+
+**Grid Placement:**
+```css
+/* Dynamic grid positioning */
+.grid-item {
+  grid-column: attr(data-col type(<integer>));
+  grid-row: attr(data-row type(<integer>));
+}
+```
+
+**Anchor Positioning:**
+```css
+/* Popover anchoring with custom identifiers */
+.menu {
+  --anchor-id: attr(data-anchor type(<custom-ident>));
+}
+
+.menu button {
+  anchor-name: var(--anchor-id);
+}
+
+.menu [popover] {
+  position-anchor: var(--anchor-id);
+}
+```
+
+**Security Limitations:**
+- Cannot use with `url()` or image functions
+- Cannot be "laundered" through custom properties
+- No support for background-image or src attributes
 
 #### Container Queries
 ```css
@@ -458,6 +519,83 @@ const { color } = Astro.props;
 </style>
 ```
 
+### Advanced attr() Patterns
+
+#### Service Pillar Cards with Dynamic Colors
+```astro
+---
+// ServicePillar.astro
+const { title, icon, color } = Astro.props;
+---
+<article class="service-pillar" data-theme-color={color}>
+  <div class="pillar-icon">{icon}</div>
+  <h3>{title}</h3>
+  <slot />
+</article>
+
+<style>
+  .service-pillar {
+    --pillar-color: attr(data-theme-color type(<color>), var(--color-burgundy));
+    border-left: 4px solid var(--pillar-color);
+    background: color-mix(in srgb, var(--pillar-color), transparent 95%);
+  }
+  
+  .pillar-icon {
+    color: var(--pillar-color);
+  }
+</style>
+```
+
+#### Dynamic Grid Layout for Blog Cards
+```astro
+---
+// BlogCard.astro with priority-based grid placement
+const { priority, featured } = Astro.props;
+---
+<article 
+  class="blog-card" 
+  data-priority={priority}
+  data-span={featured ? 2 : 1}
+>
+  <slot />
+</article>
+
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .blog-card {
+    grid-column: span attr(data-span type(<integer>));
+    order: attr(data-priority type(<integer>));
+  }
+</style>
+```
+
+#### Theme-aware Components
+```astro
+---
+// Component with theme data attributes
+---
+<div class="theme-aware" data-theme="dark" data-accent="blue">
+  <slot />
+</div>
+
+<style>
+  .theme-aware {
+    --theme-bg: light-dark(
+      var(--color-white), 
+      attr(data-theme type(<custom-ident>))
+    );
+    --accent-color: attr(data-accent type(<custom-ident>));
+    
+    background-color: var(--theme-bg);
+    accent-color: var(--accent-color);
+  }
+</style>
+```
+
 ### Conditional Rendering
 ```astro
 ---
@@ -500,6 +638,9 @@ export default defineConfig({
 
 ## Update Log
 
+- **2025-01-21**: Enhanced CSS attr() documentation with new capabilities
+- Added advanced type casting examples (Chrome 133+ features)
+- Included practical patterns for service pillars, blog grids, and theming
 - **2024-08-20**: Initial documentation created
 - Migration from aunova-old initiated
 - Core design system established

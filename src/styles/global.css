@@ -2,8 +2,9 @@
 
 :root {
   /* Color Palette */
-  --color-red: rgb(108 0 1);
-  --color-red-dark: rgb(95 4 4);
+  --color-red: #6C0001;
+  --color-red-light: #9B1C1F;
+  --color-red-vivid: #A32125;
   --color-sand: #E3DCC2;
   --color-black: #0F0F0F;
   --color-white: #FFFFFF;
@@ -17,14 +18,18 @@
   --color-gray-700: #404040;
   --color-gray-800: #262626;
   --color-gray-900: #171717;
+  --color-blue-tech: #1C6DD0;
+  --color-blue-ice: #56CCF2;
 
-  /* Semantic Colors */
+  /* Day Mode Colors */
   --color-primary: var(--color-red);
+  --color-primary-hover: var(--color-red-light);
   --color-secondary: var(--color-sand);
-  --color-background: var(--color-white);
-  --color-text: var(--color-black);
-  --color-text-muted: var(--color-gray-500);
-  --color-border: var(--color-gray-200);
+  --color-background: #FAFAFA;
+  --color-text: #1A1A1A;
+  --color-text-muted: #4D4D4D;
+  --color-border: #E0E0E0;
+  --color-accent: var(--color-blue-tech);
 
   /* Typography - System Font Stack */
   --font-system: system-ui, -apple-system, BlinkMacSystemFont, 
@@ -88,14 +93,90 @@
   --z-tooltip: 600;
 }
 
-/* Dark Mode Variables */
+/* Theme System - Manual Override Takes Priority */
+[data-theme="light"] {
+  --color-background: #FAFAFA;
+  --color-text: #1A1A1A;
+  --color-text-muted: #4D4D4D;
+  --color-border: #E0E0E0;
+  --color-accent: var(--color-blue-tech);
+  --color-primary-hover: var(--color-red-light);
+}
+
+[data-theme="dark"] {
+  --color-background: #000000;
+  --color-background-elevated: #121212;
+  --color-background-header: #2C2C2C;
+  --color-text: #F2F2F2;
+  --color-text-muted: #BDBDBD;
+  --color-border: #2C2C2C;
+  --color-accent: var(--color-blue-ice);
+  --color-primary: var(--color-red-vivid);
+  --color-primary-hover: #C42A2F;
+}
+
+/* Automatic Dark Mode (when no manual theme set) */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-primary: #ff4444; /* Brighter red for better visibility in dark mode */
-    --color-background: var(--color-black);
-    --color-text: var(--color-white);
-    --color-text-muted: var(--color-gray-400);
-    --color-border: var(--color-gray-800);
+  :root:not([data-theme]) {
+    --color-background: #000000;
+    --color-background-elevated: #121212;
+    --color-background-header: #2C2C2C;
+    --color-text: #F2F2F2;
+    --color-text-muted: #BDBDBD;
+    --color-border: #2C2C2C;
+    --color-accent: var(--color-blue-ice);
+    --color-primary: var(--color-red-vivid);
+    --color-primary-hover: #C42A2F;
+  }
+}
+
+/* Targeted Black Background Override - Only Main Content Sections */
+[data-theme="dark"] body,
+[data-theme="dark"] html,
+[data-theme="dark"] main,
+[data-theme="dark"] section:not(.header):not(.nav):not(.dropdown),
+[data-theme="dark"] .hero::before,
+[data-theme="dark"] .problem-solution::before,
+[data-theme="dark"] .about-section::before {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) body,
+  :root:not([data-theme]) html,
+  :root:not([data-theme]) main,
+  :root:not([data-theme]) section:not(.header):not(.nav):not(.dropdown),
+  :root:not([data-theme]) .hero::before,
+  :root:not([data-theme]) .problem-solution::before,
+  :root:not([data-theme]) .about-section::before {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+  }
+}
+
+/* Explicit Header Grey Background */
+[data-theme="dark"] .header {
+  background: var(--color-background-header) !important;
+  background-color: var(--color-background-header) !important;
+}
+
+[data-theme="dark"] .dropdown-menu {
+  background: var(--color-background-header) !important;
+  background-color: var(--color-background-header) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .header {
+    background: var(--color-background-header) !important;
+    background-color: var(--color-background-header) !important;
+  }
+  
+  :root:not([data-theme]) .dropdown-menu {
+    background: var(--color-background-header) !important;
+    background-color: var(--color-background-header) !important;
   }
 }
 
@@ -177,12 +258,13 @@ p {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-accent);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 a:hover {
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
@@ -209,9 +291,13 @@ code {
 }
 
 @media (prefers-color-scheme: dark) {
-  code {
+  :root:not([data-theme]) code {
     background-color: var(--color-gray-800);
   }
+}
+
+[data-theme="dark"] code {
+  background-color: var(--color-gray-800);
 }
 
 pre {
@@ -225,9 +311,13 @@ pre {
 }
 
 @media (prefers-color-scheme: dark) {
-  pre {
+  :root:not([data-theme]) pre {
     background-color: var(--color-gray-900);
   }
+}
+
+[data-theme="dark"] pre {
+  background-color: var(--color-gray-900);
 }
 
 /* Lists */

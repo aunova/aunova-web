@@ -1,0 +1,358 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import { getTranslation } from '../../../utils/i18n';
+
+const lang = 'en';
+const t = getTranslation(lang);
+---
+
+<PageLayout
+  title="Fully Homomorphic Encryption (FHE) Solutions - Aunova"
+  description="Leverage FHE to perform computations on encrypted data without ever decrypting it. Build secure applications for cloud computing, healthcare, and finance."
+  lang={lang}
+>
+  <section class="service-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Fully Homomorphic Encryption</h1>
+        <p class="lead">Process sensitive data in untrusted environments while it remains fully encrypted, ensuring absolute privacy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="overview-section">
+    <div class="container">
+      <div class="overview-content">
+        <h2>Compute Without Seeing</h2>
+        <p>
+          Fully Homomorphic Encryption (FHE) is a revolutionary cryptographic technique that allows for arbitrary computations on encrypted data. This means you can process, analyze, and derive insights from data without ever needing to decrypt it, making it a game-changer for privacy and security.
+        </p>
+        <p>
+          At Aunova, we harness the power of FHE to build systems where data privacy is mathematically guaranteed, even during active computation in cloud environments or third-party services.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="container">
+      <h2>Our FHE Capabilities</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Encrypted Data Processing</h3>
+          <p>Implement solutions that perform complex operations—from statistical analysis to machine learning—directly on encrypted datasets.</p>
+          <ul>
+            <li>Private data aggregation</li>
+            <li>Secure multi-party computation</li>
+            <li>Encrypted search and query</li>
+            <li>Integration with existing data pipelines</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>Private AI & Machine Learning</h3>
+          <p>Train and run machine learning models on encrypted data, ensuring that sensitive information is never exposed.</p>
+          <ul>
+            <li>Encrypted model training</li>
+            <li>Private inference as a service</li>
+            <li>Secure AI for healthcare and finance</li>
+            <li>Compliance with GDPR, HIPAA, and more</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <h3>Secure Cloud & Outsourced Computation</h3>
+          <p>Migrate sensitive computations to the cloud with confidence, knowing your data is protected from providers and attackers.</p>
+          <ul>
+            <li>End-to-end encrypted data workflows</li>
+            <li>Protection against infrastructure breaches</li>
+            <li>Secure data collaboration</li>
+            <li>Verifiable computation results</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="use-cases-section">
+    <div class="container">
+      <h2>Real-World Applications</h2>
+      <div class="use-cases-grid">
+        <div class="use-case">
+          <h3>Financial Services</h3>
+          <p>Analyze encrypted financial data for fraud detection, credit scoring, and risk assessment without exposing customer information.</p>
+        </div>
+        <div class="use-case">
+          <h3>Healthcare</h3>
+          <p>Conduct medical research and build predictive models on encrypted patient records, preserving confidentiality.</p>
+        </div>
+        <div class="use-case">
+          <h3>Manufacturing</h3>
+          <p>Enable secure multi-party supply chain analytics without revealing sensitive operational data to partners.</p>
+        </div>
+        <div class="use-case">
+          <h3>Government</h3>
+          <p>Process and analyze classified or sensitive citizen data securely across different agencies or departments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Unlock Your Data's Potential with FHE?</h2>
+        <p>Let's discuss how we can help you build next-generation applications with Fully Homomorphic Encryption.</p>
+        <div class="cta-actions">
+          <a href={`/${lang}/contact`} class="btn btn-primary">Get Started</a>
+          <a href="https://cal.com/ngmisl/aunova" target="_blank" rel="noopener" class="btn btn-outline">
+            Schedule Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  /* Styles are copied from zero-knowledge.astro */
+  .service-hero {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--color-background) 0%, color-mix(in srgb, var(--color-primary) 10%, var(--color-background)) 100%);
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-content h1 {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-red-dark) 0%, #8B7F47 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.3;
+    padding-bottom: 0.1em;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .hero-content h1 {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  .lead {
+    font-size: var(--text-xl);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .overview-section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .overview-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .overview-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+    text-align: center;
+  }
+
+  .overview-content p {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: var(--space-lg);
+  }
+
+  .features-section {
+    padding: var(--space-3xl) 0;
+    background-color: color-mix(in srgb, var(--color-secondary) 5%, var(--color-background));
+  }
+
+  .features-section h2 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .feature-card {
+    background-color: var(--color-background);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+  }
+
+  .feature-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .feature-card h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+  }
+
+  .feature-card p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+  }
+
+  .feature-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-card li {
+    padding-left: var(--space-lg);
+    position: relative;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+
+  .feature-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .use-cases-section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .use-cases-section h2 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .use-case {
+    text-align: center;
+    padding: var(--space-lg);
+  }
+
+  .use-case h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+  }
+
+  .use-case p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .cta-section {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 5%, var(--color-background)) 0%, var(--color-background) 100%);
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-content p {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    border-color: color-mix(in srgb, var(--color-primary) 85%, black);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: var(--text-3xl);
+    }
+
+    .use-cases-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
