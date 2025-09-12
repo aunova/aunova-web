@@ -1,71 +1,115 @@
 ---
-import { z } from 'zod';
-import Badge from './Badge.astro';
+import { z } from "zod";
+import Badge from "./Badge.astro";
 
-const props = z.object({
-  title: z.string(),
-  description: z.string(),
-  href: z.string(),
-  image: z.string().optional(),
-  imageAlt: z.string().optional(),
-  category: z.string(),
-  author: z.string(),
-  date: z.date(),
-  readMoreText: z.string().default('Read More'),
-  class: z.string().optional(),
-}).parse(Astro.props);
+const props = z
+    .object({
+        title: z.string(),
+        description: z.string(),
+        href: z.string(),
+        image: z.string().optional(),
+        imageAlt: z.string().optional(),
+        category: z.string(),
+        author: z.string(),
+        date: z.date(),
+        readMoreText: z.string().default("Read More"),
+        class: z.string().optional(),
+    })
+    .parse(Astro.props);
 
-const formattedDate = props.date.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
+const formattedDate = props.date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
 });
 ---
 
-<article class:list={['card card-hover flex flex-col h-full', props.class]}>
-  {props.image && (
-    <div class="aspect-video w-full overflow-hidden bg-muted">
-      <img 
-        src={props.image} 
-        alt={props.imageAlt || props.title}
-        loading="lazy"
-        class="w-full h-full object-cover transition-transform hover:scale-105"
-      />
-    </div>
-  )}
-  
-  <div class="p-6 flex flex-col flex-1">
-    <div class="flex items-center gap-3 mb-4">
-      <Badge variant="secondary" size="sm">
-        {props.category}
-      </Badge>
-      <time datetime={props.date.toISOString()} class="text-xs text-muted">
-        {formattedDate}
-      </time>
-    </div>
-    
-    <h2 class="text-xl font-bold mb-3 line-clamp-2">
-      <a href={props.href} class="text-foreground hover:text-primary transition-colors">
-        {props.title}
-      </a>
-    </h2>
-    
-    <p class="text-muted leading-relaxed line-clamp-3 flex-1 mb-6">
-      {props.description}
-    </p>
-    
-    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-      <span class="text-sm text-muted font-medium">{props.author}</span>
-      <a href={props.href} class="inline-flex items-center gap-1 text-primary font-semibold hover:gap-2 transition-all">
-        {props.readMoreText}
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-      </a>
-    </div>
-  </div>
+<article
+    class:list={[
+        "card card-hover flex flex-col h-full blog-card-clickable",
+        props.class,
+    ]}
+>
+    <a
+        href={props.href}
+        class="flex flex-col h-full group"
+        aria-label={`Read blog post: ${props.title}`}
+    >
+        {
+            props.image && (
+                <div class="aspect-video w-full overflow-hidden bg-muted">
+                    <img
+                        src={props.image}
+                        alt={props.imageAlt || props.title}
+                        loading="lazy"
+                        class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                    />
+                </div>
+            )
+        }
+
+        <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-3 mb-4">
+                <Badge variant="secondary" size="sm">
+                    {props.category}
+                </Badge>
+                <time
+                    datetime={props.date.toISOString()}
+                    class="text-xs text-muted"
+                >
+                    {formattedDate}
+                </time>
+            </div>
+
+            <h2
+                class="text-xl font-bold mb-3 line-clamp-2 group-hover:text-primary transition-colors"
+            >
+                {props.title}
+            </h2>
+
+            <p class="text-muted leading-relaxed line-clamp-3 flex-1 mb-6">
+                {props.description}
+            </p>
+
+            <div
+                class="flex justify-between items-center pt-4 border-t border-gray-100"
+            >
+                <span class="text-sm text-muted font-medium"
+                    >{props.author}</span
+                >
+                <span
+                    class="inline-flex items-center gap-1 text-primary font-semibold group-hover:gap-2 transition-all"
+                >
+                    {props.readMoreText}
+                    <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </a>
 </article>
 
 <style>
-  /* All styles are handled via utility classes */
+    .blog-card-clickable a {
+        text-decoration: none !important;
+        color: inherit;
+    }
+
+    .blog-card-clickable a:hover {
+        text-decoration: none !important;
+    }
+
+    .blog-card-clickable:hover {
+        cursor: pointer;
+    }
 </style>
