@@ -1,131 +1,150 @@
 ---
-import { getCollection } from 'astro:content';
-import PageLayout from '../../../layouts/PageLayout.astro';
-import SocialShare from '../../../components/SocialShare.astro';
-import { getTranslation } from '../../../utils/i18n';
-import PostHeader from '../../../components/ui/PostHeader.astro';
-import Prose from '../../../components/ui/Prose.astro';
-import Badge from '../../../components/ui/Badge.astro';
-import Button from '../../../components/ui/Button.astro';
-import '../../../styles/utilities.css';
+import { getCollection } from "astro:content";
+import PageLayout from "../../../layouts/PageLayout.astro";
+import SocialShare from "../../../components/SocialShare.astro";
+import { getTranslation } from "../../../utils/i18n";
+import PostHeader from "../../../components/ui/PostHeader.astro";
+import Prose from "../../../components/ui/Prose.astro";
+import Badge from "../../../components/ui/Badge.astro";
+import Button from "../../../components/ui/Button.astro";
+import "../../../styles/utilities.css";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ id }) => {
-    return id.startsWith('en/');
-  });
-  
-  return posts.map((post) => ({
-    params: { slug: post.slug.replace('en/', '') },
-    props: post,
-  }));
+    const posts = await getCollection("blog", ({ id }) => {
+        return id.startsWith("en/");
+    });
+
+    return posts.map((post) => ({
+        params: { slug: post.slug.replace("en/", "") },
+        props: post,
+    }));
 }
 
 const post = Astro.props;
 const { Content } = await post.render();
 
-const lang = 'en';
+const lang = "en";
 const t = getTranslation(lang);
 
 // Format date
-const formattedDate = post.data.publishDate.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
+const formattedDate = post.data.publishDate.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
 });
 
 // Calculate reading time (rough estimate)
 const words = post.body.split(/\s+/).length;
 const readingTime = Math.ceil(words / 200);
+
+// Prepare image URL for social media
+const socialImage = post.data.image
+    ? post.data.image.replace("~/assets/images", "/images/blog")
+    : "/images/og-default.webp";
 ---
 
-<PageLayout 
-  title={post.data.title}
-  description={post.data.description}
-  image={post.data.image}
-  lang={lang}
+<PageLayout
+    title={post.data.title}
+    description={post.data.description}
+    image={socialImage}
+    lang={lang}
+    type="article"
+    publishDate={post.data.publishDate.toISOString()}
+    author={post.data.author}
 >
-  <article class="py-8 md:py-12">
-    <div class="container">
-      <div class="max-w-4xl mx-auto">
-        <PostHeader
-          title={post.data.title}
-          description={post.data.description}
-          category={post.data.category}
-          author={post.data.author}
-          date={post.data.publishDate}
-          readingTime={readingTime}
-          readTimeText={t.blog.readTime}
-        />
+    <article class="py-8 md:py-12">
+        <div class="container">
+            <div class="max-w-4xl mx-auto">
+                <PostHeader
+                    title={post.data.title}
+                    description={post.data.description}
+                    category={post.data.category}
+                    author={post.data.author}
+                    date={post.data.publishDate}
+                    readingTime={readingTime}
+                    readTimeText={t.blog.readTime}
+                />
 
-        {post.data.image && (
-          <div class="mb-8 md:mb-12 rounded-lg overflow-hidden shadow-xl">
-            <img 
-              src={post.data.image.replace('~/assets/images', '/images/blog')} 
-              alt={post.data.imageAlt || post.data.title}
-              loading="eager"
-              class="w-full h-auto block"
-            />
-          </div>
-        )}
+                {
+                    post.data.image && (
+                        <div class="mb-8 md:mb-12 rounded-lg overflow-hidden shadow-xl">
+                            <img
+                                src={post.data.image.replace(
+                                    "~/assets/images",
+                                    "/images/blog",
+                                )}
+                                alt={post.data.imageAlt || post.data.title}
+                                loading="eager"
+                                class="w-full h-auto block"
+                            />
+                        </div>
+                    )
+                }
 
-        <div class="post-content-box">
-          <Prose>
-            <Content />
-          </Prose>
-        </div>
-        
-        <div class="mt-8">
-          <SocialShare 
-            title={post.data.title}
-            description={post.data.description}
-          />
-        </div>
+                <div class="post-content-box">
+                    <Prose>
+                        <Content />
+                    </Prose>
+                </div>
 
-        <footer class="mt-12 pt-8 border-t">
-          {post.data.tags && post.data.tags.length > 0 && (
-            <div class="flex items-center gap-2 flex-wrap mb-8">
-              <span class="font-semibold text-foreground">Tags:</span>
-              {post.data.tags.map((tag) => (
-                <Badge variant="muted" size="sm">
-                  #{tag}
-                </Badge>
-              ))}
+                <div class="mt-8">
+                    <SocialShare
+                        title={post.data.title}
+                        description={post.data.description}
+                    />
+                </div>
+
+                <footer class="mt-12 pt-8 border-t">
+                    {
+                        post.data.tags && post.data.tags.length > 0 && (
+                            <div class="flex items-center gap-2 flex-wrap mb-8">
+                                <span class="font-semibold text-foreground">
+                                    Tags:
+                                </span>
+                                {post.data.tags.map((tag) => (
+                                    <Badge variant="muted" size="sm">
+                                        #{tag}
+                                    </Badge>
+                                ))}
+                            </div>
+                        )
+                    }
+
+                    <div
+                        class="flex justify-between items-center gap-4 flex-wrap"
+                    >
+                        <Button href={`/${lang}/blog`} variant="ghost">
+                            ← Back to Blog
+                        </Button>
+                        <Button href={`/${lang}/contact`} variant="primary">
+                            {t.contact.calendar.button} →
+                        </Button>
+                    </div>
+                </footer>
             </div>
-          )}
-          
-          <div class="flex justify-between items-center gap-4 flex-wrap">
-            <Button href={`/${lang}/blog`} variant="ghost">
-              ← Back to Blog
-            </Button>
-            <Button href={`/${lang}/contact`} variant="primary">
-              {t.contact.calendar.button} →
-            </Button>
-          </div>
-        </footer>
-      </div>
-    </div>
-  </article>
+        </div>
+    </article>
 </PageLayout>
 
 <style>
-  .post-content-box {
-    background-color: var(--color-white);
-    padding: var(--space-2xl);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--color-gray-100);
-  }
-
-  @media (prefers-color-scheme: dark) {
     .post-content-box {
-      background-color: var(--color-gray-900);
-      border-color: var(--color-gray-800);
+        background-color: var(--color-white);
+        padding: var(--space-2xl);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-gray-100);
     }
-  }
 
-  @media (max-width: 768px) {
-    .post-content-box {
-      padding: var(--space-lg);
+    @media (prefers-color-scheme: dark) {
+        .post-content-box {
+            background-color: var(--color-gray-900);
+            border-color: var(--color-gray-800);
+        }
     }
-  }
+
+    @media (max-width: 768px) {
+        .post-content-box {
+            padding: var(--space-lg);
+        }
+    }
 </style>
