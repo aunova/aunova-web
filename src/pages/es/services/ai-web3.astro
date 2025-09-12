@@ -134,23 +134,15 @@ const t = getTranslation(lang);
     font-weight: 700;
     margin-bottom: var(--space-md);
     /* Darker gradient for light mode for better readability */
-    background: linear-gradient(135deg, var(--color-red-dark) 0%, #8B7F47 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-primary);
+    
+    
+    
     line-height: 1.3;
-    padding-bottom: 0.1em;
+    
   }
   
   /* Keep original gradient for dark mode */
-  @media (prefers-color-scheme: dark) {
-    .hero-content h1 {
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-  }
   
   .lead {
     font-size: var(--text-xl);
