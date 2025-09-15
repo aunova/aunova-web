@@ -1,5 +1,6 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+import Announcement from "../components/features/Announcement.astro";
 import { getTranslation } from "../utils/i18n";
 
 // Default to English - no language detection
@@ -12,6 +13,13 @@ const t = getTranslation(lang);
     description="Run AI on sensitive data without exposing it. Powered by Zero-Knowledge Proofs, Fully Homomorphic Encryption, and Blockchain."
     lang={lang}
 >
+    <!-- Announcement Banner -->
+    <Announcement
+        text={t.announcement.text}
+        cta={t.announcement.cta}
+        link={t.announcement.link}
+    />
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -238,7 +246,12 @@ const t = getTranslation(lang);
                     >
                         {t.finalCta.actions.call}
                     </a>
-                    <a href={`/${lang}/contact`} class="btn btn-outline">
+                    <a
+                        href="https://drive.google.com/file/d/1QdZxOhuFeQeQBv3vNcBz-HSkVKHdnaB3/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn btn-outline"
+                    >
                         {t.finalCta.actions.onePager}
                     </a>
                 </div>

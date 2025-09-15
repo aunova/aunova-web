@@ -1,0 +1,125 @@
+---
+export interface Props {
+  text: string;
+  cta: string;
+  link: string;
+}
+
+const { text, cta, link } = Astro.props;
+---
+
+<div class="announcement-banner">
+  <div class="container">
+    <div class="announcement-content">
+      <span class="announcement-text">{text}</span>
+      <a href={link} target="_blank" rel="noopener" class="announcement-cta">
+        {cta}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .announcement-banner {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary) 0%,
+      color-mix(in srgb, var(--color-primary) 85%, black) 100%
+    );
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-sm) 0;
+    z-index: 50;
+  }
+
+  .announcement-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  .announcement-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    text-align: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .announcement-text {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.025em;
+  }
+
+  .announcement-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+  }
+
+  .announcement-cta:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .announcement-cta svg {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .announcement-cta:hover svg {
+    transform: translate(2px, -2px);
+  }
+
+  @media (max-width: 640px) {
+    .announcement-content {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .announcement-text,
+    .announcement-cta {
+      font-size: var(--text-xs);
+    }
+  }
+</style>

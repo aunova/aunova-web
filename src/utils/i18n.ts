@@ -9,6 +9,11 @@ export const defaultLang: Language = "en";
 
 export const translations = {
   en: {
+    announcement: {
+      text: "We're at GITEX 2025 in Dubai!",
+      cta: "Meet us there",
+      link: "https://cal.com/ngmisl/gitex",
+    },
     nav: {
       home: "Home",
       services: "Services",
@@ -227,6 +232,11 @@ export const translations = {
     },
   },
   es: {
+    announcement: {
+      text: "¡Estamos en GITEX 2025 en Dubai!",
+      cta: "Reunámonos en persona",
+      link: "https://cal.com/ngmisl/gitex",
+    },
     nav: {
       home: "Inicio",
       services: "Servicios",
