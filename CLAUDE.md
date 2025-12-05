@@ -311,6 +311,13 @@ property: attr(attribute-name type(<type>), fallback-value);
 - Add structured data
 - Implement related posts
 
+#### Published Blog Posts
+- **2025-12-05**: "Why Dubai Luxury Real Estate Needs Blockchain Carbon Credits" (en)
+  - Topic: Blockchain carbon credits for luxury real estate
+  - Service pillars: Zero-Knowledge & Privacy, Web3 Integration, Hybrid ZK-AI, Decentralized Infrastructure
+  - Technical focus: Smart contracts, wallet abstraction, privacy-preserving architecture, GDPR/UAE PDPL compliance
+  - Call-to-action: Aunova's tokenized sustainability solutions
+
 ## i18n Implementation
 
 ### Language Structure
