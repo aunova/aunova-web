@@ -36,6 +36,5 @@ export default defineConfig({
       noExternal: ["zustand"],
     },
   },
-  // Disable telemetry
-  telemetry: false,
+  // Telemetry disabled via: astro telemetry disable
 });

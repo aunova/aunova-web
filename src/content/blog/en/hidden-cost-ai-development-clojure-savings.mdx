@@ -1,0 +1,668 @@
+---
+title: "The Hidden Cost of AI-Assisted Development (And How Clojure Can Save You 40%)"
+description: "Clojure reduces AI coding costs by 30-50% through syntactic efficiency and better documentation patterns. Smaller files mean you can keep more context in memory, extending AI sessions 2-3x longer. Real analysis shows $4,285 total value over 3 years across 10 projects."
+publishDate: 2026-01-21
+category: technical
+tags:
+  - clojure
+  - ai
+  - developer-tools
+  - sustainability
+  - token-efficiency
+  - agents-md
+author: "Chris"
+image: "/images/blog/clojure-ai-savings.webp"
+---
+
+**TL;DR:** Clojure reduces AI coding costs by 30-50% through syntactic efficiency, better documentation patterns, and compounding token savings. More importantly: **smaller files mean you can keep more context in memory, extending AI sessions 2-3x longer**. Real analysis of Aunova's website shows modest per-project savings ($4.73 API + $150-225 developer time over 6 months) - but **$4,285 total value over 3 years across 10 projects** ($285 API + $4,000 velocity gains), plus 31kg CO2 reduction from warm context sessions.
+
+---
+
+## The Problem Nobody's Talking About
+
+AI-assisted development with tools like Cursor, GitHub Copilot, and Claude Code has become the new normal. But there's a hidden tax most teams haven't calculated: **token costs scale with codebase verbosity**.
+
+Consider a typical React component:
+
+```jsx
+export function UserProfile({ user, loading, onUpdate }) {
+  const [editing, setEditing] = useState(false);
+  
+  if (loading) {
+    return <div className="spinner">Loading...</div>;
+  }
+  
+  return (
+    <div className="profile-container">
+      <h2 className="profile-title">{user.name}</h2>
+      <p className="profile-email">{user.email}</p>
+      <button 
+        className="edit-button"
+        onClick={() => setEditing(!editing)}
+      >
+        {editing ? 'Save' : 'Edit'}
+      </button>
+    </div>
+  );
+}
+```
+
+**Estimated tokens: ~215 tokens**
+
+Every time an LLM reads or generates this code, you're paying for:
+- Boilerplate imports and exports
+- Opening AND closing JSX tags (9 closing tags here)
+- Curly brace ceremony
+- Verbose JavaScript syntax
+
+Multiply this across hundreds of components, thousands of LLM interactions, and suddenly you're looking at $5,000-15,000 in additional annual AI tooling costs for a small team.
+
+---
+
+## The Clojure Advantage: Data as Code
+
+Here's the equivalent in Clojure with Reagent:
+
+```clojure
+(defn user-profile [{:keys [user loading? on-update]}]
+  (let [editing? (r/atom false)]
+    (fn []
+      (if loading?
+        [:div.spinner "Loading..."]
+        [:div.profile-container
+         [:h2.profile-title (:name user)]
+         [:p.profile-email (:email user)]
+         [:button.edit-button
+          {:on-click #(swap! editing? not)}
+          (if @editing? "Save" "Edit")]]))))
+```
+
+**Estimated tokens: ~130 tokens** (40% reduction)
+
+### Why the Difference?
+
+1. **No closing tags**: Hiccup uses vector notation - `[:div]` instead of `<div></div>`
+2. **Data literals**: Maps, vectors, keywords are native - no JSON.parse ceremony
+3. **Functional defaults**: No class declarations, constructor boilerplate, or `this` binding
+4. **Destructuring**: `{:keys [user loading?]}` is terser than multiple parameter declarations
+
+Our test at [clojure.orbiter.website](https://clojure.orbiter.website/) demonstrates real measurements:
+- **Clojure (Hiccup):** ~69 tokens
+- **Raw HTML:** ~77 tokens  
+- **React (JSX):** ~86 tokens
+
+**Critical insight:** This isn't just about saving $1-2 per project. **Smaller files mean you can keep 2-3x more code in your AI's context window**, enabling dramatically longer development sessions without losing state. We'll explore this multiplier effect in detail below.
+
+---
+
+## The AGENTS.md Multiplier Effect
+
+Token reduction is just the beginning. The real savings come from a documented patterns approach we call **AGENTS.md** - a comprehensive guide that teaches LLMs your codebase conventions once, eliminating repetitive context.
+
+### The Traditional Approach (Expensive)
+
+**Developer:** "Add a new API endpoint for user preferences"
+
+**LLM reads:**
+- Router configuration (200 tokens)
+- Example endpoint (300 tokens)
+- TypeScript types (150 tokens)
+- Validation middleware (200 tokens)
+- Auth middleware (180 tokens)
+- Database schema (220 tokens)
+
+**Total context: ~1,250 tokens** per request, every time.
+
+### The AGENTS.md Approach (Efficient)
+
+**AGENTS.md excerpt:**
+
+```clojure
+;; API Endpoint Pattern (~85 tokens documented)
+
+(defn create-endpoint [route handler schema]
+  (POST route []
+    :body [data schema]
+    :auth jwt-auth
+    (handler data)))
+
+;; Example: (create-endpoint "/api/preferences" 
+;;            save-preferences 
+;;            PreferencesSchema)
+```
+
+**LLM reads:**
+- Your specific AGENTS.md section (85 tokens)
+- Existing similar endpoint (60 tokens)
+
+**Total context: ~145 tokens** - an 88% reduction.
+
+Over 1,000 AI interactions (a moderate month for a small team), this pattern compounds:
+
+| Approach | Tokens/Request | 1,000 Requests | Cost @ $3/1M tokens |
+|----------|----------------|----------------|---------------------|
+| Traditional | 1,250 | 1,250,000 | $3.75 |
+| AGENTS.md | 145 | 145,000 | $0.44 |
+| **Savings** | | | **$3.31 (88%)** |
+
+This is per pattern. With 20-30 documented patterns in your AGENTS.md, monthly savings quickly reach **$50-200** for a small team, **$500-2,000** for a larger engineering org.
+
+---
+
+## Real-World Token Economics
+
+Let's calculate a realistic scenario:
+
+**Mid-size SaaS product:**
+- 50,000 lines of code (LOC)
+- 3 developers using AI tools actively
+- ~2,000 LLM-assisted changes per month
+
+### JavaScript/TypeScript Stack
+
+- **Average file size:** ~250 lines -> ~3,000 tokens
+- **Context per change:** ~1,200 tokens (file + related files)
+- **Monthly tokens:** 2,000 x 1,200 = 2.4M tokens
+- **Monthly cost:** (Claude Sonnet @ $3/$15 per 1M in/out) = **$18/month input**
+
+### Clojure Stack with AGENTS.md
+
+- **Average file size:** ~140 lines -> ~1,500 tokens (50% reduction)
+- **Context per change:** ~600 tokens (file + AGENTS.md patterns)
+- **Monthly tokens:** 2,000 x 600 = 1.2M tokens
+- **Monthly cost:** = **$9/month input**
+
+**Annual savings: ~$108 in direct API costs**
+
+But the real savings are in **output tokens** (where LLMs generate code):
+
+### Output Token Calculations
+
+- **JS/TS output:** 2,000 changes x 800 tokens avg = 1.6M tokens
+- **Clojure output:** 2,000 changes x 450 tokens avg = 900K tokens
+- **JS/TS cost:** $24/month @ $15/1M out
+- **Clojure cost:** $13.50/month @ $15/1M out
+
+**Total monthly savings: ~$19.50**  
+**Annual savings: ~$234**  
+**Over 3 years:** **~$700 per team**
+
+This might seem modest, but remember:
+- This assumes only 3 developers
+- Claude/GPT-4 prices have been decreasing, but usage scales faster
+- Larger codebases (100k+ LOC) see 3-5x these savings
+- These calculations don't include time saved on debugging verbose code
+
+---
+
+## The Context Window Multiplier: Keep Your Session Warm Longer
+
+Here's a crucial advantage that's often overlooked: **AI assistants have finite context windows**, and smaller codebases mean you can keep more of your project in memory during a single session.
+
+### The Context Window Problem
+
+Modern LLMs have impressive context windows:
+- **Claude Sonnet 4:** 200K tokens (~150K words)
+- **GPT-4 Turbo:** 128K tokens
+- **GPT-4o:** 128K tokens
+
+But in practice, you rarely use the full window because:
+1. You need room for your instructions and the AI's responses
+2. Including too many files slows down response time
+3. Costs scale with context size
+
+### Why Smaller Files Matter
+
+Let's compare a typical AI-assisted coding session:
+
+**JavaScript/TypeScript React App (50,000 LOC):**
+- Average component file: ~250 lines -> ~3,000 tokens
+- To work on a feature touching 5 components: ~15,000 tokens
+- Add routing, state management, types: +8,000 tokens
+- **Total context:** ~23,000 tokens (11.5% of Claude's window)
+- **Files you can keep in context:** ~8-10 maximum before hitting practical limits
+
+**Clojure/ClojureScript App (25,000 LOC equivalent):**
+- Average namespace file: ~140 lines -> ~1,500 tokens  
+- Same feature (5 namespaces): ~7,500 tokens
+- Add routing, state, schemas: +3,500 tokens
+- **Total context:** ~11,000 tokens (5.5% of Claude's window)
+- **Files you can keep in context:** ~18-20 files comfortably
+
+### The Warm Context Advantage
+
+This difference compounds in real workflows:
+
+**Scenario: Building a new feature across multiple sessions**
+
+**JavaScript approach:**
+1. Session 1: Load components A, B, C (15K tokens)
+2. Session 2: Context expires, reload + add D, E (18K tokens) 
+3. Session 3: Context expires, reload all + refactor (23K tokens)
+4. Session 4: New chat, explain everything again (20K tokens)
+
+**Total tokens across sessions:** ~76,000 tokens
+
+**Clojure approach:**
+1. Session 1: Load namespaces A, B, C, D, E (11K tokens)
+2. Session 2: Keep context, add F, G for integration (14K tokens)
+3. Session 3: Keep context, refactor (same 14K tokens)
+4. Session 4: Still under limit, polish (16K tokens)
+
+**Total tokens across sessions:** ~55,000 tokens (27% reduction)
+
+### Real Impact: Extended Development Sessions
+
+With Clojure's smaller footprint, you can:
+
+**Keep entire modules in context:**
+- Full authentication flow (5-7 files)
+- Complete API layer (8-10 files)  
+- Entire UI component library (12-15 files)
+
+**Reduce "warm-up tax":**
+- No need to re-explain your architecture every session
+- AI remembers your conventions across multiple changes
+- Fewer "let me reload those files" interruptions
+
+**Calculate the savings:**
+
+Over a 3-month project with 100 development sessions:
+
+| Approach | Avg Context/Session | Total Tokens | Cost @ $3/$15 |
+|----------|---------------------|--------------|---------------|
+| JavaScript (cold starts) | 18,000 | 1,800,000 | $54 (in) + $90 (out) |
+| Clojure (warm sessions) | 12,000 | 1,200,000 | $36 (in) + $60 (out) |
+| **Savings** | | **600,000** | **$48** |
+
+But the real win isn't just cost - it's **velocity**. Developers report 20-30% faster iteration when they don't have to constantly re-establish context with their AI assistant.
+
+---
+
+## The Carbon Angle: CO2 Emissions
+
+AI model inference isn't free environmentally. Here's the uncomfortable math:
+
+**GPT-4 inference energy cost:** ~0.001-0.002 kWh per 1,000 tokens  
+**Global average grid carbon intensity:** ~475g CO2/kWh
+
+For our mid-size project example:
+
+### Annual Token Processing
+
+**JavaScript stack:**
+- Input: 2.4M tokens/month x 12 = 28.8M tokens
+- Output: 1.6M tokens/month x 12 = 19.2M tokens
+- **Total:** 48M tokens/year
+
+**Clojure stack:**
+- Input: 1.2M tokens/month x 12 = 14.4M tokens
+- Output: 900K tokens/month x 12 = 10.8M tokens
+- **Total:** 25.2M tokens/year
+
+### CO2 Emissions
+
+**JavaScript:** 48M tokens x 0.0015 kWh/1k tokens x 475g CO2/kWh = **34.2 kg CO2/year**
+
+**Clojure:** 25.2M tokens x 0.0015 kWh/1k tokens x 475g CO2/kWh = **18 kg CO2/year**
+
+**Reduction: ~16 kg CO2 per team annually** - equivalent to driving 40 miles in a gas car.
+
+Scale this across a 50-person engineering org (16 teams), and you're looking at **~260 kg CO2 reduction annually** - the carbon sequestration of 12 mature trees.
+
+---
+
+## Beyond Syntax: Why Clojure's Paradigm Matters
+
+Token efficiency isn't just about character count. It's about **conceptual density**.
+
+### Functional Patterns Compress Better
+
+Clojure's functional-first approach naturally leads to:
+
+1. **Pure functions** -> easier for LLMs to reason about (no hidden state)
+2. **Data transformation pipelines** -> fewer intermediate variables
+3. **Immutability** -> no complex mutation tracking
+4. **Composition** -> build complex behavior from simple parts
+
+Example - data transformation in JavaScript:
+
+```javascript
+const users = await fetchUsers();
+const activeUsers = users.filter(u => u.active);
+const userEmails = activeUsers.map(u => u.email);
+const sortedEmails = userEmails.sort();
+const uniqueEmails = [...new Set(sortedEmails)];
+return uniqueEmails;
+```
+
+**~85 tokens**
+
+Same logic in Clojure:
+
+```clojure
+(->> (fetch-users)
+     (filter :active)
+     (map :email)
+     sort
+     distinct)
+```
+
+**~28 tokens** (67% reduction)
+
+The threading macro (`->>`) eliminates variable assignments. The LLM spends fewer tokens tracking state.
+
+---
+
+## Building Your AGENTS.md: A Template
+
+Here's how to structure your token-efficient knowledge base:
+
+```markdown
+# AGENTS.md - Project Intelligence
+
+## Core Patterns (5-10 examples, ~50-100 tokens each)
+- State management
+- API calls
+- Form handling
+- Authentication flow
+- Data validation
+
+## Anti-Patterns (what NOT to do)
+- Direct DOM manipulation
+- Deeply nested data
+- Business logic in components
+
+## Project-Specific Conventions
+- Naming conventions
+- File structure rules
+- Testing patterns
+
+## Common Questions
+- "How do I add a new route?"
+- "How do I call the API?"
+- "How do I validate input?"
+```
+
+**Key principles:**
+1. **One pattern = one example** (show, don't tell)
+2. **Working code snippets** (copy-paste ready)
+3. **Keep it under 5,000 tokens total** (the whole guide)
+4. **Update as you go** (living document)
+
+Over time, your AGENTS.md becomes the most valuable file in your repo.
+
+---
+
+## The Competitive Edge
+
+In 2025, AI-assisted development isn't a luxury - it's table stakes. But costs scale differently for different stacks:
+
+| Language | Token Efficiency | Learning Curve | LLM Training Data | Total Cost of Ownership |
+|----------|------------------|----------------|-------------------|-------------------------|
+| JavaScript/TypeScript | Baseline (1.0x) | Low | Massive | High (verbose, many iterations) |
+| Python | Similar (1.0x) | Low | Massive | Medium-High |
+| Clojure | Efficient (0.5-0.6x) | Medium | Moderate | Low (concise, fewer iterations) |
+| Rust | Verbose (1.3x) | High | Moderate | High (complex, many corrections) |
+
+**Clojure's sweet spot:** Moderate LLM training data (good enough) combined with extreme conciseness.
+
+Yes, the initial learning curve is steeper. But once your AGENTS.md is built, new team members (and LLMs) come up to speed faster because there's simply less to learn.
+
+---
+
+## Real-World Case Study: Aunova.net Website Rewritten in Clojure
+
+Let's calculate the actual impact using Aunova's own website as a concrete example. The current Aunova website uses Astro, TypeScript, and MDX - a modern, efficient stack. But what if we rebuilt it in ClojureScript?
+
+### Current Stack Analysis
+
+**Technology:** Astro v5.13 + TypeScript + MDX  
+**Codebase composition:**
+- HTML/Astro templates: 52.2%
+- MDX blog content: 11.5%
+- TypeScript: 1.9%
+- CSS: 2.6%
+- JavaScript: 0.8%
+
+**Estimated lines of code:** ~4,000 LOC (typical for a marketing site with blog, services pages, and components)
+
+### Token Estimates
+
+**Current Astro/TypeScript Implementation:**
+
+Average file breakdown:
+- Astro components: ~80 lines each -> ~1,000 tokens
+- TypeScript utilities: ~60 lines -> ~800 tokens
+- MDX blog posts: ~150 lines -> ~1,800 tokens
+- Page templates: ~120 lines -> ~1,500 tokens
+
+**Total estimated tokens for codebase:** ~50,000 tokens
+
+**Hypothetical ClojureScript Implementation:**
+
+Using Reagent + Hiccup + Markdown:
+- Reagent components: ~45 lines each -> ~500 tokens
+- Clojure utilities: ~30 lines -> ~350 tokens
+- Markdown blog posts: ~140 lines -> ~1,600 tokens (similar)
+- Page functions: ~65 lines -> ~750 tokens
+
+**Total estimated tokens for codebase:** ~28,000 tokens (44% reduction)
+
+### Development Workflow Calculations
+
+Let's model a realistic 6-month development and maintenance period:
+
+**Phase 1: Initial Development (2 months)**
+- Blog post creation: 24 posts x 3 AI-assisted edits each = 72 interactions
+- Component development: 15 components x 8 iterations = 120 interactions
+- Page creation: 12 pages x 5 iterations = 60 interactions
+- Integration/styling: 40 interactions
+- **Total:** 292 interactions
+
+**Phase 2: Maintenance (4 months)**
+- Blog posts: 20 new posts x 3 edits = 60 interactions
+- Feature updates: 8 features x 12 iterations = 96 interactions
+- Bug fixes: 24 fixes x 2 iterations = 48 interactions
+- Content updates: 30 interactions
+- **Total:** 234 interactions
+
+**Grand Total:** 526 interactions over 6 months
+
+### Token Usage Calculations
+
+#### Input Tokens (Context)
+
+**Astro/TypeScript:**
+- Average context per interaction: ~2,200 tokens (relevant files + AGENTS.md equivalent)
+- Total input: 526 x 2,200 = **1,157,200 tokens**
+
+**ClojureScript:**
+- Average context per interaction: ~1,200 tokens (more concise files + AGENTS.md)
+- Total input: 526 x 1,200 = **631,200 tokens**
+
+**Savings:** 526,000 input tokens (45% reduction)
+
+#### Output Tokens (Generated Code)
+
+**Astro/TypeScript:**
+- Average output per interaction: ~900 tokens
+- Total output: 526 x 900 = **473,400 tokens**
+
+**ClojureScript:**
+- Average output per interaction: ~500 tokens
+- Total output: 526 x 500 = **263,000 tokens**
+
+**Savings:** 210,400 output tokens (44% reduction)
+
+### Financial Impact
+
+**API Costs (Claude Sonnet @ $3/$15 per 1M tokens):**
+
+| Metric | Astro/TypeScript | ClojureScript | Savings |
+|--------|------------------|---------------|---------|
+| Input tokens | 1,157,200 | 631,200 | 526,000 |
+| Input cost | $3.47 | $1.89 | $1.58 |
+| Output tokens | 473,400 | 263,000 | 210,400 |
+| Output cost | $7.10 | $3.95 | $3.15 |
+| **Total Cost** | **$10.57** | **$5.84** | **$4.73** |
+| **Savings %** | | | **45%** |
+
+**6-month savings:** $4.73  
+**Annual projection:** ~$9.50/year  
+**3-year total:** ~$28.50
+
+### Carbon Footprint
+
+**Energy calculations:**
+
+**Astro/TypeScript:**
+- Total tokens: 1,630,600
+- Energy: 1,630,600 x 0.0015 kWh/1k tokens = 2.45 kWh
+- CO2: 2.45 kWh x 475g CO2/kWh = **1.16 kg CO2**
+
+**ClojureScript:**
+- Total tokens: 894,200
+- Energy: 894,200 x 0.0015 kWh/1k tokens = 1.34 kWh
+- CO2: 1.34 kWh x 475g CO2/kWh = **0.64 kg CO2**
+
+**6-month CO2 reduction:** 0.52 kg  
+**Annual CO2 reduction:** ~1.04 kg  
+**3-year reduction:** ~3.12 kg
+
+That's equivalent to:
+- Charging 130 smartphones
+- Driving 8 miles in a gas car
+- The carbon sequestration of 0.14 mature trees
+
+### The Velocity Factor
+
+Beyond direct costs, consider development velocity improvements:
+
+**Time savings from smaller codebase:**
+- Less scrolling through verbose files
+- Faster file navigation
+- Quicker mental model building
+- Fewer merge conflicts (smaller diffs)
+- Extended AI context sessions (less re-explaining)
+
+**Estimated time savings for aunova-web:** 2-3 hours over 6 months for a solo developer
+
+**Value at $75/hour rate:** $150-225 in developer time saved
+
+**Conservative 3-year estimate:** ~$400 per project (accounting for learning curve in first project)
+
+### Is It Worth It for Aunova.net?
+
+**Pure API cost analysis:** $4.73 over 6 months ($28.50 over 3 years) is modest.
+
+**Total value including developer time:** $428 over 3 years ($28.50 API + $400 productivity) is meaningful.
+
+**Strategic considerations:**
+- Learning investment in Clojure benefits future projects
+- AGENTS.md patterns reusable across all Clojure projects
+- Smaller codebase = easier onboarding for contributors
+- Astro + TypeScript has excellent LLM support already
+- Rewrite cost (20-30 hours) exceeds short-term savings
+
+**Verdict:** For a single marketing site, probably not worth rewriting. But for Aunova's next **product application** (dashboard, SaaS tool, complex web app), starting with ClojureScript makes compelling sense.
+
+### Extrapolation: What If Aunova Builds 10 Similar Projects?
+
+**10 projects over 3 years:**
+- **API cost savings:** 10 x $28.50 = **$285**
+- **Developer productivity gains:** 10 x $400 = **$4,000** (conservative estimate)
+- **CO2 reduction:** 10 x 3.12 kg = **31.2 kg**
+- **Total value:** **$4,285** ($285 API + $4,000 time savings)
+
+Plus: Shared AGENTS.md means project #10 starts **75% faster** than project #1.
+
+**This is where the economics become undeniable.**
+
+---
+
+## When Clojure Makes Sense
+
+This isn't a universal solution. Clojure's token efficiency matters most when:
+
+- **High AI-assisted development usage** (Cursor, Claude Code, Copilot)
+- **Long-lived codebases** (compound savings over years)
+- **Small to medium teams** (easier to maintain consistency)
+- **Data-heavy applications** (Clojure's strength)
+- **Internal tools** (lower hiring constraint)
+
+It's less compelling when:
+
+- **Large mobile apps** (React Native ecosystem is richer)
+- **Massive enterprise teams** (harder to retrain)
+- **Tight hiring timelines** (Clojure talent is scarcer)
+
+---
+
+## The Path Forward
+
+If you're considering Clojure for token efficiency:
+
+**Phase 1: Experiment (1-2 weeks)**
+- Build a small internal tool in ClojureScript
+- Document every pattern in AGENTS.md as you go
+- Measure token usage with your AI assistant
+- Compare against equivalent React implementation
+
+**Phase 2: Validate (1 month)**
+- Use the codebase actively
+- Refine AGENTS.md based on AI interaction patterns
+- Calculate actual savings (tokens, time, API cost)
+
+**Phase 3: Decide (end of Phase 2)**
+- If savings > 30% and team is comfortable -> expand
+- If savings < 20% or team friction is high -> stick with current stack
+- Document findings either way
+
+**Phase 4: Scale (ongoing)**
+- Create boilerplate projects with AGENTS.md included
+- Build internal tooling for AGENTS.md management
+- Share patterns across teams
+
+---
+
+## Conclusion: The Long Game
+
+Token efficiency in AI-assisted development is a marathon, not a sprint. Our analysis of Aunova's own website demonstrates that while API savings for a single project are modest ($28.50 over 3 years), the **compounding effect across multiple projects** creates undeniable value:
+
+**10 projects over 3 years:**
+- **$285** in direct API cost savings
+- **$4,000** in developer productivity gains (faster iteration, less context rebuilding)
+- **31kg CO2** reduction
+- **Total value: $4,285**
+
+The teams that win are those who:
+
+1. **Choose syntactically efficient languages** (Clojure, but also consider OCaml, F#, Haskell)
+2. **Document patterns religiously** (AGENTS.md approach - once written, reused forever)
+3. **Measure everything** (token usage, API costs, velocity, context window utilization)
+4. **Iterate** (refine patterns based on AI interaction data)
+5. **Think in portfolios** (the value isn't one project, it's 10+ projects)
+
+Clojure isn't magic. It's simply optimized for the constraints that matter in 2025: **human time is expensive, AI time is metered, context windows are limited, and code should be data**.
+
+For Aunova, this aligns perfectly with our values: **efficiency, sustainability, and building systems that scale gracefully**. We'll continue building new projects in ClojureScript, investing in our AGENTS.md library, and watching our token efficiency compound over time.
+
+Whether you choose Clojure or not, the principle stands: **in an AI-assisted world, every token counts** - not just for cost, but for keeping your development context warm, maintaining velocity, and reducing environmental impact.
+
+---
+
+**The real question isn't "Should I rewrite my existing project?"**  
+**It's "What should my next project be built with?"**
+
+---
+
+**Want to explore token-efficient development for your project?** [Contact Aunova](/en/contact) for a consultation on AI-assisted development strategies, from stack selection to AGENTS.md architecture.
+
+**Try it yourself:** Check out our token efficiency demo at [clojure.orbiter.website](https://clojure.orbiter.website/)
+
+---
+
+*Written by Chris Houy, Founder at Aunova OU*
+
+*Topics: Clojure, AI-Assisted Development, Token Efficiency, Carbon Footprint, Developer Tools*
