@@ -1,0 +1,137 @@
+---
+export interface Props {
+  title: string;
+  intro: string;
+  criteria: string[];
+  boundary: string;
+}
+
+const { title, intro, criteria, boundary } = Astro.props;
+---
+
+<section class="criteria-section">
+  <div class="criteria-header">
+    <h2 class="criteria-title">{title}</h2>
+    <p class="criteria-intro">{intro}</p>
+  </div>
+
+  <ul class="criteria-list">
+    {criteria.map((item) => (
+      <li class="criteria-item">
+        <span class="check-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path
+              d="M16.667 5L7.5 14.167L3.333 10"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+        <span class="criteria-text">{item}</span>
+      </li>
+    ))}
+  </ul>
+
+  <aside class="boundary-statement">
+    <p>{boundary}</p>
+  </aside>
+</section>
+
+<style>
+  .criteria-section {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .criteria-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .criteria-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-md) 0;
+    line-height: 1.2;
+  }
+
+  .criteria-intro {
+    font-size: var(--text-lg);
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .criteria-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-2xl) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .criteria-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-background-elevated, var(--color-white));
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+
+  .criteria-item:hover {
+    border-color: var(--color-primary);
+    transform: translateX(4px);
+  }
+
+  .check-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color-greenblocks) 15%, var(--color-background));
+    color: var(--color-greenblocks);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .criteria-text {
+    font-size: var(--text-base);
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .boundary-statement {
+    background: color-mix(in srgb, var(--color-primary) 5%, var(--color-background));
+    border-left: 4px solid var(--color-primary);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: var(--space-lg);
+  }
+
+  .boundary-statement p {
+    font-size: var(--text-base);
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .criteria-title {
+      font-size: var(--text-3xl);
+    }
+
+    .criteria-item {
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .criteria-text {
+      font-size: var(--text-sm);
+    }
+  }
+</style>

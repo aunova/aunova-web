@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <!-- Placeholder: Lock with computational nodes representing privacy-preserving computation -->
+  <title>Future System - Privacy-Preserving Computation</title>
+  <desc>Icon showing lock connected to computational nodes. Replace with final brand asset.</desc>
+  
+  <!-- Lock body -->
+  <rect x="14" y="22" width="20" height="16" rx="2" stroke="#672042" stroke-width="2" fill="none" opacity="0.5"/>
+  
+  <!-- Lock shackle -->
+  <path d="M18 22 L18 16 C18 12 21 10 24 10 C27 10 30 12 30 16 L30 22" stroke="#672042" stroke-width="2" fill="none" opacity="0.5"/>
+  
+  <!-- Keyhole -->
+  <circle cx="24" cy="28" r="2" fill="#672042" opacity="0.4"/>
+  <rect x="23" y="28" width="2" height="5" fill="#672042" opacity="0.4"/>
+  
+  <!-- Computation nodes -->
+  <circle cx="6" cy="30" r="3" fill="#672042" opacity="0.2"/>
+  <circle cx="42" cy="30" r="3" fill="#672042" opacity="0.2"/>
+  <line x1="9" y1="30" x2="14" y2="30" stroke="#672042" stroke-width="1" opacity="0.2"/>
+  <line x1="34" y1="30" x2="39" y2="30" stroke="#672042" stroke-width="1" opacity="0.2"/>
+</svg>

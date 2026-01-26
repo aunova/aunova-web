@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <!-- Placeholder: Brain with shield representing responsible AI governance -->
+  <title>Future System - Responsible AI & Governance</title>
+  <desc>Icon showing brain with protective shield element. Replace with final brand asset.</desc>
+  
+  <!-- Brain outline -->
+  <path d="M24 8 C16 8 12 14 12 20 C12 26 14 30 18 32 L18 38 L30 38 L30 32 C34 30 36 26 36 20 C36 14 32 8 24 8Z" stroke="#672042" stroke-width="2" fill="none" opacity="0.5"/>
+  
+  <!-- Brain details -->
+  <path d="M20 16 Q24 20 20 24" stroke="#672042" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d="M28 16 Q24 20 28 24" stroke="#672042" stroke-width="1.5" fill="none" opacity="0.3"/>
+  
+  <!-- Shield element -->
+  <path d="M24 28 L20 32 L24 40 L28 32 Z" stroke="#672042" stroke-width="1.5" fill="#672042" opacity="0.2"/>
+</svg>

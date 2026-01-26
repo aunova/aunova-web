@@ -9,146 +9,152 @@ export const defaultLang: Language = "en";
 
 export const translations = {
   en: {
-    announcement: {
-      text: "We're at GITEX 2025 in Dubai!",
-      cta: "Meet us there",
-      link: "https://cal.com/ngmisl/gitex",
-    },
     nav: {
       home: "Home",
-      services: "Services",
+      systemFamilies: "System Families",
+      partnership: "Partnership",
       about: "About",
       blog: "Blog",
       contact: "Contact",
-      zeroKnowledge: "Zero-Knowledge & Privacy",
-      aiWeb3: "AI + Web3 Integration",
-      hybridZkAi: "Hybrid ZK-AI",
-      infrastructure: "Infrastructure & Tools",
-      fhe: "Homomorphic Encryption (FHE)",
-      ourStory: "Our Story",
-      team: "Team",
-      partners: "Partners",
     },
     hero: {
-      title: "Private AI. Real Compliance.",
+      title:
+        "We partner with institutions to build the human- and planet-critical systems their future depends on.",
       subtitle:
-        "Run AI on sensitive data — without exposing it. Powered by Zero-Knowledge Proofs, Fully Homomorphic Encryption, and Blockchain.",
+        "We are not a software vendor. We are long-term systems partners, co-building foundational digital infrastructure for domains where failure has real human or environmental consequences.",
+      supportingLine:
+        "We work with a small number of aligned organizations to design systems that protect people, respect the planet, and endure.",
       cta: {
-        primary: "Let's Talk",
+        primary: "Begin a Strategic Conversation",
+        secondary: "Explore our partnership model",
       },
     },
-    problemSolution: {
-      title: "How We Make AI Safe for Sensitive Data",
-      problem: "AI needs your data. Your data needs protection.",
-      solutionTitle: "",
-      solution: "",
-      technologies: [
-        "Zero-Knowledge Proofs for verifiable results",
-        "Fully Homomorphic Encryption to run AI on encrypted data",
-        "Blockchain to log decisions immutably for full auditability",
+    differentCompany: {
+      title: "A Different Kind of Technology Company",
+      body: [
+        "Aunova exists to partner with forward-looking companies and institutions to design and build foundational systems of trust, sustainability, and responsibility.",
+        "We work in domains where technology directly shapes human wellbeing and planetary outcomes. Our role is not to deliver features, but to co-create the long-term infrastructure our partners and their ecosystems will depend on.",
+        "We engage selectively, build for decades, and design systems meant to become shared layers within the worlds they serve.",
       ],
+      callout:
+        "Our first system partnership initiative is GreenBlocks — environmental and sustainability infrastructure for the built world.",
     },
-    useCases: {
-      title: "Real Use Cases: Where AI Meets Privacy",
-      subtitle: "",
-      cards: {
-        healthcare: {
-          industry: "Healthcare",
-          icon: "🏥",
-          content:
-            "Hospitals want to use predictive AI to improve patient care — but they can't afford to expose sensitive health data. At Aunova, we apply homomorphic encryption so models can run on encrypted medical records. We combine this with ZK verification and blockchain-based auditing, enabling compliant AI without privacy tradeoffs.",
-          tech: [
-            "Homomorphic Encryption",
-            "ZK Verification",
-            "Blockchain Auditing",
-          ],
-        },
-        finance: {
-          industry: "Finance",
-          icon: "💳",
-          content:
-            "In finance, detecting fraud requires deep pattern analysis on private transaction data. We design privacy-preserving AI that can operate over sensitive datasets, while recording every step on-chain for transparency and security.",
-          tech: [
-            "Privacy-Preserving AI",
-            "On-Chain Logging",
-            "Pattern Analysis",
-          ],
-        },
-        compliance: {
-          industry: "Compliance",
-          icon: "⚖️",
-          content:
-            "For companies automating decisions (like credit scoring or recruitment), regulators demand accountability. Our systems provide explainable AI, with immutable logs and verifiable zero-knowledge proofs, so decisions are not just smart — they're also auditable and fair.",
-          tech: ["Explainable AI", "Immutable Logs", "ZK Proofs"],
-        },
+    systemFamilies: {
+      title: "System Families We Are Developing With Partners",
+      intro:
+        "Aunova builds families of systems designed to become shared infrastructure layers within the ecosystems they serve. Each system family is developed through long-term partnerships and addresses a core human or planetary need.",
+      greenblocks: {
+        name: "GreenBlocks by Aunova",
+        category: "Environmental & Sustainability Infrastructure",
+        tagline:
+          "The verifiable data and accountability layer for sustainable communities and assets.",
+        description:
+          "We are co-creating GreenBlocks with forward-looking organizations to turn sustainability commitments into measurable, accountable, and economically meaningful realities. GreenBlocks provides the environmental infrastructure layer that allows sustainable behavior, assets, and operations to be verified, incentivized, and integrated into real business and community systems.",
+        examples: [
+          "Verified sustainability and environmental impact data across assets and operations",
+          "Accountable ESG and environmental reporting infrastructures",
+          "Incentive systems that financially reward provable sustainable action",
+          "New economic and operational models powered by trusted environmental data",
+        ],
+        closingLine:
+          "GreenBlocks represents our partnership model: a shared ambition to build foundational environmental systems that can endure for decades.",
+      },
+      future: {
+        title: "Future system families (in development)",
+        items: [
+          "Human data and identity infrastructure",
+          "Responsible AI and governance layers",
+          "Healthcare and care-tech systems",
+          "Privacy-preserving computation platforms",
+        ],
+        note: "In development with future partners.",
       },
     },
-
-    services: {
-      title: "Our Services",
-      subtitle:
-        "We build privacy-preserving solutions at the intersection of AI, Blockchain, and advanced cryptography.",
-      learnMore: "Learn More",
-      pillars: {
-        zk: {
-          title: "Zero-Knowledge & Privacy",
+    partnership: {
+      title: "From Shared Vision to Shared Infrastructure",
+      intro:
+        "We do not begin with requirements documents. We begin with strategic alignment. Our partnerships are long-term, selective, and structured around building systems that become shared assets.",
+      stepsTitle: "The partnership journey",
+      steps: [
+        {
+          number: 1,
+          title: "Strategic Alignment",
           description:
-            "Implement cutting-edge ZK proofs to ensure data privacy and computational integrity.",
-          features: [
-            "zk-SNARKs & zk-STARKs",
-            "Privacy-preserving smart contracts",
-            "Verifiable computation",
-          ],
+            "We assess human and planetary stakes, long-term relevance, and system-level necessity.",
         },
-        ai: {
-          title: "AI + Web3 Integration",
+        {
+          number: 2,
+          title: "Co-Design",
           description:
-            "Combine the power of artificial intelligence with the security and transparency of blockchain.",
-          features: [
-            "Decentralized AI models",
-            "On-chain machine learning",
-            "Tokenized AI ecosystems",
-          ],
+            "We define the system ambition together — its role, responsibilities, and long-term architecture.",
         },
-        hybrid: {
-          title: "Hybrid ZK-AI Systems",
+        {
+          number: 3,
+          title: "Proof of Necessity",
           description:
-            "Create powerful, private AI solutions by running models on encrypted data with verifiable results.",
-          features: [
-            "Encrypted data processing",
-            "Private inference",
-            "Compliant AI auditing",
-          ],
+            "We build a focused, functional prototype to validate the core value and system logic.",
         },
-        infra: {
-          title: "Infrastructure & Tooling",
+        {
+          number: 4,
+          title: "System Development",
           description:
-            "Develop robust infrastructure and developer tools to accelerate the adoption of decentralized tech.",
-          features: [
-            "Custom blockchain protocols",
-            "Developer SDKs and APIs",
-            "Node infrastructure",
-          ],
+            "We scale the prototype into production-grade, ecosystem-ready infrastructure.",
         },
-        fhe: {
-          title: "Homomorphic Encryption (FHE)",
+        {
+          number: 5,
+          title: "Long-Term Alliance",
           description:
-            "Process data while it remains fully encrypted, enabling computation on untrusted environments.",
-          features: [
-            "Private data analysis",
-            "Secure cloud computing",
-            "Encrypted machine learning models",
-          ],
+            "We evolve, govern, and maintain the system as a shared, long-lived asset.",
         },
-      },
+      ],
+      callout:
+        "We deliberately engage with a limited number of founding partners per system family to protect depth, responsibility, and system integrity.",
     },
-
-    finalCta: {
-      title: "Let's build your private AI prototype.",
-      actions: {
-        call: "Book a call",
-        onePager: "Download one-pager",
+    partnerCriteria: {
+      title: "Is This Partnership Model Right for You?",
+      intro: "Aunova partners with organizations that:",
+      criteria: [
+        "are building for 10+ year horizons",
+        "operate in domains with real human or environmental impact",
+        "seek to co-create infrastructure, not purchase software",
+        "are willing to invest in shared systems and shared responsibility",
+        "value long-term trust over short-term delivery",
+      ],
+      boundary:
+        "If you are looking for a fast implementation, a branded app, a feature roadmap, or a short-term pilot, we are probably not the right partner. We build for the long term.",
+    },
+    whyAunova: {
+      title: "Why Aunova Exists",
+      body: [
+        "Aunova was founded on the belief that the next era of technology will not be defined by more software, but by better systems — systems that protect people, respect the planet, and earn long-term trust.",
+        "As technology becomes embedded into everything, responsibility can no longer be an afterthought. Infrastructure must be designed with care, governance, and long-term consequences in mind.",
+        "Aunova exists to work alongside organizations who share this responsibility.",
+      ],
+      credibility:
+        "Our team invests personally in the domains and communities we serve, approaching our work not as vendors, but as long-term stakeholders in the outcomes.",
+    },
+    contact: {
+      title: "Begin a Strategic Conversation",
+      intro:
+        "We are currently developing our system families with a small number of aligned partners. We welcome conversations with institutions building toward a long-term, human- and planet-positive future.",
+      form: {
+        name: "Name",
+        organization: "Organization",
+        systemFamily: "Which system family aligns with your vision?",
+        systemFamilyOptions: [
+          "GreenBlocks (Environmental & Sustainability)",
+          "Human Data & Identity",
+          "Responsible AI & Governance",
+          "Healthcare & Care-Tech",
+          "Privacy-Preserving Computation",
+          "Other / Not sure yet",
+        ],
+        criticalSystem: "What critical system does your future depend on?",
+        timeHorizon: "What is your strategic time horizon?",
+        timeHorizonOptions: ["3–5 years", "5–10+ years"],
+        submit: "Send Message",
       },
+      closing: "We respond selectively and thoughtfully to every inquiry.",
     },
     footer: {
       company: "Company",
@@ -157,39 +163,28 @@ export const translations = {
       legal: "Legal",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
-      documentation: "Documentation",
-      openSource: "Open Source",
-      newsletter: "Newsletter",
       scheduleCall: "Schedule Call",
-      rights: "© 2024 Aunova. All rights reserved.",
-      builtWith: "Built with privacy and performance in mind.",
+      rights: "© 2025 Aunova. All rights reserved.",
+      builtWith:
+        "Building systems that protect people and respect the planet.",
     },
     cookie: {
       message: "We respect your privacy. This site uses no tracking cookies.",
       accept: "Understood",
     },
-    contact: {
-      title: "Get in Touch",
-      subtitle: "Ready to build privacy-preserving, decentralized solutions?",
-      form: {
-        name: "Name",
-        email: "Email",
-        company: "Company",
-        message: "Message",
-        budget: "Budget Range",
-        timeline: "Timeline",
-        submit: "Send Message",
-        consent: "I agree to the privacy policy",
-      },
-      calendar: {
-        title: "Schedule a Consultation",
-        description: "Book a 30-minute call to discuss your project",
-        button: "Book Meeting",
-      },
+    about: {
+      title: "About Aunova",
+      description: [
+        "Aunova was founded on the belief that the next era of technology will not be defined by more software, but by better systems — systems that protect people, respect the planet, and earn long-term trust.",
+        "As technology becomes embedded into everything, responsibility can no longer be an afterthought. Infrastructure must be designed with care, governance, and long-term consequences in mind.",
+        "Aunova exists to work alongside organizations who share this responsibility.",
+      ],
+      credibility:
+        "Our team invests personally in the domains and communities we serve, approaching our work not as vendors, but as long-term stakeholders in the outcomes.",
     },
     blog: {
       title: "Blog",
-      subtitle: "Insights on Zero-Knowledge, AI, and Web3",
+      subtitle: "Insights on systems thinking, sustainability, and technology",
       readMore: "Read More",
       readTime: "min read",
       relatedPosts: "Related Posts",
@@ -197,30 +192,6 @@ export const translations = {
         technical: "Technical",
         business: "Business",
         news: "News",
-      },
-    },
-    about: {
-      title: "About Aunova",
-      description: [
-        "We are a technical team with full-stack AI, blockchain architecture, smart contract, and game engine expertise.",
-        "We have built complex MVPs combining Unity, Web3, and cryptographic protocols.",
-        "Now, we are focused on solving real-world problems with privacy-first technologies.",
-      ],
-      mission: {
-        title: "Our Mission",
-        description:
-          "Our mission is to empower organizations to innovate without compromising privacy. We build cutting-edge, compliant AI solutions by integrating Fully Homomorphic Encryption, Zero-Knowledge Proofs, and Blockchain, turning sensitive data into a secure asset for growth.",
-      },
-      values: {
-        title: "Our Values",
-        privacy: "Privacy First",
-        privacyDesc: "We believe privacy is a fundamental right.",
-        innovation: "Innovation",
-        innovationDesc: "Pushing the boundaries of what's possible.",
-        transparency: "Transparency",
-        transparencyDesc: "Open and honest in everything we do.",
-        excellence: "Excellence",
-        excellenceDesc: "Delivering exceptional results.",
       },
     },
     error: {
@@ -232,170 +203,153 @@ export const translations = {
     },
   },
   es: {
-    announcement: {
-      text: "¡Estamos en GITEX 2025 en Dubai!",
-      cta: "Reunámonos en persona",
-      link: "https://cal.com/ngmisl/gitex",
-    },
     nav: {
       home: "Inicio",
-      services: "Servicios",
+      systemFamilies: "Familias de Sistemas",
+      partnership: "Asociación",
       about: "Nosotros",
       blog: "Blog",
       contact: "Contacto",
-      zeroKnowledge: "Zero-Knowledge y Privacidad",
-      aiWeb3: "Integración IA + Web3",
-      hybridZkAi: "ZK-IA Híbrido",
-      infrastructure: "Infraestructura y Herramientas",
-      fhe: "Cifrado Homomórfico (FHE)",
-      ourStory: "Nuestra Historia",
-      team: "Equipo",
-      partners: "Socios",
     },
     hero: {
-      title: "IA Privada. Cumplimiento Real.",
+      title:
+        "Nos asociamos con instituciones para construir los sistemas críticos para humanos y el planeta de los que depende su futuro.",
       subtitle:
-        "Ejecuta IA en datos sensibles — sin exponerlos. Impulsado por Pruebas de Conocimiento Cero, Cifrado Totalmente Homomórfico y Blockchain.",
+        "No somos un proveedor de software. Somos socios de sistemas a largo plazo, co-construyendo infraestructura digital fundamental para dominios donde el fracaso tiene consecuencias reales para humanos o el medio ambiente.",
+      supportingLine:
+        "Trabajamos con un pequeño número de organizaciones alineadas para diseñar sistemas que protejan a las personas, respeten el planeta y perduren.",
       cta: {
-        primary: "Hablemos",
+        primary: "Iniciar una Conversación Estratégica",
+        secondary: "Explorar nuestro modelo de asociación",
       },
     },
-    problemSolution: {
-      title: "Cómo Hacemos la IA Segura para Datos Sensibles",
-      problem: "La IA necesita tus datos. Tus datos necesitan protección.",
-      solutionTitle: "",
-      solution: "",
-      technologies: [
-        "Pruebas de Conocimiento Cero para resultados verificables",
-        "Cifrado Totalmente Homomórfico para ejecutar IA en datos cifrados",
-        "Blockchain para registrar decisiones de forma inmutable con total auditabilidad",
+    differentCompany: {
+      title: "Una Empresa de Tecnología Diferente",
+      body: [
+        "Aunova existe para asociarse con empresas e instituciones con visión de futuro para diseñar y construir sistemas fundamentales de confianza, sostenibilidad y responsabilidad.",
+        "Trabajamos en dominios donde la tecnología da forma directamente al bienestar humano y los resultados planetarios. Nuestro papel no es entregar características, sino co-crear la infraestructura a largo plazo de la que dependerán nuestros socios y sus ecosistemas.",
+        "Nos comprometemos selectivamente, construimos para décadas y diseñamos sistemas destinados a convertirse en capas compartidas dentro de los mundos a los que sirven.",
       ],
+      callout:
+        "Nuestra primera iniciativa de asociación de sistemas es GreenBlocks — infraestructura ambiental y de sostenibilidad para el mundo construido.",
     },
-    useCases: {
-      title: "Casos de Uso Reales: Donde la IA se Encuentra con la Privacidad",
-      subtitle: "",
-      cards: {
-        healthcare: {
-          industry: "Salud",
-          icon: "🏥",
-          content:
-            "Los hospitales quieren usar IA predictiva para mejorar la atención al paciente, pero no pueden permitirse exponer datos de salud sensibles. En Aunova, aplicamos cifrado homomórfico para que los modelos puedan ejecutarse en registros médicos cifrados. Combinamos esto con verificación ZK y auditoría basada en blockchain, habilitando IA compatible sin comprometer la privacidad.",
-          tech: [
-            "Cifrado Homomórfico",
-            "Verificación ZK",
-            "Auditoría Blockchain",
-          ],
-        },
-        finance: {
-          industry: "Finanzas",
-          icon: "💳",
-          content:
-            "En finanzas, detectar fraude requiere análisis profundo de patrones en datos de transacciones privadas. Diseñamos IA que preserva la privacidad y puede operar sobre conjuntos de datos sensibles, mientras registra cada paso en cadena para transparencia y seguridad.",
-          tech: [
-            "IA Preservando Privacidad",
-            "Registro On-Chain",
-            "Análisis de Patrones",
-          ],
-        },
-        compliance: {
-          industry: "Cumplimiento",
-          icon: "⚖️",
-          content:
-            "Para empresas que automatizan decisiones (como puntuación crediticia o reclutamiento), los reguladores exigen responsabilidad. Nuestros sistemas proporcionan IA explicable, con registros inmutables y pruebas de conocimiento cero verificables, para que las decisiones no sean solo inteligentes, sino también auditables y justas.",
-          tech: ["IA Explicable", "Registros Inmutables", "Pruebas ZK"],
-        },
-      },
-    },
-
-    services: {
-      title: "Nuestros Servicios",
-      subtitle:
-        "Construimos soluciones que preservan la privacidad en la intersección de IA, Blockchain y criptografía avanzada.",
-      learnMore: "Saber Más",
-      pillars: {
-        zk: {
-          title: "Zero-Knowledge y Privacidad",
-          description:
-            "Implemente pruebas ZK de vanguardia para garantizar la privacidad de los datos y la integridad computacional.",
-          features: [
-            "zk-SNARKs y zk-STARKs",
-            "Contratos inteligentes que preservan la privacidad",
-            "Computación verificable",
-          ],
-        },
-        ai: {
-          title: "Integración IA + Web3",
-          description:
-            "Combine el poder de la inteligencia artificial con la seguridad y transparencia de blockchain.",
-          features: [
-            "Modelos de IA descentralizados",
-            "Aprendizaje automático on-chain",
-            "Ecosistemas de IA tokenizados",
-          ],
-        },
-        hybrid: {
-          title: "Sistemas Híbridos ZK-AI",
-          description:
-            "Cree soluciones de IA potentes y privadas ejecutando modelos sobre datos cifrados con resultados verificables.",
-          features: [
-            "Procesamiento de datos cifrados",
-            "Inferencia privada",
-            "Auditoría de IA compatible",
-          ],
-        },
-        infra: {
-          title: "Infraestructura y Herramientas",
-          description:
-            "Desarrolle infraestructura robusta y herramientas para desarrolladores para acelerar la adopción de tecnología descentralizada.",
-          features: [
-            "Protocolos blockchain a medida",
-            "SDKs y APIs para desarrolladores",
-            "Infraestructura de nodos",
-          ],
-        },
-        fhe: {
-          title: "Cifrado Homomórfico (FHE)",
-          description:
-            "Procese datos mientras permanecen totalmente cifrados, permitiendo la computación en entornos no confiables.",
-          features: [
-            "Análisis de datos privados",
-            "Computación segura en la nube",
-            "Modelos de aprendizaje automático cifrados",
-          ],
-        },
-      },
-    },
-
-    about: {
-      title: "Sobre Nosotros",
-      description: [
-        "Somos un equipo técnico con experiencia en IA full-stack, arquitectura blockchain, contratos inteligentes y motores de juego.",
-        "Hemos construido MVPs complejos combinando Unity, Web3 y protocolos criptográficos.",
-        "Ahora nos enfocamos en resolver problemas del mundo real con tecnologías que priorizan la privacidad.",
-      ],
-      mission: {
-        title: "Nuestra Misión",
+    systemFamilies: {
+      title: "Familias de Sistemas que Desarrollamos con Socios",
+      intro:
+        "Aunova construye familias de sistemas diseñados para convertirse en capas de infraestructura compartida dentro de los ecosistemas a los que sirven. Cada familia de sistemas se desarrolla a través de asociaciones a largo plazo y aborda una necesidad humana o planetaria central.",
+      greenblocks: {
+        name: "GreenBlocks by Aunova",
+        category: "Infraestructura Ambiental y de Sostenibilidad",
+        tagline:
+          "La capa de datos verificables y responsabilidad para comunidades y activos sostenibles.",
         description:
-          "Nuestra misión es capacitar a las organizaciones para que innoven sin comprometer la privacidad. Construimos soluciones de IA de vanguardia y compatibles con la normativa mediante la integración de Cifrado Totalmente Homomórfico, Pruebas de Conocimiento Cero y Blockchain, convirtiendo los datos sensibles en un activo seguro para el crecimiento.",
+          "Estamos co-creando GreenBlocks con organizaciones con visión de futuro para convertir los compromisos de sostenibilidad en realidades medibles, responsables y económicamente significativas.",
+        examples: [
+          "Datos verificados de sostenibilidad e impacto ambiental en activos y operaciones",
+          "Infraestructuras de informes ESG y ambientales responsables",
+          "Sistemas de incentivos que recompensan financieramente la acción sostenible demostrable",
+          "Nuevos modelos económicos y operativos impulsados por datos ambientales confiables",
+        ],
+        closingLine:
+          "GreenBlocks representa nuestro modelo de asociación: una ambición compartida de construir sistemas ambientales fundamentales que puedan perdurar durante décadas.",
       },
-      values: {
-        title: "Nuestros Valores",
-        privacy: "Privacidad Primero",
-        privacyDesc: "Creemos que la privacidad es un derecho fundamental.",
-        innovation: "Innovación",
-        innovationDesc: "Empujando los límites de lo posible.",
-        transparency: "Transparencia",
-        transparencyDesc: "Abiertos y honestos en todo lo que hacemos.",
-        excellence: "Excelencia",
-        excellenceDesc: "Entregando resultados excepcionales.",
+      future: {
+        title: "Futuras familias de sistemas (en desarrollo)",
+        items: [
+          "Infraestructura de datos humanos e identidad",
+          "Capas de IA responsable y gobernanza",
+          "Sistemas de salud y tecnología de cuidado",
+          "Plataformas de computación que preservan la privacidad",
+        ],
+        note: "En desarrollo con futuros socios.",
       },
     },
-    finalCta: {
-      title: "Construyamos tu prototipo de IA privada.",
-      actions: {
-        call: "Agendar llamada",
-        onePager: "Descargar resumen",
+    partnership: {
+      title: "De Visión Compartida a Infraestructura Compartida",
+      intro:
+        "No comenzamos con documentos de requisitos. Comenzamos con alineación estratégica. Nuestras asociaciones son a largo plazo, selectivas y estructuradas en torno a la construcción de sistemas que se convierten en activos compartidos.",
+      stepsTitle: "El viaje de asociación",
+      steps: [
+        {
+          number: 1,
+          title: "Alineación Estratégica",
+          description:
+            "Evaluamos las implicaciones humanas y planetarias, la relevancia a largo plazo y la necesidad a nivel de sistema.",
+        },
+        {
+          number: 2,
+          title: "Co-Diseño",
+          description:
+            "Definimos juntos la ambición del sistema — su rol, responsabilidades y arquitectura a largo plazo.",
+        },
+        {
+          number: 3,
+          title: "Prueba de Necesidad",
+          description:
+            "Construimos un prototipo funcional y enfocado para validar el valor central y la lógica del sistema.",
+        },
+        {
+          number: 4,
+          title: "Desarrollo del Sistema",
+          description:
+            "Escalamos el prototipo a infraestructura de grado de producción, lista para el ecosistema.",
+        },
+        {
+          number: 5,
+          title: "Alianza a Largo Plazo",
+          description:
+            "Evolucionamos, gobernamos y mantenemos el sistema como un activo compartido y duradero.",
+        },
+      ],
+      callout:
+        "Nos comprometemos deliberadamente con un número limitado de socios fundadores por familia de sistemas para proteger la profundidad, la responsabilidad y la integridad del sistema.",
+    },
+    partnerCriteria: {
+      title: "¿Es Este Modelo de Asociación Adecuado para Usted?",
+      intro: "Aunova se asocia con organizaciones que:",
+      criteria: [
+        "construyen para horizontes de 10+ años",
+        "operan en dominios con impacto real humano o ambiental",
+        "buscan co-crear infraestructura, no comprar software",
+        "están dispuestas a invertir en sistemas y responsabilidad compartidos",
+        "valoran la confianza a largo plazo sobre la entrega a corto plazo",
+      ],
+      boundary:
+        "Si está buscando una implementación rápida, una aplicación de marca, una hoja de ruta de características o un piloto a corto plazo, probablemente no seamos el socio adecuado. Construimos para el largo plazo.",
+    },
+    whyAunova: {
+      title: "Por Qué Existe Aunova",
+      body: [
+        "Aunova fue fundada con la creencia de que la próxima era de la tecnología no estará definida por más software, sino por mejores sistemas — sistemas que protejan a las personas, respeten el planeta y ganen confianza a largo plazo.",
+        "A medida que la tecnología se integra en todo, la responsabilidad ya no puede ser una ocurrencia tardía. La infraestructura debe diseñarse con cuidado, gobernanza y consecuencias a largo plazo en mente.",
+        "Aunova existe para trabajar junto a organizaciones que comparten esta responsabilidad.",
+      ],
+      credibility:
+        "Nuestro equipo invierte personalmente en los dominios y comunidades a los que servimos, abordando nuestro trabajo no como proveedores, sino como partes interesadas a largo plazo en los resultados.",
+    },
+    contact: {
+      title: "Iniciar una Conversación Estratégica",
+      intro:
+        "Actualmente estamos desarrollando nuestras familias de sistemas con un pequeño número de socios alineados. Damos la bienvenida a conversaciones con instituciones que construyen hacia un futuro positivo para humanos y el planeta a largo plazo.",
+      form: {
+        name: "Nombre",
+        organization: "Organización",
+        systemFamily: "¿Qué familia de sistemas se alinea con su visión?",
+        systemFamilyOptions: [
+          "GreenBlocks (Ambiental y Sostenibilidad)",
+          "Datos Humanos e Identidad",
+          "IA Responsable y Gobernanza",
+          "Salud y Tecnología de Cuidado",
+          "Computación que Preserva la Privacidad",
+          "Otro / Aún no estoy seguro",
+        ],
+        criticalSystem: "¿De qué sistema crítico depende su futuro?",
+        timeHorizon: "¿Cuál es su horizonte de tiempo estratégico?",
+        timeHorizonOptions: ["3–5 años", "5–10+ años"],
+        submit: "Enviar Mensaje",
       },
+      closing:
+        "Respondemos de manera selectiva y reflexiva a cada consulta.",
     },
     footer: {
       company: "Empresa",
@@ -404,42 +358,30 @@ export const translations = {
       legal: "Legal",
       privacy: "Política de Privacidad",
       terms: "Términos de Servicio",
-      documentation: "Documentación",
-      openSource: "Código Abierto",
-      newsletter: "Boletín",
       scheduleCall: "Agendar Llamada",
-      rights: "© 2024 Aunova. Todos los derechos reservados.",
-      builtWith: "Construido con privacidad y rendimiento en mente.",
+      rights: "© 2025 Aunova. Todos los derechos reservados.",
+      builtWith:
+        "Construyendo sistemas que protegen a las personas y respetan el planeta.",
     },
     cookie: {
       message:
         "Respetamos tu privacidad. Este sitio no usa cookies de rastreo.",
       accept: "Entendido",
     },
-    contact: {
-      title: "Contacta con Nosotros",
-      subtitle:
-        "¿Listo para construir soluciones descentralizadas que preservan la privacidad?",
-      form: {
-        name: "Nombre",
-        email: "Correo",
-        company: "Empresa",
-        message: "Mensaje",
-        budget: "Rango de Presupuesto",
-        timeline: "Cronograma",
-        submit: "Enviar Mensaje",
-        consent: "Acepto la política de privacidad",
-      },
-      calendar: {
-        title: "Agenda una Consulta",
-        description:
-          "Reserva una llamada de 30 minutos para discutir tu proyecto",
-        button: "Agendar Reunión",
-      },
+    about: {
+      title: "Sobre Aunova",
+      description: [
+        "Aunova fue fundada con la creencia de que la próxima era de la tecnología no estará definida por más software, sino por mejores sistemas — sistemas que protejan a las personas, respeten el planeta y ganen confianza a largo plazo.",
+        "A medida que la tecnología se integra en todo, la responsabilidad ya no puede ser una ocurrencia tardía. La infraestructura debe diseñarse con cuidado, gobernanza y consecuencias a largo plazo en mente.",
+        "Aunova existe para trabajar junto a organizaciones que comparten esta responsabilidad.",
+      ],
+      credibility:
+        "Nuestro equipo invierte personalmente en los dominios y comunidades a los que servimos, abordando nuestro trabajo no como proveedores, sino como partes interesadas a largo plazo en los resultados.",
     },
     blog: {
       title: "Blog",
-      subtitle: "Perspectivas sobre Zero-Knowledge, IA y Web3",
+      subtitle:
+        "Perspectivas sobre pensamiento sistémico, sostenibilidad y tecnología",
       readMore: "Leer Más",
       readTime: "min de lectura",
       relatedPosts: "Publicaciones Relacionadas",
@@ -468,15 +410,12 @@ export function getTranslation(lang: Language = defaultLang) {
 export function getCurrentLanguage(url: URL): Language {
   const pathname = url.pathname;
 
-  // Root path defaults to English
   if (pathname === "/" || pathname === "") {
     return "en";
   }
 
-  // Extract language from path
   const [, lang] = pathname.split("/");
   if (lang in languages) return lang as Language;
 
-  // Default to English for any unrecognized paths
   return defaultLang;
 }

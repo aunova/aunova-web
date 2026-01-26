@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <!-- Placeholder: Human silhouette with data nodes representing identity infrastructure -->
+  <title>Future System - Human Data & Identity</title>
+  <desc>Icon showing human silhouette connected to data nodes. Replace with final brand asset.</desc>
+  
+  <!-- Human silhouette -->
+  <circle cx="24" cy="14" r="6" stroke="#672042" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M12 40 C12 30 16 24 24 24 C32 24 36 30 36 40" stroke="#672042" stroke-width="2" fill="none" opacity="0.5"/>
+  
+  <!-- Data nodes -->
+  <circle cx="8" cy="20" r="3" fill="#672042" opacity="0.3"/>
+  <circle cx="40" cy="20" r="3" fill="#672042" opacity="0.3"/>
+  <circle cx="24" cy="44" r="3" fill="#672042" opacity="0.3"/>
+  
+  <!-- Connections -->
+  <line x1="11" y1="20" x2="18" y2="14" stroke="#672042" stroke-width="1" opacity="0.3"/>
+  <line x1="37" y1="20" x2="30" y2="14" stroke="#672042" stroke-width="1" opacity="0.3"/>
+</svg>

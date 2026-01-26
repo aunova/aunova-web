@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <!-- Placeholder: Heart with digital pulse representing healthcare systems -->
+  <title>Future System - Healthcare & Care-Tech</title>
+  <desc>Icon showing heart with integrated digital pulse line. Replace with final brand asset.</desc>
+  
+  <!-- Heart shape -->
+  <path d="M24 40 L12 28 C8 24 8 18 12 14 C16 10 22 10 24 16 C26 10 32 10 36 14 C40 18 40 24 36 28 Z" stroke="#672042" stroke-width="2" fill="none" opacity="0.5"/>
+  
+  <!-- Digital pulse -->
+  <polyline points="14,26 18,26 20,22 22,30 24,24 26,26 34,26" stroke="#672042" stroke-width="1.5" fill="none" opacity="0.4"/>
+</svg>

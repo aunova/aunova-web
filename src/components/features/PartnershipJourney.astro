@@ -1,0 +1,120 @@
+---
+import PartnershipStep from "./PartnershipStep.astro";
+
+export interface Step {
+  number: number;
+  title: string;
+  description: string;
+}
+
+export interface Props {
+  title: string;
+  intro: string;
+  stepsTitle: string;
+  steps: Step[];
+  callout: string;
+}
+
+const { title, intro, stepsTitle, steps, callout } = Astro.props;
+---
+
+<section class="partnership-journey">
+  <div class="journey-header">
+    <h2 class="journey-title">{title}</h2>
+    <p class="journey-intro">{intro}</p>
+  </div>
+
+  <div class="journey-content">
+    <h3 class="steps-title">{stepsTitle}</h3>
+    <div class="steps-container">
+      {steps.map((step, index) => (
+        <PartnershipStep
+          number={step.number}
+          title={step.title}
+          description={step.description}
+          isLast={index === steps.length - 1}
+        />
+      ))}
+    </div>
+  </div>
+
+  <aside class="journey-callout">
+    <p>{callout}</p>
+  </aside>
+</section>
+
+<style>
+  .partnership-journey {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .journey-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .journey-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-lg) 0;
+    line-height: 1.2;
+  }
+
+  .journey-intro {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .journey-content {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .steps-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-xl) 0;
+    text-align: center;
+  }
+
+  .steps-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .journey-callout {
+    background: color-mix(in srgb, var(--color-primary) 5%, var(--color-background));
+    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: center;
+  }
+
+  .journey-callout p {
+    font-size: var(--text-base);
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .journey-title {
+      font-size: var(--text-3xl);
+    }
+
+    .journey-intro {
+      font-size: var(--text-base);
+    }
+
+    .journey-header {
+      margin-bottom: var(--space-2xl);
+    }
+  }
+</style>

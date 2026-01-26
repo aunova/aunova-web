@@ -45,53 +45,11 @@ const homeLink = currentLang === "es" ? "/es" : "/";
 
         <div class="nav-links">
             <a href={homeLink} class="nav-link">{t.nav.home}</a>
-
-            <div class="dropdown">
-                <button class="nav-link dropdown-toggle" aria-expanded="false">
-                    {t.nav.services}
-                    <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M3 4.5L6 7.5L9 4.5"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"></path>
-                    </svg>
-                </button>
-                <div class="dropdown-menu">
-                    <a
-                        href={`/${currentLang}/services/zero-knowledge`}
-                        class="dropdown-item">{t.nav.zeroKnowledge}</a
-                    >
-                    <a
-                        href={`/${currentLang}/services/fhe`}
-                        class="dropdown-item">{t.nav.fhe}</a
-                    >
-                    <a
-                        href={`/${currentLang}/services/ai-web3`}
-                        class="dropdown-item">{t.nav.aiWeb3}</a
-                    >
-                    <a
-                        href={`/${currentLang}/services/hybrid-zk-ai`}
-                        class="dropdown-item">{t.nav.hybridZkAi}</a
-                    >
-                    <a
-                        href={`/${currentLang}/services/infrastructure`}
-                        class="dropdown-item">{t.nav.infrastructure}</a
-                    >
-                </div>
-            </div>
-
+            <a href={`/${currentLang}/#system-families`} class="nav-link">{t.nav.systemFamilies}</a>
+            <a href={`/${currentLang}/#partnership`} class="nav-link">{t.nav.partnership}</a>
             <a href={`/${currentLang}/about`} class="nav-link">{t.nav.about}</a>
             <a href={`/${currentLang}/blog`} class="nav-link">{t.nav.blog}</a>
-            <a href={`/${currentLang}/contact`} class="nav-link"
-                >{t.nav.contact}</a
-            >
+            <a href={`/${currentLang}/contact`} class="nav-link">{t.nav.contact}</a>
 
             <div class="nav-actions">
                 <a
@@ -440,7 +398,8 @@ const homeLink = currentLang === "es" ? "/es" : "/";
 
     // Close menu when clicking outside
     document.addEventListener("click", (e) => {
-        if (!menuToggle?.contains(e.target) && !navLinks?.contains(e.target)) {
+        const target = e.target as Node | null;
+        if (!menuToggle?.contains(target) && !navLinks?.contains(target)) {
             if (navLinks?.classList.contains("active")) {
                 const scrollY = document.body.style.top;
                 navLinks?.classList.remove("active");

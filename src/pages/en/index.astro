@@ -1,0 +1,515 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import { getTranslation } from "../../utils/i18n";
+import SystemFamilyCard from "../../components/features/SystemFamilyCard.astro";
+import PartnershipJourney from "../../components/features/PartnershipJourney.astro";
+import CriteriaList from "../../components/features/CriteriaList.astro";
+
+const lang = "en";
+const t = getTranslation(lang);
+---
+
+<PageLayout
+  title="Aunova - Long-Term Systems Partner for Human & Planet-Critical Infrastructure"
+  description={t.hero.subtitle}
+  lang={lang}
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background">
+      <img
+        src="/images/hero/sustainable-community.png"
+        alt="Sustainable community with modern architecture and green spaces"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">{t.hero.title}</h1>
+        <p class="hero-subtitle">{t.hero.subtitle}</p>
+        <p class="hero-supporting">{t.hero.supportingLine}</p>
+        <div class="hero-actions">
+          <a href={`/${lang}/contact`} class="btn btn-primary">
+            {t.hero.cta.primary}
+          </a>
+          <a href="#partnership" class="btn btn-outline">
+            {t.hero.cta.secondary}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Different Company Section -->
+  <section class="different-company">
+    <div class="container">
+      <div class="section-content">
+        <h2 class="section-title">{t.differentCompany.title}</h2>
+        <div class="body-text">
+          {t.differentCompany.body.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+        <aside class="callout-box">
+          <p>{t.differentCompany.callout}</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Families Section -->
+  <section class="system-families" id="system-families">
+    <div class="container">
+      <header class="section-header">
+        <h2 class="section-title">{t.systemFamilies.title}</h2>
+        <p class="section-intro">{t.systemFamilies.intro}</p>
+      </header>
+
+      <div class="families-grid">
+        <SystemFamilyCard
+          name={t.systemFamilies.greenblocks.name}
+          category={t.systemFamilies.greenblocks.category}
+          tagline={t.systemFamilies.greenblocks.tagline}
+          description={t.systemFamilies.greenblocks.description}
+          examples={[...t.systemFamilies.greenblocks.examples]}
+          closingLine={t.systemFamilies.greenblocks.closingLine}
+          iconSrc="/images/icons/greenblocks-icon.svg"
+          accentColor="var(--color-greenblocks)"
+          featured={true}
+        />
+
+        <div class="future-families">
+          <h3 class="future-title">{t.systemFamilies.future.title}</h3>
+          <ul class="future-list">
+            {t.systemFamilies.future.items.map((item, index) => {
+              const icons = [
+                "/images/icons/future-identity.svg",
+                "/images/icons/future-ai-governance.svg",
+                "/images/icons/future-healthcare.svg",
+                "/images/icons/future-privacy.svg"
+              ];
+              return (
+                <li class="future-item">
+                  <img src={icons[index]} alt="" width="32" height="32" />
+                  <span>{item}</span>
+                </li>
+              );
+            })}
+          </ul>
+          <p class="future-note">{t.systemFamilies.future.note}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Journey Section -->
+  <section class="partnership-section" id="partnership">
+    <div class="container">
+      <PartnershipJourney
+        title={t.partnership.title}
+        intro={t.partnership.intro}
+        stepsTitle={t.partnership.stepsTitle}
+        steps={[...t.partnership.steps]}
+        callout={t.partnership.callout}
+      />
+    </div>
+  </section>
+
+  <!-- Partner Criteria Section -->
+  <section class="criteria-section-wrapper">
+    <div class="container">
+      <CriteriaList
+        title={t.partnerCriteria.title}
+        intro={t.partnerCriteria.intro}
+        criteria={[...t.partnerCriteria.criteria]}
+        boundary={t.partnerCriteria.boundary}
+      />
+    </div>
+  </section>
+
+  <!-- Why Aunova Section -->
+  <section class="why-aunova">
+    <div class="container">
+      <div class="section-content">
+        <h2 class="section-title">{t.whyAunova.title}</h2>
+        <div class="body-text">
+          {t.whyAunova.body.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+        <p class="credibility-line">{t.whyAunova.credibility}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>{t.contact.title}</h2>
+        <p class="cta-intro">{t.contact.intro}</p>
+        <a href={`/${lang}/contact`} class="btn btn-primary btn-lg">
+          {t.hero.cta.primary}
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-sand-light) 85%, transparent) 0%,
+      color-mix(in srgb, var(--color-sand-light) 70%, transparent) 50%,
+      color-mix(in srgb, var(--color-sand-light) 50%, transparent) 100%
+    );
+  }
+
+  .hero .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    padding: var(--space-3xl) 0;
+  }
+
+  .hero-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-primary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .hero-supporting {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-2xl);
+    font-style: italic;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  /* Different Company Section */
+  .different-company {
+    padding: var(--space-5xl) 0;
+    background: var(--color-background);
+  }
+
+  .section-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+  }
+
+  .body-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .body-text p {
+    font-size: var(--text-lg);
+    color: var(--color-text);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .callout-box {
+    margin-top: var(--space-2xl);
+    padding: var(--space-lg);
+    background: color-mix(in srgb, var(--color-greenblocks) 8%, var(--color-background));
+    border-left: 4px solid var(--color-greenblocks);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .callout-box p {
+    font-size: var(--text-lg);
+    color: var(--color-text);
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* System Families Section */
+  .system-families {
+    padding: var(--space-5xl) 0;
+    background: var(--color-background-elevated, var(--color-white));
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-3xl);
+  }
+
+  .section-intro {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .families-grid {
+    display: grid;
+    gap: var(--space-2xl);
+  }
+
+  .future-families {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+  }
+
+  .future-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-lg) 0;
+  }
+
+  .future-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-md) 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .future-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-background-elevated, var(--color-white));
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+  }
+
+  .future-item img {
+    opacity: 0.6;
+  }
+
+  .future-note {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* Partnership Section */
+  .partnership-section {
+    padding: var(--space-5xl) 0;
+    background: var(--color-background);
+  }
+
+  /* Criteria Section */
+  .criteria-section-wrapper {
+    padding: var(--space-5xl) 0;
+    background: var(--color-background-elevated, var(--color-white));
+  }
+
+  /* Why Aunova Section */
+  .why-aunova {
+    padding: var(--space-5xl) 0;
+    background: var(--color-background);
+  }
+
+  .credibility-line {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  /* Final CTA Section */
+  .final-cta {
+    padding: var(--space-5xl) 0;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-primary) 5%, var(--color-background)) 0%,
+      var(--color-background) 100%
+    );
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-intro {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+    line-height: 1.7;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .btn-lg {
+    padding: var(--space-md) var(--space-2xl);
+    font-size: var(--text-lg);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    text-decoration: none;
+    color: var(--color-white);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    text-decoration: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 100vh;
+    }
+
+    .hero-content {
+      padding: var(--space-2xl) 0;
+    }
+
+    .hero-title {
+      font-size: var(--text-3xl);
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-base);
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+    }
+
+    .different-company,
+    .system-families,
+    .partnership-section,
+    .criteria-section-wrapper,
+    .why-aunova,
+    .final-cta {
+      padding: var(--space-3xl) 0;
+    }
+
+    .section-title {
+      font-size: var(--text-3xl);
+    }
+
+    .body-text p {
+      font-size: var(--text-base);
+    }
+
+    .future-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Dark mode adjustments */
+  :global([data-theme="dark"]) .hero-overlay {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-background) 90%, transparent) 0%,
+      color-mix(in srgb, var(--color-background) 80%, transparent) 50%,
+      color-mix(in srgb, var(--color-background) 60%, transparent) 100%
+    );
+  }
+</style>

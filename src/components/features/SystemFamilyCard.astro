@@ -1,0 +1,221 @@
+---
+export interface Props {
+  name: string;
+  category: string;
+  tagline: string;
+  description: string;
+  examples: string[];
+  closingLine: string;
+  iconSrc?: string;
+  accentColor?: string;
+  featured?: boolean;
+}
+
+const {
+  name,
+  category,
+  tagline,
+  description,
+  examples,
+  closingLine,
+  iconSrc = "/images/icons/greenblocks-icon.svg",
+  accentColor = "var(--color-greenblocks)",
+  featured = false,
+} = Astro.props;
+---
+
+<article class:list={["system-family-card", { featured }]} style={`--accent: ${accentColor}`}>
+  <header class="card-header">
+    <div class="icon-wrapper">
+      <img src={iconSrc} alt="" width="48" height="48" loading="lazy" />
+    </div>
+    <div class="header-text">
+      <span class="category">{category}</span>
+      <h3 class="name">{name}</h3>
+    </div>
+  </header>
+
+  <div class="card-content">
+    <p class="tagline">{tagline}</p>
+    <p class="description">{description}</p>
+
+    <div class="examples">
+      <h4 class="examples-title">Examples of what this enables</h4>
+      <ul class="examples-list">
+        {examples.map((example) => (
+          <li>{example}</li>
+        ))}
+      </ul>
+    </div>
+
+    <p class="closing-line">{closingLine}</p>
+  </div>
+</article>
+
+<style>
+  .system-family-card {
+    background: var(--color-background-elevated, var(--color-white));
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    transition: all var(--transition-base);
+  }
+
+  .system-family-card.featured {
+    border-color: var(--accent);
+    border-width: 2px;
+    box-shadow: 0 4px 24px color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+
+  .system-family-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--accent) 10%, var(--color-background));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .icon-wrapper img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .header-text {
+    flex: 1;
+  }
+
+  .category {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-xs);
+  }
+
+  .name {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .tagline {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .description {
+    font-size: var(--text-base);
+    color: var(--color-text);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .examples {
+    background: color-mix(in srgb, var(--accent) 5%, var(--color-background));
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-top: var(--space-sm);
+  }
+
+  .examples-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-sm) 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .examples-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .examples-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    font-size: var(--text-base);
+    color: var(--color-text);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .examples-list li::before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .closing-line {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0;
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-border);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .system-family-card {
+      padding: var(--space-lg);
+    }
+
+    .card-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .icon-wrapper {
+      width: 56px;
+      height: 56px;
+    }
+
+    .icon-wrapper img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .name {
+      font-size: var(--text-xl);
+    }
+
+    .tagline {
+      font-size: var(--text-base);
+    }
+  }
+</style>

@@ -18,42 +18,19 @@ const currentYear = new Date().getFullYear();
                     <span class="footer-logo-text">Aunova</span>
                 </a>
                 <p class="footer-description">
-                    {
-                        currentLang === "en"
-                            ? "Building privacy-preserving AI systems using Zero-Knowledge Proofs, Homomorphic Encryption, and Blockchain technology."
-                            : "Construimos sistemas de IA que preservan la privacidad usando Pruebas de Conocimiento Cero, Cifrado Homomórfico y tecnología Blockchain."
-                    }
+                    {t.footer.builtWith}
                 </p>
             </div>
 
             <div class="footer-links">
                 <div class="footer-column">
-                    <h3>{t.nav.services}</h3>
+                    <h3>{t.nav.systemFamilies}</h3>
                     <ul>
                         <li>
-                            <a href={`/${currentLang}/services/zero-knowledge`}
-                                >{t.nav.zeroKnowledge}</a
-                            >
+                            <a href={`/${currentLang}/#system-families`}>GreenBlocks</a>
                         </li>
                         <li>
-                            <a href={`/${currentLang}/services/fhe`}
-                                >{t.nav.fhe}</a
-                            >
-                        </li>
-                        <li>
-                            <a href={`/${currentLang}/services/ai-web3`}
-                                >{t.nav.aiWeb3}</a
-                            >
-                        </li>
-                        <li>
-                            <a href={`/${currentLang}/services/hybrid-zk-ai`}
-                                >{t.nav.hybridZkAi}</a
-                            >
-                        </li>
-                        <li>
-                            <a href={`/${currentLang}/services/infrastructure`}
-                                >{t.nav.infrastructure}</a
-                            >
+                            <a href={`/${currentLang}/#system-families`}>{t.nav.partnership}</a>
                         </li>
                     </ul>
                 </div>

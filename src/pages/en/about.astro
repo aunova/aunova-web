@@ -7,480 +7,369 @@ const t = getTranslation(lang);
 ---
 
 <PageLayout
-    title="About Aunova - Blockchain, Zero-Knowledge & AI Experts"
-    description="Learn about Aunova's mission to advance blockchain technology through Zero-Knowledge proofs and decentralized AI. Meet our team of blockchain engineers, cryptographers, and AI researchers."
-    lang={lang}
+  title="About Aunova - Long-Term Systems Partner"
+  description="Aunova was founded on the belief that the next era of technology will not be defined by more software, but by better systems that protect people and respect the planet."
+  lang={lang}
 >
-    <section class="about-hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>{t.about.title}</h1>
-                <p class="lead">
-                    Pioneering the intersection of privacy and intelligence
-                </p>
-            </div>
+  <section class="about-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>{t.about.title}</h1>
+        <p class="lead">
+          Long-term systems partner for human- and planet-critical infrastructure
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-section">
+    <div class="container">
+      <div class="why-content">
+        <h2>{t.whyAunova.title}</h2>
+        <div class="body-text">
+          {t.whyAunova.body.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
         </div>
-    </section>
+        <aside class="credibility-box">
+          <p>{t.whyAunova.credibility}</p>
+        </aside>
+      </div>
+    </div>
+  </section>
 
-    <section class="mission-section">
-        <div class="container">
-            <div class="mission-content">
-                <h2>{t.about.mission.title}</h2>
-                <p class="mission-statement">{t.about.mission.description}</p>
-            </div>
+  <section class="principles-section">
+    <div class="container">
+      <h2>Our Principles</h2>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <div class="principle-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 6v6l4 2"></path>
+            </svg>
+          </div>
+          <h3>Long-Term Thinking</h3>
+          <p>We build for 10+ year horizons, designing systems meant to endure and evolve.</p>
         </div>
-    </section>
 
-    <section class="values-section">
-        <div class="container">
-            <h2>{t.about.values.title}</h2>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg
-                            width="48"
-                            height="48"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path
-                                d="M12 2l8 3.5v6.5c0 4.5-3.5 8.5-8 10-4.5-1.5-8-5.5-8-10V5.5L12 2z"
-                            ></path>
-                        </svg>
-                    </div>
-                    <h3>{t.about.values.privacy}</h3>
-                    <p>{t.about.values.privacyDesc}</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg
-                            width="48"
-                            height="48"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        >
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                        </svg>
-                    </div>
-                    <h3>{t.about.values.innovation}</h3>
-                    <p>{t.about.values.innovationDesc}</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg
-                            width="48"
-                            height="48"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        >
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="8" x2="12" y2="16"></line>
-                            <line x1="8" y1="12" x2="16" y2="12"></line>
-                        </svg>
-                    </div>
-                    <h3>{t.about.values.transparency}</h3>
-                    <p>{t.about.values.transparencyDesc}</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg
-                            width="48"
-                            height="48"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        >
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                            ></polygon>
-                        </svg>
-                    </div>
-                    <h3>{t.about.values.excellence}</h3>
-                    <p>{t.about.values.excellenceDesc}</p>
-                </div>
-            </div>
+        <div class="principle-card">
+          <div class="principle-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3>Selective Partnerships</h3>
+          <p>We engage with a limited number of partners to protect depth, responsibility, and system integrity.</p>
         </div>
-    </section>
 
-    <section class="expertise-section">
-        <div class="container">
-            <h2>Our Expertise</h2>
-            <div class="expertise-grid">
-                <div class="expertise-item">
-                    <h3>Blockchain Technology</h3>
-                    <p>
-                        Deep expertise in blockchain protocols, smart contracts,
-                        and decentralized architectures
-                    </p>
-                </div>
-                <div class="expertise-item">
-                    <h3>Artificial Intelligence</h3>
-                    <p>
-                        Cutting-edge AI/ML research with focus on
-                        privacy-preserving machine learning
-                    </p>
-                </div>
-                <div class="expertise-item">
-                    <h3>Blockchain Engineering</h3>
-                    <p>
-                        Years of experience building robust, scalable
-                        decentralized applications
-                    </p>
-                </div>
-                <div class="expertise-item">
-                    <h3>System Architecture</h3>
-                    <p>
-                        Designing complex distributed systems with security and
-                        performance in mind
-                    </p>
-                </div>
-            </div>
+        <div class="principle-card">
+          <div class="principle-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3>Human & Planetary Impact</h3>
+          <p>We work in domains where technology directly shapes human wellbeing and planetary outcomes.</p>
         </div>
-    </section>
 
-    <section class="story-section">
-        <div class="container">
-            <div class="story-content">
-                <h2>Our Story</h2>
-                <p>
-                    Aunova was born from a single, powerful idea: the future of
-                    digital trust lies at the intersection of privacy,
-                    blockchain, and artificial intelligence. Our founders, a
-                    team of seasoned blockchain engineers and technology
-                    innovators, saw a critical gap in the market. Businesses
-                    needed to run AI on sensitive data without exposing it, but
-                    the tools were complex and siloed.
-                </p>
-                <p>
-                    We dedicated ourselves to solving this challenge by
-                    mastering and integrating a unique stack of
-                    privacy-preserving technologies. We combine the
-                    computational power of <strong
-                        >Fully Homomorphic Encryption (FHE)</strong
-                    >, the verifiability of <strong
-                        >Zero-Knowledge (ZK) Proofs</strong
-                    >, and the immutable transparency of <strong
-                        >Blockchain</strong
-                    >. This allows us to build solutions where AI models can
-                    operate on fully encrypted data, delivering valuable
-                    insights without ever compromising privacy.
-                </p>
-                <p>
-                    Today, we empower organizations worldwide, from startups to
-                    enterprises, to build truly secure and compliant AI-driven
-                    systems. We don't just offer cutting-edge technology; we
-                    provide a bridge to a future where innovation and privacy
-                    are not competing ideals, but essential partners.
-                </p>
-            </div>
+        <div class="principle-card">
+          <div class="principle-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <h3>Shared Infrastructure</h3>
+          <p>Systems we build become shared assets, designed for the ecosystems they serve.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Work Together?</h2>
-                <p>
-                    Let's discuss how we can help you leverage Zero-Knowledge
-                    proofs and AI for your next project.
-                </p>
-                <div class="cta-actions">
-                    <a href={`/${lang}/contact`} class="btn btn-primary"
-                        >Get in Touch</a
-                    >
-                    <a href={`/${lang}/services`} class="btn btn-outline"
-                        >Explore Services</a
-                    >
-                </div>
-            </div>
+  <section class="approach-section">
+    <div class="container">
+      <div class="approach-content">
+        <h2>Our Approach</h2>
+        <div class="approach-text">
+          <p>
+            We are not a software vendor. We are long-term systems partners, co-building foundational 
+            digital infrastructure for domains where failure has real human or environmental consequences.
+          </p>
+          <p>
+            We do not begin with requirements documents. We begin with strategic alignment. Our partnerships 
+            are structured around building systems that become shared assets—infrastructure that serves not 
+            just our partners, but the ecosystems they operate within.
+          </p>
+          <p>
+            We engage selectively, build for decades, and design systems meant to become shared layers 
+            within the worlds they serve.
+          </p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>{t.contact.title}</h2>
+        <p>{t.contact.intro}</p>
+        <div class="cta-actions">
+          <a href={`/${lang}/contact`} class="btn btn-primary">{t.hero.cta.primary}</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </PageLayout>
 
 <style>
-    .about-hero {
-        padding: var(--space-3xl) 0;
-        background: linear-gradient(
-            135deg,
-            var(--color-background) 0%,
-            color-mix(
-                    in srgb,
-                    var(--color-secondary) 10%,
-                    var(--color-background)
-                )
-                100%
-        );
-    }
+  .about-hero {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(
+      135deg,
+      var(--color-background) 0%,
+      color-mix(in srgb, var(--color-secondary) 10%, var(--color-background)) 100%
+    );
+  }
 
-    .hero-content {
-        text-align: center;
-        max-width: 700px;
-        margin: 0 auto;
-    }
+  .hero-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
 
+  .hero-content h1 {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .lead {
+    font-size: var(--text-xl);
+    color: var(--color-text-muted);
+  }
+
+  .why-section {
+    padding: var(--space-5xl) 0;
+    background-color: var(--color-background);
+  }
+
+  .why-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .why-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+  }
+
+  .body-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .body-text p {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .credibility-box {
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    background: color-mix(in srgb, var(--color-primary) 5%, var(--color-background));
+    border-left: 4px solid var(--color-primary);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .credibility-box p {
+    font-size: var(--text-base);
+    color: var(--color-text);
+    margin: 0;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .principles-section {
+    padding: var(--space-5xl) 0;
+    background-color: var(--color-background-elevated, var(--color-white));
+  }
+
+  .principles-section h2 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .principle-card {
+    text-align: center;
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    border: 1px solid var(--color-border);
+    background: var(--color-background);
+  }
+
+  .principle-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .principle-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-burgundy-light) 100%);
+    border-radius: var(--radius-full);
+    color: var(--color-white);
+  }
+
+  .principle-card h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+
+  .principle-card p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .approach-section {
+    padding: var(--space-5xl) 0;
+    background-color: var(--color-background);
+  }
+
+  .approach-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .approach-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+  }
+
+  .approach-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .approach-text p {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .cta-section {
+    padding: var(--space-5xl) 0;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-primary) 5%, var(--color-background)) 0%,
+      var(--color-background) 100%
+    );
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-content p {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2xl);
+    line-height: 1.7;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md) var(--space-2xl);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-base);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    text-decoration: none;
+    color: var(--color-white);
+  }
+
+  @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: var(--text-4xl);
-        font-weight: 700;
-        margin-bottom: var(--space-md);
+      font-size: var(--text-3xl);
     }
 
-    .lead {
-        font-size: var(--text-xl);
-        color: var(--color-text-muted);
+    .principles-grid {
+      grid-template-columns: 1fr;
     }
 
-    .mission-section {
-        padding: var(--space-3xl) 0;
-        background-color: color-mix(
-            in srgb,
-            var(--color-primary) 5%,
-            var(--color-background)
-        );
-    }
-
-    .mission-content {
-        text-align: center;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .mission-content h2 {
-        font-size: var(--text-3xl);
-        font-weight: 700;
-        margin-bottom: var(--space-lg);
-    }
-
-    .mission-statement {
-        font-size: var(--text-lg);
-        line-height: 1.8;
-        color: var(--color-text);
-    }
-
-    .values-section {
-        padding: var(--space-3xl) 0;
-    }
-
-    .values-section h2 {
-        text-align: center;
-        font-size: var(--text-3xl);
-        font-weight: 700;
-        margin-bottom: var(--space-2xl);
-    }
-
-    .values-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: var(--space-xl);
-    }
-
-    .value-card {
-        text-align: center;
-        padding: var(--space-xl);
-        border-radius: var(--radius-lg);
-        transition: all var(--transition-base);
-    }
-
-    .value-card:hover {
-        background-color: color-mix(
-            in srgb,
-            var(--color-secondary) 10%,
-            var(--color-background)
-        );
-        transform: translateY(-4px);
-    }
-
-    .value-icon {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 80px;
-        height: 80px;
-        margin-bottom: var(--space-md);
-        background: linear-gradient(
-            135deg,
-            var(--color-primary) 0%,
-            var(--color-secondary) 100%
-        );
-        border-radius: var(--radius-full);
-        color: var(--color-white);
-    }
-
-    .value-card h3 {
-        font-size: var(--text-xl);
-        font-weight: 700;
-        margin-bottom: var(--space-sm);
-    }
-
-    .value-card p {
-        color: var(--color-text-muted);
-        line-height: 1.6;
-    }
-
-    .expertise-section {
-        padding: var(--space-3xl) 0;
-        background-color: var(--color-background);
-    }
-
-    .expertise-section h2 {
-        text-align: center;
-        font-size: var(--text-3xl);
-        font-weight: 700;
-        margin-bottom: var(--space-2xl);
-    }
-
-    .expertise-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: var(--space-xl);
-    }
-
-    .expertise-item {
-        padding: var(--space-lg);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-lg);
-        transition: all var(--transition-base);
-    }
-
-    .expertise-item:hover {
-        border-color: var(--color-primary);
-        box-shadow: var(--shadow-md);
-    }
-
-    .expertise-item h3 {
-        font-size: var(--text-lg);
-        font-weight: 700;
-        margin-bottom: var(--space-sm);
-        color: var(--color-primary);
-    }
-
-    .expertise-item p {
-        color: var(--color-text-muted);
-        line-height: 1.6;
-    }
-
-    .story-section {
-        padding: var(--space-3xl) 0;
-        background: linear-gradient(
-            135deg,
-            var(--color-background) 0%,
-            color-mix(
-                    in srgb,
-                    var(--color-secondary) 5%,
-                    var(--color-background)
-                )
-                100%
-        );
-    }
-
-    .story-content {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .story-content h2 {
-        font-size: var(--text-3xl);
-        font-weight: 700;
-        margin-bottom: var(--space-xl);
-        text-align: center;
-    }
-
-    .story-content p {
-        font-size: var(--text-base);
-        line-height: 1.8;
-        color: var(--color-text);
-        margin-bottom: var(--space-lg);
-    }
-
+    .why-section,
+    .principles-section,
+    .approach-section,
     .cta-section {
-        padding: var(--space-3xl) 0;
+      padding: var(--space-3xl) 0;
     }
-
-    .cta-content {
-        text-align: center;
-        max-width: 700px;
-        margin: 0 auto;
-    }
-
-    .cta-content h2 {
-        font-size: var(--text-3xl);
-        font-weight: 700;
-        margin-bottom: var(--space-md);
-    }
-
-    .cta-content p {
-        font-size: var(--text-lg);
-        color: var(--color-text-muted);
-        margin-bottom: var(--space-2xl);
-    }
-
-    .cta-actions {
-        display: flex;
-        gap: var(--space-md);
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    /* Buttons */
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: var(--space-sm) var(--space-xl);
-        border-radius: var(--radius-md);
-        font-weight: 600;
-        font-size: var(--text-base);
-        transition: all var(--transition-fast);
-        text-decoration: none;
-        cursor: pointer;
-        border: 2px solid transparent;
-    }
-
-    .btn-primary {
-        background-color: var(--color-primary);
-        color: var(--color-white);
-        border-color: var(--color-primary);
-    }
-
-    .btn-primary:hover {
-        background-color: color-mix(in srgb, var(--color-primary) 85%, black);
-        border-color: color-mix(in srgb, var(--color-primary) 85%, black);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-    }
-
-    .btn-outline {
-        background-color: transparent;
-        color: var(--color-primary);
-        border-color: var(--color-primary);
-    }
-
-    .btn-outline:hover {
-        background-color: var(--color-primary);
-        color: var(--color-white);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-    }
-
-    @media (max-width: 768px) {
-        .hero-content h1 {
-            font-size: var(--text-3xl);
-        }
-
-        .values-grid,
-        .expertise-grid {
-            grid-template-columns: 1fr;
-        }
-    }
+  }
 </style>

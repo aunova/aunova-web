@@ -1,16 +1,21 @@
-# AGENTS.md - Aunova Website
+# AGENTS.md - Aunova Website Quick reference for AI coding agents
 
-Quick reference for AI coding agents. For detailed docs, see CLAUDE.md.
+## Summary
+
+**Brand**: Aunova - Long-term systems partner for human- and planet-critical infrastructure.
+
+**Positioning**: We are not a software vendor. We are long-term systems partners, co-building foundational digital infrastructure for domains where failure has real human or environmental consequences.
+
+**Goal**: Maximize static generation, minimize client JS, optimize LLM token usage.
 
 ## Commands
 
 ```bash
-# Package manager: Bun (required)
-bun install          # Install dependencies
-bun run dev          # Start dev server (localhost:4321)
-bun run build        # Production build to dist/
-bun run preview      # Preview production build
-bun run deploy       # Build + create CNAME for GitHub Pages
+bun install        # Install dependencies
+bun run dev       # Start dev server (localhost:4321)
+bun run build     # Production build to dist/
+bun run preview   # Preview production build
+bun run deploy    # Build + create CNAME for GitHub Pages
 ```
 
 **No test suite configured.** Verify changes with `bun run build`.
@@ -28,19 +33,31 @@ bun run deploy       # Build + create CNAME for GitHub Pages
 ```
 src/
 ├── components/
-│   ├── layout/       # Header, Footer, Navigation
-│   ├── ui/           # Button, Card, Badge, BlogCard
-│   └── features/     # ServicePillar, CookieNotice
-├── content/blog/     # MDX posts (en/, es/ subdirs)
-├── layouts/          # BaseLayout, PageLayout, MarkdownLayout
+│   ├── layout/      # Header, Footer, Navigation
+│   ├── ui/          # Button, Card, Badge, BlogCard
+│   └── features/    # SystemFamilyCard, PartnershipJourney, CriteriaList
+├── content/blog/    # MDX posts (en/, es/ subdirs)
+├── layouts/         # BaseLayout, PageLayout, MarkdownLayout
 ├── pages/
-│   ├── en/           # English routes
-│   ├── es/           # Spanish routes
-│   └── index.astro   # Root redirect
-├── stores/           # Zustand stores (theme.ts, language.ts)
-├── styles/           # global.css, utilities.css
-└── utils/            # i18n.ts helpers
+│   ├── en/          # English routes
+│   ├── es/          # Spanish routes
+│   └── index.astro  # Root redirect
+├── stores/          # Zustand stores (theme.ts, language.ts)
+├── styles/          # global.css, utilities.css
+├── utils/           # i18n.ts helpers
+└── schemas/         # Shared Zod schemas
 ```
+
+## Website Sections
+
+The homepage consists of these sections (in order):
+1. **Hero** - Partnership invitation with hero image
+2. **Different Company** - "A Different Kind of Technology Company"
+3. **System Families** - GreenBlocks featured, future families teaser
+4. **Partnership Journey** - 5-step process (Alignment → Co-Design → Proof → Development → Alliance)
+5. **Partner Criteria** - Who we work with + boundary statement
+6. **Why Aunova** - Mission and philosophy
+7. **CTA** - "Begin a Strategic Conversation"
 
 ## Code Style
 
@@ -57,12 +74,8 @@ src/
 
 ```astro
 ---
-import { z } from 'zod';
-
-const props = z.object({
-  title: z.string(),
-  variant: z.enum(['primary', 'secondary']).default('primary'),
-}).parse(Astro.props);
+import { blogSchema } from "../schemas/blog";
+const props = blogSchema.parse(Astro.props);
 ---
 ```
 
@@ -75,7 +88,8 @@ export interface Props {
   description?: string;
   lang?: "en" | "es";
 }
-const { title, description, lang } = Astro.props;
+
+const { title, description, lang = "en" } = Astro.props;
 ---
 ```
 
@@ -92,60 +106,73 @@ const { title, description, lang } = Astro.props;
 - Container queries and subgrid are encouraged
 - **No web fonts** - system fonts only
 
-**Design tokens**:
+**Design tokens** (see BRAND.md for full details):
 
 ```css
---color-burgundy: #672042;    /* Primary */
---color-sand: #E3DCC2;        /* Secondary */
---color-black: #0F0F0F;
+/* Primary Colors */
+--color-burgundy: #672042;    /* Primary brand color */
+--color-sand: #E3DCC2;        /* Secondary/background */
+--color-black: #0F0F0F;       /* Text */
 --color-white: #FFFFFF;
---space-{xs,sm,md,lg,xl,2xl,3xl}  /* 4px to 64px scale */
+
+/* Spacing Scale */
+--space-xs: 4px;
+--space-sm: 8px;
+--space-md: 16px;
+--space-lg: 24px;
+--space-xl: 32px;
+--space-2xl: 48px;
+--space-3xl: 64px;
 ```
 
 ### Naming Conventions
 
 | Type | Convention | Example |
 |------|------------|---------|
-| Components | PascalCase | `Button.astro`, `ServicePillar.astro` |
+| Components | PascalCase | `Button.astro`, `SystemFamilyCard.astro` |
 | TypeScript files | camelCase | `i18n.ts`, `theme.ts` |
-| Routes/slugs | kebab-case | `/services/zero-knowledge` |
-| CSS classes | kebab-case | `.blog-card`, `.btn-primary` |
+| Routes/slugs | kebab-case | `/en/about`, `/en/contact` |
+| CSS classes | kebab-case | `.hero-section`, `.btn-primary` |
 | CSS variables | kebab-case | `--color-burgundy`, `--space-md` |
 
-### Imports
+### Imports Order
 
 ```astro
 ---
 // 1. External packages
 import { z } from 'zod';
 
-// 2. Layouts
-import BaseLayout from "../layouts/BaseLayout.astro";
+// 2. Shared schemas/utils
+import { blogSchema } from "../schemas/blog";
+import { getTranslation } from "../utils/i18n";
 
 // 3. Components (by category)
 import Header from "../components/layout/Header.astro";
 import Button from "../components/ui/Button.astro";
 
-// 4. Utils
-import { getTranslation, getCurrentLanguage } from "../utils/i18n";
+// 4. Layouts
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 ```
 
-## i18n
+## i18n Optimization
 
 - Routes: `/en/...` and `/es/...`
 - Root `/` redirects to `/en/`
 - Translations in `src/utils/i18n.ts`
 
 ```typescript
-import { getTranslation, getCurrentLanguage, type Language } from "../utils/i18n";
+export function getTranslation(lang: "en" | "es") {
+  return translations[lang] || translations[defaultLang];
+}
 
-const lang = getCurrentLanguage(Astro.url);
-const t = getTranslation(lang);
-// Use: t.nav.home, t.hero.title, etc.
+export function getCurrentLanguage(url: URL): "en" | "es" {
+  const path = url.pathname;
+  return path.startsWith("/es/") ? "es" : "en";
+}
 ```
 
-## Content (Blog)
+## Content (Blog) Optimization
 
 MDX files in `src/content/blog/{en,es}/`:
 
@@ -156,6 +183,7 @@ description: "Post description"
 date: 2024-01-01
 image: "/images/blog/post-image.webp"
 author: "Author Name"
+tags: ["tag1", "tag2"]
 ---
 
 Content here...
@@ -168,6 +196,14 @@ Content here...
 3. **Static generation**: All pages are SSG
 4. **Accessibility**: WCAG 2.1 AA, keyboard nav, ARIA labels
 5. **SEO/AI optimized**: Semantic HTML, JSON-LD structured data
+
+## Brand Principles
+
+1. **Long-term thinking**: Build for 10+ year horizons
+2. **Selective partnerships**: Quality over quantity
+3. **Human & planetary impact**: Real-world consequences matter
+4. **Shared infrastructure**: Systems become shared assets
+5. **Trust over transactions**: Partnership model, not vendor relationship
 
 ## Constraints
 
@@ -192,4 +228,4 @@ Content here...
 
 ---
 
-*For detailed architecture, design system, and patterns, see CLAUDE.md*
+*For detailed brand guidelines, colors, and typography, see BRAND.md*

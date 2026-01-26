@@ -1,10 +1,42 @@
 ---
 import PageLayout from "../../layouts/PageLayout.astro";
 import ServicePillar from "../../components/features/ServicePillar.astro";
-import { getTranslation } from "../../utils/i18n";
 
 const lang = "en";
-const t = getTranslation(lang);
+
+// Legacy services content - hardcoded since these pages are hidden but preserved
+const services = {
+    title: "Our Services",
+    subtitle: "Comprehensive solutions for Zero-Knowledge, AI, and Web3 integration",
+    learnMore: "Learn More",
+    pillars: {
+        zk: {
+            title: "Zero-Knowledge & Privacy",
+            description: "Privacy-preserving proofs that verify without revealing sensitive data",
+            features: ["zkSNARKs & zkSTARKs", "Private transactions", "Verifiable computation"]
+        },
+        fhe: {
+            title: "Fully Homomorphic Encryption",
+            description: "Compute on encrypted data without ever decrypting it",
+            features: ["Encrypted AI inference", "Private analytics", "Secure data sharing"]
+        },
+        ai: {
+            title: "AI & Web3 Integration",
+            description: "Decentralized AI solutions with blockchain-verified outputs",
+            features: ["On-chain AI models", "Decentralized inference", "AI-powered smart contracts"]
+        },
+        hybrid: {
+            title: "Hybrid ZK-AI Solutions",
+            description: "Combining zero-knowledge proofs with AI for maximum privacy",
+            features: ["Private ML inference", "Verifiable AI", "ZK-wrapped models"]
+        },
+        infra: {
+            title: "Infrastructure & Dev Tools",
+            description: "Production-ready infrastructure for privacy-first applications",
+            features: ["ZK circuits", "SDK development", "Node infrastructure"]
+        }
+    }
+};
 ---
 
 <PageLayout
@@ -15,8 +47,8 @@ const t = getTranslation(lang);
     <section class="services-hero">
         <div class="container">
             <div class="hero-content">
-                <h1>{t.services.title}</h1>
-                <p class="lead">{t.services.subtitle}</p>
+                <h1>{services.title}</h1>
+                <p class="lead">{services.subtitle}</p>
             </div>
         </div>
     </section>
@@ -25,48 +57,48 @@ const t = getTranslation(lang);
         <div class="container">
             <div class="services-grid">
                 <ServicePillar
-                    title={t.services.pillars.zk.title}
-                    description={t.services.pillars.zk.description}
-                    features={t.services.pillars.zk.features}
+                    title={services.pillars.zk.title}
+                    description={services.pillars.zk.description}
+                    features={services.pillars.zk.features}
                     icon="zk"
                     href={`/${lang}/services/zero-knowledge`}
-                    linkText={t.services.learnMore}
+                    linkText={services.learnMore}
                 />
 
                 <ServicePillar
-                    title={t.services.pillars.fhe.title}
-                    description={t.services.pillars.fhe.description}
-                    features={t.services.pillars.fhe.features}
+                    title={services.pillars.fhe.title}
+                    description={services.pillars.fhe.description}
+                    features={services.pillars.fhe.features}
                     icon="fhe"
                     href={`/${lang}/services/fhe`}
-                    linkText={t.services.learnMore}
+                    linkText={services.learnMore}
                 />
 
                 <ServicePillar
-                    title={t.services.pillars.ai.title}
-                    description={t.services.pillars.ai.description}
-                    features={t.services.pillars.ai.features}
+                    title={services.pillars.ai.title}
+                    description={services.pillars.ai.description}
+                    features={services.pillars.ai.features}
                     icon="ai"
                     href={`/${lang}/services/ai-web3`}
-                    linkText={t.services.learnMore}
+                    linkText={services.learnMore}
                 />
 
                 <ServicePillar
-                    title={t.services.pillars.hybrid.title}
-                    description={t.services.pillars.hybrid.description}
-                    features={t.services.pillars.hybrid.features}
+                    title={services.pillars.hybrid.title}
+                    description={services.pillars.hybrid.description}
+                    features={services.pillars.hybrid.features}
                     icon="hybrid"
                     href={`/${lang}/services/hybrid-zk-ai`}
-                    linkText={t.services.learnMore}
+                    linkText={services.learnMore}
                 />
 
                 <ServicePillar
-                    title={t.services.pillars.infra.title}
-                    description={t.services.pillars.infra.description}
-                    features={t.services.pillars.infra.features}
+                    title={services.pillars.infra.title}
+                    description={services.pillars.infra.description}
+                    features={services.pillars.infra.features}
                     icon="infra"
                     href={`/${lang}/services/infrastructure`}
-                    linkText={t.services.learnMore}
+                    linkText={services.learnMore}
                 />
             </div>
         </div>

@@ -1,13 +1,15 @@
 /* Global CSS Variables and Base Styles */
 
 :root {
-    /* Color Palette */
-    --color-red: #6c0001;
-    --color-red-light: #9b1c1f;
-    --color-red-vivid: #a32125;
-    --color-sand: #e3dcc2;
-    --color-black: #0f0f0f;
-    --color-white: #ffffff;
+    /* Color Palette - Aunova Brand */
+    --color-burgundy: #672042;
+    --color-burgundy-light: #8a3a5c;
+    --color-burgundy-dark: #4d1832;
+    --color-sand: #E3DCC2;
+    --color-sand-light: #F5F2E8;
+    --color-sand-dark: #c9c2a8;
+    --color-black: #0F0F0F;
+    --color-white: #FFFFFF;
     --color-gray-50: #fafafa;
     --color-gray-100: #f5f5f5;
     --color-gray-200: #e5e5e5;
@@ -18,18 +20,21 @@
     --color-gray-700: #404040;
     --color-gray-800: #262626;
     --color-gray-900: #171717;
-    --color-blue-tech: #1c6dd0;
-    --color-blue-ice: #56ccf2;
+    
+    /* System Family Colors */
+    --color-greenblocks: #22c55e;
+    --color-greenblocks-light: #4ade80;
 
     /* Day Mode Colors */
-    --color-primary: var(--color-red);
-    --color-primary-hover: var(--color-red-light);
+    --color-primary: var(--color-burgundy);
+    --color-primary-hover: var(--color-burgundy-light);
     --color-secondary: var(--color-sand);
-    --color-background: #fafafa;
-    --color-text: #1a1a1a;
-    --color-text-muted: #374151; /* Improved contrast: was #4D4D4D, now meets WCAG AA */
-    --color-border: #d1d5db; /* Improved contrast: was #e0e0e0 */
-    --color-accent: var(--color-blue-tech);
+    --color-background: var(--color-sand-light);
+    --color-background-elevated: var(--color-white);
+    --color-text: var(--color-black);
+    --color-text-muted: #525252; /* Gray 600 for good contrast */
+    --color-border: var(--color-sand-dark);
+    --color-accent: var(--color-burgundy);
 
     /* Typography - System Font Stack */
     --font-system:
@@ -94,71 +99,61 @@
     --z-tooltip: 600;
 }
 
-/* Theme System - Manual Override Takes Priority */
 [data-theme="light"] {
-    --color-background: #fafafa;
-    --color-text: #1a1a1a;
-    --color-text-muted: #374151; /* Improved contrast: was #4d4d4d, now meets WCAG AA */
-    --color-border: #d1d5db; /* Improved contrast: was #e0e0e0 */
-    --color-accent: var(--color-blue-tech);
-    --color-primary-hover: var(--color-red-light);
+    --color-background: var(--color-sand-light);
+    --color-background-elevated: var(--color-white);
+    --color-text: var(--color-black);
+    --color-text-muted: #525252;
+    --color-border: var(--color-sand-dark);
+    --color-accent: var(--color-burgundy);
+    --color-primary: var(--color-burgundy);
+    --color-primary-hover: var(--color-burgundy-light);
 }
 
 [data-theme="dark"] {
-    --color-background: #000000;
-    --color-background-elevated: #121212;
-    --color-background-header: #2c2c2c;
+    --color-background: #0F0F0F;
+    --color-background-elevated: #1a1a1a;
+    --color-background-header: #1a1a1a;
     --color-text: #f2f2f2;
-    --color-text-muted: #9ca3af; /* Improved contrast: was #bdbdbd, better readability on dark bg */
+    --color-text-muted: #9ca3af;
     --color-border: #2c2c2c;
-    --color-accent: var(--color-blue-ice);
-    --color-primary: var(--color-red-vivid);
-    --color-primary-hover: #c42a2f;
+    --color-accent: var(--color-burgundy-light);
+    --color-primary: var(--color-burgundy-light);
+    --color-primary-hover: #a04a6e;
 }
 
-/* Automatic Dark Mode (when no manual theme set) */
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme]) {
-        --color-background: #000000;
-        --color-background-elevated: #121212;
-        --color-background-header: #2c2c2c;
+        --color-background: #0F0F0F;
+        --color-background-elevated: #1a1a1a;
+        --color-background-header: #1a1a1a;
         --color-text: #f2f2f2;
-        --color-text-muted: #9ca3af; /* Improved contrast: was #bdbdbd, better readability on dark bg */
+        --color-text-muted: #9ca3af;
         --color-border: #2c2c2c;
-        --color-accent: var(--color-blue-ice);
-        --color-primary: var(--color-red-vivid);
-        --color-primary-hover: #c42a2f;
+        --color-accent: var(--color-burgundy-light);
+        --color-primary: var(--color-burgundy-light);
+        --color-primary-hover: #a04a6e;
     }
 }
 
-/* Targeted Black Background Override - Only Main Content Sections */
 [data-theme="dark"] body,
 [data-theme="dark"] html,
 [data-theme="dark"] main,
-[data-theme="dark"] section:not(.header):not(.nav):not(.dropdown),
-[data-theme="dark"] .hero::before,
-[data-theme="dark"] .problem-solution::before,
-[data-theme="dark"] .about-section::before {
-    background: #000000 !important;
-    background-color: #000000 !important;
-    background-image: none !important;
+[data-theme="dark"] section:not(.header):not(.nav):not(.dropdown) {
+    background: var(--color-background) !important;
+    background-color: var(--color-background) !important;
 }
 
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme]) body,
     :root:not([data-theme]) html,
     :root:not([data-theme]) main,
-    :root:not([data-theme]) section:not(.header):not(.nav):not(.dropdown),
-    :root:not([data-theme]) .hero::before,
-    :root:not([data-theme]) .problem-solution::before,
-    :root:not([data-theme]) .about-section::before {
-        background: #000000 !important;
-        background-color: #000000 !important;
-        background-image: none !important;
+    :root:not([data-theme]) section:not(.header):not(.nav):not(.dropdown) {
+        background: var(--color-background) !important;
+        background-color: var(--color-background) !important;
     }
 }
 
-/* Explicit Header Grey Background */
 [data-theme="dark"] .header {
     background: var(--color-background-header) !important;
     background-color: var(--color-background-header) !important;

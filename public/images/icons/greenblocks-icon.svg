@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <!-- Placeholder: Modern building with green leaf integration, representing sustainable built environment -->
+  <title>GreenBlocks Icon - Sustainable Built Environment</title>
+  <desc>Icon showing a modern building with integrated green leaf, representing environmental and sustainability infrastructure for the built world. Replace with final brand asset.</desc>
+  
+  <!-- Building base -->
+  <rect x="16" y="24" width="32" height="28" rx="2" stroke="#672042" stroke-width="2" fill="none"/>
+  
+  <!-- Building windows -->
+  <rect x="20" y="30" width="6" height="6" rx="1" fill="#672042" opacity="0.3"/>
+  <rect x="29" y="30" width="6" height="6" rx="1" fill="#672042" opacity="0.3"/>
+  <rect x="38" y="30" width="6" height="6" rx="1" fill="#672042" opacity="0.3"/>
+  <rect x="20" y="40" width="6" height="6" rx="1" fill="#672042" opacity="0.3"/>
+  <rect x="29" y="40" width="6" height="6" rx="1" fill="#672042" opacity="0.3"/>
+  <rect x="38" y="40" width="6" height="6" rx="1" fill="#672042" opacity="0.3"/>
+  
+  <!-- Green leaf on rooftop -->
+  <path d="M32 12 C40 14 44 20 44 24 C44 28 40 24 32 24 C24 24 20 28 20 24 C20 20 24 14 32 12Z" fill="#22c55e" opacity="0.8"/>
+  <path d="M32 12 L32 24" stroke="#22c55e" stroke-width="1.5"/>
+</svg>
