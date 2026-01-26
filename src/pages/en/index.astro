@@ -386,7 +386,8 @@ const t = getTranslation(lang);
   /* Principles Grid */
   .principles-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 280px));
+    justify-content: center;
     gap: var(--space-md);
     margin-top: var(--space-lg);
   }
@@ -395,17 +396,17 @@ const t = getTranslation(lang);
     background: var(--color-white);
     border: none;
     border-radius: var(--radius-lg);
-    padding: var(--space-lg);
+    padding: var(--space-md);
     transition: all var(--transition-fast);
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    gap: var(--space-md);
+    align-items: center;
+    gap: var(--space-sm);
   }
 
   .principle-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: #E8D4D0; /* Coralish circular background */
     display: flex;
@@ -417,15 +418,15 @@ const t = getTranslation(lang);
   .principle-icon svg {
     color: var(--color-primary);
     stroke-width: 1.5;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 
   .principle-content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: 2px;
   }
 
   .principle-card:hover {
@@ -661,12 +662,12 @@ const t = getTranslation(lang);
     }
 
     .principles-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 260px));
       gap: var(--space-sm);
     }
 
     .principle-card {
-      padding: var(--space-md);
+      padding: var(--space-sm) var(--space-md);
     }
   }
 
@@ -724,7 +725,7 @@ const t = getTranslation(lang);
     }
 
     .principles-container {
-      padding: var(--space-lg);
+      padding: var(--space-md);
     }
 
     .principles-grid {
@@ -734,17 +735,17 @@ const t = getTranslation(lang);
     }
 
     .principle-card {
-      padding: var(--space-md);
+      padding: var(--space-sm) var(--space-md);
     }
 
     .principle-icon {
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
     }
 
     .principle-icon svg {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
     }
 
     .principle-title {
