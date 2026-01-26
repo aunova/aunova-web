@@ -1,5 +1,5 @@
 ---
-import PartnershipStep from "./PartnershipStep.astro";
+import { Compass, Lightbulb, Layers, Settings, Handshake } from "lucide-astro";
 
 export interface Step {
   number: number;
@@ -13,34 +13,48 @@ export interface Props {
   stepsTitle: string;
   steps: Step[];
   callout: string;
+  lang?: string;
 }
 
-const { title, intro, stepsTitle, steps, callout } = Astro.props;
+const { title, intro, stepsTitle, steps, callout, lang = "en" } = Astro.props;
+
+const stepIcons = [Compass, Lightbulb, Layers, Settings, Handshake];
 ---
 
 <section class="partnership-journey">
   <div class="journey-header">
     <h2 class="journey-title">{title}</h2>
-    <p class="journey-intro">{intro}</p>
+    <p class="journey-intro" set:html={intro.replace('infrastructure', '<strong>infrastructure</strong>')}></p>
   </div>
 
-  <div class="journey-content">
-    <h3 class="steps-title">{stepsTitle}</h3>
-    <div class="steps-container">
-      {steps.map((step, index) => (
-        <PartnershipStep
-          number={step.number}
-          title={step.title}
-          description={step.description}
-          isLast={index === steps.length - 1}
-        />
-      ))}
-    </div>
+  <div class="journey-callout-top">
+    <p>We engage with a maximum of 2-3 founding partners per <strong>system family</strong>.</p>
   </div>
 
-  <aside class="journey-callout">
-    <p>{callout}</p>
-  </aside>
+  <div class="steps-card">
+    {steps.map((step, index) => {
+      const IconComponent = stepIcons[index];
+      return (
+        <div class="step-row">
+          <div class="step-icon">
+            <IconComponent size={24} />
+          </div>
+          <div class="step-content">
+            <h4 class="step-title">{step.title}</h4>
+            <p class="step-description">{step.description}</p>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  <p class="journey-closing">Our success is not defined by launch dates, but by the enduring value our systems provide.</p>
+
+  <div class="journey-cta">
+    <h3 class="cta-title">Begin a Strategic Conversation</h3>
+    <p class="cta-description">Reach out if you and your team are committed to co-defining and co-owning infrastructure for the long term.</p>
+    <a href={`/${lang}/contact`} class="cta-button">Explore a Systems Partnership</a>
+  </div>
 </section>
 
 <style>
@@ -51,11 +65,11 @@ const { title, intro, stepsTitle, steps, callout } = Astro.props;
 
   .journey-header {
     text-align: center;
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-xl);
   }
 
   .journey-title {
-    font-size: var(--text-4xl);
+    font-size: var(--text-3xl);
     font-weight: 700;
     color: var(--color-primary);
     margin: 0 0 var(--space-lg) 0;
@@ -63,58 +77,162 @@ const { title, intro, stepsTitle, steps, callout } = Astro.props;
   }
 
   .journey-intro {
-    font-size: var(--text-lg);
-    color: var(--color-text-muted);
-    margin: 0;
-    line-height: 1.7;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .journey-content {
-    margin-bottom: var(--space-2xl);
-  }
-
-  .steps-title {
-    font-size: var(--text-xl);
-    font-weight: 600;
-    color: var(--color-text);
-    margin: 0 0 var(--space-xl) 0;
-    text-align: center;
-  }
-
-  .steps-container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .journey-callout {
-    background: color-mix(in srgb, var(--color-primary) 5%, var(--color-background));
-    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    text-align: center;
-  }
-
-  .journey-callout p {
     font-size: var(--text-base);
+    color: var(--color-text);
+    margin: 0 auto;
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  .journey-intro :global(strong) {
+    font-weight: 700;
+  }
+
+  .journey-callout-top {
+    background: #F5F2E8;
+    border-radius: var(--radius-lg);
+    padding: var(--space-md) var(--space-lg);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .journey-callout-top p {
+    font-size: var(--text-sm);
     color: var(--color-text);
     margin: 0;
     line-height: 1.6;
+  }
+
+  .journey-callout-top strong {
+    font-weight: 700;
+  }
+
+  .steps-card {
+    background: var(--color-white);
+    border: 1px solid #E8E4DA;
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .step-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid #F0EDE5;
+  }
+
+  .step-row:first-child {
+    padding-top: 0;
+  }
+
+  .step-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .step-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #F5F2E8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--color-primary);
+    opacity: 0.8;
+  }
+
+  .step-icon :global(svg) {
+    stroke-width: 1.5;
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-xs) 0;
+    line-height: 1.3;
+  }
+
+  .step-description {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .journey-closing {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
     font-style: italic;
+    margin: 0 0 var(--space-2xl) 0;
+    line-height: 1.6;
+  }
+
+  .journey-cta {
+    background: var(--color-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-white);
+    margin: 0 0 var(--space-md) 0;
+  }
+
+  .cta-description {
+    font-size: var(--text-sm);
+    color: var(--color-white);
+    opacity: 0.9;
+    margin: 0 0 var(--space-lg) 0;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--color-white);
+    color: var(--color-primary);
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-base);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    border: 2px solid var(--color-white);
+  }
+
+  .cta-button:hover {
+    background: transparent;
+    color: var(--color-white);
+    text-decoration: none;
   }
 
   @media (max-width: 768px) {
     .journey-title {
-      font-size: var(--text-3xl);
+      font-size: var(--text-2xl);
     }
 
-    .journey-intro {
-      font-size: var(--text-base);
+    .step-icon {
+      width: 40px;
+      height: 40px;
     }
 
-    .journey-header {
-      margin-bottom: var(--space-2xl);
+    .journey-cta {
+      padding: var(--space-xl);
     }
   }
 </style>

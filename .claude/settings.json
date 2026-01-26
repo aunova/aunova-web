@@ -1,5 +1,6 @@
 {
   "enabledPlugins": {
-    "oh-my-claudecode@omc": true
+    "oh-my-claudecode@omc": true,
+    "learning-output-style@claude-plugins-official": true
   }
 }

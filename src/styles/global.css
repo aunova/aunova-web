@@ -1,317 +1,413 @@
-/* Global CSS Variables and Base Styles */
+/* ==========================================================================
+   Aunova vNext Global Styles
+   Font Loading + Design System Variables + Base Styles
+   ========================================================================== */
 
-:root {
-    /* Color Palette - Aunova Brand */
-    --color-burgundy: #6c0001;
-    --color-burgundy-light: #9b1c1f;
-    --color-burgundy-vivid: #a32125;
-    --color-sand: #E3DCC2;
-    --color-sand-light: #F5F2E8;
-    --color-sand-dark: #c9c2a8;
-    --color-black: #0F0F0F;
-    --color-white: #FFFFFF;
-    --color-gray-50: #fafafa;
-    --color-gray-100: #f5f5f5;
-    --color-gray-200: #e5e5e5;
-    --color-gray-300: #d4d4d4;
-    --color-gray-400: #a3a3a3;
-    --color-gray-500: #737373;
-    --color-gray-600: #525252;
-    --color-gray-700: #404040;
-    --color-gray-800: #262626;
-    --color-gray-900: #171717;
-    
-    /* System Family Colors */
+/* --------------------------------------------------------------------------
+   @font-face Declarations (self-hosted variable fonts)
+   -------------------------------------------------------------------------- */
 
-    /* Day Mode Colors */
-    --color-primary: var(--color-burgundy);
-    --color-primary-hover: var(--color-burgundy-light);
-    --color-secondary: var(--color-sand);
-    --color-background: var(--color-sand-light);
-    --color-background-elevated: var(--color-white);
-    --color-text: var(--color-black);
-    --color-text-muted: #525252; /* Gray 600 for good contrast */
-    --color-border: var(--color-sand-dark);
-    --color-accent: var(--color-burgundy);
-
-    /* Typography - System Font Stack */
-    --font-system:
-        system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    --font-mono:
-        "SF Mono", Monaco, Inconsolata, "Fira Code", "Droid Sans Mono",
-        "Source Code Pro", monospace;
-
-    /* Font Sizes */
-    --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-    --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
-    --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-    --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
-    --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
-    --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);
-    --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.25rem);
-    --text-4xl: clamp(2.25rem, 1.8rem + 2.25vw, 3rem);
-    --text-5xl: clamp(3rem, 2.4rem + 3vw, 3.75rem);
-
-    /* Spacing Scale */
-    --space-xs: 0.25rem;
-    --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2rem;
-    --space-2xl: 3rem;
-    --space-3xl: 4rem;
-    --space-4xl: 6rem;
-    --space-5xl: 8rem;
-
-    /* Layout */
-    --max-width: 1280px;
-    --header-height: 4rem;
-    --footer-min-height: 20rem;
-
-    /* Borders */
-    --radius-sm: 0.25rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
-    --radius-full: 9999px;
-
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-
-    /* Transitions */
-    --transition-fast: 150ms ease;
-    --transition-base: 250ms ease;
-    --transition-slow: 350ms ease;
-
-    /* Z-index Scale */
-    --z-base: 0;
-    --z-dropdown: 100;
-    --z-sticky: 200;
-    --z-overlay: 300;
-    --z-modal: 400;
-    --z-popover: 500;
-    --z-tooltip: 600;
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* CSS Reset */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("/fonts/SourceSerif4-VariableFont_opsz,wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("/fonts/SourceSerif4-Italic-VariableFont_opsz,wght.ttf") format("truetype-variations");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   CSS Variables
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* Brand Colors (calm, institutional) */
+  --color-burgundy: #672042;
+  --color-burgundy-hover: #5b1b39;
+  --color-burgundy-soft: #8a3a5c;
+
+  /* Neutrals */
+  --color-stone: #F5F2E8;
+  --color-sand: #E3DCC2;
+  --color-sand-dark: #c9c2a8;
+  --color-white: #FFFFFF;
+  --color-charcoal: #1A1A1A;
+  --color-black: #0F0F0F;
+
+  /* Grays */
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+
+  /* System Family Accent */
+  --color-greenblocks: #3b8f5a;
+
+  /* Semantic Tokens */
+  --color-primary: var(--color-burgundy);
+  --color-primary-hover: var(--color-burgundy-hover);
+  --color-background: var(--color-stone);
+  --color-background-elevated: var(--color-white);
+  --color-surface: var(--color-sand);
+  --color-text: var(--color-charcoal);
+  --color-text-muted: rgba(26, 26, 26, 0.78);
+  --color-border: var(--color-sand-dark);
+  --color-link: var(--color-burgundy);
+
+  /* Typography */
+  --font-heading: "Source Serif 4", ui-serif, Georgia, "Times New Roman", Times, serif;
+  --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-mono: "SF Mono", Monaco, Inconsolata, "Fira Code", "Droid Sans Mono",
+               "Source Code Pro", monospace;
+
+  /* Type Scale */
+  --text-hero: clamp(2.5rem, 1.9rem + 2.4vw, 4rem);
+  --text-h1: clamp(1.875rem, 1.6rem + 1.6vw, 2.75rem);
+  --text-h2: clamp(1.375rem, 1.2rem + 0.9vw, 1.875rem);
+  --text-h3: clamp(1.125rem, 1.05rem + 0.5vw, 1.25rem);
+  --text-body: 1.0625rem;
+  --text-body-sm: 0.9375rem;
+  --text-ui: 0.875rem;
+  --text-xs: 0.8125rem;
+
+  /* Legacy text variables (for compatibility) */
+  --text-base: var(--text-body);
+  --text-sm: var(--text-body-sm);
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  /* Line Heights */
+  --lh-tight: 1.1;
+  --lh-heading: 1.15;
+  --lh-body: 1.7;
+  --lh-ui: 1.4;
+
+  /* Letter Spacing */
+  --ls-hero: -0.01em;
+  --ls-h1: -0.005em;
+  --ls-ui: 0.01em;
+
+  /* Spacing Scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* Layout */
+  --max-width: 1280px;
+  --header-height: 4rem;
+  --footer-min-height: 20rem;
+
+  /* Borders */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-md: 0 6px 16px rgb(0 0 0 / 0.06);
+  --shadow-lg: 0 8px 24px rgb(0 0 0 / 0.08);
+  --shadow-xl: 0 12px 32px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Z-index Scale */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-popover: 500;
+  --z-tooltip: 600;
+}
+
+/* --------------------------------------------------------------------------
+   CSS Reset
+   -------------------------------------------------------------------------- */
+
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Base Styles */
+/* --------------------------------------------------------------------------
+   Base Styles
+   -------------------------------------------------------------------------- */
+
 html {
-    font-family: var(--font-system);
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--color-text);
-    background-color: var(--color-background);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: var(--lh-body);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
-/* Prevent body scroll when mobile menu is open */
 body.menu-open {
-    overflow: hidden;
-    touch-action: none;
+  overflow: hidden;
+  touch-action: none;
 }
 
 main {
-    flex: 1;
+  flex: 1;
 }
 
-/* Typography */
+/* --------------------------------------------------------------------------
+   Typography
+   -------------------------------------------------------------------------- */
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    line-height: 1.2;
-    font-weight: 700;
-    margin-bottom: var(--space-md);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
 }
 
 h1 {
-    font-size: var(--text-5xl);
-    letter-spacing: -0.02em;
+  font-size: var(--text-h1);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-h1);
 }
 
 h2 {
-    font-size: var(--text-4xl);
-    letter-spacing: -0.01em;
+  font-size: var(--text-h2);
+  line-height: 1.25;
+  letter-spacing: 0;
 }
 
 h3 {
-    font-size: var(--text-3xl);
-}
-
-h4 {
-    font-size: var(--text-2xl);
-}
-
-h5 {
-    font-size: var(--text-xl);
-}
-
-h6 {
-    font-size: var(--text-lg);
+  font-family: var(--font-body);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
 }
 
 p {
-    margin-bottom: var(--space-md);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
 }
 
+small,
+.small {
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: rgba(26, 26, 26, 0.7);
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-hero);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-hero);
+}
+
+/* --------------------------------------------------------------------------
+   Links
+   -------------------------------------------------------------------------- */
+
 a {
-    color: var(--color-accent);
-    text-decoration: none;
-    transition: color var(--transition-fast);
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 a:hover {
-    color: var(--color-primary);
-    text-decoration: underline;
+  color: var(--color-primary-hover);
+  text-decoration: underline;
 }
 
-/* Focus Styles */
+/* --------------------------------------------------------------------------
+   Focus & Selection
+   -------------------------------------------------------------------------- */
+
 :focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-    border-radius: var(--radius-sm);
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 
-/* Selection */
 ::selection {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
-/* Code */
+/* --------------------------------------------------------------------------
+   Code
+   -------------------------------------------------------------------------- */
+
 code {
-    font-family: var(--font-mono);
-    font-size: 0.875em;
-    padding: 0.125rem 0.25rem;
-    background-color: var(--color-gray-100);
-    border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  padding: 0.125rem 0.25rem;
+  background-color: rgba(227, 220, 194, 0.45);
+  border-radius: var(--radius-sm);
 }
 
 pre {
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    padding: var(--space-md);
-    background-color: var(--color-gray-100);
-    border-radius: var(--radius-md);
-    overflow-x: auto;
-    margin-bottom: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  padding: var(--space-md);
+  background-color: rgba(227, 220, 194, 0.35);
+  border: 1px solid rgba(201, 194, 168, 0.8);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin-bottom: var(--space-md);
 }
 
-/* Lists */
+/* --------------------------------------------------------------------------
+   Lists
+   -------------------------------------------------------------------------- */
+
 ul,
 ol {
-    margin-bottom: var(--space-md);
-    padding-left: var(--space-xl);
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-xl);
 }
 
 li {
-    margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 
-/* Images */
+/* --------------------------------------------------------------------------
+   Images & Forms
+   -------------------------------------------------------------------------- */
+
 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* Forms */
 input,
 textarea,
 select,
 button {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
-/* Utility Classes */
+/* --------------------------------------------------------------------------
+   Container
+   -------------------------------------------------------------------------- */
+
 .container {
-    width: 100%;
-    max-width: var(--max-width);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--space-md);
-    padding-right: var(--space-md);
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
 }
 
 @media (min-width: 640px) {
-    .container {
-        padding-left: var(--space-lg);
-        padding-right: var(--space-lg);
-    }
+  .container {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
 }
 
 @media (min-width: 1024px) {
-    .container {
-        padding-left: var(--space-xl);
-        padding-right: var(--space-xl);
-    }
+  .container {
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
 }
+
+/* --------------------------------------------------------------------------
+   Utilities
+   -------------------------------------------------------------------------- */
 
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
-/* Modern CSS Features - attr() example */
-[data-color] {
-    color: attr(data-color type(<color>), var(--color-text));
-    transition: color var(--transition-fast);
-}
+/* --------------------------------------------------------------------------
+   Reduced Motion
+   -------------------------------------------------------------------------- */
 
-[data-bg-color] {
-    background-color: attr(data-bg-color type(<color>), transparent);
-    transition: background-color var(--transition-fast);
-}
-
-/* Container Queries Support */
-@supports (container-type: inline-size) {
-    .container-responsive {
-        container-type: inline-size;
-    }
-}
-
-/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

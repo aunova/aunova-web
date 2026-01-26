@@ -86,7 +86,7 @@ export const translations = {
           "GreenBlocks represents our partnership model: a shared ambition to build foundational environmental systems that can endure for decades.",
       },
       future: {
-        title: "Future system families (in development)",
+        title: "Future system families",
         items: [
           "Human data and identity infrastructure",
           "Responsible AI and governance layers",
