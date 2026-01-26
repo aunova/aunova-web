@@ -310,15 +310,40 @@ code {
   border-radius: var(--radius-sm);
 }
 
+/* Reset code styles when inside pre blocks */
+pre code {
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  font-size: inherit;
+}
+
 pre {
   font-family: var(--font-mono);
   font-size: 0.875rem;
-  padding: var(--space-md);
-  background-color: rgba(227, 220, 194, 0.35);
-  border: 1px solid rgba(201, 194, 168, 0.8);
+  padding: var(--space-lg);
+  background-color: #1e1e1e;
+  color: #d4d4d4;
   border-radius: var(--radius-md);
   overflow-x: auto;
   margin-bottom: var(--space-md);
+  line-height: 1.7;
+}
+
+/* Astro/Shiki code blocks */
+pre.astro-code {
+  background-color: #1e1e1e !important;
+}
+
+pre.astro-code code {
+  display: block;
+  background: transparent !important;
+  padding: 0;
+}
+
+pre.astro-code .line {
+  display: block;
+  min-height: 1.5em;
 }
 
 /* --------------------------------------------------------------------------

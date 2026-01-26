@@ -536,15 +536,42 @@
   font-weight: 500;
 }
 
+/* Reset code styles when inside pre blocks */
+.prose pre code {
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  font-weight: normal;
+  font-size: inherit;
+}
+
 .prose pre {
   font-family: var(--font-mono);
   font-size: 0.875rem;
   padding: var(--space-lg);
-  background-color: var(--color-gray-100);
+  background-color: #1e1e1e;
   border-radius: var(--radius-md);
   overflow-x: auto;
   margin: var(--space-xl) 0;
-  line-height: 1.6;
+  line-height: 1.7;
+  color: #d4d4d4;
+}
+
+/* Astro/Shiki code blocks */
+.prose pre.astro-code {
+  padding: var(--space-lg) var(--space-xl);
+  background-color: #1e1e1e !important;
+}
+
+.prose pre.astro-code code {
+  display: block;
+  background: transparent !important;
+  padding: 0;
+}
+
+.prose pre.astro-code .line {
+  display: block;
+  min-height: 1.5em;
 }
 
 .prose img {

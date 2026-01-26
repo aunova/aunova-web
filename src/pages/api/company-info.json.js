@@ -172,7 +172,7 @@ export async function GET() {
     headers: {
       'Content-Type': 'application/json',
       'Cache-Control': 'public, max-age=3600',
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': 'https://aunova.net',
       'X-Robots-Tag': 'index, follow',
       'X-AI-Friendly': 'true'
     }

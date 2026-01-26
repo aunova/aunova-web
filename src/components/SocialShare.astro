@@ -205,35 +205,34 @@ const emailUrl = `mailto:?subject=${encodedTitle}&body=${encodedDescription}%0A%
   }
 </style>
 
-<script>
+<script is:inline>
   // Copy link functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const copyButtons = document.querySelectorAll('.share-button.copy');
-    
-    copyButtons.forEach(button => {
-      button.addEventListener('click', async (e) => {
+  document.addEventListener('DOMContentLoaded', function() {
+    var copyButtons = document.querySelectorAll('.share-button.copy');
+
+    copyButtons.forEach(function(button) {
+      button.addEventListener('click', function(e) {
         e.preventDefault();
-        const btn = e.currentTarget as HTMLButtonElement;
-        const url = btn.dataset.url;
-        const textSpan = btn.querySelector('.copy-text');
-        
+        var btn = e.currentTarget;
+        var url = btn.dataset.url;
+        var textSpan = btn.querySelector('.copy-text');
+
         if (url) {
-          try {
-            await navigator.clipboard.writeText(url);
+          navigator.clipboard.writeText(url).then(function() {
             btn.classList.add('copied');
             if (textSpan) {
               textSpan.textContent = 'Copied!';
             }
-            
-            setTimeout(() => {
+
+            setTimeout(function() {
               btn.classList.remove('copied');
               if (textSpan) {
                 textSpan.textContent = 'Copy Link';
               }
             }, 2000);
-          } catch (err) {
+          }).catch(function(err) {
             console.error('Failed to copy:', err);
-          }
+          });
         }
       });
     });
