@@ -38,6 +38,32 @@ export const translations = {
       ],
       callout:
         "Our first system partnership initiative focuses on environmental and sustainability infrastructure for the built world.",
+      principles: [
+        {
+          title: "Human-and planet-critical focus",
+          description: "Our work impacts people and the environment.",
+        },
+        {
+          title: "Long-term systems, not short-term products",
+          description: "We design for decades, not quarters.",
+        },
+        {
+          title: "Partnership over vendor relationships",
+          description: "We co-build, not just sell.",
+        },
+        {
+          title: "Selectivity and high-trust collaboration",
+          description: "We choose our partners carefully.",
+        },
+        {
+          title: "Long-term relevance",
+          description: "Enduring value, not disposable trends.",
+        },
+        {
+          title: "Measurable real-world impact",
+          description: "Success measured in adoption and outcomes.",
+        },
+      ],
     },
     systemFamilies: {
       title: "System Families We Are Developing With Partners",
@@ -232,6 +258,32 @@ export const translations = {
       ],
       callout:
         "Nuestra primera iniciativa de asociación de sistemas se enfoca en infraestructura ambiental y de sostenibilidad para el mundo construido.",
+      principles: [
+        {
+          title: "Enfoque crítico para humanos y el planeta",
+          description: "Nuestro trabajo impacta a las personas y el medio ambiente.",
+        },
+        {
+          title: "Sistemas a largo plazo, no productos a corto plazo",
+          description: "Diseñamos para décadas, no trimestres.",
+        },
+        {
+          title: "Asociación sobre relaciones de proveedor",
+          description: "Co-construimos, no solo vendemos.",
+        },
+        {
+          title: "Selectividad y colaboración de alta confianza",
+          description: "Elegimos nuestros socios cuidadosamente.",
+        },
+        {
+          title: "Relevancia a largo plazo",
+          description: "Valor duradero, no tendencias desechables.",
+        },
+        {
+          title: "Impacto real y medible en el mundo",
+          description: "Éxito medido en adopción y resultados.",
+        },
+      ],
     },
     systemFamilies: {
       title: "Familias de Sistemas que Desarrollamos con Socios",

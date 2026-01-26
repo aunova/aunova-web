@@ -269,7 +269,7 @@
 - Maintain consistent spacing and typography
 
 ### Don't
-- Use bright blues, greens (except GreenBlocks accent), or corporate colors
+- Use bright blues, neon greens, or corporate colors
 - Overcrowd layouts with too many elements
 - Use startup/tech jargon
 - Add decorative elements without purpose

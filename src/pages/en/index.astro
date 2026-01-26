@@ -56,6 +56,16 @@ const t = getTranslation(lang);
           <p>{t.differentCompany.callout}</p>
         </aside>
       </div>
+
+      <!-- Principles Grid -->
+      <div class="principles-grid">
+        {t.differentCompany.principles.map((principle) => (
+          <div class="principle-card">
+            <h3 class="principle-title">{principle.title}</h3>
+            <p class="principle-description">{principle.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -282,6 +292,43 @@ const t = getTranslation(lang);
     font-weight: 500;
   }
 
+  /* Principles Grid */
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-3xl);
+  }
+
+  .principle-card {
+    background: var(--color-background-elevated, var(--color-white));
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: all var(--transition-fast);
+  }
+
+  .principle-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .principle-title {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-sm) 0;
+    line-height: 1.3;
+  }
+
+  .principle-description {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
   /* System Families Section */
   .system-families {
     padding: var(--space-5xl) 0;
@@ -504,6 +551,20 @@ const t = getTranslation(lang);
 
     .future-list {
       grid-template-columns: 1fr;
+    }
+
+    .principles-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      margin-top: var(--space-2xl);
+    }
+
+    .principle-card {
+      padding: var(--space-lg);
+    }
+
+    .principle-title {
+      font-size: var(--text-base);
     }
   }
 
