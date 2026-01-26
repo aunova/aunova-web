@@ -322,8 +322,14 @@ const t = getTranslation(lang);
 
   /* Principles Container - wraps callout and grid */
   .principles-container {
-    margin-top: var(--space-2xl);
-    background: #E8D4D0; /* Coralish/soft burgundy */
+    max-width: 800px;
+    margin: var(--space-2xl) auto 0;
+    background: linear-gradient(
+      135deg,
+      #F2E6E4 0%,
+      #EBD9D6 50%,
+      #E8D4D0 100%
+    );
     border-radius: var(--radius-xl);
     padding: var(--space-xl);
   }
