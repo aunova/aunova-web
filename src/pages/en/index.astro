@@ -101,7 +101,7 @@ const t = getTranslation(lang);
           closingLine={t.systemFamilies.sustainability.closingLine}
           accentColor="var(--color-primary)"
           featured={true}
-          imagePlaceholder={true}
+          visualizationImage="/images/greenblocks-visualization.svg"
         >
           <Leaf size={24} slot="icon" />
         </SystemFamilyCard>
@@ -705,15 +705,5 @@ const t = getTranslation(lang);
     .callout-content p {
       font-size: var(--text-base);
     }
-  }
-
-  /* Dark mode adjustments */
-  :global([data-theme="dark"]) .hero-overlay {
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-background) 90%, transparent) 0%,
-      color-mix(in srgb, var(--color-background) 80%, transparent) 50%,
-      color-mix(in srgb, var(--color-background) 60%, transparent) 100%
-    );
   }
 </style>

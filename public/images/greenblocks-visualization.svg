@@ -1,0 +1,64 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="400" y="40" font-size="32" font-weight="700" text-anchor="middle" fill="#6c0001">
+    GreenBlocks System
+  </text>
+
+  <!-- Layer 1: Bottom - Infrastructure -->
+  <g opacity="0.9">
+    <rect x="80" y="450" width="640" height="90" rx="8" fill="#D4C5A9" stroke="#6c0001" stroke-width="2"/>
+    <text x="400" y="485" font-size="18" font-weight="600" text-anchor="middle" fill="#6c0001">
+      Environmental Infrastructure Layer
+    </text>
+    <text x="400" y="510" font-size="14" text-anchor="middle" fill="#6c0001" opacity="0.8">
+      Blockchain Integration, Smart Contracts
+    </text>
+  </g>
+
+  <!-- Layer 2: Middle - Data & Processing -->
+  <g opacity="0.85">
+    <rect x="100" y="320" width="600" height="90" rx="8" fill="#E3DCC2" stroke="#6c0001" stroke-width="2"/>
+    <text x="400" y="355" font-size="18" font-weight="600" text-anchor="middle" fill="#6c0001">
+      Data Processing & Analytics
+    </text>
+    <text x="400" y="380" font-size="14" text-anchor="middle" fill="#6c0001" opacity="0.8">
+      Real-time Monitoring, Impact Measurement
+    </text>
+  </g>
+
+  <!-- Layer 3: Upper - Application -->
+  <g opacity="0.8">
+    <rect x="120" y="190" width="560" height="90" rx="8" fill="#D4C5A9" stroke="#6c0001" stroke-width="2"/>
+    <text x="400" y="225" font-size="18" font-weight="600" text-anchor="middle" fill="#6c0001">
+      Application & User Interface
+    </text>
+    <text x="400" y="250" font-size="14" text-anchor="middle" fill="#6c0001" opacity="0.8">
+      Partner Dashboard, Public Portal
+    </text>
+  </g>
+
+  <!-- Layer 4: Top - Integration -->
+  <g opacity="0.75">
+    <rect x="140" y="60" width="520" height="90" rx="8" fill="#E3DCC2" stroke="#6c0001" stroke-width="2"/>
+    <text x="400" y="95" font-size="18" font-weight="600" text-anchor="middle" fill="#6c0001">
+      Third-party Integrations
+    </text>
+    <text x="400" y="120" font-size="14" text-anchor="middle" fill="#6c0001" opacity="0.8">
+      APIs, Web3 Services, Carbon Registries
+    </text>
+  </g>
+
+  <!-- Connection lines between layers -->
+  <line x1="400" y1="150" x2="400" y2="190" stroke="#6c0001" stroke-width="2" stroke-dasharray="5,5" opacity="0.6"/>
+  <line x1="400" y1="280" x2="400" y2="320" stroke="#6c0001" stroke-width="2" stroke-dasharray="5,5" opacity="0.6"/>
+  <line x1="400" y1="410" x2="400" y2="450" stroke="#6c0001" stroke-width="2" stroke-dasharray="5,5" opacity="0.6"/>
+
+  <!-- Accent elements -->
+  <circle cx="100" cy="240" r="6" fill="#6c0001" opacity="0.7"/>
+  <circle cx="700" cy="240" r="6" fill="#6c0001" opacity="0.7"/>
+  <circle cx="100" cy="380" r="6" fill="#6c0001" opacity="0.7"/>
+  <circle cx="700" cy="380" r="6" fill="#6c0001" opacity="0.7"/>
+</svg>

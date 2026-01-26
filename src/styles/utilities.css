@@ -154,27 +154,9 @@
 .bg-muted { background-color: var(--color-gray-100); }
 .bg-white { background-color: var(--color-white); }
 .bg-black { background-color: var(--color-black); }
-.bg-card { 
+.bg-card {
   background-color: var(--color-white);
   box-shadow: var(--shadow-sm);
-}
-
-/* Dark Mode Overrides */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .bg-muted { background-color: var(--color-gray-800); }
-  :root:not([data-theme]) .bg-card { 
-    background-color: var(--color-gray-900);
-    border: 1px solid var(--color-border);
-  }
-}
-
-[data-theme="dark"] .bg-muted { 
-  background-color: var(--color-gray-800); 
-}
-
-[data-theme="dark"] .bg-card { 
-  background-color: var(--color-gray-900);
-  border: 1px solid var(--color-border);
 }
 
 /* ============================================
@@ -366,18 +348,6 @@
   transform: translateY(-4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .card {
-    background-color: var(--color-background-elevated);
-    border-color: var(--color-border);
-  }
-}
-
-[data-theme="dark"] .card {
-  background-color: var(--color-background-elevated);
-  border-color: var(--color-border);
-}
-
 /* ============================================
    Button Component Base
    ============================================ */
@@ -431,16 +401,6 @@
   background-color: var(--color-gray-100);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .btn-ghost:hover {
-    background-color: var(--color-gray-800);
-  }
-}
-
-[data-theme="dark"] .btn-ghost:hover {
-  background-color: var(--color-gray-800);
-}
-
 /* ============================================
    Badge Component Base
    ============================================ */
@@ -467,16 +427,6 @@
 .badge-muted {
   background-color: var(--color-gray-100);
   color: var(--color-text);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .badge-muted {
-    background-color: var(--color-gray-800);
-  }
-}
-
-[data-theme="dark"] .badge-muted {
-  background-color: var(--color-gray-800);
 }
 
 /* ============================================
@@ -565,16 +515,6 @@
   border-radius: var(--radius-md);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .prose blockquote {
-    background-color: var(--color-gray-900);
-  }
-}
-
-[data-theme="dark"] .prose blockquote {
-  background-color: var(--color-gray-900);
-}
-
 .prose a {
   color: var(--color-accent);
   text-decoration: underline;
@@ -596,16 +536,6 @@
   font-weight: 500;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .prose code {
-    background-color: var(--color-gray-800);
-  }
-}
-
-[data-theme="dark"] .prose code {
-  background-color: var(--color-gray-800);
-}
-
 .prose pre {
   font-family: var(--font-mono);
   font-size: 0.875rem;
@@ -615,16 +545,6 @@
   overflow-x: auto;
   margin: var(--space-xl) 0;
   line-height: 1.6;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .prose pre {
-    background-color: var(--color-gray-900);
-  }
-}
-
-[data-theme="dark"] .prose pre {
-  background-color: var(--color-gray-900);
 }
 
 .prose img {

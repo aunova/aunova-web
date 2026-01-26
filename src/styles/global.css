@@ -97,83 +97,6 @@
     --z-tooltip: 600;
 }
 
-[data-theme="light"] {
-    --color-background: var(--color-sand-light);
-    --color-background-elevated: var(--color-white);
-    --color-text: var(--color-black);
-    --color-text-muted: #525252;
-    --color-border: var(--color-sand-dark);
-    --color-accent: var(--color-burgundy);
-    --color-primary: var(--color-burgundy);
-    --color-primary-hover: var(--color-burgundy-light);
-}
-
-[data-theme="dark"] {
-    --color-background: #0F0F0F;
-    --color-background-elevated: #1a1a1a;
-    --color-background-header: #1a1a1a;
-    --color-text: #f2f2f2;
-    --color-text-muted: #9ca3af;
-    --color-border: #2c2c2c;
-    --color-accent: var(--color-burgundy-light);
-    --color-primary: var(--color-burgundy-light);
-    --color-primary-hover: var(--color-burgundy-vivid);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) {
-        --color-background: #0F0F0F;
-        --color-background-elevated: #1a1a1a;
-        --color-background-header: #1a1a1a;
-        --color-text: #f2f2f2;
-        --color-text-muted: #9ca3af;
-        --color-border: #2c2c2c;
-        --color-accent: var(--color-burgundy-light);
-        --color-primary: var(--color-burgundy-light);
-        --color-primary-hover: var(--color-burgundy-vivid);
-    }
-}
-
-[data-theme="dark"] body,
-[data-theme="dark"] html,
-[data-theme="dark"] main,
-[data-theme="dark"] section:not(.header):not(.nav):not(.dropdown) {
-    background: var(--color-background) !important;
-    background-color: var(--color-background) !important;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) body,
-    :root:not([data-theme]) html,
-    :root:not([data-theme]) main,
-    :root:not([data-theme]) section:not(.header):not(.nav):not(.dropdown) {
-        background: var(--color-background) !important;
-        background-color: var(--color-background) !important;
-    }
-}
-
-[data-theme="dark"] .header {
-    background: var(--color-background-header) !important;
-    background-color: var(--color-background-header) !important;
-}
-
-[data-theme="dark"] .dropdown-menu {
-    background: var(--color-background-header) !important;
-    background-color: var(--color-background-header) !important;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) .header {
-        background: var(--color-background-header) !important;
-        background-color: var(--color-background-header) !important;
-    }
-
-    :root:not([data-theme]) .dropdown-menu {
-        background: var(--color-background-header) !important;
-        background-color: var(--color-background-header) !important;
-    }
-}
-
 /* CSS Reset */
 *,
 *::before,
@@ -289,16 +212,6 @@ code {
     border-radius: var(--radius-sm);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) code {
-        background-color: var(--color-gray-800);
-    }
-}
-
-[data-theme="dark"] code {
-    background-color: var(--color-gray-800);
-}
-
 pre {
     font-family: var(--font-mono);
     font-size: 0.875rem;
@@ -307,16 +220,6 @@ pre {
     border-radius: var(--radius-md);
     overflow-x: auto;
     margin-bottom: var(--space-md);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) pre {
-        background-color: var(--color-gray-900);
-    }
-}
-
-[data-theme="dark"] pre {
-    background-color: var(--color-gray-900);
 }
 
 /* Lists */

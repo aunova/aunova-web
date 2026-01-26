@@ -1,6 +1,5 @@
 ---
 import { getCurrentLanguage, getTranslation } from "../../utils/i18n";
-import ThemeToggle from "../ui/ThemeToggle.astro";
 
 const currentLang = getCurrentLanguage(Astro.url);
 const t = getTranslation(currentLang);
@@ -57,7 +56,6 @@ const homeLink = currentLang === "es" ? "/es" : "/";
                 >
                     {currentLang === "en" ? "ES" : "EN"}
                 </a>
-                <ThemeToggle />
                 <a href={`/${currentLang}/contact`} class="cta-button">
                     {t.hero.cta.primary}
                 </a>
@@ -240,24 +238,6 @@ const homeLink = currentLang === "es" ? "/es" : "/";
             var(--color-background)
         );
         text-decoration: none;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        :root:not([data-theme]) .lang-switch:hover {
-            background-color: color-mix(
-                in srgb,
-                var(--color-primary) 10%,
-                var(--color-background)
-            );
-        }
-    }
-
-    [data-theme="dark"] .lang-switch:hover {
-        background-color: color-mix(
-            in srgb,
-            var(--color-primary) 10%,
-            var(--color-background)
-        );
     }
 
     .cta-button {
