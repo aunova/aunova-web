@@ -2,9 +2,9 @@
 
 :root {
     /* Color Palette - Aunova Brand */
-    --color-burgundy: #672042;
-    --color-burgundy-light: #8a3a5c;
-    --color-burgundy-dark: #4d1832;
+    --color-burgundy: #6c0001;
+    --color-burgundy-light: #9b1c1f;
+    --color-burgundy-vivid: #a32125;
     --color-sand: #E3DCC2;
     --color-sand-light: #F5F2E8;
     --color-sand-dark: #c9c2a8;
@@ -119,7 +119,7 @@
     --color-border: #2c2c2c;
     --color-accent: var(--color-burgundy-light);
     --color-primary: var(--color-burgundy-light);
-    --color-primary-hover: #a04a6e;
+    --color-primary-hover: var(--color-burgundy-vivid);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -132,7 +132,7 @@
         --color-border: #2c2c2c;
         --color-accent: var(--color-burgundy-light);
         --color-primary: var(--color-burgundy-light);
-        --color-primary-hover: #a04a6e;
+        --color-primary-hover: var(--color-burgundy-vivid);
     }
 }
 

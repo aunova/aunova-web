@@ -110,7 +110,7 @@ const { title, description, lang = "en" } = Astro.props;
 
 ```css
 /* Primary Colors */
---color-burgundy: #672042;    /* Primary brand color */
+--color-burgundy: #6c0001;    /* Primary brand color */
 --color-sand: #E3DCC2;        /* Secondary/background */
 --color-black: #0F0F0F;       /* Text */
 --color-white: #FFFFFF;

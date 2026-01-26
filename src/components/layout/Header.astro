@@ -44,12 +44,10 @@ const homeLink = currentLang === "es" ? "/es" : "/";
         </button>
 
         <div class="nav-links">
-            <a href={homeLink} class="nav-link">{t.nav.home}</a>
+            <a href={`/${currentLang}/about`} class="nav-link">About</a>
             <a href={`/${currentLang}/#system-families`} class="nav-link">{t.nav.systemFamilies}</a>
-            <a href={`/${currentLang}/#partnership`} class="nav-link">{t.nav.partnership}</a>
-            <a href={`/${currentLang}/about`} class="nav-link">{t.nav.about}</a>
-            <a href={`/${currentLang}/blog`} class="nav-link">{t.nav.blog}</a>
-            <a href={`/${currentLang}/contact`} class="nav-link">{t.nav.contact}</a>
+            <a href={`/${currentLang}/#partnership`} class="nav-link">How We Partner</a>
+            <a href={`/${currentLang}/#criteria`} class="nav-link">Who We Partner With</a>
 
             <div class="nav-actions">
                 <a
@@ -57,7 +55,7 @@ const homeLink = currentLang === "es" ? "/es" : "/";
                     class="lang-switch"
                     aria-label="Switch language"
                 >
-                    {currentLang === "en" ? "🇪🇸 ES" : "🇬🇧 EN"}
+                    {currentLang === "en" ? "ES" : "EN"}
                 </a>
                 <ThemeToggle />
                 <a href={`/${currentLang}/contact`} class="cta-button">

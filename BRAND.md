@@ -51,7 +51,7 @@
 
 | Name | Hex | RGB | Usage |
 |------|-----|-----|-------|
-| **Burgundy** | `#672042` | rgb(103, 32, 66) | Primary brand, headings, icons, CTAs, navigation hover |
+| **Burgundy** | `#6c0001` | rgb(108, 0, 1) | Primary brand, headings, icons, CTAs, navigation hover |
 | **Sand** | `#E3DCC2` | rgb(227, 220, 194) | Secondary, backgrounds, subtle accents |
 | **Black** | `#0F0F0F` | rgb(15, 15, 15) | Body text, dark backgrounds |
 | **White** | `#FFFFFF` | rgb(255, 255, 255) | Backgrounds, text on dark |
@@ -60,7 +60,8 @@
 
 | Name | Hex | Usage |
 |------|-----|-------|
-| **Burgundy Light** | `#8a3a5c` | Hover states, lighter accents |
+| **Burgundy Light** | `#9b1c1f` | Hover states, lighter accents |
+| **Burgundy Vivid** | `#a32125` | Active states, emphasis |
 | **Sand Light** | `#F5F2E8` | Page backgrounds, card backgrounds |
 | **Sand Dark** | `#c9c2a8` | Borders, muted elements |
 | **Green (GreenBlocks)** | `#22c55e` | GreenBlocks system family accent |
@@ -78,7 +79,7 @@
 | Text | `#f2f2f2` |
 | Text Muted | `#9ca3af` |
 | Border | `#2c2c2c` |
-| Primary | `#8a3a5c` (lighter burgundy for contrast) |
+| Primary | `#9b1c1f` (lighter burgundy for contrast) |
 
 ---
 
@@ -230,8 +231,9 @@
 ```css
 :root {
   /* Primary Colors */
-  --color-burgundy: #672042;
-  --color-burgundy-light: #8a3a5c;
+  --color-burgundy: #6c0001;
+  --color-burgundy-light: #9b1c1f;
+  --color-burgundy-vivid: #a32125;
   --color-sand: #E3DCC2;
   --color-sand-light: #F5F2E8;
   --color-sand-dark: #c9c2a8;

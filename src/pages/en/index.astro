@@ -118,7 +118,7 @@ const t = getTranslation(lang);
   </section>
 
   <!-- Partner Criteria Section -->
-  <section class="criteria-section-wrapper">
+  <section class="criteria-section-wrapper" id="criteria">
     <div class="container">
       <CriteriaList
         title={t.partnerCriteria.title}
@@ -179,6 +179,9 @@ const t = getTranslation(lang);
     height: 100%;
     object-fit: cover;
     object-position: center;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: contrast(1.1) saturate(1.05);
   }
 
   .hero-overlay {
@@ -186,9 +189,9 @@ const t = getTranslation(lang);
     inset: 0;
     background: linear-gradient(
       135deg,
-      color-mix(in srgb, var(--color-sand-light) 85%, transparent) 0%,
-      color-mix(in srgb, var(--color-sand-light) 70%, transparent) 50%,
-      color-mix(in srgb, var(--color-sand-light) 50%, transparent) 100%
+      color-mix(in srgb, #E3DCC2 90%, transparent) 0%,
+      color-mix(in srgb, #E3DCC2 75%, transparent) 50%,
+      color-mix(in srgb, #E3DCC2 55%, transparent) 100%
     );
   }
 
@@ -198,16 +201,17 @@ const t = getTranslation(lang);
   }
 
   .hero-content {
-    max-width: 800px;
+    max-width: 850px;
     padding: var(--space-3xl) 0;
   }
 
   .hero-title {
-    font-size: var(--text-4xl);
+    font-size: clamp(var(--text-3xl), 4.5vw, var(--text-4xl));
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.15;
     color: var(--color-primary);
     margin-bottom: var(--space-lg);
+    letter-spacing: -0.02em;
   }
 
   .hero-subtitle {
