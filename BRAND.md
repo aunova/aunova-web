@@ -64,7 +64,6 @@
 | **Burgundy Vivid** | `#a32125` | Active states, emphasis |
 | **Sand Light** | `#F5F2E8` | Page backgrounds, card backgrounds |
 | **Sand Dark** | `#c9c2a8` | Borders, muted elements |
-| **Green (GreenBlocks)** | `#22c55e` | GreenBlocks system family accent |
 | **Gray 50** | `#fafafa` | Light backgrounds |
 | **Gray 100** | `#f5f5f5` | Card backgrounds |
 | **Gray 400** | `#a3a3a3` | Muted text |
@@ -197,11 +196,6 @@
 
 ## System Families Visual Identity
 
-### GreenBlocks
-- **Accent Color**: `#22c55e` (Green)
-- **Icon**: Leaf + building combined
-- **Feeling**: Environmental responsibility, sustainable growth
-
 ### Future Families (Placeholder Style)
 - Muted/gray treatment
 - "In development" label
@@ -250,7 +244,6 @@
   --color-border: var(--color-sand-dark);
   
   /* System Families */
-  --color-greenblocks: #22c55e;
 }
 ```
 

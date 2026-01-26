@@ -43,7 +43,7 @@ const t = getTranslation(lang);
   </section>
 
   <!-- Different Company Section -->
-  <section class="different-company">
+  <section class="different-company" id="different-company">
     <div class="container">
       <div class="section-content">
         <h2 class="section-title">{t.differentCompany.title}</h2>
@@ -69,14 +69,14 @@ const t = getTranslation(lang);
 
       <div class="families-grid">
         <SystemFamilyCard
-          name={t.systemFamilies.greenblocks.name}
-          category={t.systemFamilies.greenblocks.category}
-          tagline={t.systemFamilies.greenblocks.tagline}
-          description={t.systemFamilies.greenblocks.description}
-          examples={[...t.systemFamilies.greenblocks.examples]}
-          closingLine={t.systemFamilies.greenblocks.closingLine}
-          iconSrc="/images/icons/greenblocks-icon.svg"
-          accentColor="var(--color-greenblocks)"
+          name={t.systemFamilies.sustainability.name}
+          category={t.systemFamilies.sustainability.category}
+          tagline={t.systemFamilies.sustainability.tagline}
+          description={t.systemFamilies.sustainability.description}
+          examples={[...t.systemFamilies.sustainability.examples]}
+          closingLine={t.systemFamilies.sustainability.closingLine}
+          iconSrc="/images/icons/system-family-icon.svg"
+          accentColor="var(--color-primary)"
           featured={true}
         />
 
@@ -270,8 +270,8 @@ const t = getTranslation(lang);
   .callout-box {
     margin-top: var(--space-2xl);
     padding: var(--space-lg);
-    background: color-mix(in srgb, var(--color-greenblocks) 8%, var(--color-background));
-    border-left: 4px solid var(--color-greenblocks);
+    background: color-mix(in srgb, var(--color-primary) 8%, var(--color-background));
+    border-left: 4px solid var(--color-primary);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
   }
 

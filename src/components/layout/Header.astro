@@ -44,7 +44,7 @@ const homeLink = currentLang === "es" ? "/es" : "/";
         </button>
 
         <div class="nav-links">
-            <a href={`/${currentLang}/about`} class="nav-link">About</a>
+            <a href="#different-company" class="nav-link">About</a>
             <a href={`/${currentLang}/#system-families`} class="nav-link">{t.nav.systemFamilies}</a>
             <a href={`/${currentLang}/#partnership`} class="nav-link">How We Partner</a>
             <a href={`/${currentLang}/#criteria`} class="nav-link">Who We Partner With</a>
@@ -415,7 +415,7 @@ const homeLink = currentLang === "es" ? "/es" : "/";
     // Close menu when clicking on a link
     const navLinkElements = document.querySelectorAll(".nav-links a");
     navLinkElements.forEach((link) => {
-        link.addEventListener("click", () => {
+        link.addEventListener("click", (e) => {
             if (navLinks?.classList.contains("active")) {
                 const scrollY = document.body.style.top;
                 navLinks?.classList.remove("active");
@@ -426,6 +426,17 @@ const homeLink = currentLang === "es" ? "/es" : "/";
                 document.body.style.width = "";
                 document.body.style.top = "";
                 window.scrollTo(0, parseInt(scrollY || "0") * -1);
+            }
+
+            // Handle smooth scrolling for anchor links
+            const href = link.getAttribute('href');
+            if (href?.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     });
