@@ -53,7 +53,7 @@ src/
 The homepage consists of these sections (in order):
 1. **Hero** - Partnership invitation with hero image
 2. **Different Company** - "A Different Kind of Technology Company"
-3. **System Families** - Environmental Systems featured, future families teaser
+3. **System Families** - GreenBlocks featured, future families teaser
 4. **Partnership Journey** - 5-step process (Alignment → Co-Design → Proof → Development → Alliance)
 5. **Partner Criteria** - Who we work with + boundary statement
 6. **Why Aunova** - Mission and philosophy

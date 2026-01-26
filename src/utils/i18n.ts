@@ -37,7 +37,7 @@ export const translations = {
         "We engage selectively, build for decades, and design systems meant to become shared layers within the worlds they serve.",
       ],
       callout:
-        "Our first system partnership initiative focuses on environmental and sustainability infrastructure for the built world.",
+        "Our first system partnership initiative is <strong>GreenBlocks</strong> — environmental and sustainability infrastructure for the built world.",
       principles: [
         {
           title: "Human-and planet-critical focus",
@@ -70,12 +70,12 @@ export const translations = {
       intro:
         "Aunova builds families of systems designed to become shared infrastructure layers within the ecosystems they serve. Each system family is developed through long-term partnerships and addresses a core human or planetary need.",
       sustainability: {
-        name: "Environmental & Sustainability Systems",
+        name: "GreenBlocks by Aunova",
         category: "Environmental & Sustainability Infrastructure",
         tagline:
           "The verifiable data and accountability layer for sustainable communities and assets.",
         description:
-          "We are partnering with forward-looking organizations to turn sustainability commitments into measurable, accountable, and economically meaningful realities. Our systems provide the environmental infrastructure layer that allows sustainable behavior, assets, and operations to be verified, incentivized, and integrated into real business and community systems.",
+          "We are co-creating GreenBlocks with forward-looking organizations to turn sustainability commitments into measurable, accountable, and economically meaningful realities. GreenBlocks provides the environmental infrastructure layer that allows sustainable behavior, assets, and operations to be verified, incentivized, and integrated into real business and community systems.",
         examples: [
           "Verified sustainability and environmental impact data across assets and operations",
           "Accountable ESG and environmental reporting infrastructures",
@@ -83,7 +83,7 @@ export const translations = {
           "New economic and operational models powered by trusted environmental data",
         ],
         closingLine:
-          "This system family represents our partnership model: a shared ambition to build foundational environmental systems that can endure for decades.",
+          "GreenBlocks represents our partnership model: a shared ambition to build foundational environmental systems that can endure for decades.",
       },
       future: {
         title: "Future system families (in development)",
@@ -168,7 +168,7 @@ export const translations = {
         organization: "Organization",
         systemFamily: "Which system family aligns with your vision?",
         systemFamilyOptions: [
-          "Environmental & Sustainability Systems",
+          "GreenBlocks (Environmental & Sustainability)",
           "Human Data & Identity",
           "Responsible AI & Governance",
           "Healthcare & Care-Tech",

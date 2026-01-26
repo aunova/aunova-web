@@ -6,9 +6,9 @@ export interface Props {
   description: string;
   examples: string[];
   closingLine: string;
-  iconSrc?: string;
   accentColor?: string;
   featured?: boolean;
+  imagePlaceholder?: boolean;
 }
 
 const {
@@ -18,22 +18,30 @@ const {
   description,
   examples,
   closingLine,
-  iconSrc = "/images/icons/system-family-icon.svg",
   accentColor = "var(--color-primary)",
   featured = false,
+  imagePlaceholder = false,
 } = Astro.props;
 ---
 
 <article class:list={["system-family-card", { featured }]} style={`--accent: ${accentColor}`}>
   <header class="card-header">
     <div class="icon-wrapper">
-      <img src={iconSrc} alt="" width="48" height="48" loading="lazy" />
+      <slot name="icon" />
     </div>
     <div class="header-text">
       <span class="category">{category}</span>
       <h3 class="name">{name}</h3>
     </div>
   </header>
+
+  {imagePlaceholder && (
+    <div class="image-placeholder">
+      <div class="placeholder-content">
+        <span class="placeholder-text">System Visualization</span>
+      </div>
+    </div>
+  )}
 
   <div class="card-content">
     <p class="tagline">{tagline}</p>
@@ -90,13 +98,35 @@ const {
     flex-shrink: 0;
   }
 
-  .icon-wrapper img {
-    width: 48px;
-    height: 48px;
+  .icon-wrapper :global(svg) {
+    color: var(--accent);
   }
 
   .header-text {
     flex: 1;
+  }
+
+  .image-placeholder {
+    margin: var(--space-lg) 0;
+    height: 200px;
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--accent) 5%, var(--color-background));
+    border: 2px dashed color-mix(in srgb, var(--accent) 20%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder-content {
+    text-align: center;
+    color: color-mix(in srgb, var(--accent) 60%, transparent);
+  }
+
+  .placeholder-text {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .category {
@@ -203,11 +233,6 @@ const {
     .icon-wrapper {
       width: 56px;
       height: 56px;
-    }
-
-    .icon-wrapper img {
-      width: 40px;
-      height: 40px;
     }
 
     .name {
