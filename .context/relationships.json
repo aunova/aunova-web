@@ -1,0 +1,325 @@
+{
+  "files": {
+    ".astro/content.d.ts": {
+      "language": "typescript",
+      "exports": [
+        "RenderResult",
+        "RenderedContent",
+        "CollectionKey",
+        "CollectionEntry",
+        "ContentCollectionKey",
+        "DataCollectionKey",
+        "ReferenceDataEntry",
+        "ReferenceContentEntry",
+        "ReferenceLiveEntry",
+        "ContentConfig",
+        "LiveContentConfig"
+      ],
+      "defines": [
+        {
+          "name": "RenderResult",
+          "type": "interface",
+          "line": 13
+        },
+        {
+          "name": "RenderedContent",
+          "type": "interface",
+          "line": 22
+        },
+        {
+          "name": "CollectionKey",
+          "type": "type_alias",
+          "line": 34
+        },
+        {
+          "name": "CollectionEntry",
+          "type": "type_alias",
+          "line": 35
+        },
+        {
+          "name": "ContentCollectionKey",
+          "type": "type_alias",
+          "line": 37
+        },
+        {
+          "name": "DataCollectionKey",
+          "type": "type_alias",
+          "line": 38
+        },
+        {
+          "name": "ReferenceDataEntry",
+          "type": "type_alias",
+          "line": 45
+        },
+        {
+          "name": "ReferenceContentEntry",
+          "type": "type_alias",
+          "line": 52
+        },
+        {
+          "name": "ReferenceLiveEntry",
+          "type": "type_alias",
+          "line": 59
+        },
+        {
+          "name": "ContentConfig",
+          "type": "type_alias",
+          "line": 218
+        },
+        {
+          "name": "LiveContentConfig",
+          "type": "type_alias",
+          "line": 219
+        }
+      ]
+    },
+    ".astro/types.d.ts": {
+      "language": "typescript"
+    },
+    "add-blog-images.js": {
+      "language": "javascript"
+    },
+    "src/content/config.ts": {
+      "language": "typescript",
+      "exports": [
+        "collections"
+      ],
+      "defines": [
+        {
+          "name": "blogCollection",
+          "type": "variable",
+          "line": 3
+        },
+        {
+          "name": "collections",
+          "type": "variable",
+          "line": 19
+        }
+      ]
+    },
+    "src/pages/api/company-info.json.js": {
+      "language": "javascript",
+      "exports": [
+        "GET"
+      ],
+      "defines": [
+        {
+          "name": "GET",
+          "type": "function",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/rss.xml.js": {
+      "language": "javascript",
+      "exports": [
+        "GET"
+      ],
+      "defines": [
+        {
+          "name": "GET",
+          "type": "function",
+          "line": 4
+        }
+      ]
+    },
+    "src/stores/language.ts": {
+      "language": "typescript",
+      "exports": [
+        "Language",
+        "useLanguageStore"
+      ],
+      "defines": [
+        {
+          "name": "Language",
+          "type": "type_alias",
+          "line": 4
+        },
+        {
+          "name": "detectBrowserLanguage",
+          "type": "function",
+          "line": 13
+        },
+        {
+          "name": "useLanguageStore",
+          "type": "variable",
+          "line": 21
+        }
+      ]
+    },
+    "src/utils/i18n.ts": {
+      "language": "typescript",
+      "exports": [
+        "languages",
+        "Language",
+        "defaultLang",
+        "translations",
+        "TranslationKey",
+        "getTranslation",
+        "getCurrentLanguage"
+      ],
+      "defines": [
+        {
+          "name": "languages",
+          "type": "variable",
+          "line": 1
+        },
+        {
+          "name": "Language",
+          "type": "type_alias",
+          "line": 6
+        },
+        {
+          "name": "defaultLang",
+          "type": "variable",
+          "line": 8
+        },
+        {
+          "name": "translations",
+          "type": "variable",
+          "line": 10
+        },
+        {
+          "name": "TranslationKey",
+          "type": "type_alias",
+          "line": 579
+        },
+        {
+          "name": "getTranslation",
+          "type": "function",
+          "line": 581
+        },
+        {
+          "name": "getCurrentLanguage",
+          "type": "function",
+          "line": 585
+        }
+      ]
+    }
+  },
+  "symbols": {
+    "CollectionEntry": {
+      "file": ".astro/content.d.ts",
+      "line": 35,
+      "type": "type_alias"
+    },
+    "CollectionKey": {
+      "file": ".astro/content.d.ts",
+      "line": 34,
+      "type": "type_alias"
+    },
+    "ContentCollectionKey": {
+      "file": ".astro/content.d.ts",
+      "line": 37,
+      "type": "type_alias"
+    },
+    "ContentConfig": {
+      "file": ".astro/content.d.ts",
+      "line": 218,
+      "type": "type_alias"
+    },
+    "DataCollectionKey": {
+      "file": ".astro/content.d.ts",
+      "line": 38,
+      "type": "type_alias"
+    },
+    "GET": {
+      "file": "src/pages/rss.xml.js",
+      "line": 4,
+      "type": "function"
+    },
+    "Language": {
+      "file": "src/utils/i18n.ts",
+      "line": 6,
+      "type": "type_alias"
+    },
+    "LiveContentConfig": {
+      "file": ".astro/content.d.ts",
+      "line": 219,
+      "type": "type_alias"
+    },
+    "ReferenceContentEntry": {
+      "file": ".astro/content.d.ts",
+      "line": 52,
+      "type": "type_alias"
+    },
+    "ReferenceDataEntry": {
+      "file": ".astro/content.d.ts",
+      "line": 45,
+      "type": "type_alias"
+    },
+    "ReferenceLiveEntry": {
+      "file": ".astro/content.d.ts",
+      "line": 59,
+      "type": "type_alias"
+    },
+    "RenderResult": {
+      "file": ".astro/content.d.ts",
+      "line": 13,
+      "type": "interface"
+    },
+    "RenderedContent": {
+      "file": ".astro/content.d.ts",
+      "line": 22,
+      "type": "interface"
+    },
+    "TranslationKey": {
+      "file": "src/utils/i18n.ts",
+      "line": 579,
+      "type": "type_alias"
+    },
+    "collections": {
+      "file": "src/content/config.ts",
+      "line": 19,
+      "type": "variable"
+    },
+    "defaultLang": {
+      "file": "src/utils/i18n.ts",
+      "line": 8,
+      "type": "variable"
+    },
+    "getCurrentLanguage": {
+      "file": "src/utils/i18n.ts",
+      "line": 585,
+      "type": "function"
+    },
+    "getTranslation": {
+      "file": "src/utils/i18n.ts",
+      "line": 581,
+      "type": "function"
+    },
+    "languages": {
+      "file": "src/utils/i18n.ts",
+      "line": 1,
+      "type": "variable"
+    },
+    "translations": {
+      "file": "src/utils/i18n.ts",
+      "line": 10,
+      "type": "variable"
+    },
+    "useLanguageStore": {
+      "file": "src/stores/language.ts",
+      "line": 21,
+      "type": "variable"
+    }
+  },
+  "dependencyGraph": {
+    "add-blog-images.js": [
+      "fs",
+      "path",
+      "url"
+    ],
+    "src/content/config.ts": [
+      "astro:content"
+    ],
+    "src/pages/rss.xml.js": [
+      "@astrojs/rss",
+      "astro:content"
+    ],
+    "src/stores/language.ts": [
+      "zustand",
+      "zustand/middleware"
+    ]
+  }
+}

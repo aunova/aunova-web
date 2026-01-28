@@ -88,7 +88,7 @@ const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
     border-radius: 10px;
     padding: clamp(1.5rem, 4vw, 53px) clamp(1.5rem, 5vw, 66px);
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     isolation: isolate;
     box-shadow: none;
   }
@@ -172,8 +172,8 @@ const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
 
   .system-family-card.featured .visualization-column {
     position: absolute;
-    right: -2rem;
-    top: -5rem;
+    right: -6rem;
+    top: -10rem;
     width: clamp(200px, 45vw, 42rem);
     height: clamp(200px, 45vw, 42rem);
     min-height: auto;
@@ -187,8 +187,7 @@ const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
     border-radius: 50%;
     object-fit: cover;
     filter: none;
-    opacity: 0.4;
-    mix-blend-mode: multiply;
+    opacity: 0.5;
   }
 
   /* Two-column grid layout */
@@ -219,11 +218,10 @@ const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
     gap: var(--space-md);
   }
 
-  .icon-wrapper {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: color-mix(in srgb, var(--accent) 10%, var(--color-background));
+    background: rgba(87, 13, 11, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;

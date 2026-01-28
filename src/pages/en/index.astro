@@ -126,12 +126,12 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
           name={t.systemFamilies.sustainability.name}
           category={t.systemFamilies.sustainability.category}
           tagline={t.systemFamilies.sustainability.tagline}
-          description=""
+          description={t.systemFamilies.sustainability.description}
           examples={[...t.systemFamilies.sustainability.examples]}
           closingLine={t.systemFamilies.sustainability.closingLine}
           accentColor="var(--color-primary)"
           featured={true}
-          visualizationImage="/images/system-families.webp"
+          visualizationImage="/images/greenblocks-visualization-new.webp"
         >
           <Leaf size={24} slot="icon" />
         </SystemFamilyCard>
@@ -449,7 +449,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: #d9d9d9;
+    background: rgba(87, 13, 11, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -514,7 +514,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: #570d0b;
+    background: rgba(87, 13, 11, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -522,7 +522,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   }
 
   .principle-icon :global(svg) {
-    color: white;
+    color: var(--color-primary);
     width: 24px;
     height: 24px;
   }
@@ -612,16 +612,16 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: var(--color-primary);
+    background: rgba(87, 13, 11, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    color: white;
+    color: var(--color-primary);
   }
 
   .future-card-icon :global(svg) {
-    color: white;
+    color: var(--color-primary);
     width: 24px;
     height: 24px;
   }
@@ -691,7 +691,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: #570d0b;
+    background: rgba(87, 13, 11, 0.1);
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -702,6 +702,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .stacked-card-circle :global(svg) {
     width: 24px;
     height: 24px;
+    color: var(--color-primary);
   }
 
   .stacked-card-text {

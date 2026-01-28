@@ -73,11 +73,11 @@ export const translations = {
         "Aunova builds families of systems designed to become shared infrastructure layers within the ecosystems they serve. Each system family is developed through long-term partnerships and addresses a core human or planetary need.",
       sustainability: {
         name: "GreenBlocks by Aunova",
-        category: "Environmental & Sustainability Infrastructure",
+        category: "Community Impact Infrastructure",
         tagline:
-          "The verifiable data and accountability layer for sustainable communities and assets.",
+          "The foundational infrastructure layer for sustainable, healthy, and living communities.",
         description:
-          "We are co-creating GreenBlocks with forward-looking organizations to turn sustainability commitments into measurable, accountable, and economically meaningful realities. GreenBlocks provides the environmental infrastructure layer that allows sustainable behavior, assets, and operations to be verified, incentivized, and integrated into real business and community systems.",
+          "GreenBlocks is the community impact infrastructure for the built world. It enables a new way of living, where environmental responsibility, healthy living, and human connection are embedded into how communities function.",
         examples: [
           "Verified sustainability and environmental impact data across assets and operations",
           "Accountable ESG and environmental reporting infrastructures",
@@ -142,7 +142,7 @@ export const translations = {
     },
     partnerCriteria: {
       title: "Is This Model Right For You?",
-      intro: "Do you see your institution reflected in the following strategic principles? If so, we should talk.",
+      intro: "Do you see your institution reflected in the following strategic principles?\nIf so, we should talk.",
       criteria: [
         {
           question: "Are you looking to solve a mission-critical problem",

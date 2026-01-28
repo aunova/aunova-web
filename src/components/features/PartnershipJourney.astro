@@ -65,8 +65,6 @@ const { title, intro, stepsTitle, steps, callout, lang = "en" } = Astro.props;
     Our success is not defined by launch dates, but by the enduring value our
     systems provide.
   </p>
-
-  <CTABox buttonLink={`/${lang}/contact`} />
 </section>
 
 <style>
@@ -144,12 +142,12 @@ const { title, intro, stepsTitle, steps, callout, lang = "en" } = Astro.props;
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: var(--color-primary);
+    background: rgba(87, 13, 11, 0.15);
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-primary);
   }
 
   .step-circle :global(svg) {

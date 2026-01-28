@@ -11,15 +11,15 @@ const pathname = Astro.url.pathname;
 let langSwitchUrl;
 
 if (pathname === "/") {
-    // Root page defaults to English, switch to Spanish home
-    langSwitchUrl = "/es";
+  // Root page defaults to English, switch to Spanish home
+  langSwitchUrl = "/es";
 } else if (pathname === "/es" || pathname === "/es/") {
-    // Spanish home, switch to root (English)
-    langSwitchUrl = "/";
+  // Spanish home, switch to root (English)
+  langSwitchUrl = "/";
 } else {
-    // For other pages, just swap the language prefix
-    const pathWithoutLang = pathname.replace(/^\/(en|es)/, "");
-    langSwitchUrl = `/${otherLang}${pathWithoutLang}`;
+  // For other pages, just swap the language prefix
+  const pathWithoutLang = pathname.replace(/^\/(en|es)/, "");
+  langSwitchUrl = `/${otherLang}${pathWithoutLang}`;
 }
 
 // Determine home link based on current language
@@ -27,409 +27,484 @@ const homeLink = currentLang === "es" ? "/es" : "/";
 ---
 
 <header class="header">
-    <nav class="nav container">
-        <a href={homeLink} class="logo" aria-label="Aunova home">
-            <span class="logo-text">Aunova</span>
-        </a>
+  <nav class="nav container">
+    <a
+      href={homeLink}
+      class="logo"
+      aria-label="Aunova home"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <span class="logo-text">Aunova</span>
+    </a>
 
-        <button
-            class="menu-toggle"
-            aria-label="Toggle menu"
-            aria-expanded="false"
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links">
+      <a href="#different-company" class="nav-link">About</a>
+      <a href={`/${currentLang}/#system-families`} class="nav-link"
+        >System Families</a
+      >
+      <a href={`/${currentLang}/#partnership`} class="nav-link"
+        >Our Partnership Model</a
+      >
+      <a href={`/${currentLang}/#why-aunova`} class="nav-link"
+        >Why Aunova Exists</a
+      >
+
+      <div class="nav-actions">
+        <a
+          href="https://cal.com/ngmisl/aunova"
+          class="cta-button"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <div class="nav-links">
-            <a href="#different-company" class="nav-link">About</a>
-            <a href={`/${currentLang}/#system-families`} class="nav-link">System Families</a>
-            <a href={`/${currentLang}/#partnership`} class="nav-link">Partners</a>
-            <a href={`/${currentLang}/#why-aunova`} class="nav-link">Why aunova exists</a>
-
-            <div class="nav-actions">
-                <a href="https://cal.com/ngmisl/aunova" class="cta-button" target="_blank" rel="noopener noreferrer">
-                    Begin a Strategic Conversation
-                </a>
-            </div>
-        </div>
-    </nav>
+          Begin a Strategic Conversation
+        </a>
+      </div>
+    </div>
+  </nav>
 </header>
 
 <style>
-    .header {
-        position: sticky;
-        top: 0;
-        z-index: var(--z-sticky);
-        background-color: var(
-            --color-background-header,
-            var(--color-background)
-        );
-        border-bottom: 1px solid var(--color-border);
-        backdrop-filter: blur(10px);
-        height: 72px;
-    }
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background-color: var(--color-background-header, var(--color-background));
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(10px);
+    height: 72px;
+  }
 
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 72px;
-        position: relative;
-    }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    position: relative;
+  }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        color: var(--color-text);
-        transition: opacity var(--transition-fast);
-    }
+  .logo {
+    display: flex;
+    align-items: center;
+    color: var(--color-text);
+    transition: opacity var(--transition-fast);
+  }
 
-    .logo:hover {
-        opacity: 0.8;
-        text-decoration: none;
-    }
+  .logo:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
 
-    .logo-text {
-        font-size: 1.5rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        color: var(--color-primary);
-    }
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+  }
 
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    position: relative;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  .nav-link {
+    color: var(--color-text);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .nav-link:focus,
+  .nav-link:active,
+  .nav-link.active,
+  .nav-link[aria-current="page"] {
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: var(--space-sm);
+    min-width: 250px;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-base);
+  }
+
+  .dropdown:hover .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-text);
+    transition: background-color var(--transition-fast);
+  }
+
+  .dropdown-item:hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-primary) 5%,
+      var(--color-background)
+    );
+    text-decoration: none;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-left: var(--space-xl);
+  }
+
+  .cta-button {
+    padding: 8px 24px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: var(--text-ui);
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .cta-button:hover {
+    background-color: var(--color-primary-hover);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
     .menu-toggle {
-        display: none;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 28px;
-        height: 20px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        position: relative;
-        z-index: 1001;
-    }
-
-    .menu-toggle span {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: var(--color-primary);
-        border-radius: 2px;
-        transition: all 0.3s ease;
-        transform-origin: center;
-        position: relative;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-        transform: translateY(8.5px) rotate(45deg);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-        transform: scaleX(0);
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-8.5px) rotate(-45deg);
+      display: flex;
     }
 
     .nav-links {
-        display: flex;
-        align-items: center;
-        gap: var(--space-xl);
+      position: fixed;
+      top: var(--header-height);
+      right: 0;
+      width: 100vw;
+      height: calc(100vh - var(--header-height));
+      max-height: calc(100vh - var(--header-height));
+      background-color: var(--color-white);
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: var(--space-2xl) var(--space-xl);
+      padding-bottom: calc(var(--space-xl) + env(safe-area-inset-bottom));
+      gap: var(--space-lg);
+      transform: translateX(100vw);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: var(--z-modal);
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
     }
 
-    .nav-link {
-        color: var(--color-text);
-        font-weight: 500;
-        transition: all var(--transition-fast);
-        display: flex;
-        align-items: center;
-        gap: var(--space-xs);
-        padding: var(--space-sm) 0;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        font-size: inherit;
-        font-family: inherit;
+    .nav-links.active {
+      transform: translateX(0);
     }
 
-    .nav-link:hover {
-        color: var(--color-primary);
-        text-decoration: none;
+    /* Mobile menu overlay */
+    .nav-links::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+      z-index: -1;
+      pointer-events: none;
     }
 
-    .nav-link:focus,
-    .nav-link:active,
-    .nav-link[aria-current="page"] {
-        font-weight: 700;
-    }
-
-    .dropdown {
-        position: relative;
+    .nav-links.active::before {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
 
     .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        margin-top: var(--space-sm);
-        min-width: 250px;
-        background-color: var(--color-background);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-lg);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: all var(--transition-base);
+      position: static;
+      opacity: 0;
+      visibility: hidden;
+      max-height: 0;
+      overflow: hidden;
+      transform: none;
+      margin-top: 0;
+      margin-left: var(--space-md);
+      box-shadow: none;
+      border: none;
+      background-color: transparent;
+      transition: all 0.3s ease;
     }
 
-    .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+    .dropdown-toggle[aria-expanded="true"] + .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      max-height: 300px;
+      margin-top: var(--space-sm);
     }
 
-    .dropdown-item {
-        display: block;
-        padding: var(--space-sm) var(--space-md);
-        color: var(--color-text);
-        transition: background-color var(--transition-fast);
+    .nav-link {
+      font-size: var(--text-lg);
+      padding: var(--space-md) 0;
+      width: 100%;
+      border-bottom: 1px solid var(--color-border);
     }
 
-    .dropdown-item:hover {
-        background-color: color-mix(
-            in srgb,
-            var(--color-primary) 5%,
-            var(--color-background)
-        );
-        text-decoration: none;
+    .nav-link:last-of-type {
+      border-bottom: none;
     }
 
     .nav-actions {
-        display: flex;
-        align-items: center;
-        gap: var(--space-md);
-        margin-left: var(--space-xl);
+      margin-left: 0;
+      margin-top: var(--space-xl);
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-md);
     }
 
     .cta-button {
-        padding: 8px 24px;
-        background-color: var(--color-primary);
-        color: white;
-        border-radius: 9999px;
-        font-weight: 600;
-        font-size: var(--text-ui);
-        transition: all var(--transition-fast);
-        white-space: nowrap;
+      text-align: center;
+      width: 100%;
+      padding: var(--space-md) var(--space-lg);
     }
-
-    .cta-button:hover {
-        background-color: var(--color-primary-hover);
-        text-decoration: none;
-        transform: translateY(-1px);
-    }
-
-    /* Mobile styles */
-    @media (max-width: 768px) {
-        .menu-toggle {
-            display: flex;
-        }
-
-        .nav-links {
-            position: fixed;
-            top: var(--header-height);
-            right: 0;
-            width: 100vw;
-            height: calc(100vh - var(--header-height));
-            max-height: calc(100vh - var(--header-height));
-            background-color: var(--color-white);
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            padding: var(--space-2xl) var(--space-xl);
-            padding-bottom: calc(var(--space-xl) + env(safe-area-inset-bottom));
-            gap: var(--space-lg);
-            transform: translateX(100vw);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: var(--z-modal);
-            overflow-y: auto;
-            overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
-            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .nav-links.active {
-            transform: translateX(0);
-        }
-
-        /* Mobile menu overlay */
-        .nav-links::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition:
-                opacity 0.3s ease,
-                visibility 0.3s ease;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .nav-links.active::before {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
-
-        .dropdown-menu {
-            position: static;
-            opacity: 0;
-            visibility: hidden;
-            max-height: 0;
-            overflow: hidden;
-            transform: none;
-            margin-top: 0;
-            margin-left: var(--space-md);
-            box-shadow: none;
-            border: none;
-            background-color: transparent;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-toggle[aria-expanded="true"] + .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            max-height: 300px;
-            margin-top: var(--space-sm);
-        }
-
-        .nav-link {
-            font-size: var(--text-lg);
-            padding: var(--space-md) 0;
-            width: 100%;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .nav-link:last-of-type {
-            border-bottom: none;
-        }
-
-        .nav-actions {
-            margin-left: 0;
-            margin-top: var(--space-xl);
-            width: 100%;
-            flex-direction: column;
-            align-items: stretch;
-            gap: var(--space-md);
-        }
-
-        .cta-button {
-            text-align: center;
-            width: 100%;
-            padding: var(--space-md) var(--space-lg);
-        }
-    }
+  }
 </style>
 
 <script is:inline>
-    (function() {
-        var menuToggle = document.querySelector(".menu-toggle");
-        var navLinks = document.querySelector(".nav-links");
-        var dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+  document.addEventListener("astro:page-load", () => {
+    var menuToggle = document.querySelector(".menu-toggle");
+    var navLinks = document.querySelector(".nav-links");
+    var dropdownToggles = document.querySelectorAll(".dropdown-toggle");
 
-        if (menuToggle) {
-            menuToggle.addEventListener("click", function() {
-                var isOpen = navLinks && navLinks.classList.toggle("active");
-                menuToggle.classList.toggle("active");
-                menuToggle.setAttribute("aria-expanded", String(isOpen));
+    if (menuToggle) {
+      // internal menu toggle logic...
+      // To be safe with View Transitions, we should clone/replace to clean listeners too
+      var newMenuToggle = menuToggle.cloneNode(true);
+      if (menuToggle.parentNode) {
+        menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+        menuToggle = newMenuToggle;
+      }
 
-                // Prevent body scroll when menu is open
-                if (isOpen) {
-                    document.body.classList.add("menu-open");
-                    document.body.style.position = "fixed";
-                    document.body.style.width = "100%";
-                    document.body.style.top = "-" + window.scrollY + "px";
-                } else {
-                    var scrollY = document.body.style.top;
-                    document.body.classList.remove("menu-open");
-                    document.body.style.position = "";
-                    document.body.style.width = "";
-                    document.body.style.top = "";
-                    window.scrollTo(0, parseInt(scrollY || "0") * -1);
-                }
-            });
+      menuToggle.addEventListener("click", function () {
+        var isOpen = navLinks && navLinks.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+        // Prevent body scroll when menu is open
+        if (isOpen) {
+          document.body.classList.add("menu-open");
+          document.body.style.position = "fixed";
+          document.body.style.width = "100%";
+          document.body.style.top = "-" + window.scrollY + "px";
+        } else {
+          var scrollY = document.body.style.top;
+          document.body.classList.remove("menu-open");
+          document.body.style.position = "";
+          document.body.style.width = "";
+          document.body.style.top = "";
+          window.scrollTo(0, parseInt(scrollY || "0") * -1);
+        }
+      });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (e) {
+      var target = e.target;
+      var menuContains = menuToggle && menuToggle.contains(target);
+      var navContains = navLinks && navLinks.contains(target);
+      if (!menuContains && !navContains) {
+        if (navLinks && navLinks.classList.contains("active")) {
+          var scrollY = document.body.style.top;
+          navLinks.classList.remove("active");
+          if (menuToggle) {
+            menuToggle.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+          document.body.classList.remove("menu-open");
+          document.body.style.position = "";
+          document.body.style.width = "";
+          document.body.style.top = "";
+          window.scrollTo(0, parseInt(scrollY || "0") * -1);
+        }
+      }
+    });
+
+    // Close menu when clicking on a link and handle active state
+    var navLinkElements = document.querySelectorAll(".nav-links a");
+    var sections = document.querySelectorAll("section[id]");
+
+    // Helper to set active link
+    function setActiveLink(id) {
+      navLinkElements.forEach((link) => {
+        var href = link.getAttribute("href");
+        // Check if href matches id (handling potential language prefix)
+        if (
+          href &&
+          (href === `#${id}` ||
+            href.endsWith(`/#${id}`) ||
+            href.endsWith(`/${id}`))
+        ) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    }
+
+    // specific manual click handler
+    navLinkElements.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        // Remove active from all
+        navLinkElements.forEach((l) => l.classList.remove("active"));
+        // Add to current
+        this.classList.add("active");
+
+        if (navLinks && navLinks.classList.contains("active")) {
+          // ... existing mobile menu closing logic ...
+          var scrollY = document.body.style.top;
+          navLinks.classList.remove("active");
+          if (menuToggle) {
+            menuToggle.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+          document.body.classList.remove("menu-open");
+          document.body.style.position = "";
+          document.body.style.width = "";
+          document.body.style.top = "";
+          window.scrollTo(0, parseInt(scrollY || "0") * -1);
         }
 
-        // Close menu when clicking outside
-        document.addEventListener("click", function(e) {
-            var target = e.target;
-            var menuContains = menuToggle && menuToggle.contains(target);
-            var navContains = navLinks && navLinks.contains(target);
-            if (!menuContains && !navContains) {
-                if (navLinks && navLinks.classList.contains("active")) {
-                    var scrollY = document.body.style.top;
-                    navLinks.classList.remove("active");
-                    if (menuToggle) {
-                        menuToggle.classList.remove("active");
-                        menuToggle.setAttribute("aria-expanded", "false");
-                    }
-                    document.body.classList.remove("menu-open");
-                    document.body.style.position = "";
-                    document.body.style.width = "";
-                    document.body.style.top = "";
-                    window.scrollTo(0, parseInt(scrollY || "0") * -1);
-                }
+        // Handle smooth scrolling for anchor links
+        var href = link.getAttribute("href");
+        if (href) {
+          // Check for hash
+          var hashIndex = href.indexOf("#");
+          if (hashIndex !== -1) {
+            var targetId = href.substring(hashIndex + 1);
+            // If it's on the same page (or we are already there logic could be added)
+            // For now, let default behavior or simple ID lookup work
+            var targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              // Update active state manually for immediate feedback
+              // setActiveLink(targetId); // Included in click above
             }
-        });
+          }
+        }
+      });
+    });
 
-        // Close menu when clicking on a link
-        var navLinkElements = document.querySelectorAll(".nav-links a");
-        navLinkElements.forEach(function(link) {
-            link.addEventListener("click", function(e) {
-                if (navLinks && navLinks.classList.contains("active")) {
-                    var scrollY = document.body.style.top;
-                    navLinks.classList.remove("active");
-                    if (menuToggle) {
-                        menuToggle.classList.remove("active");
-                        menuToggle.setAttribute("aria-expanded", "false");
-                    }
-                    document.body.classList.remove("menu-open");
-                    document.body.style.position = "";
-                    document.body.style.width = "";
-                    document.body.style.top = "";
-                    window.scrollTo(0, parseInt(scrollY || "0") * -1);
-                }
+    // Scroll Spy using IntersectionObserver
+    var observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -60% 0px", // Trigger when section is near top/middle
+      threshold: 0,
+    };
 
-                // Handle smooth scrolling for anchor links
-                var href = link.getAttribute('href');
-                if (href && href.charAt(0) === '#') {
-                    e.preventDefault();
-                    var targetId = href.substring(1);
-                    var targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
-        });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id);
+        }
+      });
+    }, observerOptions);
 
-        dropdownToggles.forEach(function(toggle) {
-            toggle.addEventListener("click", function(e) {
-                e.preventDefault();
-                var isOpen = toggle.getAttribute("aria-expanded") === "true";
-                toggle.setAttribute("aria-expanded", String(!isOpen));
-            });
-        });
-    })();
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    dropdownToggles.forEach(function (toggle) {
+      // Clone and replace to avoid duplicate listeners
+      var newToggle = toggle.cloneNode(true);
+      toggle.parentNode.replaceChild(newToggle, toggle);
+
+      newToggle.addEventListener("click", function (e) {
+        e.preventDefault();
+        var isOpen = newToggle.getAttribute("aria-expanded") === "true";
+        newToggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+    });
+  });
 </script>

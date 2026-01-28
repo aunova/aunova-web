@@ -1,6 +1,14 @@
 ---
 import CTABox from "./CTABox.astro";
-import { Globe, Clock, Scale, Coins, Handshake, Rocket } from "lucide-astro";
+import {
+  Globe,
+  Clock,
+  Scale,
+  Coins,
+  Handshake,
+  Rocket,
+  Check,
+} from "lucide-astro";
 const criteriaIcons = [Globe, Clock, Scale, Coins, Handshake, Rocket];
 
 export interface CriteriaItem {
@@ -54,6 +62,9 @@ const buttonLink = `/${lang}/contact`;
                 <p class="criteria-continuation">{continuation}</p>
               )}
             </div>
+            <div class="criteria-check" aria-hidden="true">
+              <Check size={20} />
+            </div>
           </article>
         );
       })
@@ -94,6 +105,7 @@ const buttonLink = `/${lang}/contact`;
     margin: 0;
     line-height: 1.7;
     text-align: center;
+    white-space: pre-line;
   }
 
   .criteria-cards {
@@ -115,6 +127,7 @@ const buttonLink = `/${lang}/contact`;
     border: 3px solid #d7a5a5;
     border-radius: 10px;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+    position: relative;
   }
 
   .criteria-circle {
@@ -122,12 +135,12 @@ const buttonLink = `/${lang}/contact`;
     height: 48px;
     min-width: 48px;
     border-radius: 50%;
-    background: var(--color-primary);
+    background: rgba(87, 13, 11, 0.15);
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-primary);
   }
 
   .criteria-circle :global(svg) {
@@ -137,6 +150,21 @@ const buttonLink = `/${lang}/contact`;
 
   .criteria-content {
     flex: 1;
+    padding-right: 2rem; /* Make room for the checkmark on very small screens if needed */
+  }
+
+  .criteria-check {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 6px;
+    background: rgba(87, 13, 11, 0.15);
+    border: 1px solid rgba(87, 13, 11, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    flex-shrink: 0;
   }
 
   .criteria-question {
@@ -151,8 +179,8 @@ const buttonLink = `/${lang}/contact`;
   .criteria-continuation {
     font-family: var(--font-body);
     font-size: var(--text-body-sm);
-    font-weight: 700;
-    color: #000;
+    font-weight: 400;
+    color: var(--color-primary);
     margin: var(--space-xs) 0 0;
     line-height: 1.6;
   }
