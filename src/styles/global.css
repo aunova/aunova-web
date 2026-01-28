@@ -45,14 +45,14 @@
 
 :root {
   /* Brand Colors (calm, institutional) */
-  --color-burgundy: #672042;
-  --color-burgundy-hover: #5b1b39;
-  --color-burgundy-soft: #8a3a5c;
+  --color-burgundy: #570D0B;
+  --color-burgundy-hover: #4a0b09;
+  --color-burgundy-soft: #7a2420;
 
   /* Neutrals */
-  --color-stone: #F5F2E8;
-  --color-sand: #E3DCC2;
-  --color-sand-dark: #c9c2a8;
+  --color-stone: #F5F0F0;
+  --color-sand: #E8D8D6;
+  --color-sand-dark: #D4C4C2;
   --color-white: #FFFFFF;
   --color-charcoal: #1A1A1A;
   --color-black: #0F0F0F;
@@ -131,9 +131,13 @@
   --space-4xl: 6rem;
   --space-5xl: 8rem;
 
+  /* Card tokens */
+  --color-card-bg: var(--color-white);
+  --color-card-border: #E8D8D6;
+
   /* Layout */
-  --max-width: 1280px;
-  --header-height: 4rem;
+  --max-width: 1312px;
+  --header-height: 72px;
   --footer-min-height: 20rem;
 
   /* Borders */

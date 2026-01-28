@@ -1,6 +1,6 @@
 {
   "enabledPlugins": {
-    "oh-my-claudecode@omc": true,
-    "learning-output-style@claude-plugins-official": true
+    "learning-output-style@claude-plugins-official": true,
+    "figma@claude-plugins-official": true
   }
 }

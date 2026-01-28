@@ -16,6 +16,8 @@ export const translations = {
       about: "About",
       blog: "Blog",
       contact: "Contact",
+      howWePartner: "How we partner",
+      whoWePartnerWith: "Who we partner with",
     },
     hero: {
       title:
@@ -99,7 +101,7 @@ export const translations = {
     partnership: {
       title: "From Shared Vision to Shared Infrastructure",
       intro:
-        "We do not begin with requirements documents. We begin with strategic alignment. Our partnerships are long-term, selective, and structured around building systems that become shared assets.",
+        "At Aunova, we believe foundational infrastructure begins with alignment and ambition, not requirements.",
       stepsTitle: "The partnership journey",
       steps: [
         {
@@ -116,9 +118,9 @@ export const translations = {
         },
         {
           number: 3,
-          title: "Proof of Necessity",
+          title: "Proof of Concept",
           description:
-            "We build a focused, functional prototype to validate the core value and system logic.",
+            "We build a focused, functional prototype to validate the core value proposition.",
         },
         {
           number: 4,
@@ -134,30 +136,100 @@ export const translations = {
         },
       ],
       callout:
-        "We deliberately engage with a limited number of founding partners per system family to protect depth, responsibility, and system integrity.",
+        "We engage with a maximum of 2–3 founding partners per <strong>system family</strong>.",
+      closingQuote:
+        "Our success is not defined by launch dates, but by the enduring value our systems provide.",
     },
     partnerCriteria: {
-      title: "Is This Partnership Model Right for You?",
-      intro: "Aunova partners with organizations that:",
+      title: "Is This Model Right For You?",
+      intro: "Do you see your institution reflected in the following strategic principles? If so, we should talk.",
       criteria: [
-        "are building for 10+ year horizons",
-        "operate in domains with real human or environmental impact",
-        "seek to co-create infrastructure, not purchase software",
-        "are willing to invest in shared systems and shared responsibility",
-        "value long-term trust over short-term delivery",
+        {
+          question: "Are you looking to solve a mission-critical problem",
+          continuation: "for society or the environment?",
+        },
+        {
+          question: "Do you think in decades and see the value in shared,",
+          continuation: "foundational infrastructure?",
+        },
+        {
+          question: "Are you ready to apply strict principles",
+          continuation: "to ensure responsible system design and governance?",
+        },
+        {
+          question: "Do you want to explore tokenized incentives and novel",
+          continuation: "ecosystems for measurable impact?",
+        },
+        {
+          question: "Are you prepared to move beyond vendor transactions",
+          continuation: "to true partnership?",
+        },
+        {
+          question: "Are you aligned to invest both capital and strategic effort",
+          continuation: "over a long-term horizon?",
+        },
       ],
       boundary:
-        "If you are looking for a fast implementation, a branded app, a feature roadmap, or a short-term pilot, we are probably not the right partner. We build for the long term.",
+        "We are not the right partner for short-term projects, feature factories, or cosmetic solutions.",
+      closingStatement: "We build for the long term.",
     },
     whyAunova: {
-      title: "Why Aunova Exists",
-      body: [
-        "Aunova was founded on the belief that the next era of technology will not be defined by more software, but by better systems — systems that protect people, respect the planet, and earn long-term trust.",
-        "As technology becomes embedded into everything, responsibility can no longer be an afterthought. Infrastructure must be designed with care, governance, and long-term consequences in mind.",
-        "Aunova exists to work alongside organizations who share this responsibility.",
+      title: "Why This Model Exists",
+      intro: [
+        "The systems the future depends on—environmental, identity, intelligent—won't be built through one-off projects or sole-source vendors.",
+        "Institutions must come together to build digital infrastructure that serves the common good and is stewarded for the long term.",
       ],
-      credibility:
-        "Our team invests personally in the domains and communities we serve, approaching our work not as vendors, but as long-term stakeholders in the outcomes.",
+      cards: [
+        {
+          title: "Responsibility Over Rent-Seeking",
+          description: "We co-own critical platforms with aligned institutions, not build proprietary lock-in schemes.",
+        },
+        {
+          title: "Systems That Outlast Us",
+          description: "True partnerships that plan in decades, not quarters.",
+        },
+        {
+          title: "Skin In The Game",
+          description: "Our team invests personally in the domains and communities we serve.",
+        },
+      ],
+      closing: "We are driven to build better systems because the future is our shared legacy.",
+      cta: {
+        title: "Begin a Conversation About Co-Creation",
+        description: "Reach out if you’re ready to discuss co-defining and owning infrastructure that matters.",
+        button: "Explore a Systems Partnership",
+      },
+    },
+    engagementCards: {
+      sectionTitle: "Start a Strategic Discussion",
+      subtitles: [
+        "Is your institution committed to building infrastructure for the long term?",
+        "Let's explore what's possible together.",
+      ],
+      cards: [
+        {
+          title: "Schedule a Call",
+          description: "Book a consultation to discuss your vision.",
+          button: "Book a Call",
+        },
+        {
+          title: "Ask a Question",
+          description: "Send us your questions via email.",
+          button: "Email Us",
+        },
+        {
+          title: "Partnership Criteria",
+          description: "Learn about Aunova's approach to partnerships.",
+          button: "Review Criteria",
+        },
+        {
+          title: "Joint Ventures",
+          description: "Discuss collaborative investment opportunities.",
+          button: "Propose a Venture",
+        },
+      ],
+      closingText: "Reach out to see if we should build together.",
+      closingButton: "Let's Talk",
     },
     contact: {
       title: "Begin a Strategic Conversation",
@@ -236,6 +308,8 @@ export const translations = {
       about: "Nosotros",
       blog: "Blog",
       contact: "Contacto",
+      howWePartner: "Cómo nos asociamos",
+      whoWePartnerWith: "Con quién nos asociamos",
     },
     hero: {
       title:
@@ -367,17 +441,66 @@ export const translations = {
         "valoran la confianza a largo plazo sobre la entrega a corto plazo",
       ],
       boundary:
-        "Si está buscando una implementación rápida, una aplicación de marca, una hoja de ruta de características o un piloto a corto plazo, probablemente no seamos el socio adecuado. Construimos para el largo plazo.",
+        "No somos el socio adecuado para proyectos a corto plazo, fábricas de funcionalidades o soluciones cosméticas.",
+      closingStatement: "Construimos para el largo plazo.",
     },
     whyAunova: {
-      title: "Por Qué Existe Aunova",
-      body: [
-        "Aunova fue fundada con la creencia de que la próxima era de la tecnología no estará definida por más software, sino por mejores sistemas — sistemas que protejan a las personas, respeten el planeta y ganen confianza a largo plazo.",
-        "A medida que la tecnología se integra en todo, la responsabilidad ya no puede ser una ocurrencia tardía. La infraestructura debe diseñarse con cuidado, gobernanza y consecuencias a largo plazo en mente.",
-        "Aunova existe para trabajar junto a organizaciones que comparten esta responsabilidad.",
+      title: "Por Qué Existe Este Modelo",
+      intro: [
+        "Los sistemas de los que depende el futuro—ambientales, de identidad, inteligentes—no se construirán a través de proyectos puntuales o proveedores únicos.",
+        "Las instituciones deben unirse para construir infraestructura digital que sirva al bien común y sea administrada a largo plazo.",
       ],
-      credibility:
-        "Nuestro equipo invierte personalmente en los dominios y comunidades a los que servimos, abordando nuestro trabajo no como proveedores, sino como partes interesadas a largo plazo en los resultados.",
+      cards: [
+        {
+          title: "Responsabilidad Sobre Rentismo",
+          description: "Co-poseemos plataformas críticas con instituciones alineadas, no construimos esquemas de dependencia propietaria.",
+        },
+        {
+          title: "Sistemas Que Nos Sobrevivan",
+          description: "Asociaciones verdaderas que planifican en décadas, no en trimestres.",
+        },
+        {
+          title: "Compromiso Personal",
+          description: "Nuestro equipo invierte personalmente en los dominios y comunidades a los que servimos.",
+        },
+      ],
+      closing: "Nos impulsa construir mejores sistemas porque el futuro es nuestro legado compartido.",
+      cta: {
+        title: "Inicia una Conversación Sobre Co-Creación",
+        description: "Contáctanos si estás listo para discutir la co-definición y propiedad de infraestructura que importa.",
+        button: "Explora una Asociación de Sistemas",
+      },
+    },
+    engagementCards: {
+      sectionTitle: "Inicia una Discusión Estratégica",
+      subtitles: [
+        "¿Está su institución comprometida con la construcción de infraestructura a largo plazo?",
+        "Exploremos juntos lo que es posible.",
+      ],
+      cards: [
+        {
+          title: "Agendar una Llamada",
+          description: "Reserve una consulta para discutir su visión.",
+          button: "Agendar Llamada",
+        },
+        {
+          title: "Hacer una Pregunta",
+          description: "Envíenos sus preguntas por correo electrónico.",
+          button: "Escríbenos",
+        },
+        {
+          title: "Criterios de Asociación",
+          description: "Conozca el enfoque de Aunova sobre las asociaciones.",
+          button: "Revisar Criterios",
+        },
+        {
+          title: "Empresas Conjuntas",
+          description: "Discuta oportunidades de inversión colaborativa.",
+          button: "Proponer una Empresa",
+        },
+      ],
+      closingText: "Contáctenos para ver si debemos construir juntos.",
+      closingButton: "Hablemos",
     },
     contact: {
       title: "Iniciar una Conversación Estratégica",

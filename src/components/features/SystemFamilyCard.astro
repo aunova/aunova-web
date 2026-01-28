@@ -22,9 +22,16 @@ const {
   featured = false,
   visualizationImage,
 } = Astro.props;
+
+const nameParts = name.split(" by ");
+const mainName = nameParts[0];
+const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
 ---
 
-<article class:list={["system-family-card", { featured }]} style={`--accent: ${accentColor}`}>
+<article
+  class:list={["system-family-card", { featured }]}
+  style={`--accent: ${accentColor}`}
+>
   <div class="card-grid">
     <div class="content-column">
       <header class="card-header">
@@ -32,8 +39,10 @@ const {
           <slot name="icon" />
         </div>
         <div class="header-text">
+          <h3 class="name">
+            {mainName}{suffix && <span class="suffix">{suffix}</span>}
+          </h3>
           <span class="category">{category}</span>
-          <h3 class="name">{name}</h3>
         </div>
       </header>
 
@@ -42,25 +51,25 @@ const {
         <p class="description">{description}</p>
 
         <ul class="examples-list">
-          {examples.map((example) => (
-            <li>{example}</li>
-          ))}
+          {examples.map((example) => <li>{example}</li>)}
         </ul>
 
         <p class="closing-line">{closingLine}</p>
       </div>
     </div>
 
-    {visualizationImage && (
-      <div class="visualization-column">
-        <img
-          src={visualizationImage}
-          alt={`${name} system visualization`}
-          class="visualization-image"
-          loading="lazy"
-        />
-      </div>
-    )}
+    {
+      visualizationImage && (
+        <div class="visualization-column">
+          <img
+            src={visualizationImage}
+            alt={`${name} system visualization`}
+            class="visualization-image"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
   </div>
 </article>
 
@@ -74,14 +83,112 @@ const {
   }
 
   .system-family-card.featured {
-    border-color: var(--accent);
-    border-width: 2px;
-    box-shadow: 0 8px 32px color-mix(in srgb, var(--accent) 12%, transparent);
+    background-color: var(--color-background-elevated, var(--color-white));
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: clamp(1.5rem, 4vw, 53px) clamp(1.5rem, 5vw, 66px);
+    position: relative;
+    overflow: visible;
+    isolation: isolate;
+    box-shadow: none;
   }
 
   .system-family-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-xl);
+  }
+
+  .system-family-card.featured:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .system-family-card.featured .card-grid {
+    grid-template-columns: 1fr;
+    position: relative;
+    z-index: 1;
+  }
+
+  .system-family-card.featured .content-column {
+    position: relative;
+    z-index: 3;
+  }
+
+  .system-family-card.featured .card-header {
+    display: block;
+    margin-bottom: var(--space-lg);
+  }
+
+  .system-family-card.featured .icon-wrapper {
+    display: none;
+  }
+
+  .system-family-card.featured .category {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: #000;
+    text-transform: none;
+    margin-top: var(--space-xs);
+    letter-spacing: 0;
+  }
+
+  .system-family-card.featured .name {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--accent);
+    line-height: 1.1;
+  }
+
+  .system-family-card.featured .suffix {
+    color: #000;
+  }
+
+  .system-family-card.featured .tagline,
+  .system-family-card.featured .description,
+  .system-family-card.featured .examples-list li,
+  .system-family-card.featured .closing-line {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.5;
+    color: #000;
+  }
+
+  .system-family-card.featured .examples-list li {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+  }
+
+  .system-family-card.featured .examples-list li::before {
+    color: #000;
+  }
+
+  .system-family-card.featured .closing-line {
+    border-top: none;
+    padding-top: var(--space-md);
+    font-style: normal;
+    color: #000;
+  }
+
+  .system-family-card.featured .visualization-column {
+    position: absolute;
+    right: -2rem;
+    top: -5rem;
+    width: clamp(200px, 45vw, 42rem);
+    height: clamp(200px, 45vw, 42rem);
+    min-height: auto;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .system-family-card.featured .visualization-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: none;
+    opacity: 0.15;
+    mix-blend-mode: multiply;
   }
 
   /* Two-column grid layout */
@@ -206,7 +313,8 @@ const {
     font-style: italic;
     margin: 0;
     padding-top: var(--space-md);
-    border-top: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+    border-top: 1px solid
+      color-mix(in srgb, var(--color-border) 50%, transparent);
     line-height: 1.6;
   }
 
@@ -223,7 +331,9 @@ const {
     height: auto;
     border-radius: var(--radius-lg);
     object-fit: contain;
-    filter: drop-shadow(0 4px 16px color-mix(in srgb, var(--accent) 8%, transparent));
+    filter: drop-shadow(
+      0 4px 16px color-mix(in srgb, var(--accent) 8%, transparent)
+    );
   }
 
   /* Mobile responsive */
@@ -262,6 +372,14 @@ const {
     .examples-list li {
       font-size: var(--text-xs);
     }
+
+    /* Featured card adjustments for tablet */
+    .system-family-card.featured .visualization-column {
+      width: clamp(150px, 35vw, 300px);
+      height: clamp(150px, 35vw, 300px);
+      right: -1rem;
+      top: -3rem;
+    }
   }
 
   @media (max-width: 640px) {
@@ -271,6 +389,15 @@ const {
 
     .card-header {
       gap: var(--space-sm);
+    }
+
+    /* Featured card adjustments for mobile */
+    .system-family-card.featured {
+      padding: var(--space-lg);
+    }
+
+    .system-family-card.featured .visualization-column {
+      display: none;
     }
   }
 </style>

@@ -157,20 +157,23 @@ const currentYear = new Date().getFullYear();
         background-color: var(--color-background);
         border-top: 1px solid var(--color-border);
         margin-top: var(--space-5xl);
-        padding: var(--space-3xl) 0 var(--space-xl);
+        padding: 98px 0;
     }
 
     .footer-content {
-        display: grid;
-        grid-template-columns: 2fr 3fr;
-        gap: var(--space-3xl);
-        margin-bottom: var(--space-3xl);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-2xl);
+        margin-bottom: var(--space-2xl);
     }
 
     .footer-brand {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: var(--space-md);
+        text-align: center;
     }
 
     .footer-logo {
@@ -185,6 +188,7 @@ const currentYear = new Date().getFullYear();
     }
 
     .footer-logo-text {
+        font-family: var(--font-heading);
         font-size: 1.75rem;
         font-weight: 700;
         letter-spacing: -0.02em;
@@ -192,24 +196,32 @@ const currentYear = new Date().getFullYear();
     }
 
     .footer-description {
+        font-family: var(--font-heading);
         color: var(--color-text-muted);
-        max-width: 300px;
+        max-width: 500px;
         line-height: 1.6;
+        text-align: center;
     }
 
     .footer-links {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--space-xl);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-xl) var(--space-2xl);
+    }
+
+    .footer-column {
+        text-align: center;
     }
 
     .footer-column h3 {
-        font-size: var(--text-sm);
+        font-family: var(--font-heading);
+        font-size: var(--text-body-sm);
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.05em;
         margin-bottom: var(--space-md);
-        color: var(--color-text);
+        color: #000;
     }
 
     .footer-column ul {
@@ -223,9 +235,10 @@ const currentYear = new Date().getFullYear();
     }
 
     .footer-column a {
-        color: var(--color-text-muted);
+        font-family: var(--font-heading);
+        color: #000;
         transition: color var(--transition-fast);
-        font-size: var(--text-sm);
+        font-size: var(--text-body-sm);
     }
 
     .footer-column a:hover {
@@ -248,10 +261,11 @@ const currentYear = new Date().getFullYear();
         padding-top: var(--space-xl);
         border-top: 1px solid var(--color-border);
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        gap: var(--space-md);
+        gap: var(--space-md) var(--space-xl);
+        text-align: center;
     }
 
     .copyright,
@@ -263,31 +277,24 @@ const currentYear = new Date().getFullYear();
 
     /* Tablet styles */
     @media (max-width: 1024px) {
-        .footer-content {
-            grid-template-columns: 1fr;
-            gap: var(--space-2xl);
-        }
-
         .footer-links {
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-xl) var(--space-2xl);
+            gap: var(--space-xl) var(--space-xl);
         }
     }
 
     /* Mobile styles */
     @media (max-width: 640px) {
         .footer {
-            padding: var(--space-2xl) 0 var(--space-lg);
+            padding: var(--space-3xl) 0 var(--space-lg);
         }
 
         .footer-links {
-            grid-template-columns: 1fr;
+            flex-direction: column;
             gap: var(--space-xl);
         }
 
         .footer-bottom {
             flex-direction: column;
-            text-align: center;
         }
     }
 </style>

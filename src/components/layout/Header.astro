@@ -44,20 +44,13 @@ const homeLink = currentLang === "es" ? "/es" : "/";
 
         <div class="nav-links">
             <a href="#different-company" class="nav-link">About</a>
-            <a href={`/${currentLang}/#system-families`} class="nav-link">{t.nav.systemFamilies}</a>
-            <a href={`/${currentLang}/#partnership`} class="nav-link">How We Partner</a>
-            <a href={`/${currentLang}/#criteria`} class="nav-link">Who We Partner With</a>
+            <a href={`/${currentLang}/#system-families`} class="nav-link">System Families</a>
+            <a href={`/${currentLang}/#partnership`} class="nav-link">Partners</a>
+            <a href={`/${currentLang}/#why-aunova`} class="nav-link">Why aunova exists</a>
 
             <div class="nav-actions">
-                <a
-                    href={langSwitchUrl}
-                    class="lang-switch"
-                    aria-label="Switch language"
-                >
-                    {currentLang === "en" ? "ES" : "EN"}
-                </a>
-                <a href={`/${currentLang}/contact`} class="cta-button">
-                    {t.hero.cta.primary}
+                <a href="https://cal.com/ngmisl/aunova" class="cta-button" target="_blank" rel="noopener noreferrer">
+                    Begin a Strategic Conversation
                 </a>
             </div>
         </div>
@@ -75,13 +68,14 @@ const homeLink = currentLang === "es" ? "/es" : "/";
         );
         border-bottom: 1px solid var(--color-border);
         backdrop-filter: blur(10px);
+        height: 72px;
     }
 
     .nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: var(--header-height);
+        height: 72px;
         position: relative;
     }
 
@@ -151,7 +145,7 @@ const homeLink = currentLang === "es" ? "/es" : "/";
     .nav-link {
         color: var(--color-text);
         font-weight: 500;
-        transition: color var(--transition-fast);
+        transition: all var(--transition-fast);
         display: flex;
         align-items: center;
         gap: var(--space-xs);
@@ -166,6 +160,12 @@ const homeLink = currentLang === "es" ? "/es" : "/";
     .nav-link:hover {
         color: var(--color-primary);
         text-decoration: none;
+    }
+
+    .nav-link:focus,
+    .nav-link:active,
+    .nav-link[aria-current="page"] {
+        font-weight: 700;
     }
 
     .dropdown {
@@ -218,35 +218,15 @@ const homeLink = currentLang === "es" ? "/es" : "/";
         margin-left: var(--space-xl);
     }
 
-    .lang-switch {
-        padding: var(--space-xs) var(--space-sm);
-        border-radius: var(--radius-sm);
-        border: 1px solid var(--color-border);
-        background-color: var(--color-background);
-        color: var(--color-text);
-        font-weight: 500;
-        font-size: var(--text-sm);
-        transition: all var(--transition-fast);
-        text-decoration: none;
-    }
-
-    .lang-switch:hover {
-        border-color: var(--color-primary);
-        background-color: color-mix(
-            in srgb,
-            var(--color-primary) 5%,
-            var(--color-background)
-        );
-        text-decoration: none;
-    }
-
     .cta-button {
-        padding: var(--space-sm) var(--space-lg);
+        padding: 8px 24px;
         background-color: var(--color-primary);
-        color: var(--color-white);
-        border-radius: var(--radius-md);
+        color: white;
+        border-radius: 9999px;
         font-weight: 600;
+        font-size: var(--text-ui);
         transition: all var(--transition-fast);
+        white-space: nowrap;
     }
 
     .cta-button:hover {
@@ -352,12 +332,6 @@ const homeLink = currentLang === "es" ? "/es" : "/";
             flex-direction: column;
             align-items: stretch;
             gap: var(--space-md);
-        }
-
-        .lang-switch {
-            text-align: center;
-            width: 100%;
-            padding: var(--space-md) var(--space-lg);
         }
 
         .cta-button {

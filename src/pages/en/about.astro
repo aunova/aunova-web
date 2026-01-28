@@ -16,7 +16,8 @@ const t = getTranslation(lang);
       <div class="hero-content">
         <h1>{t.about.title}</h1>
         <p class="lead">
-          Long-term systems partner for human- and planet-critical infrastructure
+          Long-term systems partner for human- and planet-critical
+          infrastructure
         </p>
       </div>
     </div>
@@ -27,12 +28,10 @@ const t = getTranslation(lang);
       <div class="why-content">
         <h2>{t.whyAunova.title}</h2>
         <div class="body-text">
-          {t.whyAunova.body.map((paragraph) => (
-            <p>{paragraph}</p>
-          ))}
+          {t.whyAunova.intro.map((paragraph) => <p>{paragraph}</p>)}
         </div>
         <aside class="credibility-box">
-          <p>{t.whyAunova.credibility}</p>
+          <p>{t.whyAunova.closing}</p>
         </aside>
       </div>
     </div>
@@ -44,18 +43,35 @@ const t = getTranslation(lang);
       <div class="principles-grid">
         <div class="principle-card">
           <div class="principle-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <circle cx="12" cy="12" r="10"></circle>
               <path d="M12 6v6l4 2"></path>
             </svg>
           </div>
           <h3>Long-Term Thinking</h3>
-          <p>We build for 10+ year horizons, designing systems meant to endure and evolve.</p>
+          <p>
+            We build for 10+ year horizons, designing systems meant to endure
+            and evolve.
+          </p>
         </div>
 
         <div class="principle-card">
           <div class="principle-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
               <circle cx="9" cy="7" r="4"></circle>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -63,29 +79,52 @@ const t = getTranslation(lang);
             </svg>
           </div>
           <h3>Selective Partnerships</h3>
-          <p>We engage with a limited number of partners to protect depth, responsibility, and system integrity.</p>
+          <p>
+            We engage with a limited number of partners to protect depth,
+            responsibility, and system integrity.
+          </p>
         </div>
 
         <div class="principle-card">
           <div class="principle-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
           </div>
           <h3>Human & Planetary Impact</h3>
-          <p>We work in domains where technology directly shapes human wellbeing and planetary outcomes.</p>
+          <p>
+            We work in domains where technology directly shapes human wellbeing
+            and planetary outcomes.
+          </p>
         </div>
 
         <div class="principle-card">
           <div class="principle-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
               <polyline points="2 17 12 22 22 17"></polyline>
               <polyline points="2 12 12 17 22 12"></polyline>
             </svg>
           </div>
           <h3>Shared Infrastructure</h3>
-          <p>Systems we build become shared assets, designed for the ecosystems they serve.</p>
+          <p>
+            Systems we build become shared assets, designed for the ecosystems
+            they serve.
+          </p>
         </div>
       </div>
     </div>
@@ -97,17 +136,19 @@ const t = getTranslation(lang);
         <h2>Our Approach</h2>
         <div class="approach-text">
           <p>
-            We are not a software vendor. We are long-term systems partners, co-building foundational 
-            digital infrastructure for domains where failure has real human or environmental consequences.
+            We are not a software vendor. We are long-term systems partners,
+            co-building foundational digital infrastructure for domains where
+            failure has real human or environmental consequences.
           </p>
           <p>
-            We do not begin with requirements documents. We begin with strategic alignment. Our partnerships 
-            are structured around building systems that become shared assets—infrastructure that serves not 
-            just our partners, but the ecosystems they operate within.
+            We do not begin with requirements documents. We begin with strategic
+            alignment. Our partnerships are structured around building systems
+            that become shared assets—infrastructure that serves not just our
+            partners, but the ecosystems they operate within.
           </p>
           <p>
-            We engage selectively, build for decades, and design systems meant to become shared layers 
-            within the worlds they serve.
+            We engage selectively, build for decades, and design systems meant
+            to become shared layers within the worlds they serve.
           </p>
         </div>
       </div>
@@ -120,7 +161,9 @@ const t = getTranslation(lang);
         <h2>{t.contact.title}</h2>
         <p>{t.contact.intro}</p>
         <div class="cta-actions">
-          <a href={`/${lang}/contact`} class="btn btn-primary">{t.hero.cta.primary}</a>
+          <a href={`/${lang}/contact`} class="btn btn-primary"
+            >{t.hero.cta.primary}</a
+          >
         </div>
       </div>
     </div>
@@ -133,7 +176,8 @@ const t = getTranslation(lang);
     background: linear-gradient(
       135deg,
       var(--color-background) 0%,
-      color-mix(in srgb, var(--color-secondary) 10%, var(--color-background)) 100%
+      color-mix(in srgb, var(--color-secondary) 10%, var(--color-background))
+        100%
     );
   }
 
@@ -189,7 +233,11 @@ const t = getTranslation(lang);
   .credibility-box {
     margin-top: var(--space-xl);
     padding: var(--space-lg);
-    background: color-mix(in srgb, var(--color-primary) 5%, var(--color-background));
+    background: color-mix(
+      in srgb,
+      var(--color-primary) 5%,
+      var(--color-background)
+    );
     border-left: 4px solid var(--color-primary);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
   }
@@ -243,7 +291,11 @@ const t = getTranslation(lang);
     width: 80px;
     height: 80px;
     margin-bottom: var(--space-md);
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-burgundy-light) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary) 0%,
+      var(--color-burgundy-light) 100%
+    );
     border-radius: var(--radius-full);
     color: var(--color-white);
   }

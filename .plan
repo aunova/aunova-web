@@ -1,0 +1,160 @@
+# Plan: Replace "Why Aunova Exists" with New Design
+
+## Summary
+Replace the "Why Aunova Exists" section with the redesigned "Why This Model Exists" section per the screenshot. The new design changes the title, adds intro paragraphs, gives each card a bold title + description (instead of just a paragraph), updates the closing statement source, and updates the CTA box content.
+
+---
+
+## Task 1: Update English i18n content
+**File:** `src/utils/i18n.ts` lines 176–185
+**Change:** Replace the `whyAunova` object with new structure containing `intro` array, `cards` array (each with `title` + `description`), `closing` string, and `cta` object.
+
+**New content:**
+```typescript
+whyAunova: {
+  title: "Why This Model Exists",
+  intro: [
+    "The systems the future depends on\u2014environmental, identity, intelligent\u2014won't be built through one-off projects or sole-source vendors.",
+    "Institutions must come together to build digital infrastructure that serves the common good and is stewarded for the long term.",
+  ],
+  cards: [
+    {
+      title: "Responsibility Over Rent-Seeking",
+      description: "We co-own critical platforms with aligned institutions, not build proprietary lock-in schemes.",
+    },
+    {
+      title: "Systems That Outlast Us",
+      description: "True partnerships that plan in decades, not quarters.",
+    },
+    {
+      title: "Skin In The Game",
+      description: "Our team invests personally in the domains and communities we serve.",
+    },
+  ],
+  closing: "We are driven to build better systems because the future is our shared legacy.",
+  cta: {
+    title: "Begin a Conversation About Co-Creation",
+    description: "Reach out if you\u2019re ready to discuss co-defining and owning infrastructure that matters.",
+    button: "Explore a Systems Partnership",
+  },
+},
+```
+
+---
+
+## Task 2: Update Spanish i18n content
+**File:** `src/utils/i18n.ts` lines 426–435
+**Change:** Replace Spanish `whyAunova` with same structure, translated:
+
+```typescript
+whyAunova: {
+  title: "Por Qu\u00e9 Existe Este Modelo",
+  intro: [
+    "Los sistemas de los que depende el futuro\u2014ambientales, de identidad, inteligentes\u2014no se construir\u00e1n a trav\u00e9s de proyectos puntuales o proveedores \u00fanicos.",
+    "Las instituciones deben unirse para construir infraestructura digital que sirva al bien com\u00fan y sea administrada a largo plazo.",
+  ],
+  cards: [
+    {
+      title: "Responsabilidad Sobre Rentismo",
+      description: "Co-poseemos plataformas cr\u00edticas con instituciones alineadas, no construimos esquemas de dependencia propietaria.",
+    },
+    {
+      title: "Sistemas Que Nos Sobrevivan",
+      description: "Asociaciones verdaderas que planifican en d\u00e9cadas, no en trimestres.",
+    },
+    {
+      title: "Compromiso Personal",
+      description: "Nuestro equipo invierte personalmente en los dominios y comunidades a los que servimos.",
+    },
+  ],
+  closing: "Nos impulsa construir mejores sistemas porque el futuro es nuestro legado compartido.",
+  cta: {
+    title: "Inicia una Conversaci\u00f3n Sobre Co-Creaci\u00f3n",
+    description: "Cont\u00e1ctanos si est\u00e1s listo para discutir la co-definici\u00f3n y propiedad de infraestructura que importa.",
+    button: "Explora una Asociaci\u00f3n de Sistemas",
+  },
+},
+```
+
+---
+
+## Task 3: Update HTML template in index.astro
+**File:** `src/pages/en/index.astro` lines 200–229
+**Change:** Replace the section HTML to:
+- Add intro paragraphs in a `body-text` div (existing pattern used elsewhere on the page)
+- Cards now render `card.title` as `<h3>` + `card.description` as `<p>`
+- Closing text from i18n instead of hardcoded
+- CTABox receives explicit props from i18n
+
+```astro
+<!-- Why Aunova Section -->
+<section class="why-aunova" id="why-aunova">
+  <div class="container">
+    <div class="section-content">
+      <h2 class="section-title">{t.whyAunova.title}</h2>
+      <div class="body-text">
+        {t.whyAunova.intro.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+
+    <div class="stacked-cards">
+      {t.whyAunova.cards.map((card, index) => {
+        const Icon = whyIcons[index];
+        return (
+          <div class="stacked-card">
+            <div class="stacked-card-circle">
+              <Icon size={22} />
+            </div>
+            <div class="stacked-card-text">
+              <h3 class="stacked-card-title">{card.title}</h3>
+              <p>{card.description}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <p class="why-closing">
+      {t.whyAunova.closing}
+    </p>
+
+    <CTABox
+      title={t.whyAunova.cta.title}
+      description={t.whyAunova.cta.description}
+      buttonText={t.whyAunova.cta.button}
+      buttonLink={`/${lang}/contact`}
+    />
+  </div>
+</section>
+```
+
+---
+
+## Task 4: Add CSS for card titles
+**File:** `src/pages/en/index.astro` style section (after `.stacked-card-text p` around line 680)
+**Change:** Add `.stacked-card-title` style:
+
+```css
+.stacked-card-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-xs);
+  line-height: 1.4;
+}
+```
+
+---
+
+## Task 5: Build verification
+**Command:** `bun run build`
+**What:** Confirm no build errors from the structural changes.
+
+---
+
+## Files Modified
+1. `src/utils/i18n.ts` — English + Spanish translations (new shape)
+2. `src/pages/en/index.astro` — HTML template + CSS
+
+## No New Files Created

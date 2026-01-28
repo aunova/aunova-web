@@ -1,5 +1,7 @@
 ---
-import { Compass, Lightbulb, Layers, Settings, Handshake } from "lucide-astro";
+import CTABox from "./CTABox.astro";
+import { Compass, Lightbulb, FlaskConical, Layers, Handshake } from "lucide-astro";
+const stepIcons = [Compass, Lightbulb, FlaskConical, Layers, Handshake];
 
 export interface Step {
   number: number;
@@ -17,136 +19,120 @@ export interface Props {
 }
 
 const { title, intro, stepsTitle, steps, callout, lang = "en" } = Astro.props;
-
-const stepIcons = [Compass, Lightbulb, Layers, Settings, Handshake];
 ---
 
 <section class="partnership-journey">
   <div class="journey-header">
     <h2 class="journey-title">{title}</h2>
-    <p class="journey-intro" set:html={intro.replace('infrastructure', '<strong>infrastructure</strong>')}></p>
+    <p class="journey-intro">{intro}</p>
   </div>
 
-  <div class="journey-callout-top">
-    <p>We engage with a maximum of 2-3 founding partners per <strong>system family</strong>.</p>
+  <div class="highlight-pill">
+    <p set:html={callout.replace(/system family/gi, '<strong>system family</strong>')}></p>
   </div>
 
-  <div class="steps-card">
-    {steps.map((step, index) => {
-      const IconComponent = stepIcons[index];
-      return (
-        <div class="step-row">
-          <div class="step-icon">
-            <IconComponent size={24} />
-          </div>
-          <div class="step-content">
-            <h4 class="step-title">{step.title}</h4>
-            <p class="step-description">{step.description}</p>
-          </div>
+  <div class="steps-stack">
+    {steps.map((step, index) => (
+      <div class="step-card">
+        <div class="step-circle">
+          {(() => { const Icon = stepIcons[index]; return Icon ? <Icon size={22} /> : null; })()}
         </div>
-      );
-    })}
+        <div class="step-content">
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-description">{step.description}</p>
+        </div>
+      </div>
+    ))}
   </div>
 
-  <p class="journey-closing">Our success is not defined by launch dates, but by the enduring value our systems provide.</p>
+  <p class="closing-quote">Our success is not defined by launch dates, but by the enduring value our systems provide.</p>
 
-  <div class="journey-cta">
-    <h3 class="cta-title">Begin a Strategic Conversation</h3>
-    <p class="cta-description">Reach out if you and your team are committed to co-defining and co-owning infrastructure for the long term.</p>
-    <a href={`/${lang}/contact`} class="cta-button">Explore a Systems Partnership</a>
-  </div>
+  <CTABox buttonLink={`/${lang}/contact`} />
 </section>
 
 <style>
   .partnership-journey {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
   }
 
   .journey-header {
     text-align: center;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-2xl);
   }
 
   .journey-title {
-    font-size: var(--text-3xl);
+    font-family: var(--font-heading);
+    font-size: var(--text-h1);
     font-weight: 700;
     color: var(--color-primary);
-    margin: 0 0 var(--space-lg) 0;
-    line-height: 1.2;
+    margin: 0 0 var(--space-md) 0;
+    line-height: var(--lh-heading);
   }
 
   .journey-intro {
-    font-size: var(--text-base);
-    color: var(--color-text);
+    font-family: var(--font-heading);
+    font-size: var(--text-body);
+    color: #000;
     margin: 0 auto;
     line-height: 1.7;
-    max-width: 600px;
-  }
-
-  .journey-intro :global(strong) {
-    font-weight: 700;
-  }
-
-  .journey-callout-top {
-    background: #F5F2E8;
-    border-radius: var(--radius-lg);
-    padding: var(--space-md) var(--space-lg);
     text-align: center;
-    margin-bottom: var(--space-xl);
   }
 
-  .journey-callout-top p {
-    font-size: var(--text-sm);
-    color: var(--color-text);
+  .highlight-pill {
+    background: rgba(215, 165, 165, 0.25);
+    border-radius: 10px;
+    padding: 12px 32px;
+    text-align: center;
+    margin: 0 auto var(--space-2xl);
+    max-width: fit-content;
+  }
+
+  .highlight-pill p {
+    font-family: var(--font-heading);
+    font-size: var(--text-body);
+    color: #570D0B;
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
-  .journey-callout-top strong {
+  .highlight-pill :global(strong) {
     font-weight: 700;
   }
 
-  .steps-card {
-    background: var(--color-white);
-    border: 1px solid #E8E4DA;
-    border-radius: var(--radius-xl);
-    padding: var(--space-lg);
-    margin-bottom: var(--space-xl);
+  .steps-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
   }
 
-  .step-row {
+  .step-card {
+    background: var(--color-white, #fff);
+    border: 3px solid #D7A5A5;
+    border-radius: 10px;
+    padding: var(--space-xl);
     display: flex;
     align-items: flex-start;
-    gap: var(--space-md);
-    padding: var(--space-lg) 0;
-    border-bottom: 1px solid #F0EDE5;
+    gap: var(--space-lg);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
   }
 
-  .step-row:first-child {
-    padding-top: 0;
-  }
-
-  .step-row:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .step-icon {
+  .step-circle {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: #F5F2E8;
+    background: var(--color-primary);
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    color: var(--color-primary);
-    opacity: 0.8;
+    color: white;
   }
 
-  .step-icon :global(svg) {
-    stroke-width: 1.5;
+  .step-circle :global(svg) {
+    width: 22px;
+    height: 22px;
   }
 
   .step-content {
@@ -154,71 +140,31 @@ const stepIcons = [Compass, Lightbulb, Layers, Settings, Handshake];
   }
 
   .step-title {
-    font-size: var(--text-base);
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
     font-weight: 700;
     color: var(--color-primary);
     margin: 0 0 var(--space-xs) 0;
-    line-height: 1.3;
+    line-height: 1.4;
   }
 
   .step-description {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
+    font-family: var(--font-heading);
+    font-size: var(--text-body-sm);
+    color: #000;
     margin: 0;
     line-height: 1.6;
   }
 
-  .journey-closing {
+  .closing-quote {
     text-align: center;
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    font-style: italic;
-    margin: 0 0 var(--space-2xl) 0;
+    font-family: var(--font-heading);
+    font-size: var(--text-body);
+    color: #000;
+    margin: 0 0 var(--space-3xl) 0;
     line-height: 1.6;
-  }
-
-  .journey-cta {
-    background: var(--color-primary);
-    border-radius: var(--radius-xl);
-    padding: var(--space-2xl);
-    text-align: center;
-  }
-
-  .cta-title {
-    font-size: var(--text-xl);
-    font-weight: 700;
-    color: var(--color-white);
-    margin: 0 0 var(--space-md) 0;
-  }
-
-  .cta-description {
-    font-size: var(--text-sm);
-    color: var(--color-white);
-    opacity: 0.9;
-    margin: 0 0 var(--space-lg) 0;
-    line-height: 1.6;
-    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .cta-button {
-    display: inline-block;
-    background: var(--color-white);
-    color: var(--color-primary);
-    padding: var(--space-md) var(--space-xl);
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    font-size: var(--text-base);
-    text-decoration: none;
-    transition: all var(--transition-fast);
-    border: 2px solid var(--color-white);
-  }
-
-  .cta-button:hover {
-    background: transparent;
-    color: var(--color-white);
-    text-decoration: none;
   }
 
   @media (max-width: 768px) {
@@ -226,13 +172,46 @@ const stepIcons = [Compass, Lightbulb, Layers, Settings, Handshake];
       font-size: var(--text-2xl);
     }
 
-    .step-icon {
-      width: 40px;
-      height: 40px;
+    .journey-intro {
+      font-size: 1.125rem;
+      line-height: 1.6;
     }
 
-    .journey-cta {
-      padding: var(--space-xl);
+    .highlight-pill {
+      padding: 16px 24px;
+    }
+
+    .highlight-pill p {
+      font-size: 1rem;
+    }
+
+    .step-card {
+      padding: var(--space-xl) var(--space-lg);
+      gap: var(--space-md);
+    }
+
+    .step-circle {
+      width: 56px;
+      height: 56px;
+    }
+
+    .step-circle :global(svg) {
+      width: 28px;
+      height: 28px;
+    }
+
+    .step-title {
+      font-size: 1.125rem;
+      line-height: 1.3;
+    }
+
+    .step-description {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .closing-quote {
+      font-size: 1.125rem;
     }
   }
 </style>
