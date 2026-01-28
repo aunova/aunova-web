@@ -5,22 +5,15 @@ const currentLang = getCurrentLanguage(Astro.url);
 const t = getTranslation(currentLang);
 const otherLang = currentLang === "en" ? "es" : "en";
 
-// Build language switch URL
-// Handle root path specially
+// Build language switch URLs for both languages
 const pathname = Astro.url.pathname;
-let langSwitchUrl;
 
-if (pathname === "/") {
-  // Root page defaults to English, switch to Spanish home
-  langSwitchUrl = "/es";
-} else if (pathname === "/es" || pathname === "/es/") {
-  // Spanish home, switch to root (English)
-  langSwitchUrl = "/";
-} else {
-  // For other pages, just swap the language prefix
-  const pathWithoutLang = pathname.replace(/^\/(en|es)/, "");
-  langSwitchUrl = `/${otherLang}${pathWithoutLang}`;
-}
+// Get path without language prefix
+const pathWithoutLang = pathname.replace(/^\/(en|es)/, "") || "/";
+
+// Build URLs for each language
+const enUrl = pathWithoutLang === "/" ? "/" : `/en${pathWithoutLang}`;
+const esUrl = `/es${pathWithoutLang === "/" ? "" : pathWithoutLang}`;
 
 // Determine home link based on current language
 const homeLink = currentLang === "es" ? "/es" : "/";
@@ -64,6 +57,23 @@ const homeLink = currentLang === "es" ? "/es" : "/";
         >
           Begin a Strategic Conversation
         </a>
+
+        <div class="language-dropdown">
+          <button class="language-toggle" aria-label="Select language" aria-expanded="false">
+            <span class="current-lang">{currentLang.toUpperCase()}</span>
+            <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="language-menu">
+            <a href={enUrl} class:list={["language-option", { active: currentLang === "en" }]}>
+              EN
+            </a>
+            <a href={esUrl} class:list={["language-option", { active: currentLang === "es" }]}>
+              ES
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -246,6 +256,88 @@ const homeLink = currentLang === "es" ? "/es" : "/";
     transform: translateY(-1px);
   }
 
+  /* Language dropdown */
+  .language-dropdown {
+    position: relative;
+  }
+
+  .language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .language-toggle:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .dropdown-icon {
+    transition: transform var(--transition-fast);
+  }
+
+  .language-toggle[aria-expanded="true"] .dropdown-icon {
+    transform: rotate(180deg);
+  }
+
+  .language-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: all var(--transition-fast);
+    z-index: 100;
+  }
+
+  .language-dropdown.open .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .language-option {
+    display: block;
+    padding: 6px 12px;
+    color: var(--color-text);
+    font-size: var(--text-sm);
+    text-align: center;
+    transition: background-color var(--transition-fast);
+  }
+
+  .language-option:first-child {
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  }
+
+  .language-option:last-child {
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  }
+
+  .language-option:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background));
+    text-decoration: none;
+  }
+
+  .language-option.active {
+    color: var(--color-primary);
+    font-weight: 600;
+    background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background));
+  }
+
   /* Mobile styles */
   @media (max-width: 768px) {
     .menu-toggle {
@@ -350,6 +442,42 @@ const homeLink = currentLang === "es" ? "/es" : "/";
       width: 100%;
       padding: var(--space-md) var(--space-lg);
     }
+
+    .language-dropdown {
+      width: 100%;
+    }
+
+    .language-toggle {
+      width: 100%;
+      justify-content: space-between;
+      padding: var(--space-md) var(--space-lg);
+    }
+
+    .language-menu {
+      position: static;
+      width: 100%;
+      box-shadow: none;
+      border: none;
+      border-top: 1px solid var(--color-border);
+      border-radius: 0;
+      margin-top: var(--space-sm);
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .language-dropdown.open .language-menu {
+      max-height: 200px;
+    }
+
+    .language-option {
+      padding: var(--space-md) var(--space-lg);
+      border-radius: 0;
+    }
+
+    .language-option:first-child,
+    .language-option:last-child {
+      border-radius: 0;
+    }
   }
 </style>
 
@@ -390,11 +518,39 @@ const homeLink = currentLang === "es" ? "/es" : "/";
       });
     }
 
-    // Close menu when clicking outside
+    // Language dropdown toggle
+    var languageDropdown = document.querySelector(".language-dropdown");
+    var languageToggle = document.querySelector(".language-toggle");
+
+    if (languageToggle && languageDropdown) {
+      var newLangToggle = languageToggle.cloneNode(true);
+      if (languageToggle.parentNode) {
+        languageToggle.parentNode.replaceChild(newLangToggle, languageToggle);
+        languageToggle = newLangToggle;
+      }
+
+      languageToggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var isOpen = languageDropdown.classList.toggle("open");
+        languageToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+    }
+
+    // Close menu and language dropdown when clicking outside
     document.addEventListener("click", function (e) {
       var target = e.target;
       var menuContains = menuToggle && menuToggle.contains(target);
       var navContains = navLinks && navLinks.contains(target);
+      var langDropdownContains = languageDropdown && languageDropdown.contains(target);
+
+      // Close language dropdown if clicking outside of it
+      if (!langDropdownContains && languageDropdown) {
+        languageDropdown.classList.remove("open");
+        if (languageToggle) {
+          languageToggle.setAttribute("aria-expanded", "false");
+        }
+      }
+
       if (!menuContains && !navContains) {
         if (navLinks && navLinks.classList.contains("active")) {
           var scrollY = document.body.style.top;
