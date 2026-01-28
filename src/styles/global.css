@@ -9,7 +9,8 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype-variations");
+  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -17,7 +18,8 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype-variations");
+  src: url("/fonts/Inter-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
@@ -25,7 +27,8 @@
 
 @font-face {
   font-family: "Source Serif 4";
-  src: url("/fonts/SourceSerif4-VariableFont_opsz,wght.ttf") format("truetype-variations");
+  src: url("/fonts/SourceSerif4-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
   font-weight: 200 900;
   font-style: normal;
   font-display: swap;
@@ -33,7 +36,8 @@
 
 @font-face {
   font-family: "Source Serif 4";
-  src: url("/fonts/SourceSerif4-Italic-VariableFont_opsz,wght.ttf") format("truetype-variations");
+  src: url("/fonts/SourceSerif4-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
   font-weight: 200 900;
   font-style: italic;
   font-display: swap;
@@ -45,17 +49,17 @@
 
 :root {
   /* Brand Colors (calm, institutional) */
-  --color-burgundy: #570D0B;
+  --color-burgundy: #570d0b;
   --color-burgundy-hover: #4a0b09;
   --color-burgundy-soft: #7a2420;
 
   /* Neutrals */
-  --color-stone: #F5F0F0;
-  --color-sand: #E8D8D6;
-  --color-sand-dark: #D4C4C2;
-  --color-white: #FFFFFF;
-  --color-charcoal: #1A1A1A;
-  --color-black: #0F0F0F;
+  --color-stone: #f5f0f0;
+  --color-sand: #e8d8d6;
+  --color-sand-dark: #d4c4c2;
+  --color-white: #ffffff;
+  --color-charcoal: #1a1a1a;
+  --color-black: #0f0f0f;
 
   /* Grays */
   --color-gray-50: #fafafa;
@@ -84,11 +88,14 @@
   --color-link: var(--color-burgundy);
 
   /* Typography */
-  --font-heading: "Source Serif 4", ui-serif, Georgia, "Times New Roman", Times, serif;
-  --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  --font-mono: "SF Mono", Monaco, Inconsolata, "Fira Code", "Droid Sans Mono",
-               "Source Code Pro", monospace;
+  --font-heading:
+    "Source Serif 4", ui-serif, Georgia, "Times New Roman", Times, serif;
+  --font-body:
+    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-mono:
+    "SF Mono", Monaco, Inconsolata, "Fira Code", "Droid Sans Mono",
+    "Source Code Pro", monospace;
 
   /* Type Scale */
   --text-hero: clamp(2.5rem, 1.9rem + 2.4vw, 4rem);
@@ -133,7 +140,7 @@
 
   /* Card tokens */
   --color-card-bg: var(--color-white);
-  --color-card-border: #E8D8D6;
+  --color-card-border: #e8d8d6;
 
   /* Layout */
   --max-width: 1312px;
@@ -212,6 +219,18 @@ body.menu-open {
 
 main {
   flex: 1;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --------------------------------------------------------------------------
