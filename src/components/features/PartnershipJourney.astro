@@ -1,6 +1,12 @@
 ---
 import CTABox from "./CTABox.astro";
-import { Compass, Lightbulb, FlaskConical, Layers, Handshake } from "lucide-astro";
+import {
+  Compass,
+  Lightbulb,
+  FlaskConical,
+  Layers,
+  Handshake,
+} from "lucide-astro";
 const stepIcons = [Compass, Lightbulb, FlaskConical, Layers, Handshake];
 
 export interface Step {
@@ -28,24 +34,37 @@ const { title, intro, stepsTitle, steps, callout, lang = "en" } = Astro.props;
   </div>
 
   <div class="highlight-pill">
-    <p set:html={callout.replace(/system family/gi, '<strong>system family</strong>')}></p>
+    <p
+      set:html={callout.replace(
+        /system family/gi,
+        "<strong>system family</strong>",
+      )}
+    />
   </div>
 
   <div class="steps-stack">
-    {steps.map((step, index) => (
-      <div class="step-card">
-        <div class="step-circle">
-          {(() => { const Icon = stepIcons[index]; return Icon ? <Icon size={22} /> : null; })()}
+    {
+      steps.map((step, index) => (
+        <div class="step-card">
+          <div class="step-circle">
+            {(() => {
+              const Icon = stepIcons[index];
+              return Icon ? <Icon size={22} /> : null;
+            })()}
+          </div>
+          <div class="step-content">
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-description">{step.description}</p>
+          </div>
         </div>
-        <div class="step-content">
-          <h3 class="step-title">{step.title}</h3>
-          <p class="step-description">{step.description}</p>
-        </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
 
-  <p class="closing-quote">Our success is not defined by launch dates, but by the enduring value our systems provide.</p>
+  <p class="closing-quote">
+    Our success is not defined by launch dates, but by the enduring value our
+    systems provide.
+  </p>
 
   <CTABox buttonLink={`/${lang}/contact`} />
 </section>
@@ -71,7 +90,7 @@ const { title, intro, stepsTitle, steps, callout, lang = "en" } = Astro.props;
   }
 
   .journey-intro {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: var(--text-body);
     color: #000;
     margin: 0 auto;
@@ -89,9 +108,9 @@ const { title, intro, stepsTitle, steps, callout, lang = "en" } = Astro.props;
   }
 
   .highlight-pill p {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: var(--text-body);
-    color: #570D0B;
+    color: #570d0b;
     margin: 0;
     line-height: 1.5;
   }
@@ -108,8 +127,11 @@ const { title, intro, stepsTitle, steps, callout, lang = "en" } = Astro.props;
   }
 
   .step-card {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
     background: var(--color-white, #fff);
-    border: 3px solid #D7A5A5;
+    border: 3px solid #d7a5a5;
     border-radius: 10px;
     padding: var(--space-xl);
     display: flex;
@@ -149,7 +171,7 @@ const { title, intro, stepsTitle, steps, callout, lang = "en" } = Astro.props;
   }
 
   .step-description {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: var(--text-body-sm);
     color: #000;
     margin: 0;
@@ -158,7 +180,7 @@ const { title, intro, stepsTitle, steps, callout, lang = "en" } = Astro.props;
 
   .closing-quote {
     text-align: center;
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: var(--text-body);
     color: #000;
     margin: 0 0 var(--space-3xl) 0;

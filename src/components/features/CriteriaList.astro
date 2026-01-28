@@ -17,7 +17,14 @@ export interface Props {
   lang?: string;
 }
 
-const { title, intro, criteria, boundary, closingStatement = "We build for the long term.", lang = "en" } = Astro.props;
+const {
+  title,
+  intro,
+  criteria,
+  boundary,
+  closingStatement = "We build for the long term.",
+  lang = "en",
+} = Astro.props;
 const buttonLink = `/${lang}/contact`;
 ---
 
@@ -28,22 +35,29 @@ const buttonLink = `/${lang}/contact`;
   </div>
 
   <div class="criteria-cards">
-    {criteria.map((item, index) => {
-      const isObject = typeof item === "object";
-      const question = isObject ? item.question : item;
-      const continuation = isObject ? item.continuation : undefined;
-      return (
-        <article class="criteria-card">
-          <div class="criteria-circle" aria-hidden="true">
-            {(() => { const Icon = criteriaIcons[index]; return Icon ? <Icon size={22} /> : null; })()}
-          </div>
-          <div class="criteria-content">
-            <p class="criteria-question">{question}</p>
-            {continuation && <p class="criteria-continuation">{continuation}</p>}
-          </div>
-        </article>
-      );
-    })}
+    {
+      criteria.map((item, index) => {
+        const isObject = typeof item === "object";
+        const question = isObject ? item.question : item;
+        const continuation = isObject ? item.continuation : undefined;
+        return (
+          <article class="criteria-card">
+            <div class="criteria-circle" aria-hidden="true">
+              {(() => {
+                const Icon = criteriaIcons[index];
+                return Icon ? <Icon size={22} /> : null;
+              })()}
+            </div>
+            <div class="criteria-content">
+              <p class="criteria-question">{question}</p>
+              {continuation && (
+                <p class="criteria-continuation">{continuation}</p>
+              )}
+            </div>
+          </article>
+        );
+      })
+    }
   </div>
 
   <p class="boundary-text">{boundary}</p>
@@ -74,7 +88,7 @@ const buttonLink = `/${lang}/contact`;
   }
 
   .criteria-intro {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: var(--text-body);
     color: #000;
     margin: 0;
@@ -90,12 +104,15 @@ const buttonLink = `/${lang}/contact`;
   }
 
   .criteria-card {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     gap: var(--space-lg, 1.5rem);
     padding: var(--space-xl);
     background: var(--color-white);
-    border: 3px solid #D7A5A5;
+    border: 3px solid #d7a5a5;
     border-radius: 10px;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
   }
@@ -132,7 +149,7 @@ const buttonLink = `/${lang}/contact`;
   }
 
   .criteria-continuation {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: var(--text-body-sm);
     font-weight: 700;
     color: #000;
@@ -141,7 +158,7 @@ const buttonLink = `/${lang}/contact`;
   }
 
   .boundary-text {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: var(--text-body);
     color: #000;
     text-align: center;
