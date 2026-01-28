@@ -27,6 +27,7 @@ const { title, description, image, lang, type, publishDate, author } =
     publishDate={publishDate}
     author={author}
 >
+    <slot name="head" slot="head" />
     <Header />
     <main>
         <slot />

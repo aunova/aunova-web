@@ -38,15 +38,20 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   description={t.hero.subtitle}
   lang={lang}
 >
+  <link slot="head" rel="preload" as="image" type="image/webp" href="/images/hero/sustainable-community.webp" />
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-background">
-      <img
-        src="/images/hero/sustainable-community.png"
-        alt="Sustainable community with modern architecture and green spaces"
-        loading="eager"
-        decoding="async"
-      />
+      <picture>
+        <source srcset="/images/hero/sustainable-community.webp" type="image/webp">
+        <img
+          src="/images/hero/sustainable-community.png"
+          alt="Sustainable community with modern architecture and green spaces"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </picture>
       <div class="hero-overlay"></div>
     </div>
     <div class="container">
