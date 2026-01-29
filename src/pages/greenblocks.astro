@@ -1,0 +1,48 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import {
+  Leaf,
+  Building2,
+  Users,
+  Heart,
+  TreeDeciduous,
+  Sparkles,
+  Target,
+  Handshake,
+  Clock,
+  ArrowRight,
+} from "lucide-astro";
+
+const lang = "en";
+---
+
+<PageLayout
+  title="Greenblocks by Aunova - Community Impact Infrastructure"
+  description="The foundational infrastructure layer for sustainable, healthy, and living communities. Greenblocks enables a new way of living where environmental responsibility, healthy living, and human connection are embedded into how communities function."
+  lang={lang}
+>
+  <link slot="head" rel="preload" as="font" type="font/woff2" href="/fonts/ClashDisplay-Semibold.woff2" crossorigin />
+  <link slot="head" rel="preload" as="font" type="font/woff2" href="/fonts/Satoshi-Regular.woff2" crossorigin />
+
+  <div class="gb-page">
+    <!-- Atmospheric background -->
+    <div class="gb-atmosphere"></div>
+
+    <!-- Floating particles -->
+    <div class="gb-particles" aria-hidden="true">
+      <div class="gb-particle" style="left: 10%; animation-delay: 0s;"></div>
+      <div class="gb-particle" style="left: 25%; animation-delay: 2s;"></div>
+      <div class="gb-particle" style="left: 40%; animation-delay: 4s;"></div>
+      <div class="gb-particle" style="left: 55%; animation-delay: 6s;"></div>
+      <div class="gb-particle" style="left: 70%; animation-delay: 8s;"></div>
+      <div class="gb-particle" style="left: 85%; animation-delay: 10s;"></div>
+    </div>
+
+    <!-- Content sections will go here -->
+    <p style="color: white; padding: 100px; text-align: center;">Greenblocks page scaffold - content coming next</p>
+  </div>
+</PageLayout>
+
+<style>
+  /* Greenblocks styles will be added in subsequent tasks */
+</style>
