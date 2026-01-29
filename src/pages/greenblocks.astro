@@ -271,6 +271,54 @@ const lang = "en";
         </p>
       </div>
     </section>
+
+    <!-- Section 6: Who it is for -->
+    <section class="gb-section" id="partners">
+      <div class="gb-container">
+        <span class="gb-label">The Right Partners</span>
+        <h2 class="gb-heading">Who Greenblocks is <span class="gb-highlight">built with</span></h2>
+
+        <p class="gb-text" style="max-width: 800px;">
+          Greenblocks is co-created with organizations actively shaping how people will live.
+        </p>
+
+        <div class="gb-partners-grid">
+          <div class="gb-partners-for">
+            <h3 class="gb-subheading" style="color: var(--gb-accent);">Typically</h3>
+            <ul class="gb-feature-list">
+              <li>Real estate developers building communities, not only buildings</li>
+              <li>Master-planned or mixed-use developments</li>
+              <li>Long-term asset owners and operators</li>
+              <li>City-adjacent or urban innovation entities</li>
+            </ul>
+
+            <h3 class="gb-subheading" style="color: var(--gb-accent); margin-top: 2rem;">Partners who</h3>
+            <ul class="gb-feature-list">
+              <li>think in decades</li>
+              <li>care about way of living, not only assets</li>
+              <li>are willing to integrate systems into operations</li>
+              <li>want to co-design something foundational</li>
+            </ul>
+          </div>
+
+          <div class="gb-partners-not">
+            <div class="gb-card" style="border-color: rgba(212, 165, 116, 0.3);">
+              <h3 class="gb-subheading" style="color: var(--gb-warm);">Greenblocks is not</h3>
+              <ul class="gb-not-list">
+                <li>a marketing layer</li>
+                <li>a sustainability badge</li>
+                <li>a resident app</li>
+                <li>a short-term pilot</li>
+              </ul>
+              <div class="gb-divider" style="margin: 1.5rem 0; background: linear-gradient(90deg, transparent, var(--gb-warm), transparent);"></div>
+              <p class="gb-card-text" style="color: var(--gb-warm); font-weight: 600;">
+                We do not build features. We build systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </PageLayout>
 
@@ -775,5 +823,45 @@ const lang = "en";
   font-weight: 600;
   margin-bottom: 0.75rem;
   color: var(--gb-text-primary);
+}
+
+/* Partners Grid */
+.gb-partners-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .gb-partners-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.gb-not-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gb-not-list li {
+  font-size: 1rem;
+  color: var(--gb-text-muted);
+  line-height: 1.5;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.gb-not-list li::before {
+  content: '×';
+  position: absolute;
+  left: 0;
+  color: var(--gb-warm);
+  font-weight: 600;
 }
 </style>
