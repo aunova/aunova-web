@@ -39,7 +39,32 @@ const lang = "en";
     </div>
 
     <!-- Content sections will go here -->
-    <p style="color: white; padding: 100px; text-align: center;">Greenblocks page scaffold - content coming next</p>
+    <!-- Section 1: Hero -->
+    <section class="gb-hero gb-section">
+      <div class="gb-container">
+        <div class="gb-hero-content">
+          <span class="gb-label">Greenblocks by Aunova</span>
+          <h1 class="gb-title gb-title-lg">
+            Community Impact<br />
+            <span class="gb-highlight">Infrastructure</span>
+          </h1>
+          <div class="gb-divider gb-divider-center"></div>
+          <p class="gb-text gb-text-lg" style="margin: 0 auto; text-align: center;">
+            The foundational infrastructure layer for sustainable, healthy, and living communities.
+          </p>
+          <p class="gb-text" style="margin: var(--space-lg) auto 0; text-align: center; max-width: 600px;">
+            Greenblocks enables a new way of living — where environmental responsibility,
+            healthy living, and human connection are embedded into how communities function.
+          </p>
+          <div class="gb-hero-cta">
+            <a href="/en/contact" class="gb-btn gb-btn-primary">
+              Begin a Conversation
+              <ArrowRight size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </PageLayout>
 
@@ -100,6 +125,9 @@ const lang = "en";
   --gb-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --gb-duration-fast: 0.4s;
   --gb-duration-normal: 0.7s;
+
+  --space-lg: 1.5rem;
+  --space-2xl: 3rem;
 }
 
 /* Base page styles */
@@ -177,5 +205,118 @@ const lang = "en";
     animation: none;
     opacity: 0.3;
   }
+}
+
+/* Hero Section */
+.gb-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.gb-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gb-hero-cta {
+  margin-top: var(--space-2xl);
+}
+
+/* Typography */
+.gb-label {
+  font-family: var(--gb-font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gb-accent);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.gb-title {
+  font-family: var(--gb-font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--gb-text-primary);
+}
+
+.gb-title-lg {
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: 1;
+}
+
+.gb-text {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+.gb-text-lg {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+
+.gb-highlight {
+  color: var(--gb-accent);
+  text-shadow: 0 0 60px var(--gb-accent-glow);
+}
+
+.gb-warm {
+  color: var(--gb-warm);
+  text-shadow: 0 0 60px var(--gb-warm-glow);
+}
+
+/* Divider */
+.gb-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gb-accent), transparent);
+  margin: 2rem 0;
+}
+
+.gb-divider-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Buttons */
+.gb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-family: var(--gb-font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: all 0.3s var(--gb-ease-out-expo);
+  cursor: pointer;
+  border: none;
+}
+
+.gb-btn-primary {
+  background: var(--gb-accent);
+  color: var(--gb-bg-primary);
+}
+
+.gb-btn-primary:hover {
+  background: var(--gb-accent-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px var(--gb-accent-glow);
+  text-decoration: none;
+  color: var(--gb-bg-primary);
+}
+
+.gb-btn :global(svg) {
+  width: 18px;
+  height: 18px;
 }
 </style>
