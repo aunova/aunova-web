@@ -1,345 +1,262 @@
-# Plan: Fix Greenblocks Hero Section Layout
+# Plan: Fix Icon Cards Layout - Icon Left, Text Right
 
-## Overview
+> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-The hero section needs to be changed from a side-by-side grid layout to a full-width background image layout where the text overlays the image. Key differences identified:
+**Goal:** Change icon cards from vertical stack (icon above text) to horizontal layout (icon left, text right) with vertical dashed line connecting through icon centers.
 
-### Current Issues (Image 1)
-- Side-by-side grid layout with image confined to right column
-- Image has rounded corners and is separate from the background
-- Button has dark green fill (solid background)
-- Brand name and byline on separate lines, small
-- Title is too large/bold
-- No gradient overlay for text readability
+**Architecture:** CSS-only changes to restructure the icon card layout.
 
-### Target Design (Image 2)
-- Full-width hero image as background, extending edge-to-edge
-- Text content overlaid on left side of the image
-- Gradient overlay on left side for text readability
-- Button is outline style (transparent with border)
-- "Greenblocks by Aunova" on single line, larger
-- Title is serif-style, lighter weight, more elegant
-- Floating icons positioned within the image area (right side)
+**Tech Stack:** Astro, CSS
+
+---
+
+## Analysis
+
+**Current layout:**
+- Icon on top, centered
+- Title and description below, right-aligned
+- Dashed line on the right side
+
+**Target layout:**
+- Icon on LEFT side of card
+- Title and description on RIGHT side of icon
+- Text LEFT-aligned
+- Dashed vertical line runs through CENTER of icons (connecting them)
 
 ---
 
 ## Implementation Tasks
 
-### Task 1: Update Hero HTML structure for background image layout
-**File**: `src/pages/greenblocks.astro`
+### Task 1: Restructure icon card to horizontal layout
 
-**Replace** the current hero grid structure with a background-image based layout:
+**File:** `src/pages/greenblocks.astro`
 
-```astro
-<!-- Section 1: Hero -->
-<section class="gb-hero">
-  <!-- Background image -->
-  <div class="gb-hero-bg">
-    <picture>
-      <source srcset="/images/greenblocks-hero.webp" type="image/webp" />
-      <img
-        src="/images/greenblocks-hero.png"
-        alt="Sustainable community visualization with green architecture and people"
-        class="gb-hero-bg-image"
-        loading="eager"
-      />
-    </picture>
-    <!-- Floating icons on the image -->
-    <div class="gb-hero-icons">
-      <div class="gb-hero-icon gb-hero-icon-1">
-        <Leaf size={20} />
-      </div>
-      <div class="gb-hero-icon gb-hero-icon-2">
-        <Heart size={20} />
-      </div>
-      <div class="gb-hero-icon gb-hero-icon-3">
-        <Users size={20} />
-      </div>
-    </div>
-  </div>
-
-  <!-- Text overlay -->
-  <div class="gb-hero-overlay">
-    <div class="gb-hero-content">
-      <div class="gb-hero-brand">
-        <span class="gb-brand-name">Greenblocks</span>
-        <span class="gb-brand-byline">by Aunova</span>
-      </div>
-      <p class="gb-hero-subtitle">Community Impact Infrastructure</p>
-
-      <h1 class="gb-hero-title">
-        The foundational infrastructure layer for sustainable, healthy, and living communities
-      </h1>
-
-      <p class="gb-hero-description">
-        Greenblocks is the community impact infrastructure for the built world. It enables a new way of living — where environmental responsibility, healthy living, and human connection are embedded into how communities function.
-      </p>
-
-      <a href="/en/contact" class="gb-btn gb-btn-outline">
-        Begin a conversation about co-creating a community system
-        <ArrowRight size={18} />
-      </a>
-    </div>
-  </div>
-</section>
-```
-
----
-
-### Task 2: Update Hero CSS for full-width background image
-**File**: `src/pages/greenblocks.astro`
-
-**Replace** all hero-related CSS with the new background-image layout:
-
+**Find (around line 1090-1150):**
 ```css
-/* Hero Section - Full width background image */
-.gb-hero {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-/* Background image container */
-.gb-hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.gb-hero-bg-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center right;
-}
-
-/* Text overlay with gradient */
-.gb-hero-overlay {
-  position: relative;
-  z-index: 2;
-  min-height: 100vh;
+/* Icon Cards (Problem section) - vertical stack with connecting lines */
+.gb-problem-cards {
   display: flex;
-  align-items: center;
-  padding: 6rem 0;
-  /* Gradient overlay for text readability */
-  background: linear-gradient(
-    to right,
-    rgba(245, 241, 235, 0.95) 0%,
-    rgba(245, 241, 235, 0.85) 35%,
-    rgba(245, 241, 235, 0.4) 60%,
-    transparent 80%
-  );
+  flex-direction: column;
+  gap: 0;
+  position: relative;
 }
 
-.gb-hero-content {
-  max-width: 550px;
-  padding: 0 clamp(1.5rem, 5vw, 3rem);
-}
-
-/* Brand styling */
-.gb-hero-brand {
+.gb-icon-card {
   display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  margin-bottom: 0.25rem;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  padding: 1rem 0;
+  position: relative;
 }
 
-.gb-brand-name {
-  font-family: var(--gb-font-display);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  color: var(--gb-text-primary);
-}
-
-.gb-brand-byline {
-  font-family: var(--gb-font-body);
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 400;
-  color: var(--gb-text-muted);
-}
-
-.gb-hero-subtitle {
-  font-size: 0.875rem;
-  color: var(--gb-text-muted);
-  font-weight: 400;
-  margin-bottom: 2rem;
-  letter-spacing: 0.02em;
-}
-
-/* Hero title - smaller, lighter weight */
-.gb-hero-title {
-  font-family: var(--gb-font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  margin-bottom: 1.5rem;
-  color: var(--gb-text-primary);
-}
-
-.gb-hero-description {
-  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
-  color: var(--gb-text-secondary);
-  line-height: 1.7;
-  margin-bottom: 2rem;
-}
-
-/* Floating icons - positioned on the right side of image */
-.gb-hero-icons {
+/* Dashed connecting line between cards */
+.gb-icon-card:not(:last-child)::after {
+  content: '';
   position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
+  right: 40px;
+  top: calc(100% - 1rem);
+  width: 1px;
+  height: 2rem;
+  border-left: 2px dashed rgba(180, 165, 140, 0.5);
 }
 
-.gb-hero-icon {
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
+.gb-icon-card-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(235, 228, 216, 0.6);
+  border: 1px solid rgba(180, 165, 140, 0.4);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gb-accent);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: rgba(120, 100, 80, 0.7);
+  margin-bottom: 0.75rem;
 }
 
-.gb-hero-icon-1 { top: 25%; right: 15%; }
-.gb-hero-icon-2 { top: 45%; right: 8%; }
-.gb-hero-icon-3 { top: 65%; right: 18%; }
-```
+.gb-icon-card-icon :global(svg) {
+  width: 32px;
+  height: 32px;
+  stroke-width: 1.5;
+}
 
----
-
-### Task 3: Add outline button style
-**File**: `src/pages/greenblocks.astro`
-
-**Add** a new outline button variant for the hero CTA:
-
-```css
-/* Outline button variant */
-.gb-btn-outline {
-  background: transparent;
+.gb-icon-card h3 {
+  font-family: var(--gb-font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
   color: var(--gb-text-primary);
-  border: 1px solid var(--gb-text-primary);
-  padding: 0.875rem 1.5rem;
-  font-size: 0.9375rem;
+  margin-bottom: 0.25rem;
 }
 
-.gb-btn-outline:hover {
-  background: var(--gb-text-primary);
-  color: var(--gb-bg-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.gb-icon-card p {
+  font-size: 0.875rem;
+  color: var(--gb-text-muted);
+  margin: 0;
+  max-width: 200px;
 }
 ```
 
----
-
-### Task 4: Update mobile responsive styles for hero
-**File**: `src/pages/greenblocks.astro`
-
-**Add/Update** responsive rules:
-
+**Replace with:**
 ```css
-@media (max-width: 1023px) {
-  .gb-hero {
-    min-height: auto;
-  }
-
-  .gb-hero-bg-image {
-    object-position: center center;
-  }
-
-  .gb-hero-overlay {
-    min-height: auto;
-    padding: 4rem 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(245, 241, 235, 0.95) 0%,
-      rgba(245, 241, 235, 0.8) 70%,
-      transparent 100%
-    );
-  }
-
-  .gb-hero-content {
-    max-width: 100%;
-  }
-
-  .gb-hero-icons {
-    display: none;
-  }
+/* Icon Cards (Problem section) - horizontal layout with connecting line */
+.gb-problem-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  padding-left: 40px;
 }
 
-@media (max-width: 768px) {
-  .gb-hero-overlay {
-    padding: 3rem 0;
-  }
+/* Vertical dashed line connecting all icons */
+.gb-problem-cards::before {
+  content: '';
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  bottom: 40px;
+  width: 0;
+  border-left: 2px dashed rgba(180, 165, 140, 0.5);
+}
 
-  .gb-hero-brand {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
+.gb-icon-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.25rem;
+  position: relative;
+}
 
-  .gb-hero-title {
-    font-size: clamp(1.5rem, 6vw, 2rem);
-  }
+.gb-icon-card-icon {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  background: rgba(235, 228, 216, 0.6);
+  border: 1px solid rgba(180, 165, 140, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(120, 100, 80, 0.7);
+  position: relative;
+  z-index: 1;
+}
 
-  .gb-btn-outline {
-    width: 100%;
-    justify-content: center;
-  }
+.gb-icon-card-icon :global(svg) {
+  width: 32px;
+  height: 32px;
+  stroke-width: 1.5;
+}
+
+.gb-icon-card-text {
+  padding-top: 0.5rem;
+}
+
+.gb-icon-card h3 {
+  font-family: var(--gb-font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gb-text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.gb-icon-card p {
+  font-size: 0.875rem;
+  color: var(--gb-text-muted);
+  margin: 0;
+  max-width: 220px;
+  line-height: 1.5;
 }
 ```
 
 ---
 
-### Task 5: Remove old hero grid CSS
-**File**: `src/pages/greenblocks.astro`
+### Task 2: Update HTML to wrap text in container
 
-**Delete** the following CSS that is no longer needed:
-- `.gb-hero-grid` and its media queries
-- `.gb-hero-visual`
-- `.gb-hero-image` (the rounded version)
-- Old `.gb-hero-content` styles that conflict
+**File:** `src/pages/greenblocks.astro`
+
+**Find the icon cards HTML (around line 120-144):**
+```astro
+<div class="gb-problem-cards">
+  <div class="gb-icon-card">
+    <div class="gb-icon-card-icon">
+      <Leaf size={28} />
+    </div>
+    <h3>Isolated Sustainability</h3>
+    <p>Sustainability efforts are disconnected and hard to measure.</p>
+  </div>
+
+  <div class="gb-icon-card">
+    <div class="gb-icon-card-icon">
+      <Heart size={28} />
+    </div>
+    <h3>Disconnected Health</h3>
+    <p>Healthy living is difficult without supportive environments.</p>
+  </div>
+
+  <div class="gb-icon-card">
+    <div class="gb-icon-card-icon">
+      <Users size={28} />
+    </div>
+    <h3>Fragmented Community</h3>
+    <p>Meaningful human connections are rare and accidental.</p>
+  </div>
+</div>
+```
+
+**Replace with:**
+```astro
+<div class="gb-problem-cards">
+  <div class="gb-icon-card">
+    <div class="gb-icon-card-icon">
+      <Leaf size={28} />
+    </div>
+    <div class="gb-icon-card-text">
+      <h3>Isolated Sustainability</h3>
+      <p>Sustainability efforts are disconnected and hard to measure.</p>
+    </div>
+  </div>
+
+  <div class="gb-icon-card">
+    <div class="gb-icon-card-icon">
+      <Heart size={28} />
+    </div>
+    <div class="gb-icon-card-text">
+      <h3>Disconnected Health</h3>
+      <p>Healthy living is difficult without supportive environments.</p>
+    </div>
+  </div>
+
+  <div class="gb-icon-card">
+    <div class="gb-icon-card-icon">
+      <Users size={28} />
+    </div>
+    <div class="gb-icon-card-text">
+      <h3>Fragmented Community</h3>
+      <p>Meaningful human connections are rare and accidental.</p>
+    </div>
+  </div>
+</div>
+```
 
 ---
 
-## Summary of Visual Changes
+### Task 3: Build and verify
+
+Run: `bun run build`
+Expected: Build completes without errors
+
+Visual check:
+- Icons should be on the LEFT
+- Text should be to the RIGHT of icons
+- Vertical dashed line should run through the center of all icons
+
+---
+
+## Summary
 
 | Element | Current | Target |
 |---------|---------|--------|
-| **Layout** | Side-by-side grid | Full-width background image |
-| **Image** | Rounded corners, right column | Edge-to-edge, behind content |
-| **Overlay** | None | Left-to-right gradient for text readability |
-| **Brand** | Stacked, small | Inline "Greenblocks by Aunova", larger |
-| **Subtitle** | Green accent color | Muted gray |
-| **Title** | Large, bold | Smaller, lighter weight |
-| **Button** | Solid dark green fill | Outline style (transparent with border) |
-| **Icons** | Hidden on mobile | Positioned on right side of image |
-
----
-
-## Verification Steps
-
-1. **Build success**: `bun run build` completes without errors
-2. **Visual check**: Hero image fills the entire viewport width
-3. **Text readability**: Gradient overlay makes text readable on image
-4. **Button style**: CTA has transparent background with dark border
-5. **Brand display**: "Greenblocks by Aunova" appears on same line
-6. **Title size**: Noticeably smaller than before
-7. **Mobile**: Gradient changes to vertical, icons hidden
-8. **Scroll**: Content below hero is visible after scrolling
-
----
-
-## Implementation Order
-
-1. Task 1: Update Hero HTML structure
-2. Task 5: Remove old hero grid CSS (cleanup first)
-3. Task 2: Add new hero CSS for background image layout
-4. Task 3: Add outline button style
-5. Task 4: Update mobile responsive styles
+| **Card direction** | Column (icon top) | Row (icon left) |
+| **Text alignment** | Right-aligned | Left-aligned |
+| **Dashed line** | Between cards on right | Through icon centers vertically |
+| **Icon position** | Above text | Left of text |

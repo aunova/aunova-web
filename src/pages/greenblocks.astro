@@ -117,29 +117,37 @@ const lang = "en";
               </p>
             </div>
 
-            <div class="gb-problem-cards">
-              <div class="gb-icon-card">
-                <div class="gb-icon-card-icon">
-                  <Leaf size={28} />
-                </div>
-                <h3>Isolated Sustainability</h3>
-                <p>Sustainability efforts are disconnected and hard to measure.</p>
-              </div>
-
-              <div class="gb-icon-card">
-                <div class="gb-icon-card-icon">
-                  <Heart size={28} />
-                </div>
-                <h3>Disconnected Health</h3>
-                <p>Healthy living is difficult without supportive environments.</p>
-              </div>
-
-              <div class="gb-icon-card">
-                <div class="gb-icon-card-icon">
-                  <Users size={28} />
-                </div>
-                <h3>Fragmented Community</h3>
-                <p>Meaningful human connections are rare and accidental.</p>
+            <div class="gb-problem-visual">
+              <picture>
+                <source srcset="/images/greenblocks-icons.webp" type="image/webp" />
+                <img src="/images/greenblocks-icons.png" alt="Community impact icons" class="gb-problem-image" />
+              </picture>
+              <div class="gb-problem-grid-overlay">
+                <span></span>
+                <span></span>
+                <span class="gb-grid-card">
+                  <strong>Isolated Sustainability</strong>
+                  <small>Sustainability efforts are disconnected and hard to measure.</small>
+                </span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="gb-grid-card">
+                  <strong>Disconnected Health</strong>
+                  <small>Healthy living is difficult without supportive environments.</small>
+                </span>
+                <span></span>
+                <span></span>
+                <span class="gb-grid-card">
+                  <strong>Fragmented Community</strong>
+                  <small>Meaningful human connections are rare and accidental.</small>
+                </span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
             </div>
           </div>
@@ -711,7 +719,7 @@ const lang = "en";
 
 .gb-brand-name {
   font-family: var(--gb-font-display);
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(2.125rem, 4.5vw, 3rem);
   font-weight: 700;
   color: var(--gb-text-primary);
 }
@@ -895,7 +903,7 @@ const lang = "en";
 }
 
 .gb-warm {
-  color: var(--gb-warm);
+  color: var(--gb-text-primary);
 }
 
 /* Divider */
@@ -1065,14 +1073,14 @@ const lang = "en";
 }
 
 .gb-check {
-  color: var(--gb-accent);
-  font-weight: 600;
+  color: var(--gb-text-primary);
+  font-weight: 400;
 }
 
 .gb-problem-quote {
   margin: 1.5rem 0;
   padding-left: 1rem;
-  border-left: 2px solid var(--gb-warm-light);
+  border-left: 2px solid rgba(180, 165, 140, 0.5);
 }
 
 .gb-problem-quote p {
@@ -1081,57 +1089,59 @@ const lang = "en";
 }
 
 .gb-text-emphasis {
-  color: var(--gb-warm);
+  color: var(--gb-text-primary);
   font-weight: 600;
   font-size: 1.1rem;
   margin-top: 1rem;
 }
 
-/* Icon Cards (Problem section) */
-.gb-problem-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+/* Problem Visual - Image with grid overlay */
+.gb-problem-visual {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
 }
 
-.gb-icon-card {
-  background: var(--gb-bg-card);
-  border: 1px solid var(--gb-border);
-  border-radius: 16px;
-  padding: 1.5rem;
-  text-align: center;
-  transition: all 0.3s ease;
+.gb-problem-image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.gb-icon-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px var(--gb-shadow);
+.gb-problem-grid-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(8, 1fr);
 }
 
-.gb-icon-card-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 1rem;
-  background: var(--gb-bg-secondary);
-  border-radius: 50%;
+.gb-problem-grid-overlay span {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gb-warm);
 }
 
-.gb-icon-card h3 {
+.gb-grid-card {
+  flex-direction: column;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.gb-grid-card strong {
   font-family: var(--gb-font-display);
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--gb-text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+  display: block;
 }
 
-.gb-icon-card p {
-  font-size: 0.875rem;
+.gb-grid-card small {
+  font-family: var(--gb-font-body);
+  font-size: 0.75rem;
   color: var(--gb-text-muted);
-  margin: 0;
+  line-height: 1.4;
 }
 
 /* Section Label Pill */
