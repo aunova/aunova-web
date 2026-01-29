@@ -209,6 +209,68 @@ const lang = "en";
         </div>
       </div>
     </section>
+
+    <!-- Section 5: What it Enables -->
+    <section class="gb-section gb-section-alt" id="capabilities">
+      <div class="gb-container">
+        <span class="gb-label">Capabilities</span>
+        <h2 class="gb-heading">What Greenblocks <span class="gb-highlight">enables</span></h2>
+
+        <div class="gb-capabilities-grid">
+          <div class="gb-capability-card">
+            <div class="gb-capability-icon">
+              <Target size={28} />
+            </div>
+            <h3 class="gb-card-title">Continuous Impact Understanding</h3>
+            <p class="gb-card-text">Real-time awareness of environmental and community impact across all community operations.</p>
+          </div>
+
+          <div class="gb-capability-card">
+            <div class="gb-capability-icon">
+              <Leaf size={28} />
+            </div>
+            <h3 class="gb-card-title">Sustainability by Default</h3>
+            <p class="gb-card-text">Communities designed where sustainable and healthy living are the natural outcome, not the exception.</p>
+          </div>
+
+          <div class="gb-capability-card">
+            <div class="gb-capability-icon">
+              <Users size={28} />
+            </div>
+            <h3 class="gb-card-title">Shared Awareness</h3>
+            <p class="gb-card-text">Understanding of how daily actions affect both the planet and human wellbeing.</p>
+          </div>
+
+          <div class="gb-capability-card">
+            <div class="gb-capability-icon">
+              <Sparkles size={28} />
+            </div>
+            <h3 class="gb-card-title">Aligned Incentives</h3>
+            <p class="gb-card-text">Economic systems that reward positive community outcomes and sustainable behaviors.</p>
+          </div>
+
+          <div class="gb-capability-card">
+            <div class="gb-capability-icon">
+              <Building2 size={28} />
+            </div>
+            <h3 class="gb-card-title">New Development Models</h3>
+            <p class="gb-card-text">Operational frameworks for next-generation communities that prioritize long-term value.</p>
+          </div>
+
+          <div class="gb-capability-card">
+            <div class="gb-capability-icon">
+              <Clock size={28} />
+            </div>
+            <h3 class="gb-card-title">Long-term Intelligence</h3>
+            <p class="gb-card-text">Environmental and community intelligence that grows more valuable over time.</p>
+          </div>
+        </div>
+
+        <p class="gb-text" style="margin-top: 3rem; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; font-style: italic;">
+          These are not applications. They are conditions that allow new kinds of communities to exist.
+        </p>
+      </div>
+    </section>
   </div>
 </PageLayout>
 
@@ -666,5 +728,52 @@ const lang = "en";
 .gb-layer-icon :global(svg) {
   width: 24px;
   height: 24px;
+}
+
+/* Capabilities Grid */
+.gb-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gb-capability-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.4s var(--gb-ease-out-expo);
+}
+
+.gb-capability-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(125, 216, 125, 0.2);
+  transform: translateY(-4px);
+}
+
+.gb-capability-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: rgba(125, 216, 125, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: var(--gb-accent);
+}
+
+.gb-capability-icon :global(svg) {
+  width: 28px;
+  height: 28px;
+}
+
+.gb-card-title {
+  font-family: var(--gb-font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--gb-text-primary);
 }
 </style>
