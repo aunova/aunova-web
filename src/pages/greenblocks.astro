@@ -410,6 +410,43 @@ const lang = "en";
         </div>
       </div>
     </section>
+
+    <!-- Section 9: The Invitation -->
+    <section class="gb-section gb-cta-section" id="contact">
+      <div class="gb-container">
+        <div class="gb-cta-content">
+          <span class="gb-label">The Invitation</span>
+          <h2 class="gb-heading">Begin a conversation about building a <span class="gb-highlight">different kind of community</span></h2>
+
+          <p class="gb-text" style="max-width: 700px; margin: 0 auto 2rem;">
+            We are currently exploring this system with a small number of developers and institutions
+            who are rethinking how communities should function.
+          </p>
+
+          <p class="gb-text" style="max-width: 700px; margin: 0 auto 2rem;">
+            If you are designing or operating communities and believe the current model is incomplete,
+            we welcome serious conversations.
+          </p>
+
+          <div class="gb-cta-questions">
+            <h3 class="gb-subheading" style="text-align: center; color: var(--gb-text-secondary);">We'd love to learn:</h3>
+            <ul class="gb-question-list">
+              <li>What kind of community are you building?</li>
+              <li>What feels structurally missing today?</li>
+              <li>What kind of living experience do you want to enable?</li>
+              <li>What is your long-term horizon?</li>
+            </ul>
+          </div>
+
+          <div class="gb-cta-actions">
+            <a href="/en/contact" class="gb-btn gb-btn-primary gb-btn-lg">
+              <Handshake size={20} />
+              Begin a Conversation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </PageLayout>
 
@@ -1027,5 +1064,60 @@ const lang = "en";
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* CTA Section */
+.gb-cta-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(125, 216, 125, 0.05) 100%);
+  text-align: center;
+  padding-bottom: calc(var(--gb-section-padding) + 2rem);
+}
+
+.gb-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gb-cta-questions {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.gb-question-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gb-question-list li {
+  font-size: 1rem;
+  color: var(--gb-text-secondary);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.gb-question-list li::before {
+  content: '→ ';
+  color: var(--gb-accent);
+}
+
+.gb-cta-actions {
+  margin-top: 2rem;
+}
+
+.gb-btn-lg {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.1rem;
+}
+
+.gb-btn-lg :global(svg) {
+  width: 20px;
+  height: 20px;
 }
 </style>
