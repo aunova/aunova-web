@@ -151,6 +151,64 @@ const lang = "en";
         </div>
       </div>
     </section>
+
+    <!-- Section 4: The System -->
+    <section class="gb-section" id="system">
+      <div class="gb-container">
+        <span class="gb-label">The Infrastructure</span>
+        <h2 class="gb-heading">Community operating <span class="gb-highlight">infrastructure</span></h2>
+
+        <p class="gb-text" style="max-width: 800px;">
+          Greenblocks is not a product layer. It is an infrastructure layer that connects:
+        </p>
+
+        <div class="gb-layers">
+          <div class="gb-layer">
+            <div class="gb-layer-icon">
+              <Building2 size={24} />
+            </div>
+            <span>Physical environments</span>
+          </div>
+          <div class="gb-layer">
+            <div class="gb-layer-icon">
+              <TreeDeciduous size={24} />
+            </div>
+            <span>Environmental systems</span>
+          </div>
+          <div class="gb-layer">
+            <div class="gb-layer-icon">
+              <Users size={24} />
+            </div>
+            <span>Human behavior</span>
+          </div>
+          <div class="gb-layer">
+            <div class="gb-layer-icon">
+              <Building2 size={24} />
+            </div>
+            <span>Institutional frameworks</span>
+          </div>
+        </div>
+
+        <p class="gb-text" style="margin-top: 2rem; max-width: 800px;">
+          ...into a shared community impact system.
+        </p>
+
+        <div class="gb-card" style="margin-top: 2rem;">
+          <h3 class="gb-subheading" style="color: var(--gb-warm);">At its core, Greenblocks provides:</h3>
+          <ul class="gb-feature-list">
+            <li>continuous understanding of environmental and human impact</li>
+            <li>visible and shared consequences</li>
+            <li>incentives aligned with sustainable and healthy living</li>
+            <li>wellbeing and planetary responsibility embedded into operations</li>
+            <li>support for new community-centered economic and operational models</li>
+          </ul>
+          <div class="gb-divider" style="margin: 2rem 0;"></div>
+          <p class="gb-card-text" style="font-size: 1.1rem; color: var(--gb-accent); font-weight: 600;">
+            You are not adding a tool. You are enabling a system.
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
 </PageLayout>
 
@@ -570,5 +628,43 @@ const lang = "en";
 .gb-shift-list-accent li {
   color: var(--gb-text-secondary);
   border-left-color: var(--gb-accent);
+}
+
+/* Layers */
+.gb-layers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.gb-layer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(90deg, rgba(125, 216, 125, 0.08) 0%, transparent 100%);
+  border-left: 3px solid var(--gb-accent);
+  border-radius: 0 12px 12px 0;
+  transition: all 0.4s var(--gb-ease-out-expo);
+  color: var(--gb-text-secondary);
+  font-size: 1rem;
+}
+
+.gb-layer:hover {
+  background: linear-gradient(90deg, rgba(125, 216, 125, 0.15) 0%, transparent 100%);
+  transform: translateX(8px);
+}
+
+.gb-layer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gb-accent);
+}
+
+.gb-layer-icon :global(svg) {
+  width: 24px;
+  height: 24px;
 }
 </style>
