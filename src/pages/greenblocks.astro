@@ -374,6 +374,42 @@ const lang = "en";
         </div>
       </div>
     </section>
+
+    <!-- Section 8: The Long View -->
+    <section class="gb-section" id="vision">
+      <div class="gb-container">
+        <span class="gb-label">The Vision</span>
+        <h2 class="gb-heading">A different default for <span class="gb-highlight">future communities</span></h2>
+
+        <p class="gb-text" style="max-width: 700px;">
+          If Greenblocks succeeds:
+        </p>
+
+        <div class="gb-vision-cards">
+          <div class="gb-vision-card">
+            <p>Communities will operate with continuous awareness of their planetary and human impact.</p>
+          </div>
+          <div class="gb-vision-card">
+            <p>Sustainability and healthy living will become system properties.</p>
+          </div>
+          <div class="gb-vision-card">
+            <p>Cities will evolve from service providers into living systems.</p>
+          </div>
+          <div class="gb-vision-card">
+            <p>Children will grow up inside communities that support wellbeing by design.</p>
+          </div>
+        </div>
+
+        <div class="gb-vision-closing">
+          <p class="gb-text-lg" style="color: var(--gb-text-primary); text-align: center; max-width: 800px; margin: 0 auto;">
+            Environmental responsibility, healthy living, and community will no longer be <em>initiatives</em>.
+          </p>
+          <p class="gb-heading" style="text-align: center; margin-top: 1rem;">
+            They will be <span class="gb-highlight">structure</span>.
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
 </PageLayout>
 
@@ -956,5 +992,40 @@ const lang = "en";
 .gb-step-content {
   color: var(--gb-text-secondary);
   font-size: 1rem;
+}
+
+/* Vision Cards */
+.gb-vision-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+}
+
+.gb-vision-card {
+  background: rgba(125, 216, 125, 0.05);
+  border: 1px solid rgba(125, 216, 125, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.4s var(--gb-ease-out-expo);
+}
+
+.gb-vision-card:hover {
+  background: rgba(125, 216, 125, 0.1);
+  border-color: rgba(125, 216, 125, 0.3);
+  transform: translateY(-4px);
+}
+
+.gb-vision-card p {
+  color: var(--gb-text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.gb-vision-closing {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 </style>
