@@ -1158,6 +1158,103 @@ const lang = "en";
     transition: none;
   }
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .gb-title-lg {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .gb-heading {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .gb-content-grid,
+  .gb-partners-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gb-shift-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .gb-shift-arrow {
+    transform: rotate(90deg);
+    padding: 0.5rem 0;
+  }
+
+  .gb-layers {
+    grid-template-columns: 1fr;
+  }
+
+  .gb-layer {
+    padding: 1rem 1.25rem;
+  }
+
+  .gb-layer:hover {
+    transform: translateX(4px);
+  }
+
+  .gb-capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gb-vision-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .gb-steps {
+    max-width: 100%;
+  }
+
+  .gb-step {
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .gb-step:hover {
+    transform: translateX(4px);
+  }
+
+  .gb-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .gb-btn-lg {
+    padding: 1rem 1.75rem;
+  }
+
+  .gb-card {
+    padding: 1.5rem;
+  }
+
+  .gb-cta-questions {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gb-section {
+    padding: clamp(3rem, 8vw, 5rem) 0;
+  }
+
+  .gb-container {
+    padding: 0 1rem;
+  }
+
+  .gb-hero {
+    min-height: 100svh;
+  }
+
+  .gb-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+}
 </style>
 
 <script>
