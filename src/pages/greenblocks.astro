@@ -44,5 +44,138 @@ const lang = "en";
 </PageLayout>
 
 <style>
-  /* Greenblocks styles will be added in subsequent tasks */
+/* Greenblocks Fonts */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Bold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Greenblocks Design Tokens */
+.gb-page {
+  --gb-bg-primary: #0c1a0f;
+  --gb-bg-secondary: #132416;
+  --gb-bg-tertiary: #1a2f1c;
+  --gb-text-primary: #f4f7f4;
+  --gb-text-secondary: #8fa68f;
+  --gb-text-muted: #5a6e5a;
+  --gb-accent: #7dd87d;
+  --gb-accent-dim: #5cb85c;
+  --gb-accent-glow: rgba(125, 216, 125, 0.35);
+  --gb-warm: #d4a574;
+  --gb-warm-glow: rgba(212, 165, 116, 0.25);
+
+  --gb-font-display: 'Clash Display', system-ui, sans-serif;
+  --gb-font-body: 'Satoshi', system-ui, sans-serif;
+
+  --gb-section-padding: clamp(4rem, 10vw, 8rem);
+  --gb-container-max: 1200px;
+
+  --gb-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --gb-duration-fast: 0.4s;
+  --gb-duration-normal: 0.7s;
+}
+
+/* Base page styles */
+.gb-page {
+  font-family: var(--gb-font-body);
+  background: var(--gb-bg-primary);
+  color: var(--gb-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Atmospheric background gradient */
+.gb-atmosphere {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 100%, rgba(125, 216, 125, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 10%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(125, 216, 125, 0.05) 0%, transparent 60%),
+    linear-gradient(180deg, var(--gb-bg-primary) 0%, var(--gb-bg-secondary) 50%, var(--gb-bg-tertiary) 100%);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Floating particles */
+.gb-particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.gb-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--gb-accent);
+  border-radius: 50%;
+  opacity: 0;
+  bottom: -10px;
+  animation: gb-particle-float 12s ease-in-out infinite;
+}
+
+@keyframes gb-particle-float {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  5% { opacity: 0.6; }
+  95% { opacity: 0.6; }
+  100% {
+    transform: translateY(-100vh) translateX(30px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Container */
+.gb-container {
+  max-width: var(--gb-container-max);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 3rem);
+}
+
+/* Section base */
+.gb-section {
+  padding: var(--gb-section-padding) 0;
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gb-particle {
+    animation: none;
+    opacity: 0.3;
+  }
+}
 </style>
