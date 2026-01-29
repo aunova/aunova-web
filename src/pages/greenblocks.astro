@@ -319,6 +319,61 @@ const lang = "en";
         </div>
       </div>
     </section>
+
+    <!-- Section 7: Partnership Model -->
+    <section class="gb-section gb-section-alt" id="partnership">
+      <div class="gb-container">
+        <span class="gb-label">How We Work</span>
+        <h2 class="gb-heading">Built through <span class="gb-warm">long-term system partnerships</span></h2>
+
+        <p class="gb-text" style="max-width: 700px;">
+          Greenblocks is not bought. It is co-created.
+        </p>
+
+        <p class="gb-text" style="max-width: 700px;">
+          We work with a small number of founding partners to:
+        </p>
+
+        <div class="gb-steps">
+          <div class="gb-step">
+            <div class="gb-step-number">1</div>
+            <div class="gb-step-content">
+              <span>Explore where current community models fail</span>
+            </div>
+          </div>
+          <div class="gb-step">
+            <div class="gb-step-number">2</div>
+            <div class="gb-step-content">
+              <span>Define what kind of system is missing</span>
+            </div>
+          </div>
+          <div class="gb-step">
+            <div class="gb-step-number">3</div>
+            <div class="gb-step-content">
+              <span>Design the community impact infrastructure together</span>
+            </div>
+          </div>
+          <div class="gb-step">
+            <div class="gb-step-number">4</div>
+            <div class="gb-step-content">
+              <span>Build focused system foundations</span>
+            </div>
+          </div>
+          <div class="gb-step">
+            <div class="gb-step-number">5</div>
+            <div class="gb-step-content">
+              <span>Grow them into long-term operational layers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gb-card" style="margin-top: 3rem; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+          <p class="gb-card-text" style="font-size: 1.1rem; color: var(--gb-text-primary);">
+            Greenblocks represents our partnership model: a shared ambition to build community infrastructure that can endure for <span style="color: var(--gb-warm); font-weight: 600;">decades</span>.
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
 </PageLayout>
 
@@ -863,5 +918,43 @@ const lang = "en";
   left: 0;
   color: var(--gb-warm);
   font-weight: 600;
+}
+
+/* Steps */
+.gb-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+  max-width: 600px;
+}
+
+.gb-step {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1.75rem;
+  background: linear-gradient(90deg, rgba(212, 165, 116, 0.08) 0%, transparent 100%);
+  border-left: 3px solid var(--gb-warm);
+  border-radius: 0 12px 12px 0;
+  transition: all 0.4s var(--gb-ease-out-expo);
+}
+
+.gb-step:hover {
+  background: linear-gradient(90deg, rgba(212, 165, 116, 0.15) 0%, transparent 100%);
+  transform: translateX(8px);
+}
+
+.gb-step-number {
+  font-family: var(--gb-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gb-warm);
+  min-width: 2rem;
+}
+
+.gb-step-content {
+  color: var(--gb-text-secondary);
+  font-size: 1rem;
 }
 </style>
