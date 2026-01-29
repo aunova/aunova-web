@@ -65,6 +65,45 @@ const lang = "en";
         </div>
       </div>
     </section>
+
+    <!-- Section 2: The Problem -->
+    <section class="gb-section" id="problem">
+      <div class="gb-container">
+        <span class="gb-label">The Challenge</span>
+        <h2 class="gb-heading">Modern communities are <span class="gb-warm">structurally blind</span></h2>
+
+        <div class="gb-content-grid">
+          <div class="gb-content-text">
+            <p class="gb-text">
+              People live in buildings, but not in communities. Daily life produces
+              environmental, health, and social consequences — yet these remain largely invisible.
+            </p>
+            <p class="gb-text">
+              Cities and developments today operate without real infrastructure to:
+            </p>
+            <ul class="gb-feature-list">
+              <li>understand their environmental impact</li>
+              <li>support healthy living by default</li>
+              <li>connect daily behavior to long-term outcomes</li>
+              <li>cultivate real community life</li>
+            </ul>
+          </div>
+          <div class="gb-content-aside">
+            <div class="gb-card">
+              <p class="gb-card-text" style="font-style: italic; color: var(--gb-text-secondary);">
+                Sustainability becomes reporting.<br />
+                Health becomes an individual struggle.<br />
+                Community becomes accidental.
+              </p>
+              <div class="gb-divider" style="margin: 1.5rem 0;"></div>
+              <p class="gb-card-text" style="color: var(--gb-accent); font-weight: 600;">
+                What is missing is community impact infrastructure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </PageLayout>
 
@@ -318,5 +357,89 @@ const lang = "en";
 .gb-btn :global(svg) {
   width: 18px;
   height: 18px;
+}
+
+/* Headings */
+.gb-heading {
+  font-family: var(--gb-font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--gb-text-primary);
+}
+
+/* Content Grid */
+.gb-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .gb-content-grid {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.gb-content-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Feature List */
+.gb-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gb-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1rem;
+  color: var(--gb-text-secondary);
+  line-height: 1.6;
+}
+
+.gb-feature-list li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--gb-accent);
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px var(--gb-accent-glow);
+}
+
+/* Cards */
+.gb-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.4s var(--gb-ease-out-expo);
+}
+
+.gb-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(125, 216, 125, 0.2);
+  transform: translateY(-4px);
+}
+
+.gb-card-text {
+  font-size: 0.95rem;
+  color: var(--gb-text-secondary);
+  line-height: 1.7;
+  margin: 0;
 }
 </style>
