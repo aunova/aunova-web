@@ -1,160 +1,345 @@
-# Plan: Replace "Why Aunova Exists" with New Design
+# Plan: Fix Greenblocks Hero Section Layout
 
-## Summary
-Replace the "Why Aunova Exists" section with the redesigned "Why This Model Exists" section per the screenshot. The new design changes the title, adds intro paragraphs, gives each card a bold title + description (instead of just a paragraph), updates the closing statement source, and updates the CTA box content.
+## Overview
 
----
+The hero section needs to be changed from a side-by-side grid layout to a full-width background image layout where the text overlays the image. Key differences identified:
 
-## Task 1: Update English i18n content
-**File:** `src/utils/i18n.ts` lines 176–185
-**Change:** Replace the `whyAunova` object with new structure containing `intro` array, `cards` array (each with `title` + `description`), `closing` string, and `cta` object.
+### Current Issues (Image 1)
+- Side-by-side grid layout with image confined to right column
+- Image has rounded corners and is separate from the background
+- Button has dark green fill (solid background)
+- Brand name and byline on separate lines, small
+- Title is too large/bold
+- No gradient overlay for text readability
 
-**New content:**
-```typescript
-whyAunova: {
-  title: "Why This Model Exists",
-  intro: [
-    "The systems the future depends on\u2014environmental, identity, intelligent\u2014won't be built through one-off projects or sole-source vendors.",
-    "Institutions must come together to build digital infrastructure that serves the common good and is stewarded for the long term.",
-  ],
-  cards: [
-    {
-      title: "Responsibility Over Rent-Seeking",
-      description: "We co-own critical platforms with aligned institutions, not build proprietary lock-in schemes.",
-    },
-    {
-      title: "Systems That Outlast Us",
-      description: "True partnerships that plan in decades, not quarters.",
-    },
-    {
-      title: "Skin In The Game",
-      description: "Our team invests personally in the domains and communities we serve.",
-    },
-  ],
-  closing: "We are driven to build better systems because the future is our shared legacy.",
-  cta: {
-    title: "Begin a Conversation About Co-Creation",
-    description: "Reach out if you\u2019re ready to discuss co-defining and owning infrastructure that matters.",
-    button: "Explore a Systems Partnership",
-  },
-},
-```
+### Target Design (Image 2)
+- Full-width hero image as background, extending edge-to-edge
+- Text content overlaid on left side of the image
+- Gradient overlay on left side for text readability
+- Button is outline style (transparent with border)
+- "Greenblocks by Aunova" on single line, larger
+- Title is serif-style, lighter weight, more elegant
+- Floating icons positioned within the image area (right side)
 
 ---
 
-## Task 2: Update Spanish i18n content
-**File:** `src/utils/i18n.ts` lines 426–435
-**Change:** Replace Spanish `whyAunova` with same structure, translated:
+## Implementation Tasks
 
-```typescript
-whyAunova: {
-  title: "Por Qu\u00e9 Existe Este Modelo",
-  intro: [
-    "Los sistemas de los que depende el futuro\u2014ambientales, de identidad, inteligentes\u2014no se construir\u00e1n a trav\u00e9s de proyectos puntuales o proveedores \u00fanicos.",
-    "Las instituciones deben unirse para construir infraestructura digital que sirva al bien com\u00fan y sea administrada a largo plazo.",
-  ],
-  cards: [
-    {
-      title: "Responsabilidad Sobre Rentismo",
-      description: "Co-poseemos plataformas cr\u00edticas con instituciones alineadas, no construimos esquemas de dependencia propietaria.",
-    },
-    {
-      title: "Sistemas Que Nos Sobrevivan",
-      description: "Asociaciones verdaderas que planifican en d\u00e9cadas, no en trimestres.",
-    },
-    {
-      title: "Compromiso Personal",
-      description: "Nuestro equipo invierte personalmente en los dominios y comunidades a los que servimos.",
-    },
-  ],
-  closing: "Nos impulsa construir mejores sistemas porque el futuro es nuestro legado compartido.",
-  cta: {
-    title: "Inicia una Conversaci\u00f3n Sobre Co-Creaci\u00f3n",
-    description: "Cont\u00e1ctanos si est\u00e1s listo para discutir la co-definici\u00f3n y propiedad de infraestructura que importa.",
-    button: "Explora una Asociaci\u00f3n de Sistemas",
-  },
-},
-```
+### Task 1: Update Hero HTML structure for background image layout
+**File**: `src/pages/greenblocks.astro`
 
----
-
-## Task 3: Update HTML template in index.astro
-**File:** `src/pages/en/index.astro` lines 200–229
-**Change:** Replace the section HTML to:
-- Add intro paragraphs in a `body-text` div (existing pattern used elsewhere on the page)
-- Cards now render `card.title` as `<h3>` + `card.description` as `<p>`
-- Closing text from i18n instead of hardcoded
-- CTABox receives explicit props from i18n
+**Replace** the current hero grid structure with a background-image based layout:
 
 ```astro
-<!-- Why Aunova Section -->
-<section class="why-aunova" id="why-aunova">
-  <div class="container">
-    <div class="section-content">
-      <h2 class="section-title">{t.whyAunova.title}</h2>
-      <div class="body-text">
-        {t.whyAunova.intro.map((paragraph) => <p>{paragraph}</p>)}
+<!-- Section 1: Hero -->
+<section class="gb-hero">
+  <!-- Background image -->
+  <div class="gb-hero-bg">
+    <picture>
+      <source srcset="/images/greenblocks-hero.webp" type="image/webp" />
+      <img
+        src="/images/greenblocks-hero.png"
+        alt="Sustainable community visualization with green architecture and people"
+        class="gb-hero-bg-image"
+        loading="eager"
+      />
+    </picture>
+    <!-- Floating icons on the image -->
+    <div class="gb-hero-icons">
+      <div class="gb-hero-icon gb-hero-icon-1">
+        <Leaf size={20} />
+      </div>
+      <div class="gb-hero-icon gb-hero-icon-2">
+        <Heart size={20} />
+      </div>
+      <div class="gb-hero-icon gb-hero-icon-3">
+        <Users size={20} />
       </div>
     </div>
+  </div>
 
-    <div class="stacked-cards">
-      {t.whyAunova.cards.map((card, index) => {
-        const Icon = whyIcons[index];
-        return (
-          <div class="stacked-card">
-            <div class="stacked-card-circle">
-              <Icon size={22} />
-            </div>
-            <div class="stacked-card-text">
-              <h3 class="stacked-card-title">{card.title}</h3>
-              <p>{card.description}</p>
-            </div>
-          </div>
-        );
-      })}
+  <!-- Text overlay -->
+  <div class="gb-hero-overlay">
+    <div class="gb-hero-content">
+      <div class="gb-hero-brand">
+        <span class="gb-brand-name">Greenblocks</span>
+        <span class="gb-brand-byline">by Aunova</span>
+      </div>
+      <p class="gb-hero-subtitle">Community Impact Infrastructure</p>
+
+      <h1 class="gb-hero-title">
+        The foundational infrastructure layer for sustainable, healthy, and living communities
+      </h1>
+
+      <p class="gb-hero-description">
+        Greenblocks is the community impact infrastructure for the built world. It enables a new way of living — where environmental responsibility, healthy living, and human connection are embedded into how communities function.
+      </p>
+
+      <a href="/en/contact" class="gb-btn gb-btn-outline">
+        Begin a conversation about co-creating a community system
+        <ArrowRight size={18} />
+      </a>
     </div>
-
-    <p class="why-closing">
-      {t.whyAunova.closing}
-    </p>
-
-    <CTABox
-      title={t.whyAunova.cta.title}
-      description={t.whyAunova.cta.description}
-      buttonText={t.whyAunova.cta.button}
-      buttonLink={`/${lang}/contact`}
-    />
   </div>
 </section>
 ```
 
 ---
 
-## Task 4: Add CSS for card titles
-**File:** `src/pages/en/index.astro` style section (after `.stacked-card-text p` around line 680)
-**Change:** Add `.stacked-card-title` style:
+### Task 2: Update Hero CSS for full-width background image
+**File**: `src/pages/greenblocks.astro`
+
+**Replace** all hero-related CSS with the new background-image layout:
 
 ```css
-.stacked-card-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-body);
+/* Hero Section - Full width background image */
+.gb-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Background image container */
+.gb-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.gb-hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+}
+
+/* Text overlay with gradient */
+.gb-hero-overlay {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0;
+  /* Gradient overlay for text readability */
+  background: linear-gradient(
+    to right,
+    rgba(245, 241, 235, 0.95) 0%,
+    rgba(245, 241, 235, 0.85) 35%,
+    rgba(245, 241, 235, 0.4) 60%,
+    transparent 80%
+  );
+}
+
+.gb-hero-content {
+  max-width: 550px;
+  padding: 0 clamp(1.5rem, 5vw, 3rem);
+}
+
+/* Brand styling */
+.gb-hero-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.gb-brand-name {
+  font-family: var(--gb-font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
-  color: var(--color-primary);
-  margin: 0 0 var(--space-xs);
-  line-height: 1.4;
+  color: var(--gb-text-primary);
+}
+
+.gb-brand-byline {
+  font-family: var(--gb-font-body);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  color: var(--gb-text-muted);
+}
+
+.gb-hero-subtitle {
+  font-size: 0.875rem;
+  color: var(--gb-text-muted);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+/* Hero title - smaller, lighter weight */
+.gb-hero-title {
+  font-family: var(--gb-font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+  color: var(--gb-text-primary);
+}
+
+.gb-hero-description {
+  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Floating icons - positioned on the right side of image */
+.gb-hero-icons {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.gb-hero-icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gb-accent);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.gb-hero-icon-1 { top: 25%; right: 15%; }
+.gb-hero-icon-2 { top: 45%; right: 8%; }
+.gb-hero-icon-3 { top: 65%; right: 18%; }
+```
+
+---
+
+### Task 3: Add outline button style
+**File**: `src/pages/greenblocks.astro`
+
+**Add** a new outline button variant for the hero CTA:
+
+```css
+/* Outline button variant */
+.gb-btn-outline {
+  background: transparent;
+  color: var(--gb-text-primary);
+  border: 1px solid var(--gb-text-primary);
+  padding: 0.875rem 1.5rem;
+  font-size: 0.9375rem;
+}
+
+.gb-btn-outline:hover {
+  background: var(--gb-text-primary);
+  color: var(--gb-bg-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 ```
 
 ---
 
-## Task 5: Build verification
-**Command:** `bun run build`
-**What:** Confirm no build errors from the structural changes.
+### Task 4: Update mobile responsive styles for hero
+**File**: `src/pages/greenblocks.astro`
+
+**Add/Update** responsive rules:
+
+```css
+@media (max-width: 1023px) {
+  .gb-hero {
+    min-height: auto;
+  }
+
+  .gb-hero-bg-image {
+    object-position: center center;
+  }
+
+  .gb-hero-overlay {
+    min-height: auto;
+    padding: 4rem 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(245, 241, 235, 0.95) 0%,
+      rgba(245, 241, 235, 0.8) 70%,
+      transparent 100%
+    );
+  }
+
+  .gb-hero-content {
+    max-width: 100%;
+  }
+
+  .gb-hero-icons {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .gb-hero-overlay {
+    padding: 3rem 0;
+  }
+
+  .gb-hero-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .gb-hero-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .gb-btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+```
 
 ---
 
-## Files Modified
-1. `src/utils/i18n.ts` — English + Spanish translations (new shape)
-2. `src/pages/en/index.astro` — HTML template + CSS
+### Task 5: Remove old hero grid CSS
+**File**: `src/pages/greenblocks.astro`
 
-## No New Files Created
+**Delete** the following CSS that is no longer needed:
+- `.gb-hero-grid` and its media queries
+- `.gb-hero-visual`
+- `.gb-hero-image` (the rounded version)
+- Old `.gb-hero-content` styles that conflict
+
+---
+
+## Summary of Visual Changes
+
+| Element | Current | Target |
+|---------|---------|--------|
+| **Layout** | Side-by-side grid | Full-width background image |
+| **Image** | Rounded corners, right column | Edge-to-edge, behind content |
+| **Overlay** | None | Left-to-right gradient for text readability |
+| **Brand** | Stacked, small | Inline "Greenblocks by Aunova", larger |
+| **Subtitle** | Green accent color | Muted gray |
+| **Title** | Large, bold | Smaller, lighter weight |
+| **Button** | Solid dark green fill | Outline style (transparent with border) |
+| **Icons** | Hidden on mobile | Positioned on right side of image |
+
+---
+
+## Verification Steps
+
+1. **Build success**: `bun run build` completes without errors
+2. **Visual check**: Hero image fills the entire viewport width
+3. **Text readability**: Gradient overlay makes text readable on image
+4. **Button style**: CTA has transparent background with dark border
+5. **Brand display**: "Greenblocks by Aunova" appears on same line
+6. **Title size**: Noticeably smaller than before
+7. **Mobile**: Gradient changes to vertical, icons hidden
+8. **Scroll**: Content below hero is visible after scrolling
+
+---
+
+## Implementation Order
+
+1. Task 1: Update Hero HTML structure
+2. Task 5: Remove old hero grid CSS (cleanup first)
+3. Task 2: Add new hero CSS for background image layout
+4. Task 3: Add outline button style
+5. Task 4: Update mobile responsive styles

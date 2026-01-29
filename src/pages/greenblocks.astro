@@ -25,43 +25,54 @@ const lang = "en";
   <link slot="head" rel="preload" as="font" type="font/woff2" href="/fonts/Satoshi-Regular.woff2" crossorigin />
 
   <div class="gb-page">
-    <!-- Atmospheric background -->
-    <div class="gb-atmosphere"></div>
-
-    <!-- Floating particles -->
-    <div class="gb-particles" aria-hidden="true">
-      <div class="gb-particle" style="left: 10%; animation-delay: 0s;"></div>
-      <div class="gb-particle" style="left: 25%; animation-delay: 2s;"></div>
-      <div class="gb-particle" style="left: 40%; animation-delay: 4s;"></div>
-      <div class="gb-particle" style="left: 55%; animation-delay: 6s;"></div>
-      <div class="gb-particle" style="left: 70%; animation-delay: 8s;"></div>
-      <div class="gb-particle" style="left: 85%; animation-delay: 10s;"></div>
-    </div>
-
-    <!-- Content sections will go here -->
     <!-- Section 1: Hero -->
-    <section class="gb-hero gb-section">
-      <div class="gb-container">
-        <div class="gb-hero-content">
-          <span class="gb-label">Greenblocks by Aunova</span>
-          <h1 class="gb-title gb-title-lg">
-            Community Impact<br />
-            <span class="gb-highlight">Infrastructure</span>
-          </h1>
-          <div class="gb-divider gb-divider-center"></div>
-          <p class="gb-text gb-text-lg" style="margin: 0 auto; text-align: center;">
-            The foundational infrastructure layer for sustainable, healthy, and living communities.
-          </p>
-          <p class="gb-text" style="margin: var(--space-lg) auto 0; text-align: center; max-width: 600px;">
-            Greenblocks enables a new way of living — where environmental responsibility,
-            healthy living, and human connection are embedded into how communities function.
-          </p>
-          <div class="gb-hero-cta">
-            <a href="/en/contact" class="gb-btn gb-btn-primary">
-              Begin a Conversation
-              <ArrowRight size={18} />
-            </a>
+    <section class="gb-hero">
+      <!-- Background image -->
+      <div class="gb-hero-bg">
+        <picture>
+          <source srcset="/images/greenblocks-hero.webp" type="image/webp" />
+          <img
+            src="/images/greenblocks-hero.png"
+            alt="Sustainable community visualization with green architecture and people"
+            class="gb-hero-bg-image"
+            loading="eager"
+          />
+        </picture>
+        <!-- Floating icons on the image -->
+        <div class="gb-hero-icons">
+          <div class="gb-hero-icon gb-hero-icon-1">
+            <Leaf size={20} />
           </div>
+          <div class="gb-hero-icon gb-hero-icon-2">
+            <Heart size={20} />
+          </div>
+          <div class="gb-hero-icon gb-hero-icon-3">
+            <Users size={20} />
+          </div>
+        </div>
+      </div>
+
+      <!-- Text overlay -->
+      <div class="gb-hero-overlay">
+        <div class="gb-hero-content">
+          <div class="gb-hero-brand">
+            <span class="gb-brand-name">Greenblocks</span>
+            <span class="gb-brand-byline">by Aunova</span>
+          </div>
+          <p class="gb-hero-subtitle">Community Impact Infrastructure</p>
+
+          <h1 class="gb-hero-title">
+            The foundational infrastructure layer for sustainable, healthy, and living communities
+          </h1>
+
+          <p class="gb-hero-description">
+            Greenblocks is the community impact infrastructure for the built world. It enables a new way of living — where environmental responsibility, healthy living, and human connection are embedded into how communities function.
+          </p>
+
+          <a href="/en/contact" class="gb-btn gb-btn-outline">
+            Begin a conversation about co-creating a community system
+            <ArrowRight size={18} />
+          </a>
         </div>
       </div>
     </section>
@@ -70,38 +81,127 @@ const lang = "en";
     <section class="gb-section" id="problem">
       <div class="gb-container">
         <div class="gb-reveal">
-          <span class="gb-label">The Challenge</span>
-          <h2 class="gb-heading">Modern communities are <span class="gb-warm">structurally blind</span></h2>
+          <h2 class="gb-heading">Modern communities are <span class="gb-warm">structurally blind</span>.</h2>
 
-          <div class="gb-content-grid">
-            <div class="gb-content-text">
+          <div class="gb-problem-grid">
+            <div class="gb-problem-content">
               <p class="gb-text">
                 People live in buildings, but not in communities. Daily life produces
                 environmental, health, and social consequences — yet these remain largely invisible.
               </p>
-              <p class="gb-text">
-                Cities and developments today operate without real infrastructure to:
+
+              <p class="gb-text" style="margin-top: 1.5rem;">
+                Cities and developments today operate <strong>without</strong> real infrastructure to:
               </p>
-              <ul class="gb-feature-list">
-                <li>understand their environmental impact</li>
-                <li>support healthy living by default</li>
-                <li>connect daily behavior to long-term outcomes</li>
-                <li>cultivate real community life</li>
+
+              <ul class="gb-check-list">
+                <li><span class="gb-check">✓</span> understand their environmental impact</li>
+                <li><span class="gb-check">✓</span> support healthy living by default</li>
+                <li><span class="gb-check">✓</span> connect daily behavior to long-term outcomes</li>
+                <li><span class="gb-check">✓</span> cultivate real community life</li>
               </ul>
+
+              <div class="gb-problem-quote">
+                <p><em>Sustainability becomes reporting.</em></p>
+                <p><em>Health becomes an individual struggle.</em></p>
+                <p><em>Community becomes accidental.</em></p>
+              </div>
+
+              <p class="gb-text" style="margin-top: 1.5rem;">
+                These are not separate problems.<br />
+                They are symptoms of the same missing system.
+              </p>
+
+              <p class="gb-text-emphasis">
+                What is missing is <em>community impact infrastructure</em>.
+              </p>
             </div>
-            <div class="gb-content-aside">
-              <div class="gb-card">
-                <p class="gb-card-text" style="font-style: italic; color: var(--gb-text-secondary);">
-                  Sustainability becomes reporting.<br />
-                  Health becomes an individual struggle.<br />
-                  Community becomes accidental.
-                </p>
-                <div class="gb-divider" style="margin: 1.5rem 0;"></div>
-                <p class="gb-card-text" style="color: var(--gb-accent); font-weight: 600;">
-                  What is missing is community impact infrastructure.
-                </p>
+
+            <div class="gb-problem-cards">
+              <div class="gb-icon-card">
+                <div class="gb-icon-card-icon">
+                  <Leaf size={28} />
+                </div>
+                <h3>Isolated Sustainability</h3>
+                <p>Sustainability efforts are disconnected and hard to measure.</p>
+              </div>
+
+              <div class="gb-icon-card">
+                <div class="gb-icon-card-icon">
+                  <Heart size={28} />
+                </div>
+                <h3>Disconnected Health</h3>
+                <p>Healthy living is difficult without supportive environments.</p>
+              </div>
+
+              <div class="gb-icon-card">
+                <div class="gb-icon-card-icon">
+                  <Users size={28} />
+                </div>
+                <h3>Fragmented Community</h3>
+                <p>Meaningful human connections are rare and accidental.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: The Solution -->
+    <section class="gb-section gb-section-alt" id="solution">
+      <div class="gb-container">
+        <div class="gb-reveal">
+          <div class="gb-section-label-container">
+            <span class="gb-section-label">THE SOLUTION</span>
+          </div>
+
+          <h2 class="gb-heading gb-heading-centered">
+            Introducing Greenblocks: Communities designed to thrive
+          </h2>
+
+          <p class="gb-text gb-text-centered">
+            Greenblocks is creating a new kind of modern neighborhood with built-in infrastructure to ensure sustainable, connected, and thriving communities.
+          </p>
+
+          <p class="gb-text gb-text-centered" style="margin-top: 1rem;">
+            With Greenblocks, communities can:
+          </p>
+
+          <div class="gb-feature-cards">
+            <div class="gb-feature-card">
+              <div class="gb-feature-card-icon">
+                <Leaf size={32} />
+              </div>
+              <h3>Measure & Reduce Impact</h3>
+              <p>Real-time data tracking and environmental initiatives to minimize footprints.</p>
+            </div>
+
+            <div class="gb-feature-card">
+              <div class="gb-feature-card-icon">
+                <Heart size={32} />
+              </div>
+              <h3>Promote Healthy Living</h3>
+              <p>Spaces, services and incentives that make healthy choices the default.</p>
+            </div>
+
+            <div class="gb-feature-card">
+              <div class="gb-feature-card-icon">
+                <Users size={32} />
+              </div>
+              <h3>Build Better Connections</h3>
+              <p>Shared spaces, activities, and digital tools that strengthen social bonds.</p>
+            </div>
+          </div>
+
+          <p class="gb-text gb-text-centered gb-text-emphasis" style="margin-top: 3rem;">
+            Seamlessly integrating sustainability, health, and community through <strong>one unified system</strong>.
+          </p>
+
+          <div class="gb-cta-centered">
+            <a href="#system" class="gb-btn gb-btn-primary">
+              How Greenblocks Works
+              <ArrowRight size={18} />
+            </a>
           </div>
         </div>
       </div>
@@ -500,19 +600,21 @@ const lang = "en";
   font-display: swap;
 }
 
-/* Greenblocks Design Tokens */
+/* Greenblocks Design Tokens - Light Theme */
 .gb-page {
-  --gb-bg-primary: #0c1a0f;
-  --gb-bg-secondary: #132416;
-  --gb-bg-tertiary: #1a2f1c;
-  --gb-text-primary: #f4f7f4;
-  --gb-text-secondary: #8fa68f;
-  --gb-text-muted: #5a6e5a;
-  --gb-accent: #7dd87d;
-  --gb-accent-dim: #5cb85c;
-  --gb-accent-glow: rgba(125, 216, 125, 0.35);
-  --gb-warm: #d4a574;
-  --gb-warm-glow: rgba(212, 165, 116, 0.25);
+  --gb-bg-primary: #f5f1eb;
+  --gb-bg-secondary: #ebe7df;
+  --gb-bg-tertiary: #e0dbd2;
+  --gb-bg-card: #ffffff;
+  --gb-text-primary: #2d2d2d;
+  --gb-text-secondary: #5a5a5a;
+  --gb-text-muted: #8a8a8a;
+  --gb-accent: #3b5d3b;
+  --gb-accent-light: #5a8a5a;
+  --gb-warm: #8b7355;
+  --gb-warm-light: #d4c4a8;
+  --gb-border: rgba(0, 0, 0, 0.08);
+  --gb-shadow: rgba(0, 0, 0, 0.05);
 
   --gb-font-display: 'Clash Display', system-ui, sans-serif;
   --gb-font-body: 'Satoshi', system-ui, sans-serif;
@@ -539,51 +641,7 @@ const lang = "en";
   min-height: 100vh;
 }
 
-/* Atmospheric background gradient */
-.gb-atmosphere {
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 15% 100%, rgba(125, 216, 125, 0.12) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 85% 10%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(125, 216, 125, 0.05) 0%, transparent 60%),
-    linear-gradient(180deg, var(--gb-bg-primary) 0%, var(--gb-bg-secondary) 50%, var(--gb-bg-tertiary) 100%);
-  z-index: -2;
-  pointer-events: none;
-}
-
-/* Floating particles */
-.gb-particles {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.gb-particle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: var(--gb-accent);
-  border-radius: 50%;
-  opacity: 0;
-  bottom: -10px;
-  animation: gb-particle-float 12s ease-in-out infinite;
-}
-
-@keyframes gb-particle-float {
-  0% {
-    transform: translateY(0) translateX(0) scale(1);
-    opacity: 0;
-  }
-  5% { opacity: 0.6; }
-  95% { opacity: 0.6; }
-  100% {
-    transform: translateY(-100vh) translateX(30px) scale(0.5);
-    opacity: 0;
-  }
-}
+/* Removed: Atmospheric background and particles for light theme */
 
 /* Container */
 .gb-container {
@@ -598,29 +656,200 @@ const lang = "en";
   position: relative;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .gb-particle {
-    animation: none;
-    opacity: 0.3;
-  }
+/* Hero Section - Full width background image */
+.gb-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-/* Hero Section */
-.gb-hero {
+/* Background image container */
+.gb-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.gb-hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+}
+
+/* Text overlay with gradient */
+.gb-hero-overlay {
+  position: relative;
+  z-index: 2;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  padding: 6rem 0;
+  /* Gradient overlay for text readability */
+  background: linear-gradient(
+    to right,
+    rgba(245, 241, 235, 0.95) 0%,
+    rgba(245, 241, 235, 0.85) 35%,
+    rgba(245, 241, 235, 0.4) 60%,
+    transparent 80%
+  );
 }
 
 .gb-hero-content {
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 680px;
+  padding: 0 clamp(1.5rem, 5vw, 3rem);
+  margin-left: clamp(2rem, 8vw, 8rem);
 }
 
-.gb-hero-cta {
-  margin-top: var(--space-2xl);
+/* Brand styling */
+.gb-hero-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.gb-brand-name {
+  font-family: var(--gb-font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--gb-text-primary);
+}
+
+.gb-brand-byline {
+  font-family: var(--gb-font-body);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  color: var(--gb-text-muted);
+}
+
+.gb-hero-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-muted);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+/* Hero title - smaller, lighter weight */
+.gb-hero-title {
+  font-family: var(--gb-font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+  color: var(--gb-text-primary);
+}
+
+.gb-hero-description {
+  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Floating icons - positioned on the right side of image */
+.gb-hero-icons {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.gb-hero-icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gb-accent);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.gb-hero-icon-1 { top: 25%; right: 15%; }
+.gb-hero-icon-2 { top: 45%; right: 8%; }
+.gb-hero-icon-3 { top: 65%; right: 18%; }
+
+/* Outline button variant - earthy beige style */
+.gb-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(235, 228, 216, 0.7);
+  color: var(--gb-text-primary);
+  border: 1px solid rgba(180, 165, 140, 0.6);
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-family: var(--gb-font-body);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gb-btn-outline:hover {
+  background: rgba(235, 228, 216, 0.95);
+  border-color: rgba(180, 165, 140, 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Hero responsive styles */
+@media (max-width: 1023px) {
+  .gb-hero {
+    min-height: auto;
+  }
+
+  .gb-hero-bg-image {
+    object-position: center center;
+  }
+
+  .gb-hero-overlay {
+    min-height: auto;
+    padding: 4rem 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(245, 241, 235, 0.95) 0%,
+      rgba(245, 241, 235, 0.8) 70%,
+      transparent 100%
+    );
+  }
+
+  .gb-hero-content {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .gb-hero-icons {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .gb-hero-overlay {
+    padding: 3rem 0;
+  }
+
+  .gb-hero-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .gb-hero-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .gb-btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Typography */
@@ -663,19 +892,17 @@ const lang = "en";
 
 .gb-highlight {
   color: var(--gb-accent);
-  text-shadow: 0 0 60px var(--gb-accent-glow);
 }
 
 .gb-warm {
   color: var(--gb-warm);
-  text-shadow: 0 0 60px var(--gb-warm-glow);
 }
 
 /* Divider */
 .gb-divider {
   width: 80px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gb-accent), transparent);
+  background: var(--gb-warm-light);
   margin: 2rem 0;
 }
 
@@ -694,23 +921,23 @@ const lang = "en";
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 100px;
-  transition: all 0.3s var(--gb-ease-out-expo);
+  border-radius: 8px;
+  transition: all 0.3s ease;
   cursor: pointer;
   border: none;
 }
 
 .gb-btn-primary {
   background: var(--gb-accent);
-  color: var(--gb-bg-primary);
+  color: #ffffff;
 }
 
 .gb-btn-primary:hover {
-  background: var(--gb-accent-dim);
+  background: var(--gb-accent-light);
   transform: translateY(-2px);
-  box-shadow: 0 10px 40px var(--gb-accent-glow);
+  box-shadow: 0 8px 24px rgba(59, 93, 59, 0.25);
   text-decoration: none;
-  color: var(--gb-bg-primary);
+  color: #ffffff;
 }
 
 .gb-btn :global(svg) {
@@ -777,22 +1004,20 @@ const lang = "en";
   border-radius: 50%;
   margin-top: 0.5rem;
   flex-shrink: 0;
-  box-shadow: 0 0 12px var(--gb-accent-glow);
 }
 
 /* Cards */
 .gb-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--gb-bg-card);
+  border: 1px solid var(--gb-border);
   border-radius: 16px;
   padding: 2rem;
-  transition: all 0.4s var(--gb-ease-out-expo);
+  transition: all 0.3s ease;
 }
 
 .gb-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(125, 216, 125, 0.2);
   transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--gb-shadow);
 }
 
 .gb-card-text {
@@ -804,7 +1029,191 @@ const lang = "en";
 
 /* Section alternate background */
 .gb-section-alt {
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--gb-bg-secondary);
+}
+
+/* Problem Section */
+.gb-problem-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .gb-problem-grid {
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+}
+
+.gb-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.gb-check-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--gb-text-secondary);
+}
+
+.gb-check {
+  color: var(--gb-accent);
+  font-weight: 600;
+}
+
+.gb-problem-quote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--gb-warm-light);
+}
+
+.gb-problem-quote p {
+  color: var(--gb-text-muted);
+  margin: 0.25rem 0;
+}
+
+.gb-text-emphasis {
+  color: var(--gb-warm);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+/* Icon Cards (Problem section) */
+.gb-problem-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.gb-icon-card {
+  background: var(--gb-bg-card);
+  border: 1px solid var(--gb-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.gb-icon-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--gb-shadow);
+}
+
+.gb-icon-card-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  background: var(--gb-bg-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gb-warm);
+}
+
+.gb-icon-card h3 {
+  font-family: var(--gb-font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gb-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.gb-icon-card p {
+  font-size: 0.875rem;
+  color: var(--gb-text-muted);
+  margin: 0;
+}
+
+/* Section Label Pill */
+.gb-section-label-container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.gb-section-label {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: var(--gb-bg-card);
+  border: 1px solid var(--gb-border);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gb-text-muted);
+}
+
+/* Centered text utilities */
+.gb-heading-centered,
+.gb-text-centered {
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Feature Cards (Solution section) */
+.gb-feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.gb-feature-card {
+  background: var(--gb-bg-card);
+  border: 1px solid var(--gb-border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.gb-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--gb-shadow);
+}
+
+.gb-feature-card-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: var(--gb-bg-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gb-accent);
+}
+
+.gb-feature-card h3 {
+  font-family: var(--gb-font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gb-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.gb-feature-card p {
+  font-size: 0.9375rem;
+  color: var(--gb-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.gb-cta-centered {
+  text-align: center;
+  margin-top: 2rem;
 }
 
 /* Subheading */
@@ -1079,12 +1488,12 @@ const lang = "en";
 .gb-vision-closing {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--gb-border);
 }
 
 /* CTA Section */
 .gb-cta-section {
-  background: linear-gradient(180deg, transparent 0%, rgba(125, 216, 125, 0.05) 100%);
+  background: var(--gb-bg-secondary);
   text-align: center;
   padding-bottom: calc(var(--gb-section-padding) + 2rem);
 }
@@ -1095,8 +1504,8 @@ const lang = "en";
 }
 
 .gb-cta-questions {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--gb-bg-card);
+  border: 1px solid var(--gb-border);
   border-radius: 16px;
   padding: 2rem;
   margin: 2rem 0;
@@ -1160,6 +1569,28 @@ const lang = "en";
 }
 
 /* Mobile Responsive */
+@media (max-width: 1023px) {
+  .gb-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .gb-hero-content {
+    order: 1;
+    text-align: center;
+  }
+
+  .gb-hero-visual {
+    order: 0;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .gb-hero-brand {
+    align-items: center;
+  }
+}
+
 @media (max-width: 768px) {
   .gb-title-lg {
     font-size: clamp(2.5rem, 12vw, 4rem);
@@ -1167,6 +1598,18 @@ const lang = "en";
 
   .gb-heading {
     font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .gb-problem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gb-problem-cards {
+    margin-top: 2rem;
+  }
+
+  .gb-feature-cards {
+    grid-template-columns: 1fr;
   }
 
   .gb-content-grid,
