@@ -62,7 +62,6 @@ const lang = "en";
         <div class="gb-hero-content">
           <div class="gb-hero-brand">
             <span class="gb-brand-name">Greenblocks</span>
-            <span class="gb-brand-byline">by Aunova</span>
           </div>
           <p class="gb-hero-subtitle">Community Impact Infrastructure</p>
 
@@ -92,7 +91,7 @@ const lang = "en";
             <div class="gb-problem-content">
               <p class="gb-text">
                 People live in buildings, but not in communities. Daily life produces
-                environmental, health, and social consequences — yet these remain largely invisible.
+                environmental, health, and social consequences, yet these remain largely invisible.
               </p>
 
               <p class="gb-text" style="margin-top: 1.5rem;">
@@ -162,7 +161,7 @@ const lang = "en";
       <div class="gb-container">
         <div class="gb-reveal">
           <div class="gb-shift-content">
-            <h2 class="gb-shift-title">The shift — From buildings to living communities</h2>
+            <h2 class="gb-shift-title">From buildings to living communities</h2>
             <p class="gb-shift-subtitle">From isolated living to conscious community life</p>
 
             <p class="gb-text gb-text-centered">
@@ -473,14 +472,15 @@ const lang = "en";
 /* Brand styling */
 .gb-hero-brand {
   display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  margin-bottom: 0.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .gb-brand-name {
   font-family: var(--gb-font-display);
-  font-size: clamp(2.125rem, 4.5vw, 3rem);
+  font-size: clamp(3rem, 7vw, 5rem);
   font-weight: 700;
   color: var(--gb-text-primary);
 }
@@ -608,7 +608,7 @@ const lang = "en";
   .gb-hero-brand {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0;
+    gap: 0.25rem;
   }
 
   .gb-hero-title {

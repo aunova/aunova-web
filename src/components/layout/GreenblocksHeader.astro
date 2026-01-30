@@ -30,7 +30,7 @@ const homeLink = currentLang === "es" ? "/es" : "/";
     </button>
 
     <div class="gb-nav-links">
-      <a href="#problem" class="gb-nav-link">Problem</a>
+      <a href="#problem" class="gb-nav-link">Challenge</a>
       <a href="#shift" class="gb-nav-link">The Shift</a>
       <a href="#system" class="gb-nav-link">What It Is</a>
       <a href="#enables" class="gb-nav-link">What It Enables</a>
@@ -155,7 +155,7 @@ const homeLink = currentLang === "es" ? "/es" : "/";
   }
 
   .gb-nav-link {
-    color: #2d2d2d;
+    color: #000000;
     font-family: 'Satoshi', system-ui, sans-serif;
     font-weight: 500;
     font-size: 0.9375rem;
@@ -214,7 +214,7 @@ const homeLink = currentLang === "es" ? "/es" : "/";
     background-color: transparent;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 6px;
-    color: #2d2d2d;
+    color: #000000;
     font-family: 'Satoshi', system-ui, sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
@@ -260,7 +260,7 @@ const homeLink = currentLang === "es" ? "/es" : "/";
   .gb-language-option {
     display: block;
     padding: 8px 16px;
-    color: #2d2d2d;
+    color: #000000;
     font-family: 'Satoshi', system-ui, sans-serif;
     font-size: 0.875rem;
     text-align: center;
@@ -302,7 +302,7 @@ const homeLink = currentLang === "es" ? "/es" : "/";
       width: 100vw;
       height: calc(100vh - 72px);
       max-height: calc(100vh - 72px);
-      background-color: #f5f1eb;
+      background-color: #ffffff;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
@@ -322,27 +322,6 @@ const homeLink = currentLang === "es" ? "/es" : "/";
       transform: translateX(0);
     }
 
-    /* Mobile menu overlay */
-    .gb-nav-links::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .gb-nav-links.active::before {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
 
     .gb-nav-link {
       font-size: 1.125rem;
