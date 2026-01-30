@@ -355,8 +355,9 @@ const homeLink = currentLang === "es" ? "/es" : "/";
       padding: var(--space-2xl) var(--space-xl);
       padding-bottom: calc(var(--space-xl) + env(safe-area-inset-bottom));
       gap: var(--space-lg);
-      transform: translateX(100vw);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateX(100%);
+      visibility: hidden;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
       z-index: var(--z-modal);
       overflow-y: auto;
       overflow-x: hidden;
@@ -366,6 +367,7 @@ const homeLink = currentLang === "es" ? "/es" : "/";
 
     .nav-links.active {
       transform: translateX(0);
+      visibility: visible;
     }
 
 

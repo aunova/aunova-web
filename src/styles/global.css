@@ -198,12 +198,14 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: clip;
 }
 
 body.menu-open {
