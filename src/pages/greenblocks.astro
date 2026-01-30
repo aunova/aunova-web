@@ -11,6 +11,9 @@ import {
   Handshake,
   Clock,
   ArrowRight,
+  SearchCheck,
+  HeartPulse,
+  TrendingUp,
 } from "lucide-astro";
 
 const lang = "en";
@@ -233,6 +236,69 @@ const lang = "en";
       </div>
     </section>
 
+    <!-- Section 4: The System -->
+    <section class="gb-section" id="system">
+      <div class="gb-container">
+        <div class="gb-reveal">
+          <h2 class="gb-heading gb-heading-centered">What Greenblocks is: community impact infrastructure</h2>
+          <p class="gb-text gb-text-centered">
+            A foundational community system that interconnects the elements of sustainable living.
+          </p>
+
+          <div class="gb-flow-chart">
+            <picture>
+              <source srcset="/images/flow-chart-infrastructure.webp" type="image/webp" />
+              <img
+                src="/images/Flow Part 4.png"
+                alt="Greenblocks infrastructure diagram showing Physical Environments, Environmental Systems, Human Behavior, and Institutional Frameworks connected through a shared community impact system"
+                class="gb-flow-chart-img"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: What Greenblocks Enables -->
+    <section class="gb-section gb-section-alt" id="enables">
+      <div class="gb-container">
+        <div class="gb-reveal">
+          <h2 class="gb-heading">What Greenblocks enables</h2>
+
+          <div class="gb-enables-grid">
+            <div class="gb-enables-card">
+              <div class="gb-enables-icon">
+                <SearchCheck size={40} />
+              </div>
+              <p class="gb-enables-text">Environmental and social impact made visible</p>
+            </div>
+
+            <div class="gb-enables-card">
+              <div class="gb-enables-icon">
+                <HeartPulse size={40} />
+              </div>
+              <p class="gb-enables-text">Healthy living supported by design</p>
+            </div>
+
+            <div class="gb-enables-card">
+              <div class="gb-enables-icon">
+                <Users size={40} />
+              </div>
+              <p class="gb-enables-text">Meaningful sense of community</p>
+            </div>
+
+            <div class="gb-enables-card">
+              <div class="gb-enables-icon">
+                <TrendingUp size={40} />
+              </div>
+              <p class="gb-enables-text">Shared incentives to live sustainably</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Section: The Solution -->
     <section class="gb-section gb-section-alt" id="solution">
       <div class="gb-container">
@@ -289,130 +355,6 @@ const lang = "en";
               <ArrowRight size={18} />
             </a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 4: The System -->
-    <section class="gb-section" id="system">
-      <div class="gb-container">
-        <div class="gb-reveal">
-          <span class="gb-label">The Infrastructure</span>
-          <h2 class="gb-heading">Community operating <span class="gb-highlight">infrastructure</span></h2>
-
-          <p class="gb-text" style="max-width: 800px;">
-            Greenblocks is not a product layer. It is an infrastructure layer that connects:
-          </p>
-
-          <div class="gb-layers">
-            <div class="gb-layer">
-              <div class="gb-layer-icon">
-                <Building2 size={24} />
-              </div>
-              <span>Physical environments</span>
-            </div>
-            <div class="gb-layer">
-              <div class="gb-layer-icon">
-                <TreeDeciduous size={24} />
-              </div>
-              <span>Environmental systems</span>
-            </div>
-            <div class="gb-layer">
-              <div class="gb-layer-icon">
-                <Users size={24} />
-              </div>
-              <span>Human behavior</span>
-            </div>
-            <div class="gb-layer">
-              <div class="gb-layer-icon">
-                <Building2 size={24} />
-              </div>
-              <span>Institutional frameworks</span>
-            </div>
-          </div>
-
-          <p class="gb-text" style="margin-top: 2rem; max-width: 800px;">
-            ...into a shared community impact system.
-          </p>
-
-          <div class="gb-card" style="margin-top: 2rem;">
-            <h3 class="gb-subheading" style="color: var(--gb-warm);">At its core, Greenblocks provides:</h3>
-            <ul class="gb-feature-list">
-              <li>continuous understanding of environmental and human impact</li>
-              <li>visible and shared consequences</li>
-              <li>incentives aligned with sustainable and healthy living</li>
-              <li>wellbeing and planetary responsibility embedded into operations</li>
-              <li>support for new community-centered economic and operational models</li>
-            </ul>
-            <div class="gb-divider" style="margin: 2rem 0;"></div>
-            <p class="gb-card-text" style="font-size: 1.1rem; color: var(--gb-accent); font-weight: 600;">
-              You are not adding a tool. You are enabling a system.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 5: What it Enables -->
-    <section class="gb-section gb-section-alt" id="capabilities">
-      <div class="gb-container">
-        <div class="gb-reveal">
-          <span class="gb-label">Capabilities</span>
-          <h2 class="gb-heading">What Greenblocks <span class="gb-highlight">enables</span></h2>
-
-          <div class="gb-capabilities-grid">
-            <div class="gb-capability-card">
-              <div class="gb-capability-icon">
-                <Target size={28} />
-              </div>
-              <h3 class="gb-card-title">Continuous Impact Understanding</h3>
-              <p class="gb-card-text">Real-time awareness of environmental and community impact across all community operations.</p>
-            </div>
-
-            <div class="gb-capability-card">
-              <div class="gb-capability-icon">
-                <Leaf size={28} />
-              </div>
-              <h3 class="gb-card-title">Sustainability by Default</h3>
-              <p class="gb-card-text">Communities designed where sustainable and healthy living are the natural outcome, not the exception.</p>
-            </div>
-
-            <div class="gb-capability-card">
-              <div class="gb-capability-icon">
-                <Users size={28} />
-              </div>
-              <h3 class="gb-card-title">Shared Awareness</h3>
-              <p class="gb-card-text">Understanding of how daily actions affect both the planet and human wellbeing.</p>
-            </div>
-
-            <div class="gb-capability-card">
-              <div class="gb-capability-icon">
-                <Sparkles size={28} />
-              </div>
-              <h3 class="gb-card-title">Aligned Incentives</h3>
-              <p class="gb-card-text">Economic systems that reward positive community outcomes and sustainable behaviors.</p>
-            </div>
-
-            <div class="gb-capability-card">
-              <div class="gb-capability-icon">
-                <Building2 size={28} />
-              </div>
-              <h3 class="gb-card-title">New Development Models</h3>
-              <p class="gb-card-text">Operational frameworks for next-generation communities that prioritize long-term value.</p>
-            </div>
-
-            <div class="gb-capability-card">
-              <div class="gb-capability-icon">
-                <Clock size={28} />
-              </div>
-              <h3 class="gb-card-title">Long-term Intelligence</h3>
-              <p class="gb-card-text">Environmental and community intelligence that grows more valuable over time.</p>
-            </div>
-          </div>
-
-          <p class="gb-text" style="margin-top: 3rem; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; font-style: italic;">
-            These are not applications. They are conditions that allow new kinds of communities to exist.
-          </p>
         </div>
       </div>
     </section>
@@ -1553,6 +1495,96 @@ const lang = "en";
 .gb-layer-icon :global(svg) {
   width: 24px;
   height: 24px;
+}
+
+/* Flow Chart */
+.gb-flow-chart {
+  display: flex;
+  justify-content: center;
+  margin: 3rem auto;
+  max-width: 900px;
+}
+
+.gb-flow-chart-img {
+  width: 100%;
+  height: auto;
+}
+
+/* What Greenblocks Enables */
+.gb-enables-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.gb-enables-card {
+  background: var(--gb-bg-card);
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 12px var(--gb-shadow);
+  transition: all 0.3s ease;
+}
+
+.gb-enables-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--gb-shadow);
+}
+
+.gb-enables-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: var(--gb-bg-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gb-text-muted);
+}
+
+.gb-enables-icon :global(svg) {
+  width: 40px;
+  height: 40px;
+  stroke-width: 1.5;
+}
+
+.gb-enables-text {
+  font-family: var(--gb-font-body);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .gb-enables-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gb-enables-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gb-enables-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .gb-enables-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .gb-enables-icon :global(svg) {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 /* Capabilities Grid */
