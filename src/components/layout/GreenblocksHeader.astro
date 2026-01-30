@@ -1,0 +1,504 @@
+---
+import { getCurrentLanguage } from "../../utils/i18n";
+
+const currentLang = getCurrentLanguage(Astro.url);
+
+// Build language switch URLs
+const pathname = Astro.url.pathname;
+const pathWithoutLang = pathname.replace(/^\/(en|es)/, "") || "/";
+const enUrl = "/greenblocks";
+const esUrl = "/es/greenblocks";
+
+// Main landing link based on language
+const homeLink = currentLang === "es" ? "/es" : "/";
+---
+
+<header class="gb-header">
+  <nav class="gb-nav">
+    <a
+      href={homeLink}
+      class="gb-logo"
+      aria-label="Back to Aunova home"
+    >
+      <span class="gb-logo-text">Aunova</span>
+    </a>
+
+    <button class="gb-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="gb-nav-links">
+      <a href="#problem" class="gb-nav-link">Problem</a>
+      <a href="#shift" class="gb-nav-link">The Shift</a>
+      <a href="#system" class="gb-nav-link">What It Is</a>
+      <a href="#enables" class="gb-nav-link">What It Enables</a>
+      <a href="#partnership-model" class="gb-nav-link">Partnership</a>
+      <a href="#connect" class="gb-nav-link">Connect</a>
+
+      <div class="gb-nav-actions">
+        <a
+          href="https://cal.com/ngmisl/aunova"
+          class="gb-cta-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Begin a Strategic Conversation
+        </a>
+
+        <div class="gb-language-dropdown">
+          <button class="gb-language-toggle" aria-label="Select language" aria-expanded="false">
+            <span class="gb-current-lang">{currentLang.toUpperCase()}</span>
+            <svg class="gb-dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="gb-language-menu">
+            <a href={enUrl} class:list={["gb-language-option", { active: currentLang === "en" }]}>
+              EN
+            </a>
+            <a href={esUrl} class:list={["gb-language-option", { active: currentLang === "es" }]}>
+              ES
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .gb-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(245, 241, 235, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+    height: 72px;
+  }
+
+  .gb-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 3rem);
+    position: relative;
+  }
+
+  .gb-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .gb-logo:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+
+  .gb-logo-text {
+    font-family: 'Clash Display', system-ui, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #3b5d3b;
+  }
+
+  .gb-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .gb-menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #3b5d3b;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    position: relative;
+  }
+
+  .gb-menu-toggle.active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+
+  .gb-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .gb-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+  }
+
+  .gb-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .gb-nav-link {
+    color: #2d2d2d;
+    font-family: 'Satoshi', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 0.5rem 0;
+  }
+
+  .gb-nav-link:hover {
+    color: #3b5d3b;
+    text-decoration: none;
+  }
+
+  .gb-nav-link.active {
+    color: #3b5d3b;
+    font-weight: 600;
+  }
+
+  .gb-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1.5rem;
+  }
+
+  .gb-cta-button {
+    padding: 8px 20px;
+    background-color: #3b5d3b;
+    color: white;
+    border-radius: 9999px;
+    font-family: 'Satoshi', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .gb-cta-button:hover {
+    background-color: #5a8a5a;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 93, 59, 0.25);
+  }
+
+  /* Language dropdown */
+  .gb-language-dropdown {
+    position: relative;
+  }
+
+  .gb-language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    color: #2d2d2d;
+    font-family: 'Satoshi', system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .gb-language-toggle:hover {
+    border-color: #3b5d3b;
+    color: #3b5d3b;
+  }
+
+  .gb-dropdown-icon {
+    transition: transform 0.2s ease;
+  }
+
+  .gb-language-toggle[aria-expanded="true"] .gb-dropdown-icon {
+    transform: rotate(180deg);
+  }
+
+  .gb-language-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: all 0.2s ease;
+    z-index: 100;
+    overflow: hidden;
+  }
+
+  .gb-language-dropdown.open .gb-language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .gb-language-option {
+    display: block;
+    padding: 8px 16px;
+    color: #2d2d2d;
+    font-family: 'Satoshi', system-ui, sans-serif;
+    font-size: 0.875rem;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .gb-language-option:hover {
+    background-color: rgba(59, 93, 59, 0.1);
+    text-decoration: none;
+  }
+
+  .gb-language-option.active {
+    color: #3b5d3b;
+    font-weight: 600;
+    background-color: rgba(59, 93, 59, 0.05);
+  }
+
+  /* Mobile styles */
+  @media (max-width: 1024px) {
+    .gb-nav-links {
+      gap: 1rem;
+    }
+
+    .gb-nav-actions {
+      margin-left: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .gb-menu-toggle {
+      display: flex;
+    }
+
+    .gb-nav-links {
+      position: fixed;
+      top: 72px;
+      right: 0;
+      width: 100vw;
+      height: calc(100vh - 72px);
+      max-height: calc(100vh - 72px);
+      background-color: #f5f1eb;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 2rem 1.5rem;
+      padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+      gap: 0;
+      transform: translateX(100vw);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .gb-nav-links.active {
+      transform: translateX(0);
+    }
+
+    /* Mobile menu overlay */
+    .gb-nav-links::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .gb-nav-links.active::before {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .gb-nav-link {
+      font-size: 1.125rem;
+      padding: 1rem 0;
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .gb-nav-link:last-of-type {
+      border-bottom: none;
+    }
+
+    .gb-nav-actions {
+      margin-left: 0;
+      margin-top: 2rem;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+
+    .gb-cta-button {
+      text-align: center;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    .gb-language-dropdown {
+      width: 100%;
+    }
+
+    .gb-language-toggle {
+      width: 100%;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+
+    .gb-language-menu {
+      position: static;
+      width: 100%;
+      box-shadow: none;
+      border: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 0;
+      margin-top: 0.5rem;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .gb-language-dropdown.open .gb-language-menu {
+      max-height: 200px;
+    }
+
+    .gb-language-option {
+      padding: 1rem 1.5rem;
+      border-radius: 0;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const menuToggle = document.querySelector(".gb-menu-toggle");
+    const navLinks = document.querySelector(".gb-nav-links");
+    const languageDropdown = document.querySelector(".gb-language-dropdown");
+    const languageToggle = document.querySelector(".gb-language-toggle");
+    const navLinkElements = document.querySelectorAll(".gb-nav-links .gb-nav-link");
+    const sections = document.querySelectorAll("section[id]");
+
+    // Menu toggle
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+        if (isOpen) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "";
+        }
+      });
+    }
+
+    // Language dropdown
+    if (languageToggle && languageDropdown) {
+      languageToggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const isOpen = languageDropdown.classList.toggle("open");
+        languageToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener("click", function (e) {
+      if (languageDropdown && !languageDropdown.contains(e.target)) {
+        languageDropdown.classList.remove("open");
+        if (languageToggle) {
+          languageToggle.setAttribute("aria-expanded", "false");
+        }
+      }
+
+      if (menuToggle && navLinks && !menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+        if (navLinks.classList.contains("active")) {
+          navLinks.classList.remove("active");
+          menuToggle.classList.remove("active");
+          menuToggle.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+        }
+      }
+    });
+
+    // Set active link based on section
+    function setActiveLink(id) {
+      navLinkElements.forEach((link) => {
+        const href = link.getAttribute("href");
+        if (href === `#${id}`) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    }
+
+    // Close mobile menu when clicking a link
+    navLinkElements.forEach(function (link) {
+      link.addEventListener("click", function () {
+        if (navLinks && navLinks.classList.contains("active")) {
+          navLinks.classList.remove("active");
+          if (menuToggle) {
+            menuToggle.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+          document.body.style.overflow = "";
+        }
+      });
+    });
+
+    // Scroll spy
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -60% 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  });
+</script>

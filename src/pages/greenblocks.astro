@@ -1,5 +1,8 @@
 ---
-import PageLayout from "../layouts/PageLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GreenblocksHeader from "../components/layout/GreenblocksHeader.astro";
+import Footer from "../components/layout/Footer.astro";
+import CookieNotice from "../components/features/CookieNotice.astro";
 import {
   Leaf,
   Building2,
@@ -19,7 +22,7 @@ import {
 const lang = "en";
 ---
 
-<PageLayout
+<BaseLayout
   title="Greenblocks by Aunova - Community Impact Infrastructure"
   description="The foundational infrastructure layer for sustainable, healthy, and living communities. Greenblocks enables a new way of living where environmental responsibility, healthy living, and human connection are embedded into how communities function."
   lang={lang}
@@ -27,20 +30,19 @@ const lang = "en";
   <link slot="head" rel="preload" as="font" type="font/woff2" href="/fonts/ClashDisplay-Semibold.woff2" crossorigin />
   <link slot="head" rel="preload" as="font" type="font/woff2" href="/fonts/Satoshi-Regular.woff2" crossorigin />
 
+  <GreenblocksHeader />
+
   <div class="gb-page">
     <!-- Section 1: Hero -->
     <section class="gb-hero">
       <!-- Background image -->
       <div class="gb-hero-bg">
-        <picture>
-          <source srcset="/images/greenblocks-hero.webp" type="image/webp" />
-          <img
-            src="/images/greenblocks-hero.png"
-            alt="Sustainable community visualization with green architecture and people"
-            class="gb-hero-bg-image"
-            loading="eager"
-          />
-        </picture>
+        <img
+          src="/images/greenblocks-hero.webp"
+          alt="Sustainable community visualization with green architecture and people"
+          class="gb-hero-bg-image"
+          loading="eager"
+        />
         <!-- Floating icons on the image -->
         <div class="gb-hero-icons">
           <div class="gb-hero-icon gb-hero-icon-1">
@@ -121,10 +123,7 @@ const lang = "en";
             </div>
 
             <div class="gb-problem-visual">
-              <picture>
-                <source srcset="/images/greenblocks-icons.webp" type="image/webp" />
-                <img src="/images/greenblocks-icons.png" alt="Community impact icons" class="gb-problem-image" />
-              </picture>
+              <img src="/images/greenblocks-icons.webp" alt="Community impact icons" class="gb-problem-image" />
               <div class="gb-problem-grid-overlay">
                 <span></span>
                 <span></span>
@@ -181,16 +180,13 @@ const lang = "en";
               </div>
 
               <div class="gb-shift-arrow-container">
-                <picture>
-                  <source srcset="/images/the-shift-arrow.webp" type="image/webp" />
-                  <img
-                    src="/images/the-shift-arrow.png"
-                    alt=""
-                    class="gb-shift-arrow-img"
-                    loading="lazy"
-                  />
-                </picture>
-              </div>
+              <img
+                src="/images/the-shift-arrow.webp"
+                alt=""
+                class="gb-shift-arrow-img"
+                loading="lazy"
+              />
+            </div>
 
               <div class="gb-shift-to">
                 <h3 class="gb-shift-column-title">To:</h3>
@@ -203,15 +199,12 @@ const lang = "en";
             </div>
 
             <div class="gb-shift-icons-row">
-              <picture>
-                <source srcset="/images/the-shift-icons.webp" type="image/webp" />
-                <img
-                  src="/images/the-shift-icons.png"
-                  alt="Understanding icons"
-                  class="gb-shift-icons-img"
-                  loading="lazy"
-                />
-              </picture>
+              <img
+                src="/images/the-shift-icons.webp"
+                alt="Understanding icons"
+                class="gb-shift-icons-img"
+                loading="lazy"
+              />
               <div class="gb-shift-icons-labels">
                 <span>how their actions<br />affect the planet</span>
                 <span>how their lifestyle affects<br />their own bodies</span>
@@ -246,15 +239,12 @@ const lang = "en";
           </p>
 
           <div class="gb-flow-chart">
-            <picture>
-              <source srcset="/images/flow-chart-infrastructure.webp" type="image/webp" />
-              <img
-                src="/images/Flow Part 4.png"
-                alt="Greenblocks infrastructure diagram showing Physical Environments, Environmental Systems, Human Behavior, and Institutional Frameworks connected through a shared community impact system"
-                class="gb-flow-chart-img"
-                loading="lazy"
-              />
-            </picture>
+            <img
+              src="/images/flow-chart-infrastructure.webp"
+              alt="Greenblocks infrastructure diagram showing Physical Environments, Environmental Systems, Human Behavior, and Institutional Frameworks connected through a shared community impact system"
+              class="gb-flow-chart-img"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -341,7 +331,9 @@ const lang = "en";
     </section>
 
   </div>
-</PageLayout>
+  <Footer />
+  <CookieNotice />
+</BaseLayout>
 
 <style>
 /* Greenblocks Fonts */
