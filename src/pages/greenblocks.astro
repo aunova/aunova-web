@@ -155,6 +155,84 @@ const lang = "en";
       </div>
     </section>
 
+    <!-- Section 3: The Shift -->
+    <section class="gb-section gb-shift-section" id="shift">
+      <div class="gb-container">
+        <div class="gb-reveal">
+          <div class="gb-shift-content">
+            <h2 class="gb-shift-title">The shift — From buildings to living communities</h2>
+            <p class="gb-shift-subtitle">From isolated living to conscious community life</p>
+
+            <p class="gb-text gb-text-centered">
+              Greenblocks exists to support a shift in how communities are designed and operated.
+            </p>
+
+            <div class="gb-shift-comparison">
+              <div class="gb-shift-from">
+                <h3 class="gb-shift-column-title">From:</h3>
+                <ul class="gb-shift-list">
+                  <li>buildings as assets</li>
+                  <li>sustainability as a label</li>
+                  <li>health as a personal responsibility</li>
+                </ul>
+              </div>
+
+              <div class="gb-shift-arrow-container">
+                <picture>
+                  <source srcset="/images/the-shift-arrow.webp" type="image/webp" />
+                  <img
+                    src="/images/the-shift-arrow.png"
+                    alt=""
+                    class="gb-shift-arrow-img"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
+
+              <div class="gb-shift-to">
+                <h3 class="gb-shift-column-title">To:</h3>
+                <ul class="gb-shift-list">
+                  <li>communities as living systems</li>
+                  <li>sustainability as infrastructure</li>
+                  <li>health and wellbeing as shared outcomes</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="gb-shift-icons-row">
+              <picture>
+                <source srcset="/images/the-shift-icons.webp" type="image/webp" />
+                <img
+                  src="/images/the-shift-icons.png"
+                  alt="Understanding icons"
+                  class="gb-shift-icons-img"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="gb-shift-icons-labels">
+                <span>how their actions<br />affect the planet</span>
+                <span>how their lifestyle affects<br />their own bodies</span>
+                <span>how the community<br />evolves as a whole</span>
+              </div>
+            </div>
+
+            <div class="gb-shift-footer">
+              <div class="gb-shift-footer-left">
+                <p class="gb-shift-footer-heading">A Greenblocks-enabled community is one where people can understand:</p>
+                <ul class="gb-shift-footer-list">
+                  <li>how their actions affect the planet</li>
+                  <li>how their lifestyle affects their own bodies</li>
+                </ul>
+              </div>
+              <div class="gb-shift-footer-right">
+                <p>Community is no longer just where you live.<br />It becomes something you participate in.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Section: The Solution -->
     <section class="gb-section gb-section-alt" id="solution">
       <div class="gb-container">
@@ -210,55 +288,6 @@ const lang = "en";
               How Greenblocks Works
               <ArrowRight size={18} />
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 3: The Shift -->
-    <section class="gb-section gb-section-alt" id="shift">
-      <div class="gb-container">
-        <div class="gb-reveal">
-          <span class="gb-label">The Transformation</span>
-          <h2 class="gb-heading">From isolated living to <span class="gb-highlight">conscious community life</span></h2>
-
-          <p class="gb-text" style="max-width: 800px;">
-            Greenblocks exists to support a shift in how communities are designed and operated.
-          </p>
-
-          <div class="gb-shift-grid">
-            <div class="gb-shift-card gb-shift-from">
-              <h3 class="gb-subheading" style="color: var(--gb-text-muted);">From</h3>
-              <ul class="gb-shift-list">
-                <li>buildings as assets</li>
-                <li>sustainability as a label</li>
-                <li>health as a personal responsibility</li>
-              </ul>
-            </div>
-
-            <div class="gb-shift-arrow">
-              <ArrowRight size={32} />
-            </div>
-
-            <div class="gb-shift-card gb-shift-to">
-              <h3 class="gb-subheading" style="color: var(--gb-accent);">To</h3>
-              <ul class="gb-shift-list gb-shift-list-accent">
-                <li>communities as living systems</li>
-                <li>sustainability as infrastructure</li>
-                <li>health and wellbeing as shared outcomes</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="gb-card" style="margin-top: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-            <p class="gb-card-text" style="text-align: center; color: var(--gb-text-primary);">
-              A Greenblocks-enabled community is one where people can understand:
-            </p>
-            <ul class="gb-feature-list" style="margin-top: 1.5rem;">
-              <li>how their actions affect the planet</li>
-              <li>how their lifestyle affects their own bodies</li>
-              <li>how the community evolves as a whole</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -1236,49 +1265,56 @@ const lang = "en";
   color: var(--gb-text-primary);
 }
 
-/* Shift Grid */
-.gb-shift-grid {
+/* The Shift Section */
+.gb-shift-section {
+  background: var(--gb-bg-secondary);
+}
+
+.gb-shift-content {
+  max-width: 100%;
+}
+
+.gb-shift-title {
+  font-family: var(--gb-font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--gb-text-primary);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.gb-shift-subtitle {
+  font-family: var(--gb-font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: var(--gb-text-muted);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.gb-shift-comparison {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .gb-shift-grid {
-    grid-template-columns: 1fr auto 1fr;
-    gap: 2rem;
-  }
-}
-
-.gb-shift-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  padding: 2rem;
-}
-
-.gb-shift-from {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.gb-shift-to {
-  border-color: rgba(125, 216, 125, 0.3);
-  background: rgba(125, 216, 125, 0.05);
-}
-
-.gb-shift-arrow {
-  display: flex;
+  grid-template-columns: auto 100px auto;
+  gap: 1.5rem;
+  margin: 2.5rem auto;
+  align-items: start;
   justify-content: center;
-  align-items: center;
-  color: var(--gb-accent);
+  max-width: 800px;
 }
 
-@media (max-width: 767px) {
-  .gb-shift-arrow {
-    transform: rotate(90deg);
-  }
+.gb-shift-column-title {
+  font-family: var(--gb-font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--gb-text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.gb-shift-from,
+.gb-shift-to {
+  padding: 0;
 }
 
 .gb-shift-list {
@@ -1287,20 +1323,198 @@ const lang = "en";
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .gb-shift-list li {
-  font-size: 1rem;
-  color: var(--gb-text-muted);
-  line-height: 1.5;
-  padding-left: 1rem;
-  border-left: 2px solid var(--gb-text-muted);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.6;
+  padding-left: 1.25rem;
+  position: relative;
 }
 
-.gb-shift-list-accent li {
+.gb-shift-list li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--gb-text-muted);
+  font-weight: 400;
+}
+
+.gb-shift-to .gb-shift-list li {
+  font-weight: 600;
+  color: var(--gb-text-primary);
+}
+
+.gb-shift-arrow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.gb-shift-arrow-img {
+  width: 100px;
+  height: auto;
+  opacity: 0.5;
+  transform: rotate(-90deg);
+}
+
+.gb-shift-icons-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0 2rem;
+  padding-top: 2rem;
+}
+
+.gb-shift-icons-img {
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+}
+
+.gb-shift-icons-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+}
+
+/* Dotted line connecting icons */
+.gb-shift-icons-labels::before {
+  content: '';
+  position: absolute;
+  top: -4.5rem;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  border-top: 2px dotted var(--gb-border);
+}
+
+.gb-shift-icons-labels span {
+  flex: 1;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-muted);
+  line-height: 1.6;
+  text-align: center;
+  max-width: 250px;
+}
+
+.gb-shift-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gb-border);
+}
+
+.gb-shift-footer-heading {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-primary);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.gb-shift-footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gb-shift-footer-list li {
+  font-size: clamp(0.9375rem, 1.25vw, 1rem);
   color: var(--gb-text-secondary);
-  border-left-color: var(--gb-accent);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.gb-shift-footer-list li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--gb-text-muted);
+}
+
+.gb-shift-footer-right p {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+@media (max-width: 768px) {
+  .gb-shift-comparison {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gb-shift-from,
+  .gb-shift-to {
+    text-align: left;
+  }
+
+  .gb-shift-arrow-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .gb-shift-arrow-img {
+    width: 80px;
+    transform: rotate(0deg);
+    opacity: 0.5;
+  }
+
+  .gb-shift-icons-row {
+    margin: 2rem 0 1.5rem;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .gb-shift-icons-img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .gb-shift-icons-labels {
+    max-width: 100%;
+    width: 100%;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .gb-shift-icons-labels::before {
+    display: none;
+  }
+
+  .gb-shift-icons-labels span {
+    font-size: 0.75rem;
+    flex: 1;
+    max-width: 100px;
+    line-height: 1.4;
+  }
+
+  .gb-shift-footer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* Layers */
