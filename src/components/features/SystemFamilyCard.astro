@@ -9,6 +9,8 @@ export interface Props {
   accentColor?: string;
   featured?: boolean;
   visualizationImage?: string;
+  ctaLink?: string;
+  ctaText?: string;
 }
 
 const {
@@ -21,6 +23,8 @@ const {
   accentColor = "var(--color-primary)",
   featured = false,
   visualizationImage,
+  ctaLink,
+  ctaText,
 } = Astro.props;
 
 const nameParts = name.split(" by ");
@@ -55,6 +59,12 @@ const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
         </ul>
 
         <p class="closing-line">{closingLine}</p>
+
+        {ctaLink && ctaText && (
+          <a href={ctaLink} class="card-cta">
+            {ctaText}
+          </a>
+        )}
       </div>
     </div>
 
@@ -172,8 +182,8 @@ const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
 
   .system-family-card.featured .visualization-column {
     position: absolute;
-    right: -6rem;
-    top: -10rem;
+    right: -9rem;
+    top: -13rem;
     width: clamp(200px, 45vw, 42rem);
     height: clamp(200px, 45vw, 42rem);
     min-height: auto;
@@ -268,6 +278,7 @@ const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
     color: var(--color-text);
     margin: 0;
     line-height: 1.5;
+    white-space: pre-line;
   }
 
   .description {
@@ -275,6 +286,7 @@ const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
     color: var(--color-text-muted);
     line-height: 1.7;
     margin: 0;
+    white-space: pre-line;
   }
 
   /* Integrated examples - no background box */
@@ -314,6 +326,29 @@ const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
     border-top: 1px solid
       color-mix(in srgb, var(--color-border) 50%, transparent);
     line-height: 1.6;
+  }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background-color: var(--accent);
+    color: white;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-top: var(--space-md);
+    width: fit-content;
+  }
+
+  .card-cta:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    text-decoration: none;
   }
 
   /* Visualization column */
