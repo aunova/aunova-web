@@ -1801,22 +1801,30 @@ const lang = "en";
 
 <script>
   // Intersection Observer for reveal animations
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -100px 0px',
-    threshold: 0.1
-  };
+  // Use astro:page-load to work with View Transitions
+  function initRevealAnimations() {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -100px 0px',
+      threshold: 0.1
+    };
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.gb-reveal').forEach(el => {
+      // Reset visibility state for elements that may have been cached
+      el.classList.remove('visible');
+      revealObserver.observe(el);
     });
-  }, observerOptions);
+  }
 
-  document.querySelectorAll('.gb-reveal').forEach(el => {
-    revealObserver.observe(el);
-  });
+  // Run on initial load and after view transitions
+  document.addEventListener('astro:page-load', initRevealAnimations);
 </script>

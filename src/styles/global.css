@@ -9,8 +9,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf")
-    format("truetype-variations");
+  src: url("/fonts/Inter-Variable.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -18,8 +17,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter-Italic-VariableFont_opsz,wght.ttf")
-    format("truetype-variations");
+  src: url("/fonts/Inter-Italic-Variable.woff2") format("woff2");
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
@@ -27,8 +25,7 @@
 
 @font-face {
   font-family: "Source Serif 4";
-  src: url("/fonts/SourceSerif4-VariableFont_opsz,wght.ttf")
-    format("truetype-variations");
+  src: url("/fonts/SourceSerif4-Variable.woff2") format("woff2");
   font-weight: 200 900;
   font-style: normal;
   font-display: swap;
@@ -36,8 +33,7 @@
 
 @font-face {
   font-family: "Source Serif 4";
-  src: url("/fonts/SourceSerif4-Italic-VariableFont_opsz,wght.ttf")
-    format("truetype-variations");
+  src: url("/fonts/SourceSerif4-Italic-Variable.woff2") format("woff2");
   font-weight: 200 900;
   font-style: italic;
   font-display: swap;
