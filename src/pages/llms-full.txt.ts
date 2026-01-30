@@ -1,4 +1,32 @@
-# Aunova
+import type { APIRoute } from "astro";
+import { getCollection } from "astro:content";
+
+export const GET: APIRoute = async () => {
+  // Get all blog posts
+  const blogPosts = await getCollection("blog", ({ data }) => !data.draft);
+
+  // Sort by date (newest first)
+  const sortedPosts = blogPosts.sort(
+    (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+  );
+
+  // Generate blog content summaries (remove en/ prefix and .mdx extension)
+  const blogContent = sortedPosts
+    .map((post) => {
+      const slug = post.id.replace(/^en\//, "").replace(/\.mdx?$/, "");
+      return `### ${post.data.title}
+
+**URL**: https://aunova.net/en/blog/${slug}
+**Published**: ${new Date(post.data.publishDate).toISOString().split("T")[0]}
+**Category**: ${post.data.category}
+${post.data.tags?.length ? `**Tags**: ${post.data.tags.join(", ")}` : ""}
+
+${post.data.description}
+`;
+    })
+    .join("\n---\n\n");
+
+  const content = `# Aunova
 
 > Aunova is a technology consultancy specializing in Zero-Knowledge proofs, Fully Homomorphic Encryption (FHE), AI & Web3 integration, and privacy-preserving infrastructure. We partner with institutions to build human- and planet-critical systems their future depends on.
 
@@ -238,30 +266,9 @@ Institutions must come together to build digital infrastructure that serves the 
 
 We are driven to build better systems because the future is our shared legacy.
 
-## Blog Topics
+## Blog Articles
 
-Our blog covers technical deep-dives and business insights across our focus areas:
-
-### Privacy & Cryptography
-- The Future of AI is Private: How privacy-preserving AI will transform industries
-- Medical Privacy with FHE: Protecting healthcare data while enabling analysis
-- AI That Never Sees Your Data: Confidential computing explained
-- Building a Quantum-Safe Future: Post-quantum cryptography and ML-DSA signatures
-
-### Blockchain Applications
-- Dubai Real Estate Blockchain Carbon Credits: Tokenized sustainability for luxury properties
-- Blockchain Gaming Revolution: Integrating blockchain into gaming ecosystems
-- Blockchain Logistics: Transforming supply chain transparency
-- E-CMR on Blockchain: Digital freight documentation
-
-### AI & Security
-- AI-Powered Security with Quantum Guardrails: Securing autonomous AI systems
-- Quantum-Safe Healthcare: Protecting medical systems from future threats
-- Disease Prediction with Delphi 2M: AI in healthcare diagnostics
-
-### Development & Efficiency
-- Hidden Cost of AI Development: How Clojure reduces development overhead
-- Blockchain Technology Trends: Industry direction and adoption patterns
+${blogContent}
 
 ## Privacy & Compliance
 
@@ -336,3 +343,13 @@ Spanish versions available at /es/ paths.
 ## Keywords
 
 zero knowledge proofs, zk-snarks, zk-starks, fully homomorphic encryption, FHE, blockchain ai integration, privacy preserving technology, web3 consulting, smart contract development, decentralized ai, federated learning, confidential computing, defi development, ethereum, layer 2, zk rollups, carbon credits, sustainability blockchain, tokenization, quantum-safe cryptography
+`;
+
+  return new Response(content, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, max-age=3600",
+    },
+  });
+};

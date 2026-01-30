@@ -1,4 +1,16 @@
-# Aunova
+import type { APIRoute } from "astro";
+import { getCollection } from "astro:content";
+
+export const GET: APIRoute = async () => {
+  // Get all blog posts
+  const blogPosts = await getCollection("blog", ({ data }) => !data.draft);
+
+  // Sort by date (newest first)
+  const sortedPosts = blogPosts.sort(
+    (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+  );
+
+  const content = `# Aunova
 
 > Aunova is a technology consultancy specializing in Zero-Knowledge proofs, Fully Homomorphic Encryption (FHE), AI & Web3 integration, and privacy-preserving infrastructure. We partner with institutions to build human- and planet-critical systems their future depends on.
 
@@ -74,26 +86,36 @@ We engage with organizations that:
 ## API
 
 - [Company Info API](https://aunova.net/api/company-info.json): Structured JSON-LD data about Aunova for programmatic access
+- [Full LLM Context](https://aunova.net/llms-full.txt): Complete content in single file for comprehensive AI consumption
 
 ## Blog Articles
 
-- [Introducing Aunova: ZK-AI Solutions](https://aunova.net/en/blog/introducing-aunova-zk-ai-solutions): Company introduction and vision
-- [The Future of AI is Private](https://aunova.net/en/blog/the-future-of-ai-is-private): Privacy-preserving AI overview
-- [Medical Privacy with FHE](https://aunova.net/en/blog/medical-privacy-fhe): Healthcare privacy solutions
-- [AI Never Sees Your Data](https://aunova.net/en/blog/impossible-became-reality-ai-never-sees-your-data): Confidential AI explained
-- [Quantum-Safe Healthcare](https://aunova.net/en/blog/quantum-safe-healthcare-gitex-2025): Post-quantum cryptography
-- [AI Security with Quantum Guardrails](https://aunova.net/en/blog/ai-powered-security-autonomous-agents-quantum-guardrails): AI security architecture
-- [Dubai Real Estate Blockchain Carbon Credits](https://aunova.net/en/blog/dubai-luxury-real-estate-blockchain-carbon-credits): Tokenized sustainability
-- [Blockchain Gaming Revolution](https://aunova.net/en/blog/blockchain-gaming-revolution-aunova): Gaming applications
-- [Building Quantum-Safe Future](https://aunova.net/en/blog/building-quantum-safe-future-ml-dsa-signatures): ML-DSA signatures
+${sortedPosts
+  .slice(0, 15)
+  .map((post) => {
+    const slug = post.id.replace(/^en\//, "").replace(/\.mdx?$/, "");
+    return `- [${post.data.title}](https://aunova.net/en/blog/${slug}): ${post.data.description.slice(0, 100)}${post.data.description.length > 100 ? "..." : ""}`;
+  })
+  .join("\n")}
 
 ## Optional
 
-- [Blockchain Logistics Insights](https://aunova.net/en/blog/blockchain-logistics-madrid-fair-insights): Supply chain applications
-- [Blockchain Payment Revolution](https://aunova.net/en/blog/blockchain-payment-revolution-supply-chain): Payment systems
-- [Carbon Negative Cement Dubai](https://aunova.net/en/blog/carbon-negative-cement-dubai-revolution): Sustainability tech
-- [Hidden Cost of AI Development](https://aunova.net/en/blog/hidden-cost-ai-development-clojure-savings): Development efficiency
-- [Delphi 2M AI Disease Prediction](https://aunova.net/en/blog/delphi-2m-ai-revolutionizing-disease-prediction): Healthcare AI
-- [Blockchain Technology Trends](https://aunova.net/en/blog/blockchain-technology-trends-2023): Industry trends
+${sortedPosts
+  .slice(15)
+  .map((post) => {
+    const slug = post.id.replace(/^en\//, "").replace(/\.mdx?$/, "");
+    return `- [${post.data.title}](https://aunova.net/en/blog/${slug})`;
+  })
+  .join("\n")}
 - [Spanish Homepage](https://aunova.net/es/): Spanish language version
 - [Spanish Services](https://aunova.net/es/services): Services in Spanish
+`;
+
+  return new Response(content, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, max-age=3600",
+    },
+  });
+};
