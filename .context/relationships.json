@@ -79,6 +79,606 @@
     "add-blog-images.js": {
       "language": "javascript"
     },
+    "src/components/FAQ.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "faqs",
+          "type": "variable",
+          "line": 2
+        },
+        {
+          "name": "faqSchema",
+          "type": "variable",
+          "line": 46
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/SEO.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "Props",
+          "type": "interface",
+          "line": 2
+        },
+        {
+          "name": "siteUrl",
+          "type": "variable",
+          "line": 22
+        },
+        {
+          "name": "fullImageUrl",
+          "type": "variable",
+          "line": 23
+        },
+        {
+          "name": "canonicalUrl",
+          "type": "variable",
+          "line": 24
+        },
+        {
+          "name": "organizationSchema",
+          "type": "variable",
+          "line": 27
+        },
+        {
+          "name": "websiteSchema",
+          "type": "variable",
+          "line": 47
+        },
+        {
+          "name": "articleSchema",
+          "type": "variable",
+          "line": 63
+        },
+        {
+          "name": "isServicePage",
+          "type": "variable",
+          "line": 90
+        },
+        {
+          "name": "serviceSchema",
+          "type": "variable",
+          "line": 91
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/SocialShare.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "Props",
+          "type": "interface",
+          "line": 2
+        },
+        {
+          "name": "shareUrl",
+          "type": "variable",
+          "line": 9
+        },
+        {
+          "name": "encodedUrl",
+          "type": "variable",
+          "line": 10
+        },
+        {
+          "name": "encodedTitle",
+          "type": "variable",
+          "line": 11
+        },
+        {
+          "name": "encodedDescription",
+          "type": "variable",
+          "line": 12
+        },
+        {
+          "name": "twitterUrl",
+          "type": "variable",
+          "line": 15
+        },
+        {
+          "name": "blueskyUrl",
+          "type": "variable",
+          "line": 16
+        },
+        {
+          "name": "linkedinUrl",
+          "type": "variable",
+          "line": 17
+        },
+        {
+          "name": "facebookUrl",
+          "type": "variable",
+          "line": 18
+        },
+        {
+          "name": "emailUrl",
+          "type": "variable",
+          "line": 19
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/Welcome.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/features/Announcement.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "Props",
+          "type": "interface",
+          "line": 2
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/features/CTABox.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "Props",
+          "type": "interface",
+          "line": 2
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/features/CookieNotice.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "currentLang",
+          "type": "variable",
+          "line": 4
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/features/CriteriaList.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "criteriaIcons",
+          "type": "variable",
+          "line": 12
+        },
+        {
+          "name": "CriteriaItem",
+          "type": "interface",
+          "line": 14
+        },
+        {
+          "name": "Props",
+          "type": "interface",
+          "line": 19
+        },
+        {
+          "name": "buttonLink",
+          "type": "variable",
+          "line": 36
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/features/PartnershipJourney.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "stepIcons",
+          "type": "variable",
+          "line": 10
+        },
+        {
+          "name": "Step",
+          "type": "interface",
+          "line": 12
+        },
+        {
+          "name": "Props",
+          "type": "interface",
+          "line": 18
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/features/ServicePillar.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "Props",
+          "type": "interface",
+          "line": 2
+        },
+        {
+          "name": "iconPaths",
+          "type": "variable",
+          "line": 13
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/features/SystemFamilyCard.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "Props",
+          "type": "interface",
+          "line": 2
+        },
+        {
+          "name": "nameParts",
+          "type": "variable",
+          "line": 30
+        },
+        {
+          "name": "mainName",
+          "type": "variable",
+          "line": 31
+        },
+        {
+          "name": "suffix",
+          "type": "variable",
+          "line": 32
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/layout/Footer.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "currentLang",
+          "type": "variable",
+          "line": 4
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "currentYear",
+          "type": "variable",
+          "line": 6
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/layout/GreenblocksHeader.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "currentLang",
+          "type": "variable",
+          "line": 4
+        },
+        {
+          "name": "pathname",
+          "type": "variable",
+          "line": 7
+        },
+        {
+          "name": "pathWithoutLang",
+          "type": "variable",
+          "line": 8
+        },
+        {
+          "name": "enUrl",
+          "type": "variable",
+          "line": 9
+        },
+        {
+          "name": "esUrl",
+          "type": "variable",
+          "line": 10
+        },
+        {
+          "name": "homeLink",
+          "type": "variable",
+          "line": 13
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/layout/Header.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "currentLang",
+          "type": "variable",
+          "line": 4
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "otherLang",
+          "type": "variable",
+          "line": 6
+        },
+        {
+          "name": "pathname",
+          "type": "variable",
+          "line": 9
+        },
+        {
+          "name": "pathWithoutLang",
+          "type": "variable",
+          "line": 12
+        },
+        {
+          "name": "enUrl",
+          "type": "variable",
+          "line": 15
+        },
+        {
+          "name": "esUrl",
+          "type": "variable",
+          "line": 16
+        },
+        {
+          "name": "homeLink",
+          "type": "variable",
+          "line": 19
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/ui/Badge.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "props",
+          "type": "variable",
+          "line": 4
+        },
+        {
+          "name": "variantClasses",
+          "type": "variable",
+          "line": 10
+        },
+        {
+          "name": "sizeClasses",
+          "type": "variable",
+          "line": 16
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/ui/BlogCard.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "props",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "formattedDate",
+          "type": "variable",
+          "line": 20
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/ui/BlogHero.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "props",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/ui/Button.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "props",
+          "type": "variable",
+          "line": 4
+        },
+        {
+          "name": "variantClasses",
+          "type": "variable",
+          "line": 12
+        },
+        {
+          "name": "sizeClasses",
+          "type": "variable",
+          "line": 18
+        },
+        {
+          "name": "Tag",
+          "type": "variable",
+          "line": 24
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/ui/PostHeader.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "props",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "formattedDate",
+          "type": "variable",
+          "line": 16
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/components/ui/Prose.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "props",
+          "type": "variable",
+          "line": 4
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
     "src/content/config.ts": {
       "language": "typescript",
       "exports": [
@@ -97,6 +697,116 @@
         }
       ]
     },
+    "src/layouts/BaseLayout.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "Props",
+          "type": "interface",
+          "line": 5
+        },
+        {
+          "name": "canonicalURL",
+          "type": "variable",
+          "line": 25
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/layouts/Layout.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/layouts/MarkdownLayout.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "Props",
+          "type": "interface",
+          "line": 5
+        },
+        {
+          "name": "metadata",
+          "type": "variable",
+          "line": 14
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/layouts/PageLayout.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "Props",
+          "type": "interface",
+          "line": 7
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/404.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "url",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 6
+        },
+        {
+          "name": "content",
+          "type": "variable",
+          "line": 8
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 25
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
     "src/pages/api/company-info.json.js": {
       "language": "javascript",
       "exports": [
@@ -106,6 +816,500 @@
         {
           "name": "GET",
           "type": "function",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/blog.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/blog.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 9
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 10
+        },
+        {
+          "name": "allPosts",
+          "type": "variable",
+          "line": 13
+        },
+        {
+          "name": "posts",
+          "type": "variable",
+          "line": 18
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/blog/[...slug].astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "getStaticPaths",
+          "type": "function",
+          "line": 12
+        },
+        {
+          "name": "post",
+          "type": "variable",
+          "line": 23
+        },
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 26
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 27
+        },
+        {
+          "name": "formattedDate",
+          "type": "variable",
+          "line": 30
+        },
+        {
+          "name": "words",
+          "type": "variable",
+          "line": 37
+        },
+        {
+          "name": "readingTime",
+          "type": "variable",
+          "line": 38
+        },
+        {
+          "name": "socialImage",
+          "type": "variable",
+          "line": 41
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/contact.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 6
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/index.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/privacy.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "currentLang",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 6
+        },
+        {
+          "name": "metadata",
+          "type": "variable",
+          "line": 8
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/services.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "services",
+          "type": "variable",
+          "line": 8
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/services/ai-web3.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 6
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/services/fhe.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 6
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/services/hybrid-zk-ai.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 6
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/services/infrastructure.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 6
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/services/zero-knowledge.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 6
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/en/terms.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "currentLang",
+          "type": "variable",
+          "line": 5
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 6
+        },
+        {
+          "name": "metadata",
+          "type": "variable",
+          "line": 8
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/es/contact.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/es/index.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/es/services.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/es/services/ai-web3.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/es/services/fhe.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/es/services/hybrid-zk-ai.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/es/services/infrastructure.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/es/services/zero-knowledge.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/greenblocks.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 22
+        },
+        {
+          "name": "default",
+          "type": "component",
+          "line": 1
+        }
+      ]
+    },
+    "src/pages/index.astro": {
+      "language": "astro",
+      "exports": [
+        "default"
+      ],
+      "defines": [
+        {
+          "name": "lang",
+          "type": "variable",
+          "line": 27
+        },
+        {
+          "name": "t",
+          "type": "variable",
+          "line": 28
+        },
+        {
+          "name": "principleIcons",
+          "type": "variable",
+          "line": 30
+        },
+        {
+          "name": "futureIcons",
+          "type": "variable",
+          "line": 31
+        },
+        {
+          "name": "whyIcons",
+          "type": "variable",
+          "line": 32
+        },
+        {
+          "name": "engageIcons",
+          "type": "variable",
+          "line": 33
+        },
+        {
+          "name": "default",
+          "type": "component",
           "line": 1
         }
       ]
@@ -218,6 +1422,11 @@
       "line": 218,
       "type": "type_alias"
     },
+    "CriteriaItem": {
+      "file": "src/components/features/CriteriaList.astro",
+      "line": 14,
+      "type": "interface"
+    },
     "DataCollectionKey": {
       "file": ".astro/content.d.ts",
       "line": 38,
@@ -237,6 +1446,11 @@
       "file": ".astro/content.d.ts",
       "line": 219,
       "type": "type_alias"
+    },
+    "Props": {
+      "file": "src/layouts/PageLayout.astro",
+      "line": 7,
+      "type": "interface"
     },
     "ReferenceContentEntry": {
       "file": ".astro/content.d.ts",
@@ -263,6 +1477,11 @@
       "line": 22,
       "type": "interface"
     },
+    "Step": {
+      "file": "src/components/features/PartnershipJourney.astro",
+      "line": 12,
+      "type": "interface"
+    },
     "TranslationKey": {
       "file": "src/utils/i18n.ts",
       "line": 579,
@@ -272,6 +1491,11 @@
       "file": "src/content/config.ts",
       "line": 19,
       "type": "variable"
+    },
+    "default": {
+      "file": "src/pages/index.astro",
+      "line": 1,
+      "type": "component"
     },
     "defaultLang": {
       "file": "src/utils/i18n.ts",
@@ -310,8 +1534,142 @@
       "path",
       "url"
     ],
+    "src/components/Welcome.astro": [
+      "../assets/astro.svg",
+      "../assets/background.svg"
+    ],
+    "src/components/features/CookieNotice.astro": [
+      "../../utils/i18n"
+    ],
+    "src/components/features/CriteriaList.astro": [
+      "./CTABox.astro",
+      "lucide-astro"
+    ],
+    "src/components/features/PartnershipJourney.astro": [
+      "./CTABox.astro",
+      "lucide-astro"
+    ],
+    "src/components/layout/Footer.astro": [
+      "../../utils/i18n"
+    ],
+    "src/components/layout/GreenblocksHeader.astro": [
+      "../../utils/i18n"
+    ],
+    "src/components/layout/Header.astro": [
+      "../../utils/i18n"
+    ],
+    "src/components/ui/Badge.astro": [
+      "zod"
+    ],
+    "src/components/ui/BlogCard.astro": [
+      "zod",
+      "./Badge.astro"
+    ],
+    "src/components/ui/BlogHero.astro": [
+      "zod",
+      "./Button.astro"
+    ],
+    "src/components/ui/Button.astro": [
+      "zod"
+    ],
+    "src/components/ui/PostHeader.astro": [
+      "zod",
+      "./Badge.astro"
+    ],
+    "src/components/ui/Prose.astro": [
+      "zod"
+    ],
     "src/content/config.ts": [
       "astro:content"
+    ],
+    "src/layouts/BaseLayout.astro": [
+      "../styles/global.css",
+      "../components/SEO.astro",
+      "astro:transitions"
+    ],
+    "src/layouts/MarkdownLayout.astro": [
+      "~/layouts/PageLayout.astro",
+      "~/components/common/Metadata.astro"
+    ],
+    "src/layouts/PageLayout.astro": [
+      "./BaseLayout.astro",
+      "../components/layout/Header.astro",
+      "../components/layout/Footer.astro",
+      "../components/features/CookieNotice.astro"
+    ],
+    "src/pages/404.astro": [
+      "../layouts/PageLayout.astro"
+    ],
+    "src/pages/en/blog.astro": [
+      "../../layouts/PageLayout.astro",
+      "astro:content",
+      "../../utils/i18n",
+      "../../components/ui/BlogHero.astro",
+      "../../components/ui/BlogCard.astro",
+      "../../styles/utilities.css"
+    ],
+    "src/pages/en/blog/[...slug].astro": [
+      "astro:content",
+      "../../../layouts/PageLayout.astro",
+      "../../../components/SocialShare.astro",
+      "../../../utils/i18n",
+      "../../../components/ui/PostHeader.astro",
+      "../../../components/ui/Prose.astro",
+      "../../../components/ui/Badge.astro",
+      "../../../components/ui/Button.astro",
+      "../../../styles/utilities.css"
+    ],
+    "src/pages/en/contact.astro": [
+      "../../layouts/PageLayout.astro",
+      "../../utils/i18n"
+    ],
+    "src/pages/en/privacy.astro": [
+      "../../layouts/PageLayout.astro",
+      "../../utils/i18n"
+    ],
+    "src/pages/en/services.astro": [
+      "../../layouts/PageLayout.astro",
+      "../../components/features/ServicePillar.astro"
+    ],
+    "src/pages/en/services/ai-web3.astro": [
+      "../../../layouts/PageLayout.astro",
+      "../../../utils/i18n"
+    ],
+    "src/pages/en/services/fhe.astro": [
+      "../../../layouts/PageLayout.astro",
+      "../../../utils/i18n"
+    ],
+    "src/pages/en/services/hybrid-zk-ai.astro": [
+      "../../../layouts/PageLayout.astro",
+      "../../../utils/i18n"
+    ],
+    "src/pages/en/services/infrastructure.astro": [
+      "../../../layouts/PageLayout.astro",
+      "../../../utils/i18n"
+    ],
+    "src/pages/en/services/zero-knowledge.astro": [
+      "../../../layouts/PageLayout.astro",
+      "../../../utils/i18n"
+    ],
+    "src/pages/en/terms.astro": [
+      "../../layouts/PageLayout.astro",
+      "../../utils/i18n"
+    ],
+    "src/pages/greenblocks.astro": [
+      "../layouts/BaseLayout.astro",
+      "../components/layout/GreenblocksHeader.astro",
+      "../components/layout/Footer.astro",
+      "../components/features/CookieNotice.astro",
+      "lucide-astro"
+    ],
+    "src/pages/index.astro": [
+      "../layouts/PageLayout.astro",
+      "../utils/i18n",
+      "../components/features/SystemFamilyCard.astro",
+      "../components/features/PartnershipJourney.astro",
+      "../components/features/CriteriaList.astro",
+      "../components/features/CTABox.astro",
+      "lucide-astro"
     ],
     "src/pages/rss.xml.js": [
       "@astrojs/rss",

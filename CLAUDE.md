@@ -1,10 +1,55 @@
 # CLAUDE.md - Aunova.net Website Rebuild Documentation
 
+## Codebase Index
+
+**Before exploring unfamiliar parts of the codebase, consult `.context/relationships.json`**
+
+This file contains:
+
+- **files**: Per-file breakdown of imports, exports, and defined symbols
+- **symbols**: Global symbol-to-location index (find any function/var instantly)  
+- **dependencyGraph**: Which files depend on which
+
+### Usage patterns
+
+1. **Finding where something is defined:**
+
+   ```
+   Look up "MyComponent" in symbols → gives you file + line number
+   ```
+
+2. **Understanding a file's dependencies:**
+
+   ```
+   Check files["src/views/main.cljs"].imports → see what it pulls in
+   ```
+
+3. **Impact analysis (what breaks if I change X):**
+
+   ```
+   Search dependencyGraph for files that import the target file
+   ```
+
+### Regenerating the index
+
+```bash
+# Manual
+go run tools/indexer/main.go -root . -out .context/relationships.json
+
+# Or it runs automatically on commit (see .git/hooks/post-commit)
+```
+
+## Tech Stack
+
+- **Frontend**: Vite + ClojureScript (shadow-cljs)
+- **Languages indexed**: .cljs, .clj, .cljc, .js, .ts, .jsx, .tsx
+
 ## Project Overview
 
 This document serves as the comprehensive guide for AI agents (Claude or other LLMs) working on the Aunova.net website rebuild. The project involves migrating from an older Astro-based site to a modern, performant, and privacy-focused web presence.
 
 ### Migration Context
+
 - **Source**: `aunova-old/` - Legacy Astro site with Tailwind CSS and telemetry
 - **Target**: `aunova-new/` - Modern Astro 5.x with minimal JavaScript
 - **Timeline**: Q3 2024
@@ -13,6 +58,7 @@ This document serves as the comprehensive guide for AI agents (Claude or other L
 ## Core Principles
 
 ### 1. Performance First
+
 - Minimize JavaScript usage - prefer CSS-only solutions
 - Static Site Generation (SSG) for all pages
 - System fonts only - no web font downloads
@@ -20,6 +66,7 @@ This document serves as the comprehensive guide for AI agents (Claude or other L
 - Target < 1s First Contentful Paint
 
 ### 2. Privacy by Design
+
 - Zero telemetry or tracking scripts
 - GDPR compliant from day one
 - No third-party cookies
@@ -27,6 +74,7 @@ This document serves as the comprehensive guide for AI agents (Claude or other L
 - Explicit consent for any data collection
 
 ### 3. AI & SEO Optimized
+
 - Structured data for AI crawlers
 - Semantic HTML5 markup
 - Clear content hierarchy
@@ -36,6 +84,7 @@ This document serves as the comprehensive guide for AI agents (Claude or other L
 ## Technical Architecture
 
 ### Stack
+
 ```
 - Runtime: Bun 1.2.21+
 - Framework: Astro 5.13.2+
@@ -46,6 +95,7 @@ This document serves as the comprehensive guide for AI agents (Claude or other L
 ```
 
 ### Dependencies Policy
+
 - **Minimal**: Only essential packages
 - **Verified**: Security audit all dependencies
 - **Tree-shakeable**: Prefer ES modules
@@ -101,6 +151,7 @@ aunova-new/
 ## Design System
 
 ### Color Palette
+
 ```css
 :root {
   --color-burgundy: #6c0001;    /* Primary brand color */
@@ -114,6 +165,7 @@ aunova-new/
 ```
 
 ### Typography
+
 ```css
 :root {
   --font-system: system-ui, -apple-system, BlinkMacSystemFont, 
@@ -125,6 +177,7 @@ aunova-new/
 ```
 
 ### Spacing Scale
+
 ```css
 :root {
   --space-xs: 0.25rem;   /* 4px */
@@ -140,12 +193,14 @@ aunova-new/
 ## Component Guidelines
 
 ### Astro Components
+
 1. **Props validation**: Use Zod schemas for complex props
 2. **Slots**: Prefer named slots for flexibility
 3. **Client directives**: Avoid unless absolutely necessary
 4. **Styling**: Use scoped styles or CSS modules
 
 Example pattern:
+
 ```astro
 ---
 import { z } from 'zod';
@@ -174,15 +229,18 @@ const props = z.object({
 ### CSS Modern Features
 
 #### Using attr() with CSS
+
 The CSS `attr()` function now supports advanced type casting and semantic attribute usage (Chrome 133+). This enables powerful dynamic styling directly from HTML attributes.
 
 **Basic Syntax:**
+
 ```css
 /* With type casting and fallback */
 property: attr(attribute-name type(<type>), fallback-value);
 ```
 
 **Available Types:**
+
 - `<angle>`: deg, turn, rad
 - `<color>`: named colors, rgb, hsl, oklch, etc.
 - `<custom-ident>`: custom identifiers for naming
@@ -196,6 +254,7 @@ property: attr(attribute-name type(<type>), fallback-value);
 - `<transform-function>`: rotate(), scale(), etc.
 
 **Dynamic Color Values:**
+
 ```css
 /* Product cards with dynamic colors */
 [data-color] {
@@ -205,6 +264,7 @@ property: attr(attribute-name type(<type>), fallback-value);
 ```
 
 **Star Rating System:**
+
 ```css
 /* Convert rating (0-5) to percentage fill */
 .star-rating {
@@ -218,6 +278,7 @@ property: attr(attribute-name type(<type>), fallback-value);
 ```
 
 **Grid Placement:**
+
 ```css
 /* Dynamic grid positioning */
 .grid-item {
@@ -227,6 +288,7 @@ property: attr(attribute-name type(<type>), fallback-value);
 ```
 
 **Anchor Positioning:**
+
 ```css
 /* Popover anchoring with custom identifiers */
 .menu {
@@ -243,11 +305,13 @@ property: attr(attribute-name type(<type>), fallback-value);
 ```
 
 **Security Limitations:**
+
 - Cannot use with `url()` or image functions
 - Cannot be "laundered" through custom properties
 - No support for background-image or src attributes
 
 #### Container Queries
+
 ```css
 .card {
   container-type: inline-size;
@@ -262,6 +326,7 @@ property: attr(attribute-name type(<type>), fallback-value);
 ```
 
 #### CSS Grid Subgrid
+
 ```css
 .service-pillars {
   display: grid;
@@ -281,30 +346,35 @@ property: attr(attribute-name type(<type>), fallback-value);
 ### Service Pillars Content
 
 #### 1. Zero-Knowledge & Privacy Tooling
+
 - zkSNARKs/zkSTARKs implementation
 - Privacy-preserving smart contracts
 - Anonymous credential systems
 - Confidential computing solutions
 
 #### 2. Generative AI + Web3 Integration
+
 - On-chain AI model deployment
 - Decentralized AI inference
 - NFT generation with AI
 - DAO governance automation
 
 #### 3. Hybrid ZK-AI Applications
+
 - Privacy-preserving machine learning
 - Federated learning on blockchain
 - Confidential AI computations
 - Verifiable AI outputs
 
 #### 4. Decentralized Infrastructure & Dev Tools
+
 - Smart contract development frameworks
 - Blockchain testing suites
 - DApp deployment pipelines
 - Cross-chain integration tools
 
 ### Blog Migration
+
 - Preserve URL structure for SEO
 - Update metadata and excerpts
 - Enhance content quality
@@ -312,6 +382,7 @@ property: attr(attribute-name type(<type>), fallback-value);
 - Implement related posts
 
 #### Published Blog Posts
+
 - **2025-12-05**: "Why Dubai Luxury Real Estate Needs Blockchain Carbon Credits" (en)
   - Topic: Blockchain carbon credits for luxury real estate
   - Service pillars: Zero-Knowledge & Privacy, Web3 Integration, Hybrid ZK-AI, Decentralized Infrastructure
@@ -321,6 +392,7 @@ property: attr(attribute-name type(<type>), fallback-value);
 ## i18n Implementation
 
 ### Language Structure
+
 ```
 /en/          - English routes
 /es/          - Spanish routes
@@ -328,6 +400,7 @@ property: attr(attribute-name type(<type>), fallback-value);
 ```
 
 ### Translation Keys
+
 ```typescript
 // src/utils/i18n.ts
 export const translations = {
@@ -353,6 +426,7 @@ export const translations = {
 ```
 
 ### Language Persistence
+
 ```typescript
 // src/stores/language.ts
 import { create } from 'zustand';
@@ -374,6 +448,7 @@ export const useLanguageStore = create(
 ## SEO & AI Visibility
 
 ### Meta Tags Template
+
 ```astro
 ---
 const { title, description, image } = Astro.props;
@@ -389,6 +464,7 @@ const { title, description, image } = Astro.props;
 ```
 
 ### Structured Data
+
 ```astro
 <script type="application/ld+json">
 {
@@ -412,6 +488,7 @@ const { title, description, image } = Astro.props;
 ## GDPR Compliance
 
 ### Cookie Notice Component
+
 ```astro
 ---
 // CookieNotice.astro
@@ -434,6 +511,7 @@ const { title, description, image } = Astro.props;
 ```
 
 ### Privacy Policy Requirements
+
 - Data collection disclosure
 - Third-party services listing
 - User rights explanation
@@ -443,6 +521,7 @@ const { title, description, image } = Astro.props;
 ## Performance Checklist
 
 ### Build Optimization
+
 - [ ] Enable Astro compression
 - [ ] Minify HTML/CSS/JS
 - [ ] Generate sitemap
@@ -451,6 +530,7 @@ const { title, description, image } = Astro.props;
 - [ ] Implement critical CSS
 
 ### Runtime Performance
+
 - [ ] Lazy load images
 - [ ] Defer non-critical scripts
 - [ ] Use CSS containment
@@ -461,6 +541,7 @@ const { title, description, image } = Astro.props;
 ## Testing Guidelines
 
 ### Accessibility
+
 - WCAG 2.1 Level AA compliance
 - Keyboard navigation support
 - Screen reader compatibility
@@ -469,12 +550,14 @@ const { title, description, image } = Astro.props;
 - ARIA labels
 
 ### Cross-browser
+
 - Chrome/Edge (latest)
 - Firefox (latest)
 - Safari (latest 2 versions)
 - Mobile browsers
 
 ### Performance Metrics
+
 - Lighthouse score > 95
 - First Contentful Paint < 1s
 - Time to Interactive < 2s
@@ -483,11 +566,13 @@ const { title, description, image } = Astro.props;
 ## Deployment Notes
 
 ### Build Command
+
 ```bash
 bun run build
 ```
 
 ### Environment Variables
+
 ```env
 PUBLIC_SITE_URL=https://aunova.net
 PUBLIC_CAL_LINK=https://cal.com/ngmisl/aunova
@@ -495,6 +580,7 @@ PUBLIC_BLUESKY_URL=https://bsky.app/profile/aunova.net
 ```
 
 ### Static Hosting
+
 - Netlify/Vercel recommended
 - Enable compression
 - Set cache headers
@@ -503,6 +589,7 @@ PUBLIC_BLUESKY_URL=https://bsky.app/profile/aunova.net
 ## Common Patterns
 
 ### Responsive Images
+
 ```astro
 <picture>
   <source srcset="/images/hero.webp" type="image/webp">
@@ -511,6 +598,7 @@ PUBLIC_BLUESKY_URL=https://bsky.app/profile/aunova.net
 ```
 
 ### Dynamic Styles with CSS Variables
+
 ```astro
 ---
 const { color } = Astro.props;
@@ -529,6 +617,7 @@ const { color } = Astro.props;
 ### Advanced attr() Patterns
 
 #### Service Pillar Cards with Dynamic Colors
+
 ```astro
 ---
 // ServicePillar.astro
@@ -554,6 +643,7 @@ const { title, icon, color } = Astro.props;
 ```
 
 #### Dynamic Grid Layout for Blog Cards
+
 ```astro
 ---
 // BlogCard.astro with priority-based grid placement
@@ -581,6 +671,7 @@ const { priority, featured } = Astro.props;
 ```
 
 #### Theme-aware Components
+
 ```astro
 ---
 // Component with theme data attributes
@@ -604,6 +695,7 @@ const { priority, featured } = Astro.props;
 ```
 
 ### Conditional Rendering
+
 ```astro
 ---
 const { showCTA } = Astro.props;
@@ -618,12 +710,14 @@ const { showCTA } = Astro.props;
 ## Troubleshooting
 
 ### Common Issues
+
 1. **Build failures**: Check Node/Bun version compatibility
 2. **Style conflicts**: Ensure CSS custom properties are defined
 3. **i18n routing**: Verify language detection logic
 4. **Image optimization**: Confirm WebP support and fallbacks
 
 ### Debug Mode
+
 ```javascript
 // astro.config.mjs
 export default defineConfig({

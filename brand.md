@@ -40,7 +40,7 @@
 ### System Family
 | Color | Hex | Usage |
 |-------|-----|-------|
-| GreenBlocks | `#3b8f5a` | Environmental accent (subtle) |
+| Greenblocks | `#3b8f5a` | Environmental accent (subtle) |
 
 ## Design Principles
 
