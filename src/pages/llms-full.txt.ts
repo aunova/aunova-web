@@ -97,51 +97,6 @@ Compute on encrypted data without ever decrypting it.
 
 **Use Cases:** Healthcare data analysis without exposure, financial computations on encrypted portfolios, private machine learning
 
-### AI & Web3 Integration
-
-Bridging artificial intelligence with blockchain for intelligent decentralized applications.
-
-**Capabilities:**
-- On-chain AI model deployment
-- Decentralized inference networks
-- AI-powered smart contracts
-- Machine learning oracles
-- Tokenized AI marketplaces
-- Verifiable AI outputs
-- Autonomous agent systems
-
-**Technologies:** TensorFlow, PyTorch, ONNX, Federated Learning, Smart Contract Integration
-
-### Hybrid ZK-AI Solutions
-
-Combining zero-knowledge proofs with AI for confidential machine learning and federated learning.
-
-**Capabilities:**
-- Privacy-preserving machine learning
-- Federated learning on blockchain
-- Confidential AI computations
-- Verifiable AI outputs
-- ZK-wrapped ML models
-- Private model training and inference
-
-### Infrastructure & Dev Tools
-
-Building enterprise-grade infrastructure and development tools for decentralized applications.
-
-**Capabilities:**
-- Smart contract development and auditing
-- DApp development frameworks
-- Protocol design
-- Cross-chain solutions
-- Gas optimization
-- Security audits
-- ZK circuit development tools
-- SDK development
-- Node infrastructure
-
-**Blockchain Platforms:** Ethereum, Polygon, Arbitrum, StarkNet, zkSync, Optimism
-**Languages:** Solidity, Rust, Cairo, TypeScript, Python, Go, Clojure
-**Frameworks:** Hardhat, Foundry, Circom, Noir
 
 ## Technical Expertise
 
@@ -329,9 +284,6 @@ Returns structured JSON-LD data including:
 - Services Overview: https://aunova.net/en/services
 - Zero-Knowledge Services: https://aunova.net/en/services/zero-knowledge
 - FHE Services: https://aunova.net/en/services/fhe
-- AI & Web3 Services: https://aunova.net/en/services/ai-web3
-- Hybrid ZK-AI: https://aunova.net/en/services/hybrid-zk-ai
-- Infrastructure: https://aunova.net/en/services/infrastructure
 - Greenblocks: https://aunova.net/greenblocks
 - Blog: https://aunova.net/en/blog
 - Contact: https://aunova.net/en/contact

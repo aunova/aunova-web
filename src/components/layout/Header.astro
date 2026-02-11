@@ -37,15 +37,15 @@ const homeLink = currentLang === "es" ? "/es" : "/";
     </button>
 
     <div class="nav-links">
-      <a href="#different-company" class="nav-link">About</a>
-      <a href={`/#system-families`} class="nav-link"
-        >System Families</a
+      <a href={`${homeLink}#different-company`} class="nav-link">{t.nav.about}</a>
+      <a href={`${homeLink}#system-families`} class="nav-link"
+        >{t.nav.systemFamilies}</a
       >
-      <a href={`/#partnership`} class="nav-link"
-        >Our Partnership Model</a
+      <a href={`${homeLink}#partnership`} class="nav-link"
+        >{t.nav.howWePartner}</a
       >
-      <a href={`/#why-aunova`} class="nav-link"
-        >Why Aunova Exists</a
+      <a href={`${homeLink}#why-aunova`} class="nav-link"
+        >{currentLang === "es" ? "Por qué existe Aunova" : "Why Aunova Exists"}</a
       >
 
       <div class="nav-actions">
@@ -55,7 +55,7 @@ const homeLink = currentLang === "es" ? "/es" : "/";
           target="_blank"
           rel="noopener noreferrer"
         >
-          Begin a Strategic Conversation
+          {t.hero.cta.primary}
         </a>
 
         <div class="language-dropdown">
@@ -68,6 +68,9 @@ const homeLink = currentLang === "es" ? "/es" : "/";
           <div class="language-menu">
             <a href={enUrl} class:list={["language-option", { active: currentLang === "en" }]}>
               EN
+            </a>
+            <a href={esUrl} class:list={["language-option", { active: currentLang === "es" }]}>
+              ES
             </a>
           </div>
         </div>

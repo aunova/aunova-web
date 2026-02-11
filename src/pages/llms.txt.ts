@@ -74,9 +74,6 @@ We engage with organizations that:
 - [Services](https://aunova.net/en/services): Overview of all service offerings
 - [Zero-Knowledge Services](https://aunova.net/en/services/zero-knowledge): ZK proof implementation details
 - [FHE Services](https://aunova.net/en/services/fhe): Fully Homomorphic Encryption offerings
-- [AI & Web3 Services](https://aunova.net/en/services/ai-web3): AI blockchain integration services
-- [Hybrid ZK-AI Services](https://aunova.net/en/services/hybrid-zk-ai): Combined ZK and AI solutions
-- [Infrastructure Services](https://aunova.net/en/services/infrastructure): Dev tools and infrastructure
 - [Greenblocks](https://aunova.net/greenblocks): Community impact infrastructure initiative
 - [Contact](https://aunova.net/en/contact): Partnership inquiry form
 - [Blog](https://aunova.net/en/blog): Technical articles and insights

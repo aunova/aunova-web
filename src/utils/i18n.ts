@@ -304,80 +304,80 @@ export const translations = {
     nav: {
       home: "Inicio",
       systemFamilies: "Familias de Sistemas",
-      partnership: "Asociación",
-      about: "Nosotros",
+      partnership: "Alianzas",
+      about: "Sobre nosotros",
       blog: "Blog",
       contact: "Contacto",
-      howWePartner: "Cómo nos asociamos",
-      whoWePartnerWith: "Con quién nos asociamos",
+      howWePartner: "Cómo trabajamos",
+      whoWePartnerWith: "Nuestros socios",
     },
     hero: {
       title:
-        "Nos asociamos con instituciones para construir los sistemas críticos para humanos y el planeta de los que depende su futuro.",
+        "Colaboramos con instituciones para construir los sistemas críticos de los que dependen el futuro de la sociedad y del planeta.",
       subtitle:
-        "No somos un proveedor de software. Somos socios de sistemas a largo plazo, co-construyendo infraestructura digital fundamental para dominios donde el fracaso tiene consecuencias reales para humanos o el medio ambiente.",
+        "Más que un proveedor de software, actuamos como socios de sistemas a largo plazo, co-creando infraestructura digital esencial en ámbitos donde las decisiones tecnológicas tienen consecuencias reales para la sociedad y el medio ambiente.",
       supportingLine:
-        "Trabajamos con un pequeño número de organizaciones alineadas para diseñar sistemas que protejan a las personas, respeten el planeta y perduren.",
+        "Trabajamos con un número reducido de organizaciones alineadas con nuestra visión para diseñar sistemas que protejan a las personas, respeten el planeta y perduren en el tiempo.",
       cta: {
         primary: "Iniciar una Conversación Estratégica",
-        secondary: "Explorar nuestro modelo de asociación",
+        secondary: "Explorar nuestro modelo de colaboración",
       },
     },
     differentCompany: {
-      title: "Una Empresa de Tecnología Diferente",
+      title: "Una empresa tecnológica diferente",
       body: [
-        "Aunova existe para asociarse con empresas e instituciones con visión de futuro para diseñar y construir sistemas fundamentales de confianza, sostenibilidad y responsabilidad.",
-        "Trabajamos en dominios donde la tecnología da forma directamente al bienestar humano y los resultados planetarios. Nuestro papel no es entregar características, sino co-crear la infraestructura a largo plazo de la que dependerán nuestros socios y sus ecosistemas.",
-        "Nos comprometemos selectivamente, construimos para décadas y diseñamos sistemas destinados a convertirse en capas compartidas dentro de los mundos a los que sirven.",
+          "Aunova existe para colaborar con empresas e instituciones visionarias en el diseño y construcción de sistemas fundamentales basados en confianza, sostenibilidad y responsabilidad.",
+          "Trabajamos en ámbitos donde la tecnología influye directamente en el bienestar de las personas y en los resultados ambientales. Nuestro papel no es entregar funcionalidades, sino co-crear la infraestructura a largo plazo de la que dependerán nuestros socios y sus ecosistemas.",
+          "Nos comprometemos de forma selectiva, construimos pensando en décadas y diseñamos sistemas destinados a convertirse en capas compartidas dentro de los entornos a los que sirven.",
       ],
       callout:
-        "Nuestra primera iniciativa de asociación de sistemas se enfoca en infraestructura ambiental y de sostenibilidad para el mundo construido.",
+        "Nuestra primera iniciativa de colaboración sistémica se centra en infraestructura ambiental y de sostenibilidad para el sector de la edificación y las ciudades.",
       principles: [
         {
-          title: "Enfoque crítico para humanos y el planeta",
-          description: "Nuestro trabajo impacta a las personas y el medio ambiente.",
+          title: "Enfoque crítico para las personas y el planeta",
+          description: "Nuestro trabajo tiene impacto directo en las personas y el medio ambiente.",
         },
         {
           title: "Sistemas a largo plazo, no productos a corto plazo",
-          description: "Diseñamos para décadas, no trimestres.",
+          description: "Diseñamos para décadas, no para trimestres.",
         },
         {
-          title: "Asociación sobre relaciones de proveedor",
-          description: "Co-construimos, no solo vendemos.",
+          title: "Colaboración por encima de la relación proveedor-cliente",
+          description: "Co-creamos, no solo vendemos.",
         },
         {
           title: "Selectividad y colaboración de alta confianza",
-          description: "Elegimos nuestros socios cuidadosamente.",
+          description: "Elegimos a nuestros socios con rigor y cuidado.",
         },
         {
-          title: "Relevancia a largo plazo",
-          description: "Valor duradero, no tendencias desechables.",
+          title: "Relevancia duradera",
+          description: "Valor que perdura, no tendencias pasajeras.",
         },
         {
-          title: "Impacto real y medible en el mundo",
-          description: "Éxito medido en adopción y resultados.",
+          title: "Impacto real y medible",
+          description: "El éxito se mide por la adopción y los resultados en el mundo real.",
         },
       ],
     },
     systemFamilies: {
-      title: "Familias de Sistemas que Desarrollamos con Socios",
+      title: "Familias de sistemas que desarrollamos con nuestros socios",
       intro:
-        "Aunova construye familias de sistemas diseñados para convertirse en capas de infraestructura compartida dentro de los ecosistemas a los que sirven. Cada familia de sistemas se desarrolla a través de asociaciones a largo plazo y aborda una necesidad humana o planetaria central.",
+        "Aunova construye familias de sistemas diseñadas para convertirse en capas de infraestructura compartida dentro de los ecosistemas a los que sirven. Cada familia de sistemas se desarrolla a través de colaboraciones a largo plazo y responde a una necesidad fundamental de las personas o del planeta.",
       sustainability: {
-        name: "Sistemas Ambientales y de Sostenibilidad",
-        category: "Infraestructura Ambiental y de Sostenibilidad",
+        name: "Sistemas ambientales y de sostenibilidad",
+        category: "Infraestructura ambiental y de sostenibilidad",
         tagline:
-          "La capa de datos verificables y responsabilidad para comunidades y activos sostenibles.",
+          "La capa de datos verificables y de responsabilidad para comunidades y activos sostenibles.",
         description:
-          "Estamos asociándonos con organizaciones con visión de futuro para convertir los compromisos de sostenibilidad en realidades medibles, responsables y económicamente significativas.",
+          "Estamos colaborando con organizaciones visionarias para transformar los compromisos de sostenibilidad en resultados medibles, responsables y con impacto económico real.",
         examples: [
           "Datos verificados de sostenibilidad e impacto ambiental en activos y operaciones",
-          "Infraestructuras de informes ESG y ambientales responsables",
-          "Sistemas de incentivos que recompensan financieramente la acción sostenible demostrable",
-          "Nuevos modelos económicos y operativos impulsados por datos ambientales confiables",
+          "Infraestructura de reporte ESG y ambiental con trazabilidad y responsabilidad",
+          "Sistemas de incentivos que recompensan económicamente la acción sostenible demostrable",
+          "Nuevos modelos económicos y operativos basados en datos ambientales confiables",
         ],
         closingLine:
-          "Esta familia de sistemas representa nuestro modelo de asociación: una ambición compartida de construir sistemas ambientales fundamentales que puedan perdurar durante décadas.",
+          "Esta familia de sistemas refleja nuestro modelo de colaboración: una ambición compartida para construir sistemas ambientales fundamentales capaces de perdurar durante décadas.",
       },
       future: {
         title: "Futuras familias de sistemas (en desarrollo)",
@@ -391,137 +391,146 @@ export const translations = {
       },
     },
     partnership: {
-      title: "De Visión Compartida a Infraestructura Compartida",
+      title: "De visión compartida a infraestructura compartida",
       intro:
-        "No comenzamos con documentos de requisitos. Comenzamos con alineación estratégica. Nuestras asociaciones son a largo plazo, selectivas y estructuradas en torno a la construcción de sistemas que se convierten en activos compartidos.",
-      stepsTitle: "El viaje de asociación",
+        "No empezamos con documentos de requisitos. Empezamos con alineación estratégica. Nuestras colaboraciones son a largo plazo, selectivas y se estructuran en torno a la construcción de sistemas que se convierten en activos compartidos.",
+
+      stepsTitle: "El viaje de colaboración",
+
       steps: [
         {
           number: 1,
-          title: "Alineación Estratégica",
+          title: "Alineación estratégica",
           description:
-            "Evaluamos las implicaciones humanas y planetarias, la relevancia a largo plazo y la necesidad a nivel de sistema.",
+            "Analizamos conjuntamente las implicaciones para las personas y el planeta, la relevancia a largo plazo y la necesidad a nivel de sistema.",
         },
         {
           number: 2,
-          title: "Co-Diseño",
+          title: "Co-diseño",
           description:
-            "Definimos juntos la ambición del sistema — su rol, responsabilidades y arquitectura a largo plazo.",
+            "Definimos juntos la ambición del sistema: su propósito, responsabilidades y arquitectura a largo plazo.",
         },
         {
           number: 3,
-          title: "Prueba de Necesidad",
+          title: "Prueba de concepto (PoC)",
           description:
             "Construimos un prototipo funcional y enfocado para validar el valor central y la lógica del sistema.",
         },
         {
           number: 4,
-          title: "Desarrollo del Sistema",
+          title: "Desarrollo del sistema",
           description:
-            "Escalamos el prototipo a infraestructura de grado de producción, lista para el ecosistema.",
+            "Escalamos el prototipo hasta convertirlo en infraestructura de grado productivo, lista para integrarse en el ecosistema.",
         },
         {
           number: 5,
-          title: "Alianza a Largo Plazo",
+          title: "Colaboración a largo plazo",
           description:
             "Evolucionamos, gobernamos y mantenemos el sistema como un activo compartido y duradero.",
         },
       ],
+
       callout:
-        "Nos comprometemos deliberadamente con un número limitado de socios fundadores por familia de sistemas para proteger la profundidad, la responsabilidad y la integridad del sistema.",
+        "Nos comprometemos de forma deliberada con un número limitado de socios fundadores por familia de sistemas para proteger la profundidad, la responsabilidad y la integridad del sistema.",
     },
     partnerCriteria: {
-      title: "¿Es Este Modelo de Asociación Adecuado para Usted?",
-      intro: "Aunova se asocia con organizaciones que:",
+      title: "¿Es este modelo de colaboración adecuado para ti?",
+      intro: "Aunova colabora con organizaciones que:",
       criteria: [
-        "construyen para horizontes de 10+ años",
-        "operan en dominios con impacto real humano o ambiental",
+        "construyen pensando en horizontes de 10 años o más",
+        "operan en ámbitos con impacto real en la sociedad o el medio ambiente",
         "buscan co-crear infraestructura, no comprar software",
-        "están dispuestas a invertir en sistemas y responsabilidad compartidos",
-        "valoran la confianza a largo plazo sobre la entrega a corto plazo",
+        "están dispuestas a invertir en sistemas y asumir responsabilidad compartida",
+        "priorizan la confianza a largo plazo frente a la entrega a corto plazo",
       ],
       boundary:
-        "No somos el socio adecuado para proyectos a corto plazo, fábricas de funcionalidades o soluciones cosméticas.",
+        "No somos el socio adecuado para proyectos a corto plazo, fábricas de funcionalidades o soluciones puramente cosméticas.",
       closingStatement: "Construimos para el largo plazo.",
     },
+
     whyAunova: {
-      title: "Por Qué Existe Este Modelo",
+      title: "Por qué existe este modelo",
       intro: [
-        "Los sistemas de los que depende el futuro—ambientales, de identidad, inteligentes—no se construirán a través de proyectos puntuales o proveedores únicos.",
-        "Las instituciones deben unirse para construir infraestructura digital que sirva al bien común y sea administrada a largo plazo.",
+        "Los sistemas de los que depende el futuro -ambientales, de identidad e inteligentes— no se construirán mediante proyectos puntuales ni a través de proveedores aislados.",
+        "Las instituciones deben unirse para construir infraestructura digital que sirva al bien común y sea gestionada con visión de largo plazo.",
       ],
       cards: [
         {
-          title: "Responsabilidad Sobre Rentismo",
-          description: "Co-poseemos plataformas críticas con instituciones alineadas, no construimos esquemas de dependencia propietaria.",
+          title: "Responsabilidad por encima del rentismo",
+          description:
+            "Co-poseemos plataformas críticas con instituciones alineadas, en lugar de crear dependencias propietarias.",
         },
         {
-          title: "Sistemas Que Nos Sobrevivan",
-          description: "Asociaciones verdaderas que planifican en décadas, no en trimestres.",
+          title: "Sistemas que nos trascienden",
+          description:
+            "Verdaderas colaboraciones pensadas en décadas, no en trimestres.",
         },
         {
-          title: "Compromiso Personal",
-          description: "Nuestro equipo invierte personalmente en los dominios y comunidades a los que servimos.",
+          title: "Compromiso personal",
+          description:
+            "Nuestro equipo se involucra personalmente en los ámbitos y comunidades a las que servimos.",
         },
       ],
-      closing: "Nos impulsa construir mejores sistemas porque el futuro es nuestro legado compartido.",
+      closing:
+        "Nos mueve construir mejores sistemas porque el futuro es nuestro legado compartido.",
       cta: {
-        title: "Inicia una Conversación Sobre Co-Creación",
-        description: "Contáctanos si estás listo para discutir la co-definición y propiedad de infraestructura que importa.",
-        button: "Explora una Asociación de Sistemas",
+        title: "Inicia una conversación sobre co-creación",
+        description:
+          "Contáctanos si estás listo para discutir la co-definición y la propiedad compartida de infraestructura que realmente importa.",
+        button: "Explorar una colaboración de sistemas",
       },
     },
     engagementCards: {
-      sectionTitle: "Inicia una Discusión Estratégica",
+      sectionTitle: "Inicia una conversación estratégica",
       subtitles: [
-        "¿Está su institución comprometida con la construcción de infraestructura a largo plazo?",
+        "¿Está tu institución comprometida con construir infraestructura a largo plazo?",
         "Exploremos juntos lo que es posible.",
       ],
       cards: [
         {
-          title: "Agendar una Llamada",
-          description: "Reserve una consulta para discutir su visión.",
-          button: "Agendar Llamada",
+          title: "Agendar una llamada",
+          description: "Reserva una conversación para compartir tu visión.",
+          button: "Agendar llamada",
         },
         {
-          title: "Hacer una Pregunta",
-          description: "Envíenos sus preguntas por correo electrónico.",
+          title: "Hacer una pregunta",
+          description: "Envíanos tus preguntas por correo electrónico.",
           button: "Escríbenos",
         },
         {
-          title: "Criterios de Asociación",
-          description: "Conozca el enfoque de Aunova sobre las asociaciones.",
-          button: "Revisar Criterios",
+          title: "Criterios de colaboración",
+          description: "Conoce cómo trabaja Aunova con sus socios.",
+          button: "Revisar criterios",
         },
         {
-          title: "Empresas Conjuntas",
-          description: "Discuta oportunidades de inversión colaborativa.",
-          button: "Proponer una Empresa",
+          title: "Empresas conjuntas",
+          description: "Explora oportunidades de inversión colaborativa.",
+          button: "Proponer una iniciativa",
         },
       ],
-      closingText: "Contáctenos para ver si debemos construir juntos.",
+      closingText: "Contáctanos para ver si tiene sentido construir juntos.",
       closingButton: "Hablemos",
     },
     contact: {
-      title: "Iniciar una Conversación Estratégica",
+      title: "Iniciar una conversación estratégica",
       intro:
-        "Actualmente estamos desarrollando nuestras familias de sistemas con un pequeño número de socios alineados. Damos la bienvenida a conversaciones con instituciones que construyen hacia un futuro positivo para humanos y el planeta a largo plazo.",
+        "Actualmente estamos desarrollando nuestras familias de sistemas con un número reducido de socios alineados. Damos la bienvenida a conversaciones con instituciones que estén construyendo, con visión de largo plazo, un futuro positivo para las personas y el planeta.",
       form: {
         name: "Nombre",
         organization: "Organización",
-        systemFamily: "¿Qué familia de sistemas se alinea con su visión?",
+        systemFamily: "¿Qué familia de sistemas se alinea con tu visión?",
         systemFamilyOptions: [
-          "Sistemas Ambientales y de Sostenibilidad",
-          "Datos Humanos e Identidad",
-          "IA Responsable y Gobernanza",
-          "Salud y Tecnología de Cuidado",
-          "Computación que Preserva la Privacidad",
+          "Sistemas ambientales y de sostenibilidad",
+          "Datos humanos e identidad",
+          "IA responsable y gobernanza",
+          "Salud y tecnologías de cuidado",
+          "Computación que preserva la privacidad",
           "Otro / Aún no estoy seguro",
         ],
-        criticalSystem: "¿De qué sistema crítico depende su futuro?",
-        timeHorizon: "¿Cuál es su horizonte de tiempo estratégico?",
+        criticalSystem: "¿De qué sistema crítico depende tu futuro?",
+        timeHorizon: "¿Cuál es tu horizonte estratégico?",
         timeHorizonOptions: ["3–5 años", "5–10+ años"],
-        submit: "Enviar Mensaje",
+        submit: "Enviar mensaje",
       },
       closing:
         "Respondemos de manera selectiva y reflexiva a cada consulta.",

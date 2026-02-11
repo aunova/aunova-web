@@ -20,21 +20,6 @@ const services = {
             description: "Compute on encrypted data without ever decrypting it",
             features: ["Encrypted AI inference", "Private analytics", "Secure data sharing"]
         },
-        ai: {
-            title: "AI & Web3 Integration",
-            description: "Decentralized AI solutions with blockchain-verified outputs",
-            features: ["On-chain AI models", "Decentralized inference", "AI-powered smart contracts"]
-        },
-        hybrid: {
-            title: "Hybrid ZK-AI Solutions",
-            description: "Combining zero-knowledge proofs with AI for maximum privacy",
-            features: ["Private ML inference", "Verifiable AI", "ZK-wrapped models"]
-        },
-        infra: {
-            title: "Infrastructure & Dev Tools",
-            description: "Production-ready infrastructure for privacy-first applications",
-            features: ["ZK circuits", "SDK development", "Node infrastructure"]
-        }
     }
 };
 ---
@@ -74,32 +59,6 @@ const services = {
                     linkText={services.learnMore}
                 />
 
-                <ServicePillar
-                    title={services.pillars.ai.title}
-                    description={services.pillars.ai.description}
-                    features={services.pillars.ai.features}
-                    icon="ai"
-                    href={`/${lang}/services/ai-web3`}
-                    linkText={services.learnMore}
-                />
-
-                <ServicePillar
-                    title={services.pillars.hybrid.title}
-                    description={services.pillars.hybrid.description}
-                    features={services.pillars.hybrid.features}
-                    icon="hybrid"
-                    href={`/${lang}/services/hybrid-zk-ai`}
-                    linkText={services.learnMore}
-                />
-
-                <ServicePillar
-                    title={services.pillars.infra.title}
-                    description={services.pillars.infra.description}
-                    features={services.pillars.infra.features}
-                    icon="infra"
-                    href={`/${lang}/services/infrastructure`}
-                    linkText={services.learnMore}
-                />
             </div>
         </div>
     </section>
