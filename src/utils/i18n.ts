@@ -319,7 +319,7 @@ export const translations = {
       supportingLine:
         "Trabajamos con un número reducido de organizaciones alineadas con nuestra visión para diseñar sistemas que protejan a las personas, respeten el planeta y perduren en el tiempo.",
       cta: {
-        primary: "Iniciar una Conversación Estratégica",
+        primary: "Iniciar una conversación estratégica",
         secondary: "Explorar nuestro modelo de colaboración",
       },
     },
