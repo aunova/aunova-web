@@ -1,0 +1,24 @@
+{
+  "tools": [
+    {
+      "name": "explore_system_families",
+      "description": "Get structured info about Aunova system families (Greenblocks, future families)",
+      "path": "/"
+    },
+    {
+      "name": "get_partnership_criteria",
+      "description": "Partnership criteria, alignment questions, and next steps",
+      "path": "/"
+    },
+    {
+      "name": "schedule_strategic_call",
+      "description": "Book a strategic conversation with Aunova leadership",
+      "path": "/"
+    },
+    {
+      "name": "get_aunova_overview",
+      "description": "Structured company overview: mission, philosophy, domains, contact",
+      "path": "/"
+    }
+  ]
+}

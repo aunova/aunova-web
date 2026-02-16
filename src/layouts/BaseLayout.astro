@@ -94,5 +94,10 @@ import { ClientRouter } from "astro:transitions";
   </head>
   <body>
     <slot />
+
+    <!-- WebMCP: Expose structured tools to AI agents via navigator.modelContext -->
+    <script>
+      import '../scripts/webmcp.ts';
+    </script>
   </body>
 </html>
