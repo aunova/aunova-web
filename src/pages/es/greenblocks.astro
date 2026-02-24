@@ -1,0 +1,1830 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import GreenblocksHeader from "../../components/layout/GreenblocksHeader.astro";
+import Footer from "../../components/layout/Footer.astro";
+import CookieNotice from "../../components/features/CookieNotice.astro";
+import {
+  Leaf,
+  Building2,
+  Users,
+  Heart,
+  TreeDeciduous,
+  Sparkles,
+  Target,
+  Handshake,
+  Clock,
+  ArrowRight,
+  SearchCheck,
+  HeartPulse,
+  TrendingUp,
+} from "lucide-astro";
+
+const lang = "es";
+---
+
+<BaseLayout
+  title="Greenblocks por Aunova - Infraestructura de Impacto Comunitario"
+  description="La capa de infraestructura fundamental para comunidades sostenibles, saludables y vivas. Greenblocks posibilita una nueva forma de vivir donde la responsabilidad ambiental, la vida saludable y la conexion humana estan integradas en el funcionamiento de las comunidades."
+  lang={lang}
+>
+  <link slot="head" rel="preload" as="font" type="font/woff2" href="/fonts/ClashDisplay-Semibold.woff2" crossorigin />
+  <link slot="head" rel="preload" as="font" type="font/woff2" href="/fonts/Satoshi-Regular.woff2" crossorigin />
+
+  <GreenblocksHeader />
+
+  <div class="gb-page">
+    <!-- Section 1: Hero -->
+    <section class="gb-hero">
+      <!-- Background image -->
+      <div class="gb-hero-bg">
+        <img
+          src="/images/greenblocks-hero.webp"
+          alt="Visualizacion de comunidad sostenible con arquitectura verde y personas"
+          class="gb-hero-bg-image"
+          loading="eager"
+        />
+        <!-- Floating icons on the image -->
+        <div class="gb-hero-icons">
+          <div class="gb-hero-icon gb-hero-icon-1">
+            <Leaf size={20} />
+          </div>
+          <div class="gb-hero-icon gb-hero-icon-2">
+            <Heart size={20} />
+          </div>
+          <div class="gb-hero-icon gb-hero-icon-3">
+            <Users size={20} />
+          </div>
+        </div>
+      </div>
+
+      <!-- Text overlay -->
+      <div class="gb-hero-overlay">
+        <div class="gb-hero-content">
+          <div class="gb-hero-brand">
+            <span class="gb-brand-name">Greenblocks</span>
+          </div>
+          <p class="gb-hero-subtitle">Infraestructura de Impacto Comunitario</p>
+
+          <h1 class="gb-hero-title">
+            La capa de infraestructura fundamental para comunidades sostenibles, saludables y vivas
+          </h1>
+
+          <p class="gb-hero-description">
+            Greenblocks es la infraestructura de impacto comunitario para el mundo construido. Posibilita una nueva forma de vivir, donde la responsabilidad ambiental, la vida saludable y la conexion humana estan integradas en el funcionamiento de las comunidades.
+          </p>
+
+          <a href="/es/contact" class="gb-btn gb-btn-outline">
+            Iniciar una conversacion sobre la co-creacion de un sistema comunitario
+            <ArrowRight size={18} />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: The Problem -->
+    <section class="gb-section" id="problem">
+      <div class="gb-container">
+        <div class="gb-reveal">
+          <h2 class="gb-heading">Las comunidades modernas son <span class="gb-warm">estructuralmente ciegas</span>.</h2>
+
+          <div class="gb-problem-grid">
+            <div class="gb-problem-content">
+              <p class="gb-text">
+                Las personas viven en edificios, pero no en comunidades. La vida diaria produce
+                consecuencias ambientales, sanitarias y sociales, pero estas permanecen en gran parte invisibles.
+              </p>
+
+              <p class="gb-text" style="margin-top: 1.5rem;">
+                Las ciudades y los desarrollos actuales operan <strong>sin</strong> una infraestructura real para:
+              </p>
+
+              <ul class="gb-check-list">
+                <li><span class="gb-check">✓</span> comprender su impacto ambiental</li>
+                <li><span class="gb-check">✓</span> apoyar una vida saludable por defecto</li>
+                <li><span class="gb-check">✓</span> conectar el comportamiento diario con resultados a largo plazo</li>
+                <li><span class="gb-check">✓</span> cultivar una vida comunitaria real</li>
+              </ul>
+
+              <div class="gb-problem-quote">
+                <p><em>La sostenibilidad se convierte en informes.</em></p>
+                <p><em>La salud se convierte en una lucha individual.</em></p>
+                <p><em>La comunidad se convierte en algo accidental.</em></p>
+              </div>
+
+              <p class="gb-text" style="margin-top: 1.5rem;">
+                Estos no son problemas separados.<br />
+                Son sintomas del mismo sistema ausente.
+              </p>
+
+              <p class="gb-text-emphasis">
+                Lo que falta es <em>infraestructura de impacto comunitario</em>.
+              </p>
+            </div>
+
+            <div class="gb-problem-visual">
+              <img src="/images/greenblocks-icons.webp" alt="Iconos de impacto comunitario" class="gb-problem-image" />
+              <div class="gb-problem-grid-overlay">
+                <span></span>
+                <span></span>
+                <span class="gb-grid-card">
+                  <strong>Sostenibilidad Aislada</strong>
+                  <small>Los esfuerzos de sostenibilidad estan desconectados y son dificiles de medir.</small>
+                </span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="gb-grid-card">
+                  <strong>Salud Desconectada</strong>
+                  <small>Vivir de forma saludable es dificil sin entornos que lo faciliten.</small>
+                </span>
+                <span></span>
+                <span></span>
+                <span class="gb-grid-card">
+                  <strong>Comunidad Fragmentada</strong>
+                  <small>Las conexiones humanas significativas son raras y accidentales.</small>
+                </span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: The Shift -->
+    <section class="gb-section gb-shift-section" id="shift">
+      <div class="gb-container">
+        <div class="gb-reveal">
+          <div class="gb-shift-content">
+            <h2 class="gb-shift-title">De edificios a comunidades vivas</h2>
+            <p class="gb-shift-subtitle">De la vida aislada a la vida comunitaria consciente</p>
+
+            <p class="gb-text gb-text-centered">
+              Greenblocks existe para impulsar un cambio en como se disenan y operan las comunidades.
+            </p>
+
+            <div class="gb-shift-comparison">
+              <div class="gb-shift-from">
+                <h3 class="gb-shift-column-title">De:</h3>
+                <ul class="gb-shift-list">
+                  <li>edificios como activos</li>
+                  <li>sostenibilidad como etiqueta</li>
+                  <li>salud como responsabilidad personal</li>
+                </ul>
+              </div>
+
+              <div class="gb-shift-arrow-container">
+              <img
+                src="/images/the-shift-arrow.webp"
+                alt=""
+                class="gb-shift-arrow-img"
+                loading="lazy"
+              />
+            </div>
+
+              <div class="gb-shift-to">
+                <h3 class="gb-shift-column-title">A:</h3>
+                <ul class="gb-shift-list">
+                  <li>comunidades como sistemas vivos</li>
+                  <li>sostenibilidad como infraestructura</li>
+                  <li>salud y bienestar como resultados compartidos</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="gb-shift-icons-row">
+              <img
+                src="/images/the-shift-icons.webp"
+                alt="Iconos de comprension"
+                class="gb-shift-icons-img"
+                loading="lazy"
+              />
+              <div class="gb-shift-icons-labels">
+                <span>como sus acciones<br />afectan al planeta</span>
+                <span>como su estilo de vida afecta<br />su propio cuerpo</span>
+                <span>como la comunidad<br />evoluciona en su conjunto</span>
+              </div>
+            </div>
+
+            <div class="gb-shift-footer">
+              <div class="gb-shift-footer-left">
+                <p class="gb-shift-footer-heading">Una comunidad habilitada por Greenblocks es aquella donde las personas pueden comprender:</p>
+                <ul class="gb-shift-footer-list">
+                  <li>como sus acciones afectan al planeta</li>
+                  <li>como su estilo de vida afecta su propio cuerpo</li>
+                </ul>
+              </div>
+              <div class="gb-shift-footer-right">
+                <p>La comunidad ya no es solo donde vives.<br />Se convierte en algo en lo que participas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: The System -->
+    <section class="gb-section" id="system">
+      <div class="gb-container">
+        <div class="gb-reveal">
+          <h2 class="gb-heading gb-heading-centered">Que es Greenblocks: infraestructura de impacto comunitario</h2>
+          <p class="gb-text gb-text-centered">
+            Un sistema comunitario fundamental que interconecta los elementos de la vida sostenible.
+          </p>
+
+          <div class="gb-flow-chart">
+            <img
+              src="/images/flow-chart-infrastructure.webp"
+              alt="Diagrama de infraestructura de Greenblocks que muestra Entornos Fisicos, Sistemas Ambientales, Comportamiento Humano y Marcos Institucionales conectados a traves de un sistema compartido de impacto comunitario"
+              class="gb-flow-chart-img"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: What Greenblocks Enables -->
+    <section class="gb-section gb-section-alt" id="enables">
+      <div class="gb-container">
+        <div class="gb-reveal">
+          <h2 class="gb-heading">Lo que Greenblocks posibilita</h2>
+
+          <div class="gb-enables-grid">
+            <div class="gb-enables-card">
+              <div class="gb-enables-icon">
+                <SearchCheck size={40} />
+              </div>
+              <p class="gb-enables-text">Impacto ambiental y social hecho visible</p>
+            </div>
+
+            <div class="gb-enables-card">
+              <div class="gb-enables-icon">
+                <HeartPulse size={40} />
+              </div>
+              <p class="gb-enables-text">Vida saludable respaldada por el diseno</p>
+            </div>
+
+            <div class="gb-enables-card">
+              <div class="gb-enables-icon">
+                <Users size={40} />
+              </div>
+              <p class="gb-enables-text">Sentido de comunidad significativo</p>
+            </div>
+
+            <div class="gb-enables-card">
+              <div class="gb-enables-icon">
+                <TrendingUp size={40} />
+              </div>
+              <p class="gb-enables-text">Incentivos compartidos para vivir de forma sostenible</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Partnership Model -->
+    <section class="gb-section" id="partnership-model">
+      <div class="gb-container">
+        <div class="gb-reveal">
+          <h2 class="gb-heading gb-heading-centered">Modelo de colaboracion</h2>
+          <p class="gb-text gb-text-centered">
+            Colaboramos con promotores, municipios y organizaciones con vision de futuro para crear comunidades sostenibles y conectadas que prosperen.
+          </p>
+
+          <ul class="gb-partnership-list">
+            <li>
+              <strong>Selectivo:</strong> Trabajamos con socios que comparten nuestra vision y valores.
+            </li>
+            <li>
+              <strong>A largo plazo:</strong> Construimos relaciones enfocadas en crear un impacto duradero.
+            </li>
+            <li>
+              <strong>Alineado con la mision:</strong> Buscamos socios comprometidos con la sostenibilidad y el bienestar comunitario.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: CTA -->
+    <section class="gb-section gb-section-alt gb-cta-final" id="connect">
+      <div class="gb-container">
+        <div class="gb-reveal">
+          <h2 class="gb-heading gb-heading-centered">¿Quieres conectar, crear, evolucionar?</h2>
+          <p class="gb-text gb-text-centered">
+            Si eres un pionero con mentalidad sistemica que construye las comunidades del manana, nos encantaria hablar contigo.
+          </p>
+          <div class="gb-cta-centered">
+            <a href="/es/contact" class="gb-btn gb-btn-primary">
+              Contactenos
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <Footer />
+  <CookieNotice />
+</BaseLayout>
+
+<style>
+/* Greenblocks Fonts */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Bold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Greenblocks Design Tokens - Light Theme */
+.gb-page {
+  --gb-bg-primary: #f5f1eb;
+  --gb-bg-secondary: #ebe7df;
+  --gb-bg-tertiary: #e0dbd2;
+  --gb-bg-card: #ffffff;
+  --gb-text-primary: #2d2d2d;
+  --gb-text-secondary: #5a5a5a;
+  --gb-text-muted: #8a8a8a;
+  --gb-accent: #3b5d3b;
+  --gb-accent-light: #5a8a5a;
+  --gb-warm: #8b7355;
+  --gb-warm-light: #d4c4a8;
+  --gb-border: rgba(0, 0, 0, 0.08);
+  --gb-shadow: rgba(0, 0, 0, 0.05);
+
+  --gb-font-display: 'Clash Display', system-ui, sans-serif;
+  --gb-font-body: 'Satoshi', system-ui, sans-serif;
+
+  --gb-section-padding: clamp(4rem, 10vw, 8rem);
+  --gb-container-max: 1200px;
+
+  --gb-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --gb-duration-fast: 0.4s;
+  --gb-duration-normal: 0.7s;
+
+  --space-lg: 1.5rem;
+  --space-2xl: 3rem;
+}
+
+/* Base page styles */
+.gb-page {
+  font-family: var(--gb-font-body);
+  background: var(--gb-bg-primary);
+  color: var(--gb-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Removed: Atmospheric background and particles for light theme */
+
+/* Container */
+.gb-container {
+  max-width: var(--gb-container-max);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 3rem);
+}
+
+/* Section base */
+.gb-section {
+  padding: var(--gb-section-padding) 0;
+  position: relative;
+}
+
+/* Hero Section - Full width background image */
+.gb-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Background image container */
+.gb-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.gb-hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+}
+
+/* Text overlay with gradient */
+.gb-hero-overlay {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0;
+  /* Gradient overlay for text readability */
+  background: linear-gradient(
+    to right,
+    rgba(245, 241, 235, 0.95) 0%,
+    rgba(245, 241, 235, 0.85) 35%,
+    rgba(245, 241, 235, 0.4) 60%,
+    transparent 80%
+  );
+}
+
+.gb-hero-content {
+  max-width: 680px;
+  padding: 0 clamp(1.5rem, 5vw, 3rem);
+  margin-left: clamp(2rem, 8vw, 8rem);
+}
+
+/* Brand styling */
+.gb-hero-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.gb-brand-name {
+  font-family: var(--gb-font-display);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 700;
+  color: var(--gb-text-primary);
+}
+
+.gb-brand-byline {
+  font-family: var(--gb-font-body);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  color: var(--gb-text-muted);
+}
+
+.gb-hero-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-muted);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+/* Hero title - smaller, lighter weight */
+.gb-hero-title {
+  font-family: var(--gb-font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+  color: var(--gb-text-primary);
+}
+
+.gb-hero-description {
+  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Floating icons - positioned on the right side of image */
+.gb-hero-icons {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.gb-hero-icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gb-accent);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.gb-hero-icon-1 { top: 25%; right: 15%; }
+.gb-hero-icon-2 { top: 45%; right: 8%; }
+.gb-hero-icon-3 { top: 65%; right: 18%; }
+
+/* Outline button variant - earthy beige style */
+.gb-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(235, 228, 216, 0.7);
+  color: var(--gb-text-primary);
+  border: 1px solid rgba(180, 165, 140, 0.6);
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-family: var(--gb-font-body);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gb-btn-outline:hover {
+  background: rgba(235, 228, 216, 0.95);
+  border-color: rgba(180, 165, 140, 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Hero responsive styles */
+@media (max-width: 1023px) {
+  .gb-hero {
+    min-height: auto;
+  }
+
+  .gb-hero-bg-image {
+    object-position: center center;
+  }
+
+  .gb-hero-overlay {
+    min-height: auto;
+    padding: 4rem 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(245, 241, 235, 0.95) 0%,
+      rgba(245, 241, 235, 0.8) 70%,
+      transparent 100%
+    );
+  }
+
+  .gb-hero-content {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .gb-hero-icons {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .gb-hero-overlay {
+    padding: 3rem 0;
+  }
+
+  .gb-hero-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .gb-hero-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .gb-btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Typography */
+.gb-label {
+  font-family: var(--gb-font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gb-accent);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.gb-title {
+  font-family: var(--gb-font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--gb-text-primary);
+}
+
+.gb-title-lg {
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: 1;
+}
+
+.gb-text {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+.gb-text-lg {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+
+.gb-highlight {
+  color: var(--gb-accent);
+}
+
+.gb-warm {
+  color: var(--gb-text-primary);
+}
+
+/* Divider */
+.gb-divider {
+  width: 80px;
+  height: 2px;
+  background: var(--gb-warm-light);
+  margin: 2rem 0;
+}
+
+.gb-divider-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Buttons */
+.gb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-family: var(--gb-font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.gb-btn-primary {
+  background: var(--gb-accent);
+  color: #ffffff;
+}
+
+.gb-btn-primary:hover {
+  background: var(--gb-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 93, 59, 0.25);
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.gb-btn :global(svg) {
+  width: 18px;
+  height: 18px;
+}
+
+/* Headings */
+.gb-heading {
+  font-family: var(--gb-font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--gb-text-primary);
+}
+
+/* Content Grid */
+.gb-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .gb-content-grid {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.gb-content-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Feature List */
+.gb-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gb-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1rem;
+  color: var(--gb-text-secondary);
+  line-height: 1.6;
+}
+
+.gb-feature-list li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--gb-accent);
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Cards */
+.gb-card {
+  background: var(--gb-bg-card);
+  border: 1px solid var(--gb-border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.gb-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--gb-shadow);
+}
+
+.gb-card-text {
+  font-size: 0.95rem;
+  color: var(--gb-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Section alternate background */
+.gb-section-alt {
+  background: var(--gb-bg-secondary);
+}
+
+/* Problem Section */
+.gb-problem-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .gb-problem-grid {
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+}
+
+.gb-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.gb-check-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--gb-text-secondary);
+}
+
+.gb-check {
+  color: var(--gb-text-primary);
+  font-weight: 400;
+}
+
+.gb-problem-quote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(180, 165, 140, 0.5);
+}
+
+.gb-problem-quote p {
+  color: var(--gb-text-muted);
+  margin: 0.25rem 0;
+}
+
+.gb-text-emphasis {
+  color: var(--gb-text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+/* Problem Visual - Image with grid overlay */
+.gb-problem-visual {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.gb-problem-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gb-problem-grid-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
+
+.gb-problem-grid-overlay span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gb-grid-card {
+  flex-direction: column;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.gb-grid-card strong {
+  font-family: var(--gb-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gb-text-primary);
+  margin-bottom: 0.375rem;
+  display: block;
+}
+
+.gb-grid-card small {
+  font-family: var(--gb-font-body);
+  font-size: 0.9375rem;
+  color: var(--gb-text-muted);
+  line-height: 1.5;
+}
+
+/* Section Label Pill */
+.gb-section-label-container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.gb-section-label {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: var(--gb-bg-card);
+  border: 1px solid var(--gb-border);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gb-text-muted);
+}
+
+/* Centered text utilities */
+.gb-heading-centered,
+.gb-text-centered {
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Feature Cards (Solution section) */
+.gb-feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.gb-feature-card {
+  background: var(--gb-bg-card);
+  border: 1px solid var(--gb-border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.gb-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--gb-shadow);
+}
+
+.gb-feature-card-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: var(--gb-bg-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gb-accent);
+}
+
+.gb-feature-card h3 {
+  font-family: var(--gb-font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gb-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.gb-feature-card p {
+  font-size: 0.9375rem;
+  color: var(--gb-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.gb-cta-centered {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Subheading */
+.gb-subheading {
+  font-family: var(--gb-font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: var(--gb-text-primary);
+}
+
+/* The Shift Section */
+.gb-shift-section {
+  background: var(--gb-bg-secondary);
+}
+
+.gb-shift-content {
+  max-width: 100%;
+}
+
+.gb-shift-title {
+  font-family: var(--gb-font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--gb-text-primary);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.gb-shift-subtitle {
+  font-family: var(--gb-font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: var(--gb-text-muted);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.gb-shift-comparison {
+  display: grid;
+  grid-template-columns: auto 100px auto;
+  gap: 1.5rem;
+  margin: 2.5rem auto;
+  align-items: start;
+  justify-content: center;
+  max-width: 800px;
+}
+
+.gb-shift-column-title {
+  font-family: var(--gb-font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--gb-text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.gb-shift-from,
+.gb-shift-to {
+  padding: 0;
+}
+
+.gb-shift-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.gb-shift-list li {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.6;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.gb-shift-list li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--gb-text-muted);
+  font-weight: 400;
+}
+
+.gb-shift-to .gb-shift-list li {
+  font-weight: 600;
+  color: var(--gb-text-primary);
+}
+
+.gb-shift-arrow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.gb-shift-arrow-img {
+  width: 100px;
+  height: auto;
+  opacity: 0.5;
+  transform: rotate(-90deg);
+}
+
+.gb-shift-icons-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0 2rem;
+  padding-top: 2rem;
+}
+
+.gb-shift-icons-img {
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+}
+
+.gb-shift-icons-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+}
+
+/* Dotted line connecting icons */
+.gb-shift-icons-labels::before {
+  content: '';
+  position: absolute;
+  top: -4.5rem;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  border-top: 2px dotted var(--gb-border);
+}
+
+.gb-shift-icons-labels span {
+  flex: 1;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-muted);
+  line-height: 1.6;
+  text-align: center;
+  max-width: 250px;
+}
+
+.gb-shift-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gb-border);
+}
+
+.gb-shift-footer-heading {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-primary);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.gb-shift-footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gb-shift-footer-list li {
+  font-size: clamp(0.9375rem, 1.25vw, 1rem);
+  color: var(--gb-text-secondary);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.gb-shift-footer-list li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--gb-text-muted);
+}
+
+.gb-shift-footer-right p {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+@media (max-width: 768px) {
+  .gb-shift-comparison {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gb-shift-from,
+  .gb-shift-to {
+    text-align: left;
+  }
+
+  .gb-shift-arrow-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .gb-shift-arrow-img {
+    width: 80px;
+    transform: rotate(0deg);
+    opacity: 0.5;
+  }
+
+  .gb-shift-icons-row {
+    margin: 2rem 0 1.5rem;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .gb-shift-icons-img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .gb-shift-icons-labels {
+    max-width: 100%;
+    width: 100%;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .gb-shift-icons-labels::before {
+    display: none;
+  }
+
+  .gb-shift-icons-labels span {
+    font-size: 0.75rem;
+    flex: 1;
+    max-width: 100px;
+    line-height: 1.4;
+  }
+
+  .gb-shift-footer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Layers */
+.gb-layers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.gb-layer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(90deg, rgba(125, 216, 125, 0.08) 0%, transparent 100%);
+  border-left: 3px solid var(--gb-accent);
+  border-radius: 0 12px 12px 0;
+  transition: all 0.4s var(--gb-ease-out-expo);
+  color: var(--gb-text-secondary);
+  font-size: 1rem;
+}
+
+.gb-layer:hover {
+  background: linear-gradient(90deg, rgba(125, 216, 125, 0.15) 0%, transparent 100%);
+  transform: translateX(8px);
+}
+
+.gb-layer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gb-accent);
+}
+
+.gb-layer-icon :global(svg) {
+  width: 24px;
+  height: 24px;
+}
+
+/* Flow Chart */
+.gb-flow-chart {
+  display: flex;
+  justify-content: center;
+  margin: 3rem auto;
+  max-width: 900px;
+}
+
+.gb-flow-chart-img {
+  width: 100%;
+  height: auto;
+}
+
+/* What Greenblocks Enables */
+.gb-enables-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.gb-enables-card {
+  background: var(--gb-bg-card);
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 12px var(--gb-shadow);
+  transition: all 0.3s ease;
+}
+
+.gb-enables-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--gb-shadow);
+}
+
+.gb-enables-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: var(--gb-bg-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gb-text-muted);
+}
+
+.gb-enables-icon :global(svg) {
+  width: 40px;
+  height: 40px;
+  stroke-width: 1.5;
+}
+
+.gb-enables-text {
+  font-family: var(--gb-font-body);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .gb-enables-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gb-enables-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gb-enables-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .gb-enables-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .gb-enables-icon :global(svg) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Partnership Model */
+.gb-partnership-list {
+  list-style: none;
+  padding: 0;
+  margin: 3rem auto 0;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.gb-partnership-list li {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--gb-text-secondary);
+  line-height: 1.7;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.gb-partnership-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
+  background: var(--gb-accent);
+  border-radius: 50%;
+}
+
+.gb-partnership-list li strong {
+  color: var(--gb-text-primary);
+  font-weight: 700;
+}
+
+/* Final CTA Section */
+.gb-cta-final {
+  text-align: center;
+}
+
+.gb-cta-final .gb-heading {
+  margin-bottom: 1.5rem;
+}
+
+.gb-cta-final .gb-text {
+  margin-bottom: 2.5rem;
+}
+
+.gb-cta-final .gb-btn {
+  padding: 1rem 2.5rem;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+/* Capabilities Grid */
+.gb-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gb-capability-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.4s var(--gb-ease-out-expo);
+}
+
+.gb-capability-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(125, 216, 125, 0.2);
+  transform: translateY(-4px);
+}
+
+.gb-capability-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: rgba(125, 216, 125, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: var(--gb-accent);
+}
+
+.gb-capability-icon :global(svg) {
+  width: 28px;
+  height: 28px;
+}
+
+.gb-card-title {
+  font-family: var(--gb-font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--gb-text-primary);
+}
+
+/* Partners Grid */
+.gb-partners-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .gb-partners-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.gb-not-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gb-not-list li {
+  font-size: 1rem;
+  color: var(--gb-text-muted);
+  line-height: 1.5;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.gb-not-list li::before {
+  content: '\00d7';
+  position: absolute;
+  left: 0;
+  color: var(--gb-warm);
+  font-weight: 600;
+}
+
+/* Steps */
+.gb-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+  max-width: 600px;
+}
+
+.gb-step {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1.75rem;
+  background: linear-gradient(90deg, rgba(212, 165, 116, 0.08) 0%, transparent 100%);
+  border-left: 3px solid var(--gb-warm);
+  border-radius: 0 12px 12px 0;
+  transition: all 0.4s var(--gb-ease-out-expo);
+}
+
+.gb-step:hover {
+  background: linear-gradient(90deg, rgba(212, 165, 116, 0.15) 0%, transparent 100%);
+  transform: translateX(8px);
+}
+
+.gb-step-number {
+  font-family: var(--gb-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gb-warm);
+  min-width: 2rem;
+}
+
+.gb-step-content {
+  color: var(--gb-text-secondary);
+  font-size: 1rem;
+}
+
+/* Vision Cards */
+.gb-vision-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+}
+
+.gb-vision-card {
+  background: rgba(125, 216, 125, 0.05);
+  border: 1px solid rgba(125, 216, 125, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.4s var(--gb-ease-out-expo);
+}
+
+.gb-vision-card:hover {
+  background: rgba(125, 216, 125, 0.1);
+  border-color: rgba(125, 216, 125, 0.3);
+  transform: translateY(-4px);
+}
+
+.gb-vision-card p {
+  color: var(--gb-text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.gb-vision-closing {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--gb-border);
+}
+
+/* CTA Section */
+.gb-cta-section {
+  background: var(--gb-bg-secondary);
+  text-align: center;
+  padding-bottom: calc(var(--gb-section-padding) + 2rem);
+}
+
+.gb-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gb-cta-questions {
+  background: var(--gb-bg-card);
+  border: 1px solid var(--gb-border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.gb-question-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gb-question-list li {
+  font-size: 1rem;
+  color: var(--gb-text-secondary);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.gb-question-list li::before {
+  content: '\2192 ';
+  color: var(--gb-accent);
+}
+
+.gb-cta-actions {
+  margin-top: 2rem;
+}
+
+.gb-btn-lg {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.1rem;
+}
+
+.gb-btn-lg :global(svg) {
+  width: 20px;
+  height: 20px;
+}
+
+/* Reveal animations */
+.gb-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity var(--gb-duration-normal) var(--gb-ease-out-expo),
+    transform var(--gb-duration-normal) var(--gb-ease-out-expo);
+}
+
+.gb-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gb-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 1023px) {
+  .gb-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .gb-hero-content {
+    order: 1;
+    text-align: center;
+  }
+
+  .gb-hero-visual {
+    order: 0;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .gb-hero-brand {
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .gb-title-lg {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .gb-heading {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .gb-problem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gb-problem-cards {
+    margin-top: 2rem;
+  }
+
+  .gb-feature-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .gb-content-grid,
+  .gb-partners-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gb-shift-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .gb-shift-arrow {
+    transform: rotate(90deg);
+    padding: 0.5rem 0;
+  }
+
+  .gb-layers {
+    grid-template-columns: 1fr;
+  }
+
+  .gb-layer {
+    padding: 1rem 1.25rem;
+  }
+
+  .gb-layer:hover {
+    transform: translateX(4px);
+  }
+
+  .gb-capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gb-vision-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .gb-steps {
+    max-width: 100%;
+  }
+
+  .gb-step {
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .gb-step:hover {
+    transform: translateX(4px);
+  }
+
+  .gb-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .gb-btn-lg {
+    padding: 1rem 1.75rem;
+  }
+
+  .gb-card {
+    padding: 1.5rem;
+  }
+
+  .gb-cta-questions {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gb-section {
+    padding: clamp(3rem, 8vw, 5rem) 0;
+  }
+
+  .gb-container {
+    padding: 0 1rem;
+  }
+
+  .gb-hero {
+    min-height: 100svh;
+  }
+
+  .gb-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+}
+</style>
+
+<script>
+  // Intersection Observer for reveal animations
+  // Use astro:page-load to work with View Transitions
+  function initRevealAnimations() {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -100px 0px',
+      threshold: 0.1
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.gb-reveal').forEach(el => {
+      // Reset visibility state for elements that may have been cached
+      el.classList.remove('visible');
+      revealObserver.observe(el);
+    });
+  }
+
+  // Run on initial load and after view transitions
+  document.addEventListener('astro:page-load', initRevealAnimations);
+</script>

@@ -1,4 +1,5 @@
 {
   "snyk.advanced.autoSelectOrganization": true,
-  "cSpell.words": ["Aunova", "Greenblocks", "Satoshi"]
+  "cSpell.words": ["Aunova", "Greenblocks", "Satoshi"],
+  "python-envs.pythonProjects": []
 }
