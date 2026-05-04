@@ -1,0 +1,87 @@
+create a blog entry, cover image is in dist/images/blog/dubai-rees-blog-cover.webp here's the blogpost: # Trust, Transparency, Reputation: What Dubai Told Us About the Future of Premium Real Estate
+
+Last week, Co-Founder Teresa Esteve pitched Greenblocks at REES Pitch Day at DIFC, in front of Dubai Land Department, institutional investors, and the developers shaping Dubai's premium residential market.
+
+We came back with a clearer signal than any pitch could have given us.
+
+## The panel before the pitch
+
+Before the startups went on stage, a panel of Dubai's most senior real estate voices took the floor. Dubai Land Department, alongside leading developers in the region, were asked what the market needs next.
+
+Three words came up across the conversation.
+
+Trust. Transparency. Reputation.
+
+Not sustainability targets. Not certifications. Not amenities. Trust, transparency, and reputation. The market is naming the problem in its own language.
+
+## Why this is bigger than ESG
+
+It would be easy to read those three words as an ESG conversation. They are not.
+
+ESG is one of the things being claimed. Wellness is another. Community is another. Underneath all of them sits the same question, asked by every buyer, every investor, every regulator looking at premium residential developments in Dubai.
+
+How do we know it is real?
+
+Premium residential real estate has a credibility gap. Developers invest heavily in sustainability, in wellness-driven design, in community engagement. Buyers and investors hear the claims. But during early-stage sales, almost none of this is visible, verifiable, or comparable across assets.
+
+The market is no longer asking for better claims. It is asking for proof.
+
+## What Greenblocks is
+
+Greenblocks is the Digital Building Passport for premium residential real estate in Dubai. It turns what a building actually delivers into something that can be seen, verified, and trusted.
+
+ESG performance, wellness intelligence, and community engagement all sit inside this passport. Each of them backed by structured, verifiable data. None of them dependent on marketing copy.
+
+This is what moves a building from "trust me" to "here is the proof." It is what turns reputation from a brand exercise into a measurable asset attribute.
+
+Greenblocks is not an ESG platform. ESG is one of three pillars that the passport verifies. The product category is verified premium real estate, not sustainability software.
+
+## What we heard from developers
+
+The conversations after the pitch told us something we did not fully expect.
+
+Developers in Dubai are not asking whether Digital Building Passports make sense. They are asking who goes first.
+
+The market has read the signals. Dubai Land Department's Smart Rental Index now rates buildings on a one to five star scale, with a top tier reserved for buildings meeting sustainability and quality criteria. Approximately one percent of Dubai buildings currently qualify. Al Sa'fat Gold and Platinum buildings command seven to eleven percent higher rents. LEED-certified buildings in Dubai show price premiums of up to thirty four percent.
+
+Verified buildings command premium value. Unverified buildings increasingly will not.
+
+## The shift in our own narrative
+
+We went into Dubai talking about proofs of concept. We are coming out of Dubai with a different conversation.
+
+The developers we met did not want to fund another pilot. They wanted to know what it would take to deploy the first one. The framing the market wants is not "test the idea." It is "set the standard."
+
+So the work has shifted with it.
+
+We are now ready to deploy the first Digital Building Passport in a flagship Dubai residential development. Not a concept. Not a sandbox. A working passport, in a real asset, with a developer prepared to lead the market.
+
+The first deployment will set the reference for what verified premium real estate looks like in Dubai. It will give the developer the strongest possible position in front of buyers, investors, and regulators at exactly the moment the market is moving from claims to proof.
+
+## The ask
+
+We are looking for one developer ready to deploy the first Digital Building Passport in Dubai. One flagship asset. One forward-looking team. One willingness to lead.
+
+The market has named what it needs next. The infrastructure to deliver it exists.
+
+Who wants to set the standard?
+
+---
+
+*Greenblocks is the Digital Building Passport developed by Aunova for premium residential real estate. To explore a deployment in your next development, reach out at [aunova.net/greenblocks](https://aunova.net/greenblocks).*
+
+---
+
+use nvm to the latest node
+
+---
+
+also check if we need to make some security updates
+
+---
+
+change the blogpost a little, there is too much ESG mentioned, we want to be seen as an infrastructure provider, a layer of trust, transparency and reputation in the real estate sector
+
+---
+
+commit and push
