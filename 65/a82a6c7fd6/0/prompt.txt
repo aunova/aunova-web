@@ -81,3 +81,7 @@ also check if we need to make some security updates
 ---
 
 change the blogpost a little, there is too much ESG mentioned, we want to be seen as an infrastructure provider, a layer of trust, transparency and reputation in the real estate sector
+
+---
+
+commit and push
