@@ -1,0 +1,243 @@
+do we have a dev branch here? if yes, sync main to dev, if not, create a dev branch and use it
+
+---
+
+alright we need to update greenblocks: # Greenblocks Page Content Update — Final Brief
+
+**Source:** aunova.net/greenblocks (current live version)
+**Date:** May 2026, post-REES Dubai
+**Status:** Decisions locked. Ready for implementation.
+**Owner:** Chris Houy, Teresa Esteve
+
+---
+
+## Locked decisions
+
+- **H1:** *Premium real estate needs more than amenities. It needs verified digital infrastructure.* (existing pitch-deck line, already tested with Dubai audiences)
+- **Geography:** Dubai is named explicitly in meta description, hero subhead, and partnership section
+- **Boundary statement:** The "Greenblocks is not a sustainability platform, an ESG dashboard, or a wellness app" line stays in section 5
+
+---
+
+## What needs to change, in one paragraph
+
+The current page positions Greenblocks as "community impact infrastructure" with the audience implicitly being municipalities, residents, and any developer who cares about sustainability. That was the right framing six months ago. Post-REES, the positioning has consolidated around something sharper: Greenblocks is a Digital Building Passport for premium real estate, deployed at asset level, that turns developer claims into verifiable data. The audience is Dubai premium residential developers as the direct commercial client, with buyers, investors, and regulators as the surrounding stakeholders the passport serves. The page needs to reflect that consolidation while keeping enough of the systems-thinking warmth to distinguish Aunova from generic PropTech.
+
+Eight sections below, each with the current copy and the proposed replacement.
+
+---
+
+## 1. Page metadata
+
+### Current
+- Title: *Greenblocks by Aunova - Community Impact Infrastructure*
+- Description: *The foundational infrastructure layer for sustainable, healthy, and living communities. Greenblocks enables a new way of living where environmental responsibility, healthy living, and human connection are embedded into how communities function.*
+
+### Proposed
+- Title: *Greenblocks by Aunova - Digital Building Passport for Premium Real Estate*
+- Description: *Greenblocks is the trust, transparency, and reputation infrastructure for premium real estate. A Digital Building Passport that turns developer claims into verified, comparable, asset-level data. Now deploying in Dubai.*
+
+---
+
+## 2. Hero section
+
+### Current
+- Eyebrow: *Greenblocks · Community Impact Infrastructure*
+- H1: *The foundational infrastructure layer for sustainable, healthy, and living communities*
+- Subhead: *Greenblocks is the community impact infrastructure for the built world. It enables a new way of living — where environmental responsibility, healthy living, and human connection are embedded into how communities function.*
+- CTA: *Begin a conversation about co-creating a community system*
+
+### Proposed
+- Eyebrow: *Greenblocks · Digital Building Passport*
+- H1: *Premium real estate needs more than amenities. It needs verified digital infrastructure.*
+- Subhead: *Greenblocks is infrastructure. A trust, transparency, and reputation layer for premium real estate, delivered as a Digital Building Passport that turns developer claims into structured, verifiable, comparable data at asset level. Now deploying in Dubai.*
+- CTA: *Deploy the first Digital Building Passport in Dubai*
+
+---
+
+## 3. Problem section
+
+### Current
+- H2: *Modern communities are structurally blind.*
+- Body: *People live in buildings, but not in communities. Daily life produces environmental, health, and social consequences, yet these remain largely invisible. Cities and developments today operate without real infrastructure to: understand their environmental impact, support healthy living by default, connect daily behavior to long-term outcomes, cultivate real community life. Sustainability becomes reporting. Health becomes an individual struggle. Community becomes accidental. These are not separate problems. They are symptoms of the same missing system. What is missing is community impact infrastructure.*
+- Three tiles: *Isolated Sustainability / Disconnected Health / Fragmented Community*
+
+### Proposed
+- H2: *Premium real estate has a credibility gap.*
+- Body: *Developers invest heavily in sustainability, wellness, design quality, construction integrity, and community life. Buyers and investors hear the claims. But during early-stage sales and beyond, almost none of it is visible, verifiable, or comparable across assets. The market is no longer asking for better claims. It is asking for proof.*
+- Three tiles:
+  - **Marketing without verification** — Claims buyers cannot independently confirm.
+  - **Reports without infrastructure** — Performance data reduced to brochures and PDFs.
+  - **Reputation without measurement** — Brand built on narrative, not provable substance.
+
+---
+
+## 4. The Shift section
+
+### Current
+- H2: *From buildings to living communities*
+- Subhead: *From isolated living to conscious community life*
+- From: *buildings as assets / sustainability as a label / health as a personal responsibility*
+- To: *communities as living systems / sustainability as infrastructure / health and wellbeing as shared outcomes*
+
+### Proposed
+- H2: *From claims to proof*
+- Subhead: *The shift the premium real estate market is making, named in four pairs.*
+- From:
+  - claims
+  - developer narrative
+  - reputation by brand
+  - reporting as PDFs
+- To:
+  - structured, verifiable data
+  - buyer-comparable performance
+  - reputation as a measurable asset attribute
+  - infrastructure that operators, regulators, and investors can query
+
+### Optional closing line
+*What changes is not the values. What changes is what can be proven.*
+
+(Keeps one line of the old warmth without diluting the commercial pivot. Recommend including it.)
+
+---
+
+## 5. What Greenblocks is
+
+### Current
+- H2: *What Greenblocks is: community impact infrastructure*
+- Subhead: *A foundational community system that interconnects the elements of sustainable living.*
+- Diagram with: Physical Environments / Environmental Systems / Human Behavior / Institutional Frameworks
+
+### Proposed
+- H2: *Greenblocks is infrastructure.*
+- Subhead: *A trust, transparency, and reputation layer for premium real estate, delivered as a Digital Building Passport at asset level.*
+- Body:
+
+> The passport sits underneath every claim a developer makes and converts it into structured, verifiable data.
+>
+> Sustainability performance. Wellness intelligence. Community engagement. Construction quality. Operational reliability. Regulatory readiness.
+>
+> Greenblocks does not generate the value of the building. It makes the value visible, comparable, and trustworthy.
+>
+> Category: verified real estate. Product: infrastructure.
+>
+> Greenblocks is not a sustainability platform, an ESG dashboard, or a wellness app.
+
+### Diagram
+A new infrastructure diagram has been produced as part of this update (`greenblocks-passport-diagram.svg`). It shows the six verified domains feeding into the Digital Building Passport, with four stakeholder outputs (developer, buyer, investor, regulator). Replace the existing `flow-chart-infrastructure.webp` with the new SVG.
+
+---
+
+## 6. What Greenblocks enables
+
+### Current
+Four tiles:
+- Environmental and social impact made visible
+- Healthy living supported by design
+- Meaningful sense of community
+- Shared incentives to live sustainably
+
+### Proposed
+Four tiles, reframed around what the passport delivers commercially:
+- **Verified performance** — Every claim becomes structured, comparable data across the asset lifecycle.
+- **Premium positioning** — Trust beyond marketing. Reputation as a measurable asset attribute, not a brand exercise.
+- **Buyer comparability** — Projects easier to compare on substance, not branding.
+- **Operational intelligence** — Building data that serves operators, regulators, and institutional capital long after handover.
+
+---
+
+## 7. Partnership model
+
+### Current
+- H2: *Partnership model*
+- Body: *We collaborate with forward-thinking developers, municipalities, and organizations to create sustainable, connected communities that thrive.*
+- Three principles: *Selective / Long-Term / Mission-Aligned*
+
+### Proposed
+- H2: *How we deploy*
+- Body: *Greenblocks is deployed at asset level, with the developer as the direct client. The first deployment becomes the reference case. From there, the passport extends across additional assets and the wider portfolio. We are currently deploying in Dubai with premium residential developers.*
+- Three principles:
+  - **Asset-level, not portfolio-wide:** One specific building. One reference case. Scale follows proof.
+  - **Reference-case logic:** The first deployment sets the standard for what verified premium real estate looks like.
+  - **Partners, not vendors:** Long-term collaboration, co-built outcomes, no feature checklists.
+
+---
+
+## 8. Closing CTA
+
+### Current
+- H2: *Want to connect, create, evolve?*
+- Body: *If you're a system-minded pioneer building the communities of tomorrow, we would love to talk to you.*
+- CTA: *Contact Us*
+
+### Proposed
+- H2: *Set the standard.*
+- Body: *We are looking for one developer ready to deploy the first Digital Building Passport in Dubai. One flagship asset. One forward-looking team. One willingness to lead. The market has named what it needs next. The infrastructure to deliver it exists.*
+- Closing line: *Who wants to set the standard?*
+- CTA: *Begin a strategic conversation*
+
+---
+
+## Visual assets that need updating
+
+| Asset | Current state | Action |
+|---|---|---|
+| `greenblocks-hero.webp` | Generic sustainable community render | Replace with a premium Dubai-flavored visual (skyline, premium residential tower, or the cover image from the May blog post) |
+| `greenblocks-icons.webp` | Three icons for old problem framings | Redesign for the three new tiles (Marketing without verification, Reports without infrastructure, Reputation without measurement) |
+| `the-shift-arrow.webp` and `the-shift-icons.webp` | Visual for old From/To pairs | Review against the new four pairs. Likely needs a refresh |
+| `flow-chart-infrastructure.webp` | Old four-element infrastructure diagram | **Replaced.** Use the new `greenblocks-passport-diagram.svg` produced alongside this brief |
+| Open Graph image (`og-preview.webp`) | Generic | Update so LinkedIn previews of the page carry the new narrative |
+
+---
+
+## Implementation checklist
+
+- [ ] Update meta title and description (section 1)
+- [ ] Update hero section (section 2)
+- [ ] Update problem section (section 3)
+- [ ] Update shift section (section 4) — keep optional closing line
+- [ ] Update what-it-is section (section 5)
+- [ ] Replace infrastructure diagram with new SVG
+- [ ] Update what-it-enables section (section 6)
+- [ ] Update partnership section (section 7)
+- [ ] Update closing CTA (section 8)
+- [ ] Brief design team on the four remaining visual assets
+- [ ] Run page through brand voice check: no contractions, no em dashes, no hype words
+- [ ] Translate to Spanish for /es/greenblocks (separate task, after English is locked)
+- [ ] Update the OG preview image
+
+---
+
+*All copy in the Proposed sections is ready to paste with minimal editing. The infrastructure diagram is delivered as a separate SVG file in this batch.* flow-chart-infrastructure.webp is already the new version, make sure it fits
+
+---
+
+use nvm 24 latest
+
+---
+
+/audit
+
+---
+
+commit and push to dev first
+
+---
+
+read in the updated CLAUDE.md
+
+---
+
+wasmbox is installed and running fine.
+
+---
+
+/harden
+
+---
+
+/harden
+
+---
+
+commit also commit the new claude md and other files
