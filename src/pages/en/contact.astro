@@ -371,8 +371,29 @@ const t = getTranslation(lang);
   }
 
   @media (max-width: 768px) {
+    .contact-hero {
+      padding: var(--space-2xl) 0;
+    }
+
     .hero-content h1 {
       font-size: var(--text-3xl);
+    }
+
+    .hero-intro {
+      font-size: var(--text-base);
+    }
+
+    .contact-section {
+      padding: var(--space-2xl) 0 var(--space-3xl);
+    }
+
+    .contact-grid {
+      gap: var(--space-xl);
+    }
+
+    .contact-form-wrapper {
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
     }
 
     .contact-options {
@@ -386,6 +407,37 @@ const t = getTranslation(lang);
     .radio-group {
       flex-direction: column;
       gap: var(--space-md);
+    }
+
+    .btn-outline {
+      padding: var(--space-md) var(--space-lg);
+      min-height: 44px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-hero {
+      padding: var(--space-xl) 0;
+    }
+
+    .hero-content h1 {
+      font-size: var(--text-2xl);
+    }
+
+    .contact-section {
+      padding: var(--space-xl) 0 var(--space-2xl);
+    }
+
+    .contact-form-wrapper {
+      padding: var(--space-md);
+    }
+
+    .contact-form {
+      gap: var(--space-md);
+    }
+
+    .btn-lg {
+      padding: var(--space-md) var(--space-lg);
     }
   }
 </style>
