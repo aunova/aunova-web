@@ -152,8 +152,18 @@ This document serves as the comprehensive guide for AI agents (Claude or other L
 
 - **Source**: `aunova-old/` - Legacy Astro site with Tailwind CSS and telemetry
 - **Target**: `aunova-new/` - Modern Astro 5.x with minimal JavaScript
-- **Timeline**: Q3 2024
-- **Status**: Active Development
+- **Timeline**: started Q3 2024; live and iterating
+- **Status**: in production, ongoing content + design refinement
+- **Branch model**: feature work commits to `dev`, then merges to `main`. Sync `main` → `dev` before starting work; commit logically separated changes; push to `origin/dev`.
+
+### Local development
+
+- **Node**: requires Node ≥18.20.8 (Astro 5.x). System default may be Node 16 — use nvm:
+  ```bash
+  . "$HOME/.nvm/nvm.sh" && nvm use 24
+  bun run build
+  ```
+  `.nvmrc` pins 20.12.2; Node 24 latest also works. fnm crashed on this machine; nvm is the working version manager.
 
 ## Core Principles
 
@@ -443,6 +453,31 @@ property: attr(attribute-name type(<type>), fallback-value);
 
 ## Content Strategy
 
+### Greenblocks (`/greenblocks` and `/es/greenblocks`)
+
+**Current positioning (post-REES Dubai, May 2026):** Greenblocks is a Digital Building Passport for premium real estate, deployed at asset level. Direct commercial client is Dubai premium residential developers; buyers, investors, and regulators are surrounding stakeholders the passport serves. Category: verified real estate. Product: infrastructure.
+
+The page (`src/pages/greenblocks.astro`) was rewritten in May 2026 from the prior "community impact infrastructure" framing. Reference brief used for the rewrite specified eight section replacements and is now reflected in the live page. Spanish version (`src/pages/es/greenblocks.astro`) **still carries the old framing** and is queued for translation as a separate task.
+
+**Brand voice rules for Greenblocks copy** (verified by `grep -nE '—|don\\'t|won\\'t|...'` before commit):
+- No contractions ("we are" not "we're")
+- No em dashes — use periods, colons, or new lines instead
+- No hype words
+
+**Design tokens (`.gb-page` scope):**
+- `--gb-accent` `#3b5d3b` — brand green, used for primary highlights, CTAs, problem-tile accent stripes, and the "credibility gap" headline emphasis. **This is the brand color** — when in doubt, use this.
+- `--gb-warm` `#8b7355` — warm tan, secondary palette only. Do not use for brand-level emphasis (an earlier wiring of `.gb-warm` to this token broke the credibility-gap highlight; the class now points at `--gb-accent`).
+- `--gb-bg-primary` `#f5f1eb` (cream), `--gb-bg-secondary` `#ebe7df`, `--gb-bg-card` `#ffffff`
+- `--gb-text-primary` `#2d2d2d`, `--gb-text-secondary` `#5a5a5a`, `--gb-text-muted` `#666666` (was `#8a8a8a` — failed WCAG AA on cream backgrounds, darkened during the harden pass)
+
+**Visual assets pending design refresh** (briefed but not yet replaced):
+- `public/images/greenblocks-hero.webp` — generic sustainable-community render; replace with Dubai-flavored premium residential visual
+- `public/images/greenblocks-icons.webp` — original three wellness icons; the hero references it but the problem section no longer uses it (replaced with flat tile list during distill)
+- `public/images/the-shift-arrow.webp` — review against new four From/To pairs
+- `public/images/og-preview.webp` — update so LinkedIn previews carry the new narrative
+
+**Page structure (current):** Hero → "Premium real estate has a credibility gap" (with three flat tiles) → "From claims to proof" (four pairs) → "Greenblocks is infrastructure" (with `flow-chart-infrastructure.webp` passport diagram) → "What Greenblocks enables" (4-up enables grid, flagged for redesign) → "How we deploy" → "Set the standard" CTA.
+
 ### Service Pillars Content
 
 #### 1. Zero-Knowledge & Privacy Tooling
@@ -481,13 +516,16 @@ property: attr(attribute-name type(<type>), fallback-value);
 - Add structured data
 - Implement related posts
 
-#### Published Blog Posts
+#### Published Blog Posts (Greenblocks / Dubai narrative)
 
-- **2025-12-05**: "Why Dubai Luxury Real Estate Needs Blockchain Carbon Credits" (en)
-  - Topic: Blockchain carbon credits for luxury real estate
-  - Service pillars: Zero-Knowledge & Privacy, Web3 Integration, Hybrid ZK-AI, Decentralized Infrastructure
-  - Technical focus: Smart contracts, wallet abstraction, privacy-preserving architecture, GDPR/UAE PDPL compliance
-  - Call-to-action: Aunova's tokenized sustainability solutions
+Listed newest first. Full list of all blog mdx files is in `src/content/blog/en/`.
+
+- **2026-05** (post-REES Pitch Day at DIFC): `dubai-rees-pitch-day-greenblocks-passport.mdx`
+  - Recap of Teresa Esteve's pitch framing Greenblocks as the trust, transparency, and reputation infrastructure layer for premium real estate, delivered via Digital Building Passport.
+- **2026-05**: `dubai-verified-digital-infrastructure-greenblocks.mdx`
+  - Companion piece on what verified digital infrastructure means for premium residential developers in Dubai.
+- **2025-12-05**: `dubai-luxury-real-estate-blockchain-carbon-credits.mdx`
+  - Blockchain carbon credits for luxury real estate; smart contracts, wallet abstraction, GDPR/UAE PDPL compliance.
 
 ## i18n Implementation
 
