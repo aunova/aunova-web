@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.5.5",
+  "checkpoint_id": "a70eb72946a0",
+  "strategy": "manual-commit",
+  "branch": "dev",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "public/images/flow-chart-infrastructure.webp",
+    "src/pages/greenblocks.astro"
+  ],
+  "sessions": [
+    {
+      "metadata": "/a7/0eb72946a0/0/metadata.json",
+      "transcript": "/a7/0eb72946a0/0/full.jsonl",
+      "content_hash": "/a7/0eb72946a0/0/content_hash.txt",
+      "prompt": "/a7/0eb72946a0/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 71,
+    "cache_creation_tokens": 140908,
+    "cache_read_tokens": 4017603,
+    "output_tokens": 36750,
+    "api_call_count": 41
+  }
+}
