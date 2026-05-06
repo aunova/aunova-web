@@ -1,0 +1,102 @@
+{
+  "cli_version": "0.5.5",
+  "checkpoint_id": "647edc62ba7b",
+  "session_id": "0020a454-e7a8-43c9-ba7a-4e85bfa59f81",
+  "strategy": "manual-commit",
+  "created_at": "2026-05-06T07:24:26.120666874Z",
+  "branch": "dev",
+  "checkpoints_count": 5,
+  "files_touched": [
+    "src/pages/greenblocks.astro"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-4-7[1m]",
+  "turn_id": "9d130df65065",
+  "token_usage": {
+    "input_tokens": 114,
+    "cache_creation_tokens": 165601,
+    "cache_read_tokens": 7554542,
+    "output_tokens": 49530,
+    "api_call_count": 64
+  },
+  "session_metrics": {
+    "turn_count": 7
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-05-06T07:24:26.088558269Z",
+    "agent_lines": 24,
+    "agent_removed": 10,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 24,
+    "total_lines_changed": 34,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 421,
+      "user_lines_removed": 0,
+      "agent_lines_added": 205,
+      "agent_lines_removed": 23,
+      "user_added_per_file": {
+        ".claude/agents/entire-search.md": 25,
+        ".claude/settings.local.json": 50,
+        ".gemini/agents/entire-search.md": 28,
+        ".gemini/settings.json": 141,
+        ".opencode/plugins/entire.ts": 177
+      }
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 421,
+      "user_lines_removed": 0,
+      "agent_lines_added": 205,
+      "agent_lines_removed": 23,
+      "user_added_per_file": {
+        ".claude/agents/entire-search.md": 25,
+        ".claude/settings.local.json": 50,
+        ".gemini/agents/entire-search.md": 28,
+        ".gemini/settings.json": 141,
+        ".opencode/plugins/entire.ts": 177
+      }
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 421,
+      "user_lines_removed": 0,
+      "agent_lines_added": 205,
+      "agent_lines_removed": 23,
+      "user_added_per_file": {
+        ".claude/agents/entire-search.md": 25,
+        ".claude/settings.local.json": 50,
+        ".gemini/agents/entire-search.md": 28,
+        ".gemini/settings.json": 141,
+        ".opencode/plugins/entire.ts": 177
+      }
+    },
+    {
+      "checkpoint_number": 6,
+      "user_lines_added": 421,
+      "user_lines_removed": 0,
+      "agent_lines_added": 229,
+      "agent_lines_removed": 33,
+      "user_added_per_file": {
+        ".claude/agents/entire-search.md": 25,
+        ".claude/settings.local.json": 50,
+        ".gemini/agents/entire-search.md": 28,
+        ".gemini/settings.json": 141,
+        ".opencode/plugins/entire.ts": 177
+      }
+    }
+  ]
+}
