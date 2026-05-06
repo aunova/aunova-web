@@ -27,16 +27,20 @@ const lang = "en";
 
   <GreenblocksHeader />
 
-  <div class="gb-page">
+  <main id="main-content" class="gb-page">
     <!-- Section 1: Hero -->
     <section class="gb-hero">
       <!-- Background image -->
-      <div class="gb-hero-bg">
+      <div class="gb-hero-bg" aria-hidden="true">
         <img
           src="/images/greenblocks-hero.webp"
-          alt="Sustainable community visualization with green architecture and people"
+          alt=""
+          role="presentation"
           class="gb-hero-bg-image"
           loading="eager"
+          fetchpriority="high"
+          width="1600"
+          height="1067"
         />
         <!-- Floating icons on the image -->
         <div class="gb-hero-icons">
@@ -100,7 +104,7 @@ const lang = "en";
                 <span></span>
                 <span class="gb-grid-card">
                   <strong>Marketing without verification</strong>
-                  <small>Claims buyers cannot independently confirm.</small>
+                  <span class="gb-grid-card-desc">Claims buyers cannot independently confirm.</span>
                 </span>
                 <span></span>
                 <span></span>
@@ -108,13 +112,13 @@ const lang = "en";
                 <span></span>
                 <span class="gb-grid-card">
                   <strong>Reports without infrastructure</strong>
-                  <small>Performance data reduced to brochures and PDFs.</small>
+                  <span class="gb-grid-card-desc">Performance data reduced to brochures and PDFs.</span>
                 </span>
                 <span></span>
                 <span></span>
                 <span class="gb-grid-card">
                   <strong>Reputation without measurement</strong>
-                  <small>Brand built on narrative, not provable substance.</small>
+                  <span class="gb-grid-card-desc">Brand built on narrative, not provable substance.</span>
                 </span>
                 <span></span>
                 <span></span>
@@ -301,7 +305,7 @@ const lang = "en";
       </div>
     </section>
 
-  </div>
+  </main>
   <Footer />
   <CookieNotice />
 </BaseLayout>
@@ -348,7 +352,7 @@ const lang = "en";
   --gb-bg-card: #ffffff;
   --gb-text-primary: #2d2d2d;
   --gb-text-secondary: #5a5a5a;
-  --gb-text-muted: #8a8a8a;
+  --gb-text-muted: #666666;
   --gb-accent: #3b5d3b;
   --gb-accent-light: #5a8a5a;
   --gb-warm: #8b7355;
@@ -686,6 +690,15 @@ const lang = "en";
   height: 18px;
 }
 
+/* Keyboard focus indicators */
+.gb-page a:focus-visible,
+.gb-btn:focus-visible,
+.gb-btn-outline:focus-visible {
+  outline: 2px solid var(--gb-accent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
 /* Headings */
 .gb-heading {
   font-family: var(--gb-font-display);
@@ -870,10 +883,11 @@ const lang = "en";
   display: block;
 }
 
-.gb-grid-card small {
+.gb-grid-card-desc {
+  display: block;
   font-family: var(--gb-font-body);
   font-size: 0.9375rem;
-  color: var(--gb-text-muted);
+  color: var(--gb-text-secondary);
   line-height: 1.5;
 }
 
