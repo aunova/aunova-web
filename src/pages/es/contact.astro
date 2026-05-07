@@ -186,18 +186,21 @@ const t = getTranslation(lang);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
     padding: var(--space-2xl);
+    min-width: 0;
   }
 
   .contact-form {
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
+    min-width: 0;
   }
 
   .form-group {
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
+    min-width: 0;
   }
 
   .form-group label {
@@ -209,6 +212,8 @@ const t = getTranslation(lang);
   .form-group input,
   .form-group textarea,
   .form-group select {
+    width: 100%;
+    max-width: 100%;
     padding: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -216,6 +221,10 @@ const t = getTranslation(lang);
     background: var(--color-background);
     color: var(--color-text);
     transition: border-color var(--transition-fast);
+  }
+
+  .form-group textarea {
+    resize: vertical;
   }
 
   .form-group input:focus,
