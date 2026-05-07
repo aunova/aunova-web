@@ -1,0 +1,5 @@
+there is a branch with contact fix, merge it to dev and i will test it
+
+---
+
+the contact form is still not mobile optimzed[Image #1]
