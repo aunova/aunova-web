@@ -237,6 +237,7 @@ export const translations = {
         "We are currently developing our system families with a small number of aligned partners. We welcome conversations with institutions building toward a long-term, human- and planet-positive future.",
       form: {
         name: "Name",
+        email: "Email",
         organization: "Organization",
         systemFamily: "Which system family aligns with your vision?",
         systemFamilyOptions: [
@@ -517,6 +518,7 @@ export const translations = {
         "Actualmente estamos desarrollando nuestras familias de sistemas con un número reducido de socios alineados. Damos la bienvenida a conversaciones con instituciones que estén construyendo, con visión de largo plazo, un futuro positivo para las personas y el planeta.",
       form: {
         name: "Nombre",
+        email: "Correo electrónico",
         organization: "Organización",
         systemFamily: "¿Qué familia de sistemas se alinea con tu visión?",
         systemFamilyOptions: [
