@@ -151,19 +151,19 @@ This document serves as the comprehensive guide for AI agents (Claude or other L
 ### Migration Context
 
 - **Source**: `aunova-old/` - Legacy Astro site with Tailwind CSS and telemetry
-- **Target**: `aunova-new/` - Modern Astro 5.x with minimal JavaScript
+- **Target**: `aunova-new/` - Modern Astro 6.x with minimal JavaScript
 - **Timeline**: started Q3 2024; live and iterating
 - **Status**: in production, ongoing content + design refinement
 - **Branch model**: feature work commits to `dev`, then merges to `main`. Sync `main` → `dev` before starting work; commit logically separated changes; push to `origin/dev`.
 
 ### Local development
 
-- **Node**: requires Node ≥18.20.8 (Astro 5.x). System default may be Node 16 — use nvm:
+- **Node**: requires Node ≥22.12.0 (Astro 6.x). System default may be Node 16 — use nvm:
   ```bash
   . "$HOME/.nvm/nvm.sh" && nvm use 24
   bun run build
   ```
-  `.nvmrc` pins 20.12.2; Node 24 latest also works. fnm crashed on this machine; nvm is the working version manager.
+  `.nvmrc` pins 24. fnm crashed on this machine; nvm is the working version manager.
 
 ## Core Principles
 
@@ -197,7 +197,7 @@ This document serves as the comprehensive guide for AI agents (Claude or other L
 
 ```
 - Runtime: Bun 1.2.21+
-- Framework: Astro 5.13.2+
+- Framework: Astro 6.3.6+
 - State Management: Zustand
 - Validation: Zod
 - CSS: Modern CSS with custom properties

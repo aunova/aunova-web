@@ -85,10 +85,11 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
           <Leaf size={24} />
         </div>
         <div class="callout-content">
-          <p class="callout-intro">Our first system partnership initiative</p>
+          <p class="callout-intro">Our flagship system, now deploying</p>
           <p class="callout-main">
-            <strong class="callout-brand">Greenblocks</strong> — environmental and
-            sustainability infrastructure for the built world.
+            <strong class="callout-brand">Greenblocks:</strong> a Digital Building
+            Passport that brings verified trust and transparency to premium real
+            estate. Deploying in Dubai.
           </p>
         </div>
       </aside>
@@ -129,6 +130,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
         <SystemFamilyCard
           name={t.systemFamilies.sustainability.name}
           category={t.systemFamilies.sustainability.category}
+          status={t.systemFamilies.sustainability.status}
           tagline={t.systemFamilies.sustainability.tagline}
           description={t.systemFamilies.sustainability.description}
           examples={[...t.systemFamilies.sustainability.examples]}
@@ -294,7 +296,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   /* ===== Hero Section ===== */
   .hero {
     position: relative;
-    min-height: 90vh;
+    min-height: 90dvh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -341,7 +343,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     font-size: clamp(2rem, 5vw, 50px);
     font-weight: 700;
     line-height: 1.38;
-    color: #621011;
+    color: var(--color-primary);
     margin-bottom: var(--space-xl);
     letter-spacing: -0.02em;
   }
@@ -349,7 +351,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .hero-subtitle {
     font-family: var(--font-body);
     font-size: clamp(1rem, 2vw, 20px);
-    color: #000;
+    color: var(--color-text);
     line-height: 2;
     margin-bottom: var(--space-2xl);
     font-weight: 400;
@@ -364,7 +366,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
 
   .hero-link {
     font-size: 18px;
-    color: #570d0b;
+    color: var(--color-primary);
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-thickness: 1px;
@@ -373,8 +375,12 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   }
 
   .hero-link:hover {
-    color: #3a0807;
+    color: var(--color-primary-hover);
     text-decoration-thickness: 2px;
+  }
+
+  .hero-link:active {
+    transform: translateY(1px);
   }
 
   /* ===== Shared Section Styles ===== */
@@ -388,7 +394,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     font-family: var(--font-heading);
     font-size: var(--text-h1);
     font-weight: 700;
-    color: #570d0b;
+    color: var(--color-primary);
     margin-bottom: var(--space-xl);
     line-height: var(--lh-heading);
   }
@@ -396,7 +402,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .section-intro {
     font-family: var(--font-heading);
     font-size: var(--text-body);
-    color: #000;
+    color: var(--color-text);
     line-height: 1.7;
     margin: 0;
   }
@@ -405,14 +411,16 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
+    max-width: 68ch;
+    margin-inline: auto;
   }
 
   .body-text p {
     font-family: var(--font-body);
     font-size: var(--text-body);
-    color: #000;
+    color: var(--color-text);
     line-height: 1.7;
-    text-align: center;
+    text-align: left;
     margin: 0;
   }
 
@@ -428,7 +436,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .subtitle-text p {
     font-family: var(--font-body);
     font-size: var(--text-body);
-    color: #000;
+    color: var(--color-text);
     line-height: 1.6;
     margin: 0;
   }
@@ -445,7 +453,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     margin: var(--space-2xl) auto;
     padding: var(--space-xl) var(--space-lg);
     background: var(--color-card-bg);
-    border: 3px solid #d7a5a5;
+    border: 1px solid var(--color-border);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -476,7 +484,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .callout-intro {
     font-family: var(--font-body);
     font-size: var(--text-body-sm);
-    color: #000;
+    color: var(--color-text);
     font-style: italic;
     margin: 0 0 10px 0;
     line-height: 1.6;
@@ -485,14 +493,14 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .callout-main {
     font-family: var(--font-heading);
     font-size: var(--text-h2);
-    color: #570d0b;
+    color: var(--color-primary);
     margin: 0;
     line-height: 1.3;
     font-weight: 700;
   }
 
   .callout-brand {
-    color: #570d0b;
+    color: var(--color-primary);
     font-weight: 700;
     font-size: var(--text-h2);
   }
@@ -508,13 +516,13 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
 
   .principle-card {
     background: var(--color-card-bg);
-    border: 3px solid #d7a5a5;
+    border: 1px solid var(--color-border);
     border-radius: 9px;
     padding: var(--space-xl);
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 6px 16px rgba(108, 0, 1, 0.1));
   }
 
   .principle-icon {
@@ -544,7 +552,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     font-family: var(--font-heading);
     font-size: var(--text-h3);
     font-weight: 700;
-    color: #570d0b;
+    color: var(--color-primary);
     margin: 0;
     line-height: 1.4;
   }
@@ -552,7 +560,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .principle-description {
     font-family: var(--font-body);
     font-size: var(--text-body-sm);
-    color: #000;
+    color: var(--color-text);
     margin: 0;
     line-height: 1.7;
   }
@@ -560,7 +568,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   /* ===== System Families Section ===== */
   .system-families {
     padding: clamp(3rem, 6vw, 97px) clamp(1rem, 7vw, 100px);
-    background: linear-gradient(360deg, #ffffff 0%, #f2ebed 100%);
+    background: var(--color-white);
   }
 
   .families-grid {
@@ -584,7 +592,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     font-family: var(--font-heading);
     font-size: var(--text-h2);
     font-weight: 700;
-    color: #570d0b;
+    color: var(--color-primary);
     margin: 0;
     line-height: 1.25;
   }
@@ -592,7 +600,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .future-subtitle {
     font-family: var(--font-body);
     font-size: var(--text-h3);
-    color: #000;
+    color: var(--color-text);
     font-style: normal;
     line-height: 1.4;
   }
@@ -605,14 +613,14 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
 
   .future-card {
     background: var(--color-card-bg);
-    border: 3px solid #d7a5a5;
+    border: 1px solid var(--color-border);
     border-radius: 9px;
     padding: var(--space-xl);
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: var(--space-md);
-    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 6px 16px rgba(108, 0, 1, 0.1));
   }
 
   .future-card-icon {
@@ -644,7 +652,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     font-family: var(--font-body);
     font-size: var(--text-body);
     font-weight: 400;
-    color: #000;
+    color: var(--color-text);
     margin: 0;
     line-height: 1.5;
   }
@@ -652,7 +660,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .future-card-description {
     font-family: var(--font-body);
     font-size: var(--text-body-sm);
-    color: #000;
+    color: var(--color-text);
     margin: 0;
     line-height: 1.6;
   }
@@ -666,7 +674,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   /* ===== Criteria Section ===== */
   .criteria-section-wrapper {
     padding: clamp(3rem, 6vw, 97px) clamp(1rem, 7vw, 100px);
-    background: linear-gradient(360deg, #ffffff 0%, #f2ebed 100%);
+    background: var(--color-white);
   }
 
   /* ===== Why Aunova Section ===== */
@@ -685,13 +693,13 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
 
   .stacked-card {
     background: var(--color-card-bg);
-    border: 3px solid #d7a5a5;
+    border: 1px solid var(--color-border);
     border-radius: 10px;
     padding: var(--space-xl);
     display: flex;
     align-items: center;
     gap: var(--space-lg);
-    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 6px 16px rgba(108, 0, 1, 0.1));
   }
 
   .stacked-card-circle {
@@ -719,7 +727,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .stacked-card-text p {
     font-family: var(--font-body);
     font-size: var(--text-body);
-    color: #000;
+    color: var(--color-text);
     line-height: 1.7;
     margin: 0;
   }
@@ -737,7 +745,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     font-family: var(--font-heading);
     font-size: var(--text-h2);
     font-weight: 700;
-    color: #570d0b;
+    color: var(--color-primary);
     text-align: center;
     max-width: 100%;
     margin: var(--space-2xl) auto 0;
@@ -762,7 +770,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   }
 
   .btn-primary {
-    background-color: #570d0b;
+    background-color: var(--color-primary);
     color: #ffffff;
   }
 
@@ -775,20 +783,25 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     color: var(--color-white);
   }
 
+  .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
   /* ===== Engage Section ===== */
   .engage-section {
     padding: clamp(3rem, 6vw, 97px) clamp(1rem, 7vw, 100px);
-    background: linear-gradient(360deg, #ffffff 0%, #f2ebed 100%);
+    background: var(--color-white);
   }
 
   .engage-cards {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 31px;
   }
 
   .engage-card {
-    flex: 1;
-    border: 1px solid #000;
+    border: 1px solid var(--color-border);
     border-radius: 10px;
     padding: 35px;
     display: flex;
@@ -802,7 +815,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     font-family: var(--font-heading);
     font-size: var(--text-h3);
     font-weight: 700;
-    color: #570d0b;
+    color: var(--color-primary);
     line-height: 1.4;
     margin: 0;
   }
@@ -811,7 +824,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: #d9d9d9;
+    background: rgba(87, 13, 11, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -828,7 +841,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     font-family: var(--font-body);
     font-size: var(--text-body);
     font-weight: 400;
-    color: #000;
+    color: var(--color-text);
     line-height: 1.6;
     margin: 0;
     flex: 1;
@@ -840,7 +853,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     align-items: center;
     padding: 12px 24px;
     width: 100%;
-    background: #570d0b;
+    background: var(--color-primary);
     border-radius: 6px;
     font-family: var(--font-heading);
     font-size: var(--text-body-sm);
@@ -858,6 +871,10 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     transform: translateY(-2px);
   }
 
+  .engage-card-btn:active {
+    transform: translateY(0);
+  }
+
   .engage-cta {
     margin-top: 48px;
     text-align: center;
@@ -870,7 +887,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .engage-cta-text {
     font-family: var(--font-body);
     font-size: var(--text-body);
-    color: #000;
+    color: var(--color-text);
     line-height: 1.7;
     margin: 0;
   }
@@ -880,7 +897,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     justify-content: center;
     align-items: center;
     padding: 14px 40px;
-    background: #570d0b;
+    background: var(--color-primary);
     border-radius: 8px;
     font-family: var(--font-heading);
     font-size: var(--text-body);
@@ -898,10 +915,14 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     transform: translateY(-2px);
   }
 
+  .engage-cta-btn:active {
+    transform: translateY(0);
+  }
+
   /* ===== Responsive ===== */
   @media (max-width: 768px) {
     .hero {
-      min-height: 100vh;
+      min-height: 100dvh;
     }
 
     .hero-content {
@@ -991,7 +1012,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     }
 
     .engage-cards {
-      flex-direction: column;
+      grid-template-columns: 1fr;
     }
 
     .engage-card-circle {

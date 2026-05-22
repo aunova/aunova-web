@@ -351,7 +351,7 @@ const lang = "en";
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Removed: Atmospheric background and particles for light theme */
@@ -372,7 +372,7 @@ const lang = "en";
 /* Hero Section - Full width background image */
 .gb-hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
 }
 
@@ -394,7 +394,7 @@ const lang = "en";
 .gb-hero-overlay {
   position: relative;
   z-index: 2;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   padding: 6rem 0;
@@ -478,7 +478,12 @@ const lang = "en";
   background: rgba(235, 228, 216, 0.95);
   border-color: rgba(180, 165, 140, 0.9);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(139, 115, 85, 0.22);
+}
+
+.gb-btn-outline:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 /* Hero responsive styles */
@@ -568,6 +573,11 @@ const lang = "en";
   box-shadow: 0 8px 24px rgba(59, 93, 59, 0.25);
   text-decoration: none;
   color: #ffffff;
+}
+
+.gb-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .gb-btn :global(svg) {
@@ -780,7 +790,7 @@ const lang = "en";
 .gb-system-body {
   max-width: 760px;
   margin: 2rem auto 0;
-  text-align: center;
+  text-align: left;
 }
 
 .gb-system-body .gb-text {
@@ -864,9 +874,10 @@ const lang = "en";
 /* What Greenblocks Enables */
 .gb-enables-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  margin-top: 3rem;
+  max-width: 820px;
+  margin: 3rem auto 0;
 }
 
 .gb-enables-card {
@@ -1005,9 +1016,48 @@ const lang = "en";
   transform: translateY(0);
 }
 
+/* Staggered reveal for item groups inside a revealed section.
+   Children translate only: opacity is handled once by the .gb-reveal
+   parent, so there is no nested-opacity compositing. */
+.gb-reveal .gb-problem-tile,
+.gb-reveal .gb-enables-card,
+.gb-reveal .gb-partnership-list li {
+  transform: translateY(24px);
+  transition: transform var(--gb-duration-normal) var(--gb-ease-out-expo);
+}
+
+.gb-reveal.visible .gb-problem-tile,
+.gb-reveal.visible .gb-enables-card,
+.gb-reveal.visible .gb-partnership-list li {
+  transform: translateY(0);
+}
+
+.gb-reveal.visible .gb-problem-tile:nth-child(2),
+.gb-reveal.visible .gb-enables-card:nth-child(2),
+.gb-reveal.visible .gb-partnership-list li:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.gb-reveal.visible .gb-problem-tile:nth-child(3),
+.gb-reveal.visible .gb-enables-card:nth-child(3),
+.gb-reveal.visible .gb-partnership-list li:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.gb-reveal.visible .gb-enables-card:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .gb-reveal {
     opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .gb-reveal .gb-problem-tile,
+  .gb-reveal .gb-enables-card,
+  .gb-reveal .gb-partnership-list li {
     transform: none;
     transition: none;
   }
@@ -1072,6 +1122,14 @@ const lang = "en";
     });
   }
 
-  // Run on initial load and after view transitions
+  // Run on initial load and after view transitions.
+  // The astro:page-load listener alone is not enough: with ClientRouter
+  // the event can fire before this deferred module registers the listener,
+  // leaving every .gb-reveal stuck at opacity 0. Run immediately too.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRevealAnimations);
+  } else {
+    initRevealAnimations();
+  }
   document.addEventListener('astro:page-load', initRevealAnimations);
 </script>

@@ -19,7 +19,7 @@ export async function GET(context) {
       title: post.data.title,
       pubDate: post.data.publishDate,
       description: post.data.description,
-      link: `/en/blog/${post.slug.replace('en/', '')}/`,
+      link: `/en/blog/${post.id.replace('en/', '')}/`,
       author: post.data.author || 'Aunova Team',
       categories: [post.data.category, ...(post.data.tags || [])],
     })),
