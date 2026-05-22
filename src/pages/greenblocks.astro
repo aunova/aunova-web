@@ -1016,9 +1016,48 @@ const lang = "en";
   transform: translateY(0);
 }
 
+/* Staggered reveal for item groups inside a revealed section.
+   Children translate only: opacity is handled once by the .gb-reveal
+   parent, so there is no nested-opacity compositing. */
+.gb-reveal .gb-problem-tile,
+.gb-reveal .gb-enables-card,
+.gb-reveal .gb-partnership-list li {
+  transform: translateY(24px);
+  transition: transform var(--gb-duration-normal) var(--gb-ease-out-expo);
+}
+
+.gb-reveal.visible .gb-problem-tile,
+.gb-reveal.visible .gb-enables-card,
+.gb-reveal.visible .gb-partnership-list li {
+  transform: translateY(0);
+}
+
+.gb-reveal.visible .gb-problem-tile:nth-child(2),
+.gb-reveal.visible .gb-enables-card:nth-child(2),
+.gb-reveal.visible .gb-partnership-list li:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.gb-reveal.visible .gb-problem-tile:nth-child(3),
+.gb-reveal.visible .gb-enables-card:nth-child(3),
+.gb-reveal.visible .gb-partnership-list li:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.gb-reveal.visible .gb-enables-card:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .gb-reveal {
     opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .gb-reveal .gb-problem-tile,
+  .gb-reveal .gb-enables-card,
+  .gb-reveal .gb-partnership-list li {
     transform: none;
     transition: none;
   }
