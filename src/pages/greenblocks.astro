@@ -351,7 +351,7 @@ const lang = "en";
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Removed: Atmospheric background and particles for light theme */
@@ -372,7 +372,7 @@ const lang = "en";
 /* Hero Section - Full width background image */
 .gb-hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
 }
 
@@ -394,7 +394,7 @@ const lang = "en";
 .gb-hero-overlay {
   position: relative;
   z-index: 2;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   padding: 6rem 0;
@@ -478,7 +478,12 @@ const lang = "en";
   background: rgba(235, 228, 216, 0.95);
   border-color: rgba(180, 165, 140, 0.9);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(139, 115, 85, 0.22);
+}
+
+.gb-btn-outline:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 /* Hero responsive styles */
@@ -568,6 +573,11 @@ const lang = "en";
   box-shadow: 0 8px 24px rgba(59, 93, 59, 0.25);
   text-decoration: none;
   color: #ffffff;
+}
+
+.gb-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .gb-btn :global(svg) {
@@ -780,7 +790,7 @@ const lang = "en";
 .gb-system-body {
   max-width: 760px;
   margin: 2rem auto 0;
-  text-align: center;
+  text-align: left;
 }
 
 .gb-system-body .gb-text {
