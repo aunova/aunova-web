@@ -1072,6 +1072,14 @@ const lang = "en";
     });
   }
 
-  // Run on initial load and after view transitions
+  // Run on initial load and after view transitions.
+  // The astro:page-load listener alone is not enough: with ClientRouter
+  // the event can fire before this deferred module registers the listener,
+  // leaving every .gb-reveal stuck at opacity 0. Run immediately too.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRevealAnimations);
+  } else {
+    initRevealAnimations();
+  }
   document.addEventListener('astro:page-load', initRevealAnimations);
 </script>
