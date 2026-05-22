@@ -1,0 +1,25 @@
+{
+  "cli_version": "0.5.5",
+  "checkpoint_id": "b8419b184724",
+  "strategy": "manual-commit",
+  "branch": "dev",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "src/components/features/SystemFamilyCard.astro"
+  ],
+  "sessions": [
+    {
+      "metadata": "/b8/419b184724/0/metadata.json",
+      "transcript": "/b8/419b184724/0/full.jsonl",
+      "content_hash": "/b8/419b184724/0/content_hash.txt",
+      "prompt": "/b8/419b184724/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 18620,
+    "cache_creation_tokens": 696530,
+    "cache_read_tokens": 8259147,
+    "output_tokens": 51172,
+    "api_call_count": 80
+  }
+}
