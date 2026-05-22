@@ -44,7 +44,7 @@ const posts = allPosts
             <BlogCard
               title={post.data.title}
               description={post.data.description}
-              href={`/${lang}/blog/${post.slug.replace('en/', '')}`}
+              href={`/${lang}/blog/${post.id.replace('en/', '')}`}
               image={post.data.image}
               imageAlt={post.data.imageAlt}
               category={post.data.category}

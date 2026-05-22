@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import PageLayout from "../../../layouts/PageLayout.astro";
 import SocialShare from "../../../components/SocialShare.astro";
 import { getTranslation } from "../../../utils/i18n";
@@ -15,13 +15,13 @@ export async function getStaticPaths() {
     });
 
     return posts.map((post) => ({
-        params: { slug: post.slug.replace("en/", "") },
+        params: { slug: post.id.replace("en/", "") },
         props: post,
     }));
 }
 
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 const lang = "en";
 const t = getTranslation(lang);
