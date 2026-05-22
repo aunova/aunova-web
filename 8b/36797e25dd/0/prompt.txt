@@ -1,0 +1,61 @@
+we also need to update the main page of aunova with the new greenblocks vision
+
+---
+
+/caveman:cavecrew
+
+---
+
+approved
+
+---
+
+upgrade astro and check if everything works New version of Astro available: 6.3.7
+
+---
+
+update claude and nvmrc
+
+---
+
+can you run taste skill and evaluate potential changes?
+
+---
+
+first push current to dev, then start with the changes (make a checkpoint in case we need to revert)
+
+---
+
+go through teh batches without asking
+
+---
+
+also check /greenblocks the content doesnt seem to be loading correctly/at all
+
+---
+
+it looks good.  also check /greenblocks the content doesnt seem to be loading correctly/at all
+
+---
+
+it works
+
+---
+
+yeah walk through it
+
+---
+
+fix header, then commit and push to dev
+
+---
+
+would /greenblocks benefit from motion-framer skill?
+
+---
+
+yes do it
+
+---
+
+[Image #1] what happened?
