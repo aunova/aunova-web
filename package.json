@@ -12,11 +12,11 @@
     "deploy": "astro build && echo 'aunova.net' > ./dist/CNAME"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/mdx": "^5.0.6",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
     "@mcp-b/global": "^2.2.0",
-    "astro": "^5.18.1",
+    "astro": "^6.3.6",
     "lucide-astro": "^0.556.0",
     "sharp": "^0.34.5",
     "zod": "^4.4.2",
