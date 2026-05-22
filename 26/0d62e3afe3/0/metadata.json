@@ -1,0 +1,52 @@
+{
+  "cli_version": "0.5.5",
+  "checkpoint_id": "260d62e3afe3",
+  "session_id": "3ca1d8d9-0ee4-4aa7-9f09-e770f0e11eb8",
+  "strategy": "manual-commit",
+  "created_at": "2026-05-22T09:52:54.187316104Z",
+  "branch": "dev",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "src/components/features/SystemFamilyCard.astro",
+    "src/pages/es/index.astro",
+    "src/pages/index.astro",
+    "src/utils/i18n.ts"
+  ],
+  "agent": "Claude Code",
+  "model": "",
+  "turn_id": "f3bdc6307695",
+  "token_usage": {
+    "input_tokens": 16252,
+    "cache_creation_tokens": 411379,
+    "cache_read_tokens": 3323386,
+    "output_tokens": 28246,
+    "api_call_count": 45
+  },
+  "session_metrics": {
+    "turn_count": 2
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-05-22T09:52:54.1728282Z",
+    "agent_lines": 50,
+    "agent_removed": 27,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 50,
+    "total_lines_changed": 77,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 51,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 51
+      }
+    }
+  ]
+}
