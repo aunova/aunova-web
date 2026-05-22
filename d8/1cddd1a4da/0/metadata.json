@@ -1,0 +1,46 @@
+{
+  "cli_version": "0.5.5",
+  "checkpoint_id": "d81cddd1a4da",
+  "session_id": "3ca1d8d9-0ee4-4aa7-9f09-e770f0e11eb8",
+  "strategy": "manual-commit",
+  "created_at": "2026-05-22T07:57:44.385911219Z",
+  "branch": "dev",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "docs/superpowers/specs/2026-05-22-homepage-greenblocks-vision-design.md"
+  ],
+  "agent": "Claude Code",
+  "model": "",
+  "turn_id": "9a4f26fa789c",
+  "token_usage": {
+    "input_tokens": 10942,
+    "cache_creation_tokens": 176547,
+    "cache_read_tokens": 2369924,
+    "output_tokens": 19852,
+    "api_call_count": 35
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-05-22T07:57:44.373176607Z",
+    "agent_lines": 119,
+    "agent_removed": 0,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 119,
+    "total_lines_changed": 119,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 51,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 51
+      }
+    }
+  ]
+}

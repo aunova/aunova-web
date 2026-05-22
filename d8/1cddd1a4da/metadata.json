@@ -1,0 +1,25 @@
+{
+  "cli_version": "0.5.5",
+  "checkpoint_id": "d81cddd1a4da",
+  "strategy": "manual-commit",
+  "branch": "dev",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "docs/superpowers/specs/2026-05-22-homepage-greenblocks-vision-design.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/d8/1cddd1a4da/0/metadata.json",
+      "transcript": "/d8/1cddd1a4da/0/full.jsonl",
+      "content_hash": "/d8/1cddd1a4da/0/content_hash.txt",
+      "prompt": "/d8/1cddd1a4da/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 10942,
+    "cache_creation_tokens": 176547,
+    "cache_read_tokens": 2369924,
+    "output_tokens": 19852,
+    "api_call_count": 35
+  }
+}
