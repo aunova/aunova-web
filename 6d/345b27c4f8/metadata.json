@@ -1,0 +1,27 @@
+{
+  "cli_version": "0.5.5",
+  "checkpoint_id": "6d345b27c4f8",
+  "strategy": "manual-commit",
+  "branch": "dev",
+  "checkpoints_count": 1,
+  "files_touched": [
+    ".nvmrc",
+    "bun.lock",
+    "package.json"
+  ],
+  "sessions": [
+    {
+      "metadata": "/6d/345b27c4f8/0/metadata.json",
+      "transcript": "/6d/345b27c4f8/0/full.jsonl",
+      "content_hash": "/6d/345b27c4f8/0/content_hash.txt",
+      "prompt": "/6d/345b27c4f8/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 18620,
+    "cache_creation_tokens": 696530,
+    "cache_read_tokens": 8259147,
+    "output_tokens": 51172,
+    "api_call_count": 80
+  }
+}
