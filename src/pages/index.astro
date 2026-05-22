@@ -351,7 +351,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .hero-subtitle {
     font-family: var(--font-body);
     font-size: clamp(1rem, 2vw, 20px);
-    color: #000;
+    color: var(--color-text);
     line-height: 2;
     margin-bottom: var(--space-2xl);
     font-weight: 400;
@@ -398,7 +398,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .section-intro {
     font-family: var(--font-heading);
     font-size: var(--text-body);
-    color: #000;
+    color: var(--color-text);
     line-height: 1.7;
     margin: 0;
   }
@@ -407,14 +407,16 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
+    max-width: 68ch;
+    margin-inline: auto;
   }
 
   .body-text p {
     font-family: var(--font-body);
     font-size: var(--text-body);
-    color: #000;
+    color: var(--color-text);
     line-height: 1.7;
-    text-align: center;
+    text-align: left;
     margin: 0;
   }
 
@@ -430,7 +432,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .subtitle-text p {
     font-family: var(--font-body);
     font-size: var(--text-body);
-    color: #000;
+    color: var(--color-text);
     line-height: 1.6;
     margin: 0;
   }
@@ -447,7 +449,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     margin: var(--space-2xl) auto;
     padding: var(--space-xl) var(--space-lg);
     background: var(--color-card-bg);
-    border: 3px solid #d7a5a5;
+    border: 1px solid var(--color-border);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -478,7 +480,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .callout-intro {
     font-family: var(--font-body);
     font-size: var(--text-body-sm);
-    color: #000;
+    color: var(--color-text);
     font-style: italic;
     margin: 0 0 10px 0;
     line-height: 1.6;
@@ -510,13 +512,13 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
 
   .principle-card {
     background: var(--color-card-bg);
-    border: 3px solid #d7a5a5;
+    border: 1px solid var(--color-border);
     border-radius: 9px;
     padding: var(--space-xl);
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 6px 16px rgba(108, 0, 1, 0.1));
   }
 
   .principle-icon {
@@ -554,7 +556,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .principle-description {
     font-family: var(--font-body);
     font-size: var(--text-body-sm);
-    color: #000;
+    color: var(--color-text);
     margin: 0;
     line-height: 1.7;
   }
@@ -594,7 +596,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .future-subtitle {
     font-family: var(--font-body);
     font-size: var(--text-h3);
-    color: #000;
+    color: var(--color-text);
     font-style: normal;
     line-height: 1.4;
   }
@@ -607,14 +609,14 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
 
   .future-card {
     background: var(--color-card-bg);
-    border: 3px solid #d7a5a5;
+    border: 1px solid var(--color-border);
     border-radius: 9px;
     padding: var(--space-xl);
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: var(--space-md);
-    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 6px 16px rgba(108, 0, 1, 0.1));
   }
 
   .future-card-icon {
@@ -646,7 +648,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     font-family: var(--font-body);
     font-size: var(--text-body);
     font-weight: 400;
-    color: #000;
+    color: var(--color-text);
     margin: 0;
     line-height: 1.5;
   }
@@ -654,7 +656,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .future-card-description {
     font-family: var(--font-body);
     font-size: var(--text-body-sm);
-    color: #000;
+    color: var(--color-text);
     margin: 0;
     line-height: 1.6;
   }
@@ -687,13 +689,13 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
 
   .stacked-card {
     background: var(--color-card-bg);
-    border: 3px solid #d7a5a5;
+    border: 1px solid var(--color-border);
     border-radius: 10px;
     padding: var(--space-xl);
     display: flex;
     align-items: center;
     gap: var(--space-lg);
-    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 6px 16px rgba(108, 0, 1, 0.1));
   }
 
   .stacked-card-circle {
@@ -721,7 +723,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .stacked-card-text p {
     font-family: var(--font-body);
     font-size: var(--text-body);
-    color: #000;
+    color: var(--color-text);
     line-height: 1.7;
     margin: 0;
   }
@@ -830,7 +832,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
     font-family: var(--font-body);
     font-size: var(--text-body);
     font-weight: 400;
-    color: #000;
+    color: var(--color-text);
     line-height: 1.6;
     margin: 0;
     flex: 1;
@@ -872,7 +874,7 @@ const engageIcons = [Compass, Code, FlaskConical, Handshake];
   .engage-cta-text {
     font-family: var(--font-body);
     font-size: var(--text-body);
-    color: #000;
+    color: var(--color-text);
     line-height: 1.7;
     margin: 0;
   }
