@@ -39,7 +39,7 @@ export const translations = {
         "We engage selectively, build for decades, and design systems meant to become shared layers within the worlds they serve.",
       ],
       callout:
-        "Our first system partnership initiative is <strong>Greenblocks</strong> — environmental and sustainability infrastructure for the built world.",
+        "Our flagship system is <strong>Greenblocks</strong>, a Digital Building Passport that brings verified trust and transparency to premium real estate. Now deploying in Dubai.",
       principles: [
         {
           title: "Human-and planet-critical focus",
@@ -70,22 +70,23 @@ export const translations = {
     systemFamilies: {
       title: "System Families We Are Developing With Partners",
       intro:
-        "Aunova builds families of systems designed to become shared infrastructure layers within the ecosystems they serve. Each system family is developed through long-term partnerships and addresses a core human or planetary need.",
+        "Aunova builds families of systems designed to become shared infrastructure layers within the ecosystems they serve. Greenblocks, our Digital Building Passport for premium real estate, is live and deploying in Dubai. Further system families are in development with future partners.",
       sustainability: {
         name: "Greenblocks by Aunova",
-        category: "Community Impact Infrastructure",
+        status: "Now live · Dubai",
+        category: "Digital Building Passport",
         tagline:
-          "The foundational infrastructure layer for sustainable,\nhealthy, and living communities.",
+          "Verified trust and transparency for premium real estate.",
         description:
-          "Greenblocks is the community impact infrastructure for the built world. \nIt enables a new way of living, where environmental responsibility, \nhealthy living, and human connection are embedded into how communities function.",
+          "Greenblocks is a trust, transparency, and reputation layer for premium real estate. It turns developer claims into structured, verifiable, comparable data at asset level.",
         examples: [
-          "Verified sustainability and environmental impact data across assets and operations",
-          "Accountable ESG and environmental reporting infrastructures",
-          "Incentive systems that financially reward provable sustainable action",
-          "New economic and operational models powered by trusted environmental data",
+          "Verified performance data across the asset lifecycle",
+          "Reputation as a measurable asset attribute, not a brand exercise",
+          "Buyer-comparable projects, judged on substance",
+          "Building intelligence operators, regulators, and investors can query",
         ],
         closingLine:
-          "Greenblocks represents our partnership model: a shared ambition to build foundational environmental systems that can endure for decades.",
+          "Now deploying in Dubai with premium residential developers.",
       },
       future: {
         title: "Future system families",
@@ -241,7 +242,7 @@ export const translations = {
         organization: "Organization",
         systemFamily: "Which system family aligns with your vision?",
         systemFamilyOptions: [
-          "Greenblocks (Environmental & Sustainability)",
+          "Greenblocks (Digital Building Passport)",
           "Human Data & Identity",
           "Responsible AI & Governance",
           "Healthcare & Care-Tech",
@@ -332,7 +333,7 @@ export const translations = {
           "Nos comprometemos de forma selectiva, construimos pensando en décadas y diseñamos sistemas destinados a convertirse en capas compartidas dentro de los entornos a los que sirven.",
       ],
       callout:
-        "Nuestra primera iniciativa de colaboración sistémica se centra en infraestructura ambiental y de sostenibilidad para el sector de la edificación y las ciudades.",
+        "Nuestro sistema insignia es <strong>Greenblocks</strong>, un Pasaporte Digital de Edificio que aporta confianza y transparencia verificadas al sector inmobiliario premium. Ahora en despliegue en Dubái.",
       principles: [
         {
           title: "Enfoque crítico para las personas y el planeta",
@@ -363,22 +364,23 @@ export const translations = {
     systemFamilies: {
       title: "Familias de sistemas que desarrollamos con nuestros socios",
       intro:
-        "Aunova construye familias de sistemas diseñadas para convertirse en capas de infraestructura compartida dentro de los ecosistemas a los que sirven. Cada familia de sistemas se desarrolla a través de colaboraciones a largo plazo y responde a una necesidad fundamental de las personas o del planeta.",
+        "Aunova construye familias de sistemas diseñadas para convertirse en capas de infraestructura compartida dentro de los ecosistemas a los que sirven. Greenblocks, nuestro Pasaporte Digital de Edificio para el sector inmobiliario premium, está en marcha y desplegándose en Dubái. Otras familias de sistemas están en desarrollo con futuros socios.",
       sustainability: {
         name: "Sistemas ambientales y de sostenibilidad",
-        category: "Infraestructura ambiental y de sostenibilidad",
+        status: "En vivo · Dubái",
+        category: "Pasaporte Digital de Edificio",
         tagline:
-          "La capa de datos verificables y de responsabilidad para comunidades y activos sostenibles.",
+          "Confianza y transparencia verificadas para el sector inmobiliario premium.",
         description:
-          "Estamos colaborando con organizaciones visionarias para transformar los compromisos de sostenibilidad en resultados medibles, responsables y con impacto económico real.",
+          "Greenblocks es una capa de confianza, transparencia y reputación para el sector inmobiliario premium. Convierte las afirmaciones de los promotores en datos estructurados, verificables y comparables a nivel de activo.",
         examples: [
-          "Datos verificados de sostenibilidad e impacto ambiental en activos y operaciones",
-          "Infraestructura de reporte ESG y ambiental con trazabilidad y responsabilidad",
-          "Sistemas de incentivos que recompensan económicamente la acción sostenible demostrable",
-          "Nuevos modelos económicos y operativos basados en datos ambientales confiables",
+          "Datos de desempeño verificados a lo largo del ciclo de vida del activo",
+          "Reputación como atributo medible del activo, no como ejercicio de marca",
+          "Proyectos comparables para el comprador, juzgados por su sustancia",
+          "Inteligencia del edificio que operadores, reguladores e inversores pueden consultar",
         ],
         closingLine:
-          "Esta familia de sistemas refleja nuestro modelo de colaboración: una ambición compartida para construir sistemas ambientales fundamentales capaces de perdurar durante décadas.",
+          "Ahora en despliegue en Dubái con promotores residenciales premium.",
       },
       future: {
         title: "Futuras familias de sistemas (en desarrollo)",
@@ -522,7 +524,7 @@ export const translations = {
         organization: "Organización",
         systemFamily: "¿Qué familia de sistemas se alinea con tu visión?",
         systemFamilyOptions: [
-          "Sistemas ambientales y de sostenibilidad",
+          "Greenblocks (Pasaporte Digital de Edificio)",
           "Datos humanos e identidad",
           "IA responsable y gobernanza",
           "Salud y tecnologías de cuidado",

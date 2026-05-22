@@ -6,6 +6,7 @@ export interface Props {
   description: string;
   examples: string[];
   closingLine: string;
+  status?: string;
   accentColor?: string;
   featured?: boolean;
   visualizationImage?: string;
@@ -20,6 +21,7 @@ const {
   description,
   examples,
   closingLine,
+  status,
   accentColor = "var(--color-primary)",
   featured = false,
   visualizationImage,
@@ -43,6 +45,7 @@ const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
           <slot name="icon" />
         </div>
         <div class="header-text">
+          {status && <span class="status-badge">{status}</span>}
           <h3 class="name">
             {mainName}{suffix && <span class="suffix">{suffix}</span>}
           </h3>
@@ -246,6 +249,19 @@ const suffix = nameParts.length > 1 ? ` by ${nameParts[1]}` : "";
 
   .header-text {
     flex: 1;
+  }
+
+  .status-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    color: var(--accent);
+    margin-bottom: var(--space-sm);
   }
 
   .category {
