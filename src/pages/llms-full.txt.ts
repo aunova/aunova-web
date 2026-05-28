@@ -148,18 +148,36 @@ Aunova builds families of systems designed to become shared infrastructure layer
 
 ### Greenblocks (Active)
 
-**Category:** Community Impact Infrastructure
+**Category:** Verified Real Estate
+**Product:** Infrastructure (Digital Building Passport)
 
-Greenblocks is the community impact infrastructure for the built world. It enables a new way of living, where environmental responsibility, healthy living, and human connection are embedded into how communities function.
+Greenblocks is the trust, transparency, and reputation infrastructure layer for premium real estate, delivered as a Digital Building Passport at asset level. It sits underneath every claim a developer makes and converts it into structured, verifiable, comparable data.
 
-**What Greenblocks Enables:**
-- Verified sustainability and environmental impact data across assets and operations
-- Accountable ESG and environmental reporting infrastructures
-- Incentive systems that financially reward provable sustainable action
-- New economic and operational models powered by trusted environmental data
-- Tokenized carbon credits for real estate
+**Direct commercial client:** Premium residential developers in Dubai. Surrounding stakeholders served by the passport include buyers, investors, operators, and regulators.
 
-Greenblocks represents our partnership model: a shared ambition to build foundational environmental systems that can endure for decades.
+**What the Digital Building Passport verifies:**
+- Sustainability performance
+- Wellness intelligence
+- Community engagement
+- Construction quality
+- Operational reliability
+- Regulatory readiness
+
+**What Greenblocks enables:**
+- Verified performance: every claim becomes structured, comparable data across the asset lifecycle
+- Premium positioning: trust beyond marketing, reputation as a measurable asset attribute
+- Buyer comparability: projects easier to compare on substance, not branding
+- Operational intelligence: building data that serves operators, regulators, and institutional capital after handover
+
+**The shift Greenblocks enables (from claims to proof):**
+- From claims to structured, verifiable data
+- From developer narrative to buyer-comparable performance
+- From reputation by brand to reputation as a measurable asset attribute
+- From reporting as PDFs to infrastructure that operators, regulators, and investors can query
+
+**How we deploy:** Asset-level, not portfolio-wide. The first deployment becomes a reference case. Scale follows proof. Long-term partnership model with one founding developer per market.
+
+Greenblocks is not a sustainability platform, an ESG dashboard, or a wellness app. It is infrastructure that makes the value of a building visible, comparable, and trustworthy.
 
 ### Future System Families (In Development)
 - Human data and identity infrastructure

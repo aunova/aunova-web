@@ -12,7 +12,7 @@ export const GET: APIRoute = async () => {
 
   const content = `# Aunova
 
-> Aunova is a technology consultancy specializing in Zero-Knowledge proofs, Fully Homomorphic Encryption (FHE), AI & Web3 integration, and privacy-preserving infrastructure. We partner with institutions to build human- and planet-critical systems their future depends on.
+> Aunova is a technology consultancy specializing in Zero-Knowledge proofs, Fully Homomorphic Encryption (FHE), AI & Web3 integration, and privacy-preserving infrastructure. We partner with institutions to build human- and planet-critical systems their future depends on. Our current flagship is Greenblocks, a Digital Building Passport for premium real estate, now deploying in Dubai.
 
 Aunova is NOT a software vendor. We are a long-term systems partner that co-builds mission-critical infrastructure with aligned organizations. We work selectively with 2-3 founding partners per system family, designing for decades rather than quarters.
 
@@ -56,7 +56,7 @@ Financial Services, Healthcare, Supply Chain, Gaming, Government, Real Estate, D
 
 ## Current System Family
 
-**Greenblocks**: Community Impact Infrastructure for the built world, enabling environmental responsibility, healthy living, and human connection in communities. Focuses on tokenized sustainability solutions for real estate.
+**Greenblocks**: Digital Building Passport for premium real estate. Greenblocks is the trust, transparency, and reputation infrastructure layer for premium real estate, delivered at asset level. It turns developer claims about sustainability, wellness, community, construction quality, operational reliability, and regulatory readiness into structured, verifiable, comparable data. Currently deploying in Dubai with premium residential developers. Category: verified real estate. Product: infrastructure. Greenblocks is not a sustainability platform, ESG dashboard, or wellness app.
 
 ## Partnership Criteria
 
@@ -74,7 +74,7 @@ We engage with organizations that:
 - [Services](https://aunova.net/en/services): Overview of all service offerings
 - [Zero-Knowledge Services](https://aunova.net/en/services/zero-knowledge): ZK proof implementation details
 - [FHE Services](https://aunova.net/en/services/fhe): Fully Homomorphic Encryption offerings
-- [Greenblocks](https://aunova.net/greenblocks): Community impact infrastructure initiative
+- [Greenblocks](https://aunova.net/greenblocks): Digital Building Passport for premium real estate (deploying in Dubai)
 - [Contact](https://aunova.net/en/contact): Partnership inquiry form
 - [Blog](https://aunova.net/en/blog): Technical articles and insights
 - [Privacy Policy](https://aunova.net/en/privacy): GDPR-compliant privacy policy
