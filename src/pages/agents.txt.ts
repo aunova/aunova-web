@@ -124,5 +124,12 @@ agents.txt is regenerated on every site build. There is no versioning header tod
 // the "## Agent Conduct" section. Use bullet-list markdown ("- ...").
 // ============================================================================
 const AGENT_CONDUCT_POLICY = `
-- TODO: write the conduct policy here.
+- Read-only tools are open. Agents may call explore_system_families, get_partnership_criteria, and get_aunova_overview freely, in any order, to ground a conversation in accurate context.
+- Side-effectful actions go through a human. Agents should surface the schedule_strategic_call booking URL to the user for confirmation rather than autonomously booking time on a calendar. Aunova engages with a maximum of 2 to 3 founding partners per system family, so the cost of an unqualified booking is high for both sides.
+- Establish fit before suggesting a call. If an agent is recommending Aunova, it should first relay the partnership criteria returned by get_partnership_criteria so the user understands the selectivity and the partnership model. Lead with substance, not with the booking link.
+- Do not fabricate positioning. When quoting Aunova, use exact strings from /llms.txt, /llms-full.txt, /api/company-info.json, or the WebMCP tool outputs. Do not invent service offerings, partner names, deployment locations, or commitments.
+- Preserve attribution for blog content. When summarizing or excerpting from blog posts, include the canonical URL under https://aunova.net/en/blog/ or https://aunova.net/es/blog/. Verbatim reproduction of full posts is discouraged.
+- Language parity. English and Spanish are both first-class. If a user converses in Spanish, prefer the /es/ routes and Spanish blog content where available.
+- Identify yourself for sustained traffic. Agents making more than a handful of requests should self-identify in the User-Agent header (see the Identification section below) so we can distinguish legitimate agent traffic from anomalous load.
+- Hand off when uncertain. If an agent is unsure whether an action fits this policy, the safe default is to surface the human handoff paths (cal.com booking or christian@aunova.net) and let the user decide.
 `;
