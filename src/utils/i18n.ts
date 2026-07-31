@@ -263,6 +263,7 @@ export const translations = {
       legal: "Legal",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
+      newsletterPrivacy: "Newsletter Privacy Notice",
       scheduleCall: "Schedule Call",
       rights: "All rights reserved.",
       builtWith:
@@ -546,6 +547,7 @@ export const translations = {
       legal: "Legal",
       privacy: "Política de Privacidad",
       terms: "Términos de Servicio",
+      newsletterPrivacy: "Aviso de privacidad del boletín",
       scheduleCall: "Agendar Llamada",
       rights: "© 2025 Aunova. Todos los derechos reservados.",
       builtWith:

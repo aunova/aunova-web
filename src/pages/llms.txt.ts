@@ -79,6 +79,7 @@ We engage with organizations that:
 - [Blog](https://aunova.net/en/blog): Technical articles and insights
 - [Privacy Policy](https://aunova.net/en/privacy): GDPR-compliant privacy policy
 - [Terms of Service](https://aunova.net/en/terms): Terms and conditions
+- [Newsletter Privacy Notice](https://aunova.net/en/privacy/newsletter): Privacy notice for the Model Organism email newsletter
 
 ## API
 
