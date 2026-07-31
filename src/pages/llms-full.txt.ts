@@ -307,6 +307,7 @@ Returns structured JSON-LD data including:
 - Contact: https://aunova.net/en/contact
 - Privacy Policy: https://aunova.net/en/privacy
 - Terms of Service: https://aunova.net/en/terms
+- Newsletter Privacy Notice: https://aunova.net/en/privacy/newsletter
 
 Spanish versions available at /es/ paths.
 
