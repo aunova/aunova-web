@@ -165,7 +165,10 @@ const metadata = {
             <li>
               <strong>Buy the remove-ads option</strong>, described below. When Google Play confirms,
               as the app opens, that the purchase is on your Google account, ModelMeter neither
-              shows the consent form nor starts the ad software.
+              shows the consent form nor starts the ad software. If Google Play has not answered
+              within about three seconds of the app opening, ModelMeter starts the ad software for
+              that session anyway, so on such a start a buyer can still see the consent form and
+              the ad.
             </li>
           </ul>
         </div>
