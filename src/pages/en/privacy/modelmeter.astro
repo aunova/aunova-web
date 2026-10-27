@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/PageLayout.astro";
 
-// Version MM-PRIVACY-v1.1, in force from 2026-10-27. Every statement about the app is
+// Version MM-PRIVACY-v1.2, in force from 2026-10-27. Every statement about the app is
 // backed by the ModelMeter source (privacy_points in modelmeter-ui/src/viewmodel.rs,
 // the Android manifest and build.gradle.kts). Change this page in the same release
 // that changes what the app does.
@@ -164,8 +164,14 @@ const metadata = {
           <p>
             Where Google's User Messaging Platform reports that a privacy options entry point is
             required for you, the About screen has a <strong>Privacy options</strong> button. It reopens
-            Google's consent form, so you can change your answer or withdraw consent at any time. If
-            you withdraw consent, you stop seeing the ad.
+            Google's consent form, so you can change your answer or withdraw consent at any time.
+          </p>
+          <p>
+            Refusing or withdrawing does not necessarily remove the ad. ModelMeter asks Google's
+            SDK whether an ad may be requested at all, and keeps asking for one for as long as the
+            answer is yes. What changes is the ad: without your consent Google serves a limited,
+            non-personalised ad, or none. If Google's answer is that no ad may be requested, the
+            app stops asking and the space the ad occupied closes up.
           </p>
           <p>
             Where Google's User Messaging Platform reports that this is not required, the About
@@ -363,7 +369,7 @@ const metadata = {
         <div class="legal-section">
           <h2>Version and effective date</h2>
           <p>
-            Version <strong>MM-PRIVACY-v1.1</strong>, in force from <strong>27 October 2026</strong>.
+            Version <strong>MM-PRIVACY-v1.2</strong>, in force from <strong>27 October 2026</strong>.
           </p>
           <p>This notice is pending review by qualified counsel. It is not legal advice.</p>
         </div>
