@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/PageLayout.astro";
 
-// Version MM-PRIVACY-v1.2, in force from 2026-10-27. Every statement about the app is
+// Version MM-PRIVACY-v1.3, in force from 2026-10-27. Every statement about the app is
 // backed by the ModelMeter source (privacy_points in modelmeter-ui/src/viewmodel.rs,
 // the Android manifest and build.gradle.kts). Change this page in the same release
 // that changes what the app does.
@@ -23,11 +23,11 @@ const metadata = {
       <div class="legal-content">
         <div class="legal-section">
           <h2>About this notice</h2>
-          <p class="legal-intro">
+          <p>
             This notice covers one thing: the <strong>ModelMeter</strong> app for Android
             (package <code>com.aunova.modelmeter</code>). ModelMeter checks which AI models your
-            phone can run. This notice explains what happens to data when you use it. It is
-            written by Aunova OÜ, which makes the app.
+            phone can run. This notice explains what happens to data when you use it. It covers
+            both Aunova companies involved in the app.
           </p>
           <p>
             It does not cover the rest of aunova.net, which has its own
@@ -38,39 +38,47 @@ const metadata = {
             <li>The device check runs entirely on your phone. Nothing it works out is sent anywhere.</li>
             <li>We have no account, no sign-in, no analytics and no crash reporting of our own.</li>
             <li>
-              The free version shows a Google ad. Google's ad software collects data for that, and
-              this notice says what.
+              The free version shows a Google ad only if you agree. If you say no, no ad is
+              requested. If you say yes, Google's ad software collects data for the ad, and this
+              notice says what.
             </li>
-            <li>We, Aunova, receive nothing about you from the app.</li>
+            <li>
+              Neither Aunova company receives anything about you from the app. Aunova Technologies
+              Ltd sees only Google's overall ad reports, such as how many ads were shown, which do
+              not identify you.
+            </li>
           </ul>
         </div>
 
         <div class="legal-section">
           <h2>Who is responsible, and how to reach us</h2>
-          <p>Two Aunova companies are involved, and each is responsible for a different part.</p>
+          <p>Two Aunova companies are involved in ModelMeter.</p>
           <p>
-            <strong>Aunova OÜ, Ahtri tn 12, 15551 Tallinn, Harju maakond, Estonia (registry code 16837438, VAT: EE102670613)</strong>
+            <strong>Aunova OÜ</strong>, Ahtri tn 12, 15551 Tallinn, Harju maakond, Estonia
+            (registry code 16837438, VAT: EE102670613). Aunova OÜ makes ModelMeter and publishes it
+            on Google Play. It decides how Google's ad software is built into the app and when the
+            app asks for consent. It is also responsible for the purchase, the order records and the
+            emails you send us.
           </p>
           <p>
-            Aunova OÜ makes ModelMeter and publishes it on Google Play. It is the company
-            responsible for ModelMeter, except for the ad-related processing.
+            <strong>Aunova Technologies Ltd</strong>, GA-00-SZ-L1-RT-164, Level 1, Gate Avenue -
+            South Zone, Dubai International Financial Centre, Dubai, United Arab Emirates (DIFC
+            licence CL13718). The ads in the free version run under Aunova Technologies Ltd's Google
+            AdMob account. It sets up Google's consent form and receives the ad revenue.
           </p>
           <p>
-            <strong>Aunova Technologies Ltd, GA-00-SZ-L1-RT-164, Level 1, Gate Avenue - South Zone, Dubai International Financial Centre, Dubai, United Arab Emirates (DIFC licence CL13718)</strong>
-          </p>
-          <p>
-            The ads in the free version run under Aunova Technologies Ltd's Google AdMob account.
-            Aunova Technologies Ltd is the company responsible for the ad-related processing.
+            Both companies are responsible for the ads. You can contact either of them about the
+            ads, and exercise your rights against either of them.
           </p>
           <p>
             You can reach both companies by email at
-            <a href="mailto:chris@aunova.net">chris@aunova.net</a>, or by post at the addresses
+            <a href="mailto:chris@aunova.net">chris@aunova.net</a>, or by post at either address
             above.
           </p>
           <p>
-            Aunova OÜ has not appointed a Data Protection Officer, and it is not required to have
-            one. Data protection is handled internally, and the email address above reaches the
-            person responsible for it.
+            Neither company has appointed a Data Protection Officer. Data protection is handled
+            internally, and the email address above reaches the person responsible for it at both
+            companies.
           </p>
         </div>
 
@@ -83,7 +91,10 @@ const metadata = {
           <ul class="legal-list">
             <li>The check runs entirely on the phone. It works offline.</li>
             <li>What ModelMeter works out about your device is never sent anywhere, to us or to anyone else.</li>
-            <li>ModelMeter's own code does not save any of it to the phone's storage.</li>
+            <li>
+              ModelMeter does not save any of it to the phone's storage. The only thing saved on the
+              phone is your answer about ads, explained under <strong>Consent for ads</strong>.
+            </li>
             <li>There is no account and no sign-in.</li>
             <li>There is no analytics and no crash reporting of our own.</li>
           </ul>
@@ -108,13 +119,15 @@ const metadata = {
         <div class="legal-section">
           <h2>Ads in the free version</h2>
           <p>
-            The free version shows one banner ad, on the Models screen only. The ad is the one part
-            of the app that uses the network on its own. It comes from Google AdMob, through the
-            Google Mobile Ads SDK, and runs under Aunova Technologies Ltd's AdMob account.
+            The free version can show one banner ad, on the Models screen only, and only if you have
+            agreed (see <strong>Consent for ads</strong>). The ad is the one part of the app that
+            uses the network on its own. It comes from Google AdMob, through the Google Mobile Ads
+            SDK, and runs under Aunova Technologies Ltd's AdMob account. If you have not agreed, no
+            ad is requested.
           </p>
           <p>
-            Google states that its Mobile Ads SDK collects and shares the following data
-            automatically, for advertising, analytics and fraud prevention:
+            Once you have agreed, Google states that its Mobile Ads SDK collects and shares the
+            following data automatically, for advertising, analytics and fraud prevention:
           </p>
           <ul class="legal-list">
             <li>
@@ -140,12 +153,13 @@ const metadata = {
             disclosure for the Mobile Ads SDK</a>, which Google keeps up to date.
           </p>
           <p>
-            Nothing ModelMeter works out about your device is part of the ad request. We do not
-            pass Google any data of our own.
+            Nothing ModelMeter works out about your device is part of the ad request. We do not pass
+            Google any data of our own.
           </p>
           <p>
             Google uses the data it collects through its SDK under its own rules, and for AdMob it
-            acts as an independent controller. See
+            acts as an independent controller. Google may process this data outside your country,
+            including in the United States. See
             <a href="https://policies.google.com/privacy">Google's privacy policy</a> and
             <a href="https://policies.google.com/technologies/partner-sites">how Google uses
             information from sites or apps that use its services</a>.
@@ -155,28 +169,26 @@ const metadata = {
         <div class="legal-section">
           <h2>Consent for ads</h2>
           <p>
-            Before the ad software starts, ModelMeter asks Google's User Messaging Platform whether
-            consent is needed where you are. In the European Economic Area, the United Kingdom and
-            Switzerland, and wherever else the rules require it, Google's consent form is shown
-            first. No ad is requested until that question is settled. Your answer decides what the
-            ad software may use, including whether ads may be personalised.
+            Before the ad software requests anything, ModelMeter shows you Google's consent form, from
+            Google's User Messaging Platform. Every user sees it, wherever you are. It includes a
+            <strong>Do not consent</strong> option. No ad is requested unless you agree.
+          </p>
+          <p>If you say no, you see no ad and the app works exactly the same.</p>
+          <p>
+            <strong>What is saved on your phone.</strong> Google's consent tool saves your answer in
+            ModelMeter's own storage on your phone, in the standard format of the IAB Transparency
+            and Consent Framework. It does this so that you are not asked every time you open the
+            app, and so that Google's ad software can read what you allowed it to do. Your answer is
+            not sent to us. Apart from it, ModelMeter saves nothing about you on the phone.
           </p>
           <p>
-            Where Google's User Messaging Platform reports that a privacy options entry point is
-            required for you, the About screen has a <strong>Privacy options</strong> button. It reopens
-            Google's consent form, so you can change your answer or withdraw consent at any time.
+            <strong>Changing your mind.</strong> The About screen has a
+            <strong>Privacy options</strong> button. It reopens Google's consent form, so you can
+            change your answer or withdraw consent at any time. If you withdraw consent, you stop
+            seeing the ad: from then on, no ad is requested. Withdrawing does not affect what
+            happened before.
           </p>
-          <p>
-            Refusing or withdrawing does not necessarily remove the ad. ModelMeter asks Google's
-            SDK whether an ad may be requested at all, and keeps asking for one for as long as the
-            answer is yes. What changes is the ad: without your consent Google serves a limited,
-            non-personalised ad, or none. If Google's answer is that no ad may be requested, the
-            app stops asking and the space the ad occupied closes up.
-          </p>
-          <p>
-            Where Google's User Messaging Platform reports that this is not required, the About
-            screen has no Privacy options button. Either way, you can also:
-          </p>
+          <p>You can also:</p>
           <ul class="legal-list">
             <li>
               <strong>Reset or delete your advertising ID</strong> with the ad ID controls in your
@@ -184,16 +196,16 @@ const metadata = {
             </li>
             <li>
               <strong>Clear ModelMeter's storage</strong> in Android settings, under Apps, then
-              ModelMeter. That removes the consent answer saved on the phone, and where the rules
-              require it you are asked again the next time the app starts the ad software.
+              ModelMeter. That deletes your saved answer, and you are asked again the next time the
+              app would request an ad.
             </li>
             <li>
-              <strong>Buy the remove-ads option</strong>, described below. When Google Play confirms,
-              as the app opens, that the purchase is on your Google account, ModelMeter neither
-              shows the consent form nor starts the ad software. If Google Play has not answered
-              within about three seconds of the app opening, ModelMeter starts the ad software for
-              that session anyway, so on such a start a buyer can still see the consent form and
-              the ad.
+              <strong>Buy the remove-ads option</strong>, described below. When Google Play
+              confirms, as the app opens, that the purchase is on your Google account, ModelMeter
+              neither shows the consent form nor starts the ad software. If Google Play has not
+              answered within about three seconds of the app opening, ModelMeter treats that session
+              as the free version. On such a start a buyer can still see the consent form and,
+              after agreeing, the ad.
             </li>
           </ul>
         </div>
@@ -216,10 +228,10 @@ const metadata = {
             to us.
           </p>
           <p>
-            Like every Google Play developer, we can see an order record for each sale in Google
+            Aunova OÜ, as the Google Play developer, can see an order record for each sale in Google
             Play Console. Google decides what it contains. It includes an order number, the date,
             the product, the price and tax, and the buyer's country, and in some cases the region
-            and postcode. We use it only for our accounts.
+            and postcode. Aunova OÜ uses it only for its accounts.
           </p>
           <p>
             See the <a href="https://play.google.com/about/play-terms/">Google Play Terms of
@@ -261,32 +273,39 @@ const metadata = {
               runs on your phone and nothing leaves it.
             </li>
             <li>
-              <strong>Ads.</strong> Where the law requires consent, the ad software uses your data
-              only as far as your answer in Google's consent form allows. GDPR Article 6(1)(a).
+              <strong>Ads.</strong> Consent is the only basis, for every user. Aunova OÜ and Aunova
+              Technologies Ltd rely on your consent for having the ad software store and read
+              information on your phone, and collect your data and send it to Google: GDPR Article
+              6(1)(a), and the consent rules for information stored on your device. For Aunova
+              Technologies Ltd, this is also consent under Article 10(a) of the DIFC Data
+              Protection Law 2020. No ad is requested without your consent, and you can withdraw it
+              at any time (see <strong>Consent for ads</strong>). Google relies on its own lawful
+              bases for what it does with the data afterwards; see Google's privacy policy.
             </li>
             <li>
-              <strong>The purchase.</strong> Handling the purchase status so that the ad is removed
-              is necessary to give you what you paid for. Article 6(1)(b). Keeping order records for
-              our accounts is a legal obligation. Article 6(1)(c).
+              <strong>The purchase.</strong> Aunova OÜ handles the purchase status so that the ad
+              is removed, because that is necessary to give you what you paid for: Article 6(1)(b).
+              Keeping order records for its accounts is a legal obligation: Article 6(1)(c).
             </li>
             <li>
-              <strong>If you email us</strong>, we use your message to answer it. Article 6(1)(f),
-              our legitimate interest in replying to you.
+              <strong>If you email us</strong>, the company you write to uses your message to answer
+              it, on the basis of its legitimate interest in replying to you: Article 6(1)(f).
             </li>
           </ul>
-          <p>No decision is made about you automatically by us.</p>
+          <p>Neither company makes any decision about you automatically.</p>
         </div>
 
         <div class="legal-section">
           <h2>How long we keep it</h2>
-          <p>
-            From the app itself, we keep nothing, because we receive nothing. The two exceptions
-            are not app data:
-          </p>
+          <p>Neither Aunova company receives any data about you from the app, so neither keeps any.</p>
           <ul class="legal-list">
             <li>
-              <strong>Order records</strong> stay in Google Play Console, and we keep them for as
-              long as accounting law requires.
+              <strong>Your answer about ads</strong> stays on your phone until you change it, clear
+              ModelMeter's storage or uninstall the app.
+            </li>
+            <li>
+              <strong>Order records</strong> stay in Google Play Console. Aunova OÜ keeps them for
+              as long as accounting law requires.
             </li>
             <li>
               <strong>Emails you send us</strong> are kept until your question is settled, and then
@@ -294,8 +313,8 @@ const metadata = {
             </li>
           </ul>
           <p>
-            What Google keeps from its ad software and from Google Play is set by Google's policies,
-            linked above.
+            What Google keeps from its ad software and from Google Play is set by Google's
+            policies, linked above.
           </p>
         </div>
 
@@ -323,32 +342,37 @@ const metadata = {
           </ul>
           <p>
             Because the app sends us nothing, we usually cannot link any data to you from ModelMeter
-            alone. The data the ad software collects is held by Google. To exercise your rights
-            over it, use Google's own tools, described in
+            alone. The data the ad software collects is held by Google. To exercise your rights over
+            it, use Google's own tools, described in
             <a href="https://policies.google.com/privacy">Google's privacy policy</a>.
           </p>
           <p>
             To ask us, email <a href="mailto:chris@aunova.net">chris@aunova.net</a> or write to
-            either postal address above. You do not need to cite a law or fill in a form. We answer within
-            30 calendar days. If a request is complex we may extend that by up to two further
-            months, and we will tell you inside the first 30 days, and why.
+            either postal address above. For the ads, you can ask either company. You do not need to
+            cite a law or fill in a form. We answer without undue delay and within one month of
+            receiving your request. If a request is complex, or we receive many, we may extend that
+            by up to two further months. If we do, we tell you within the first month, and why
+            (GDPR Article 12(3)).
           </p>
         </div>
 
         <div class="legal-section">
           <h2>Complaining to a supervisory authority</h2>
           <p>
-            We would rather hear from you first, but you are not obliged to come to us at all. You
-            can complain directly to our supervisory authority:
+            We would rather hear from you first, but you do not have to come to us at all. You can
+            complain to the data protection authority of the country where you live, where you work,
+            or where you think the problem happened, and you may seek a remedy in court.
           </p>
           <p>
-            <strong>Estonian Data Protection Inspectorate</strong>
-            (<em>Andmekaitse Inspektsioon</em>), Tatari 39, 10134 Tallinn, Estonia. Telephone
-            +372 627 4135. Website <a href="https://www.aki.ee">www.aki.ee</a>.
+            The authority for Aunova OÜ is the <strong>Estonian Data Protection
+            Inspectorate</strong> (<em>Andmekaitse Inspektsioon</em>), Tatari 39, 10134 Tallinn,
+            Estonia. Telephone +372 627 4135. Website <a href="https://www.aki.ee">www.aki.ee</a>.
           </p>
           <p>
-            You may also complain to the data protection authority of the EU or EEA country where
-            you live or work, and you may seek a remedy in court.
+            Aunova Technologies Ltd is also subject to the DIFC Data Protection Law 2020, and you
+            can complain about it to the DIFC Commissioner of Data Protection, Dubai International
+            Financial Centre, Dubai, United Arab Emirates. Website
+            <a href="https://www.difc.com/business/registrars-and-commissioners/commissioner-of-data-protection">difc.com</a>.
           </p>
         </div>
 
@@ -369,7 +393,7 @@ const metadata = {
         <div class="legal-section">
           <h2>Version and effective date</h2>
           <p>
-            Version <strong>MM-PRIVACY-v1.2</strong>, in force from <strong>27 October 2026</strong>.
+            Version <strong>MM-PRIVACY-v1.3</strong>, in force from <strong>27 October 2026</strong>.
           </p>
           <p>This notice is pending review by qualified counsel. It is not legal advice.</p>
         </div>
