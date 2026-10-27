@@ -1,0 +1,475 @@
+---
+import Layout from "../../../layouts/PageLayout.astro";
+
+// Version MM-PRIVACY-v1.0, in force from 2026-10-27. Every statement about the app is
+// backed by the ModelMeter source (privacy_points in modelmeter-ui/src/viewmodel.rs,
+// the Android manifest and build.gradle.kts). Change this page in the same release
+// that changes what the app does.
+const metadata = {
+  title: "ModelMeter Privacy Notice - Aunova",
+  description:
+    "How the ModelMeter Android app handles data: the device check stays on your phone, the free version shows Google ads, and the remove-ads purchase goes through Google Play.",
+};
+---
+
+<Layout title={metadata.title} description={metadata.description}>
+  <section class="legal-page">
+    <div class="container">
+      <div class="legal-header">
+        <h1 class="legal-title">ModelMeter Privacy Notice</h1>
+        <p class="legal-updated">Last updated: October 27, 2026</p>
+      </div>
+
+      <div class="legal-content">
+        <div class="legal-section">
+          <h2>About this notice</h2>
+          <p class="legal-intro">
+            This notice covers one thing: the <strong>ModelMeter</strong> app for Android
+            (package <code>com.aunova.modelmeter</code>). ModelMeter checks which AI models your
+            phone can run. This notice explains what happens to data when you use it. It is
+            written by Aunova OÜ, which makes the app.
+          </p>
+          <p>
+            It does not cover the rest of aunova.net, which has its own
+            <a href="/en/privacy">privacy policy</a>.
+          </p>
+          <p>The short version:</p>
+          <ul class="legal-list">
+            <li>The device check runs entirely on your phone. Nothing it works out is sent anywhere.</li>
+            <li>We have no account, no sign-in, no analytics and no crash reporting of our own.</li>
+            <li>
+              The free version shows a Google ad. Google's ad software collects data for that, and
+              this notice says what.
+            </li>
+            <li>We, Aunova, receive nothing about you from the app.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>Who is responsible, and how to reach us</h2>
+          <p>The company responsible for ModelMeter is:</p>
+          <p>
+            <strong>Aunova OÜ, Ahtri tn 12, 15551 Tallinn, Harju maakond, Estonia (registry code 16837438, VAT: EE102670613)</strong>
+          </p>
+          <p>
+            You can reach us by email at
+            <a href="mailto:chris@aunova.net">chris@aunova.net</a>, or by post at the address above.
+          </p>
+          <p>
+            We have not appointed a Data Protection Officer, and we are not required to have one.
+            Data protection is handled internally, and the email address above reaches the person
+            responsible for it.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>The device check stays on your phone</h2>
+          <p>
+            ModelMeter reads your phone's memory, free storage and hardware details, and compares
+            them with a list of AI models. That list is built into the app.
+          </p>
+          <ul class="legal-list">
+            <li>The check runs entirely on the phone. It works offline.</li>
+            <li>What ModelMeter works out about your device is never sent anywhere, to us or to anyone else.</li>
+            <li>ModelMeter's own code does not save any of it to the phone's storage.</li>
+            <li>There is no account and no sign-in.</li>
+            <li>There is no analytics and no crash reporting of our own.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>Permissions</h2>
+          <p>
+            ModelMeter never asks you to grant a permission. It needs none of the ones Android
+            prompts for: no location, no contacts, no files, no phone state.
+          </p>
+          <p>
+            The app does declare two permissions that Android grants without asking. Both are there
+            for Google's ad software, not for anything the check does:
+          </p>
+          <ul class="legal-list">
+            <li><strong>Internet</strong>, to fetch an ad and the consent form.</li>
+            <li><strong>Advertising ID</strong>, because Google's ad software reads your phone's advertising ID.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>Ads in the free version</h2>
+          <p>
+            The free version shows one banner ad, on the Models screen only. The ad is the one part
+            of the app that uses the network on its own. It comes from Google AdMob, through the
+            Google Mobile Ads SDK.
+          </p>
+          <p>
+            Google states that its Mobile Ads SDK collects and shares the following data
+            automatically, for advertising, analytics and fraud prevention:
+          </p>
+          <ul class="legal-list">
+            <li>
+              <strong>IP address</strong>, which may be used to estimate the general location of
+              your device.
+            </li>
+            <li>
+              <strong>Product interactions</strong>, such as app launches, taps and video views.
+            </li>
+            <li>
+              <strong>Diagnostic information</strong> about how the app and the SDK perform, such
+              as app launch time, hang rate and energy usage.
+            </li>
+            <li>
+              <strong>Device and account identifiers</strong>: the Android advertising ID, the app
+              set ID and, where applicable, other identifiers related to accounts signed in on the
+              device.
+            </li>
+          </ul>
+          <p>
+            Google states that this data is encrypted in transit. The source is Google's own
+            <a href="https://developers.google.com/admob/android/privacy/play-data-disclosure">data
+            disclosure for the Mobile Ads SDK</a>, which Google keeps up to date.
+          </p>
+          <p>
+            Nothing ModelMeter works out about your device is part of the ad request. We do not
+            pass Google any data of our own.
+          </p>
+          <p>
+            Google uses the data it collects through its SDK under its own rules, and for AdMob it
+            acts as an independent controller. See
+            <a href="https://policies.google.com/privacy">Google's privacy policy</a> and
+            <a href="https://policies.google.com/technologies/partner-sites">how Google uses
+            information from sites or apps that use its services</a>.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Consent for ads</h2>
+          <p>
+            Before the ad software starts, ModelMeter asks Google's User Messaging Platform whether
+            consent is needed where you are. In the European Economic Area, the United Kingdom and
+            Switzerland, and wherever else the rules require it, Google's consent form is shown
+            first. No ad is requested until that question is settled. Your answer decides what the
+            ad software may use, including whether ads may be personalised.
+          </p>
+          <p>
+            The app does not have a menu to change that answer later. What you can do:
+          </p>
+          <ul class="legal-list">
+            <li>
+              <strong>Reset or delete your advertising ID</strong> with the ad ID controls in your
+              phone's Android settings. This works for every app on the phone, not just ModelMeter.
+            </li>
+            <li>
+              <strong>Clear ModelMeter's storage</strong> in Android settings, under Apps, then
+              ModelMeter. That removes the consent answer saved on the phone, and where the rules
+              require it you are asked again the next time the app starts the ad software.
+            </li>
+            <li>
+              <strong>Buy the remove-ads option</strong>, described below. When Google Play confirms,
+              as the app opens, that the purchase is on your Google account, ModelMeter neither
+              shows the consent form nor starts the ad software.
+            </li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>The remove-ads purchase</h2>
+          <p>
+            A one-time in-app purchase removes the ad. Nothing else changes: the check and the
+            model list are the same either way. "Restore purchases" on the About screen brings the
+            purchase to another device signed in to the same Google account.
+          </p>
+          <p>
+            The purchase runs through Google Play Billing. Google handles the payment. We never see
+            your card or any other payment details.
+          </p>
+          <p>
+            The app reads from Google Play only what it needs to remove the ad: whether this
+            Google account owns the purchase, and the purchase token Google uses to identify it.
+            The app uses that token only to confirm the purchase to Google Play. It is not sent
+            to us.
+          </p>
+          <p>
+            Like every Google Play developer, we can see an order record for each sale in Google
+            Play Console. Google decides what it contains. It includes an order number, the date,
+            the product, the price and tax, and the buyer's country, and in some cases the region
+            and postcode. We use it only for our accounts.
+          </p>
+          <p>
+            See the <a href="https://play.google.com/about/play-terms/">Google Play Terms of
+            Service</a> and <a href="https://policies.google.com/privacy">Google's privacy
+            policy</a>.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Links that leave the app</h2>
+          <p>
+            Some things in ModelMeter open a web address. Tapping one hands that address to your
+            browser and leaves ModelMeter. From there, the site you visit and its own privacy
+            policy apply. Nothing about your device or your check goes with the link.
+          </p>
+          <ul class="legal-list">
+            <li>
+              <strong>A model's page</strong> opens on Hugging Face. See the
+              <a href="https://huggingface.co/privacy">Hugging Face privacy policy</a>.
+            </li>
+            <li>
+              <strong>Tideproof</strong>, Aunova's other product, opens at tideproof.org. The link
+              is tagged so that tideproof.org can tell the visit came from ModelMeter. See the
+              <a href="https://tideproof.org/privacy/">Tideproof privacy page</a>.
+            </li>
+            <li>
+              <strong>The banner ad</strong>, in the free version, opens whatever the advertiser's
+              link points to. That link is not ours. What Google's ad software sends with the tap is
+              covered by Google's policies above, and the advertiser's site has its own.
+            </li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>Our lawful basis</h2>
+          <ul class="legal-list">
+            <li>
+              <strong>The device check</strong> involves no processing of personal data by us. It
+              runs on your phone and nothing leaves it.
+            </li>
+            <li>
+              <strong>Ads.</strong> Where the law requires consent, the ad software uses your data
+              only as far as your answer in Google's consent form allows. GDPR Article 6(1)(a).
+            </li>
+            <li>
+              <strong>The purchase.</strong> Handling the purchase status so that the ad is removed
+              is necessary to give you what you paid for. Article 6(1)(b). Keeping order records for
+              our accounts is a legal obligation. Article 6(1)(c).
+            </li>
+            <li>
+              <strong>If you email us</strong>, we use your message to answer it. Article 6(1)(f),
+              our legitimate interest in replying to you.
+            </li>
+          </ul>
+          <p>No decision is made about you automatically by us.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>How long we keep it</h2>
+          <p>
+            From the app itself, we keep nothing, because we receive nothing. The two exceptions
+            are not app data:
+          </p>
+          <ul class="legal-list">
+            <li>
+              <strong>Order records</strong> stay in Google Play Console, and we keep them for as
+              long as accounting law requires.
+            </li>
+            <li>
+              <strong>Emails you send us</strong> are kept until your question is settled, and then
+              deleted.
+            </li>
+          </ul>
+          <p>
+            What Google keeps from its ad software and from Google Play is set by Google's policies,
+            linked above.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Your rights</h2>
+          <p>
+            You have the following rights over any personal data we hold about you. Exercising any
+            of them is free, and you never have to justify asking.
+          </p>
+          <ul class="legal-list">
+            <li><strong>Access</strong> to the data and a copy of it. GDPR Article 15.</li>
+            <li><strong>Rectification</strong> of inaccurate data. Article 16.</li>
+            <li><strong>Erasure</strong> of your data. Article 17.</li>
+            <li><strong>Restriction</strong> of what we do with it. Article 18.</li>
+            <li><strong>Portability</strong> of the data you gave us. Article 20.</li>
+            <li><strong>Objection</strong> to processing based on our legitimate interest. Article 21.</li>
+            <li>
+              <strong>Withdraw consent</strong> at any time, without affecting what was done before.
+              Article 7(3). For ads, see <strong>Consent for ads</strong> above.
+            </li>
+            <li>
+              <strong>Complain</strong> to a supervisory authority, and seek a remedy in court. See
+              below.
+            </li>
+          </ul>
+          <p>
+            Because the app sends us nothing, we usually cannot link any data to you from ModelMeter
+            alone. The data the ad software collects is held by Google. To exercise your rights
+            over it, use Google's own tools, described in
+            <a href="https://policies.google.com/privacy">Google's privacy policy</a>.
+          </p>
+          <p>
+            To ask us, email <a href="mailto:chris@aunova.net">chris@aunova.net</a> or write to the
+            postal address above. You do not need to cite a law or fill in a form. We answer within
+            30 calendar days. If a request is complex we may extend that by up to two further
+            months, and we will tell you inside the first 30 days, and why.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Complaining to a supervisory authority</h2>
+          <p>
+            We would rather hear from you first, but you are not obliged to come to us at all. You
+            can complain directly to our supervisory authority:
+          </p>
+          <p>
+            <strong>Estonian Data Protection Inspectorate</strong>
+            (<em>Andmekaitse Inspektsioon</em>), Tatari 39, 10134 Tallinn, Estonia. Telephone
+            +372 627 4135. Website <a href="https://www.aki.ee">www.aki.ee</a>.
+          </p>
+          <p>
+            You may also complain to the data protection authority of the EU or EEA country where
+            you live or work, and you may seek a remedy in court.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Children</h2>
+          <p>ModelMeter is not directed at children.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Changes to this notice</h2>
+          <p>
+            We update this notice when what the app does changes, and the version and date change
+            with it. If a new version of the app sends anything new off the phone, this notice
+            changes first.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Version and effective date</h2>
+          <p>
+            Version <strong>MM-PRIVACY-v1.0</strong>, in force from <strong>27 October 2026</strong>.
+          </p>
+          <p>This notice is pending review by qualified counsel. It is not legal advice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: var(--space-3xl) 0 var(--space-5xl);
+    min-height: calc(100vh - var(--header-height));
+  }
+
+  .legal-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .legal-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background-size: 200% 200%;
+    animation: gradient-shift 5s ease infinite;
+  }
+
+  .legal-updated {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .legal-section h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text);
+  }
+
+  .legal-intro {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-section p {
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-md) 0;
+  }
+
+  .legal-list li {
+    position: relative;
+    padding-left: var(--space-xl);
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
+    color: var(--color-text-muted);
+  }
+
+  .legal-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .legal-list li strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .legal-section a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: opacity var(--transition-fast);
+  }
+
+  .legal-section a:hover {
+    opacity: 0.8;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Mobile styles */
+  @media (max-width: 640px) {
+    .legal-page {
+      padding: var(--space-2xl) 0 var(--space-3xl);
+    }
+
+    .legal-header {
+      margin-bottom: var(--space-2xl);
+      padding-bottom: var(--space-xl);
+    }
+
+    .legal-section {
+      margin-bottom: var(--space-xl);
+    }
+
+    .legal-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .legal-intro {
+      font-size: 1rem;
+    }
+  }
+</style>

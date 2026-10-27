@@ -308,6 +308,7 @@ Returns structured JSON-LD data including:
 - Privacy Policy: https://aunova.net/en/privacy
 - Terms of Service: https://aunova.net/en/terms
 - Newsletter Privacy Notice: https://aunova.net/en/privacy/newsletter
+- ModelMeter Privacy Notice: https://aunova.net/en/privacy/modelmeter
 
 Spanish versions available at /es/ paths.
 

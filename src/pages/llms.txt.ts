@@ -80,6 +80,7 @@ We engage with organizations that:
 - [Privacy Policy](https://aunova.net/en/privacy): GDPR-compliant privacy policy
 - [Terms of Service](https://aunova.net/en/terms): Terms and conditions
 - [Newsletter Privacy Notice](https://aunova.net/en/privacy/newsletter): Privacy notice for the Model Organism email newsletter
+- [ModelMeter Privacy Notice](https://aunova.net/en/privacy/modelmeter): Privacy notice for the ModelMeter Android app
 
 ## API
 
