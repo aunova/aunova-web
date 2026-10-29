@@ -7,6 +7,11 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://aunova.net",
   output: "static",
+  // Greenblocks (now Aunova Trust Infrastructure) lives on aunova.ae.
+  redirects: {
+    "/greenblocks": "https://aunova.ae/",
+    "/es/greenblocks": "https://aunova.ae/",
+  },
   integrations: [
     mdx(),
     sitemap({
