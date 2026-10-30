@@ -1,0 +1,252 @@
+---
+// The services page, shared by /en/services and /es/services.
+import { ArrowRight } from "lucide-astro";
+import { technologyKeys, technologyNames } from "../../utils/company";
+import { getTranslation, type Language } from "../../utils/i18n";
+import Capabilities from "../sections/Capabilities.astro";
+import CtaBand from "../sections/CtaBand.astro";
+import PageHero from "../sections/PageHero.astro";
+import Process from "../sections/Process.astro";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+const names = technologyNames[lang];
+const images = {
+  ai: "/images/v2/ai.webp",
+  blockchain: "/images/v2/blockchain.webp",
+  analytics: "/images/v2/analytics.webp",
+  encryption: "/images/v2/encryption.webp",
+} as const;
+const deepDives = [
+  { href: `/${lang}/services/fhe`, label: t.servicesPage.fhe },
+  { href: `/${lang}/services/zero-knowledge`, label: t.servicesPage.zk },
+];
+---
+
+<PageHero
+  eyebrow={t.servicesPage.eyebrow}
+  title={t.servicesPage.title}
+  lead={t.servicesPage.lead}
+  image="/images/v2/hero.webp"
+>
+  <div class="services-hero__actions">
+    <a class="button button--light" href={`/${lang}/contact`}>{t.cta.primary}</a>
+    <a class="button button--ghost" href="#technologies">{t.convergence.eyebrow}</a>
+  </div>
+</PageHero>
+
+<Capabilities lang={lang} id="what-we-build" detailed />
+
+<section id="technologies" class="section band-dark technologies">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">{t.convergence.eyebrow}</p>
+      <h2>{t.servicesPage.techTitle}</h2>
+      <p>{t.servicesPage.techIntro}</p>
+    </header>
+
+    <div class="technologies__list">
+      {
+        technologyKeys.map((key) => (
+          <article id={key} class="technology reveal">
+            <div class="technology__media">
+              <img
+                src={images[key]}
+                alt=""
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="technology__body">
+              <h3>{names[key]}</h3>
+              <p>{t.servicesPage.tech[key].text}</p>
+              <h4>{t.servicesPage.typicalUses}</h4>
+              <ul class="technology__uses">
+                {t.servicesPage.tech[key].uses.map((use) => (
+                  <li>{use}</li>
+                ))}
+              </ul>
+              {key === "encryption" && (
+                <div class="technology__deep">
+                  <h4>{t.servicesPage.deepDives}</h4>
+                  <ul>
+                    {deepDives.map((deepDive) => (
+                      <li>
+                        <a class="link-arrow" href={deepDive.href}>
+                          {deepDive.label}
+                          <ArrowRight size={18} aria-hidden="true" />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <aside class="combined reveal">
+      <p class="eyebrow">{t.convergence.combined.eyebrow}</p>
+      <h3>{t.convergence.combined.title}</h3>
+      <p class="combined__lead">{t.convergence.combined.text}</p>
+      <p class="combined__example">
+        <strong>{t.convergence.combined.exampleLabel}:</strong>
+        {t.convergence.combined.example}
+      </p>
+    </aside>
+  </div>
+</section>
+
+<Process lang={lang} />
+<CtaBand lang={lang} />
+
+<style>
+  .services-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-2xl);
+  }
+
+  .technologies {
+    background:
+      radial-gradient(50% 40% at 0% 0%, rgba(87, 13, 11, 0.35), transparent 70%),
+      var(--color-night);
+  }
+
+  .technologies__list {
+    display: grid;
+    gap: clamp(3rem, 2rem + 4vw, 6rem);
+  }
+
+  .technology {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: clamp(2rem, 1rem + 4vw, 5rem);
+    align-items: center;
+    scroll-margin-top: calc(var(--header-height) + 1rem);
+  }
+
+  .technology:nth-child(even) .technology__media {
+    order: 1;
+  }
+
+  .technology__media {
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-night-raised);
+  }
+
+  .technology__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .technology h3 {
+    margin-bottom: var(--space-md);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 1.5rem + 1.8vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .technology p {
+    color: var(--color-on-dark-muted);
+  }
+
+  .technology h4 {
+    margin: var(--space-lg) 0 var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ember);
+  }
+
+  .technology ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .technology__uses li {
+    position: relative;
+    margin-bottom: var(--space-xs);
+    padding-left: 1.25rem;
+  }
+
+  .technology__uses li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.68em;
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-ember);
+  }
+
+  .technology__deep {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-line-dark);
+  }
+
+  .technology__deep li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .combined {
+    max-width: 52rem;
+    margin: clamp(4rem, 3rem + 4vw, 7rem) auto 0;
+    padding: clamp(1.75rem, 1.25rem + 2vw, 3.5rem);
+    border: 1px solid var(--color-line-dark);
+    border-radius: var(--radius-2xl);
+    background:
+      radial-gradient(70% 90% at 20% 0%, rgba(122, 36, 32, 0.32), transparent 70%),
+      var(--color-night-raised);
+  }
+
+  .combined h3 {
+    margin-bottom: var(--space-md);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+    line-height: 1.05;
+  }
+
+  .combined__lead {
+    font-size: var(--text-lg);
+  }
+
+  .combined__example {
+    margin: 0;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-line-dark);
+    color: var(--color-on-dark-muted);
+  }
+
+  .combined__example strong {
+    color: var(--color-ember);
+    font-weight: 600;
+  }
+
+  @media (max-width: 860px) {
+    .technology {
+      grid-template-columns: 1fr;
+    }
+
+    .technology:nth-child(even) .technology__media {
+      order: 0;
+    }
+  }
+</style>

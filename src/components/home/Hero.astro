@@ -1,0 +1,189 @@
+---
+import { getTranslation, type Language } from "../../utils/i18n";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+---
+
+<section class="hero band-dark" data-hero>
+  <div class="hero__media" aria-hidden="true">
+    <img
+      src="/images/v2/hero.webp"
+      alt=""
+      width="1536"
+      height="1024"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+    <canvas class="hero__canvas" data-hero-canvas></canvas>
+    <div class="hero__scrim"></div>
+  </div>
+
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow">{t.hero.eyebrow}</p>
+      <h1 class="hero__title">{t.hero.title}</h1>
+      <p class="hero__subtitle">{t.hero.subtitle}</p>
+      <div class="hero__actions">
+        <a href={`/${lang}/contact`} class="button button--light">{t.hero.primaryCta}</a>
+        <a href="#services" class="button button--ghost">{t.hero.secondaryCta}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    align-items: center;
+    min-height: min(calc(100svh - var(--header-height)), 60rem);
+    overflow: hidden;
+  }
+
+  .hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 72% center;
+    transition: opacity 1.6s ease;
+  }
+
+  .hero__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.6s ease;
+  }
+
+  /* Set by the network script once it renders; the image stays underneath */
+  .hero.is-live .hero__canvas {
+    opacity: 1;
+  }
+
+  .hero.is-live .hero__media img {
+    opacity: 0.62;
+  }
+
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(15, 10, 9, 0.94) 0%,
+        rgba(15, 10, 9, 0.72) 36%,
+        rgba(15, 10, 9, 0.12) 68%,
+        rgba(15, 10, 9, 0) 100%
+      ),
+      linear-gradient(0deg, rgba(15, 10, 9, 0.7) 0%, rgba(15, 10, 9, 0) 32%);
+  }
+
+  .hero__inner {
+    padding-block: clamp(4rem, 3rem + 6vw, 8rem);
+  }
+
+  .hero__content {
+    max-width: 46rem;
+  }
+
+  .hero__title {
+    margin-bottom: var(--space-lg);
+    font-size: clamp(2.5rem, 1.55rem + 3.8vw, 4.75rem);
+    font-weight: 600;
+    line-height: 1.03;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  .hero__subtitle {
+    max-width: 38rem;
+    margin-bottom: var(--space-2xl);
+    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+    line-height: 1.65;
+    color: var(--color-on-dark-muted);
+    text-wrap: pretty;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero__content > * {
+      animation: hero-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+
+    .hero__content > :nth-child(2) {
+      animation-delay: 80ms;
+    }
+
+    .hero__content > :nth-child(3) {
+      animation-delay: 160ms;
+    }
+
+    .hero__content > :nth-child(4) {
+      animation-delay: 240ms;
+    }
+  }
+
+  @keyframes hero-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero__media img {
+      object-position: 78% center;
+    }
+
+    .hero__scrim {
+      background: linear-gradient(180deg, rgba(15, 10, 9, 0.55) 0%, rgba(15, 10, 9, 0.88) 70%);
+    }
+  }
+</style>
+
+<script>
+  // Living network over the hero image. Progressive enhancement: skipped for
+  // reduced motion, Save-Data and browsers without WebGL, and loaded only
+  // after the page has finished loading so it never competes with the LCP.
+  const hero = document.querySelector<HTMLElement>("[data-hero]");
+  const canvas = hero?.querySelector<HTMLCanvasElement>("[data-hero-canvas]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const saveData =
+    (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData ===
+    true;
+
+  if (hero && canvas && !reducedMotion && !saveData && "WebGLRenderingContext" in window) {
+    const start = () => {
+      import("../../scripts/hero-network")
+        .then(({ mountHeroNetwork }) => mountHeroNetwork(hero, canvas))
+        .catch((error: unknown) => console.warn("[hero] network disabled:", error));
+    };
+    const whenIdle = () => {
+      if ("requestIdleCallback" in window) window.requestIdleCallback(start, { timeout: 2500 });
+      else setTimeout(start, 300);
+    };
+    if (document.readyState === "complete") whenIdle();
+    else window.addEventListener("load", whenIdle, { once: true });
+  }
+</script>

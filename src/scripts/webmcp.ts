@@ -1,198 +1,139 @@
 // src/scripts/webmcp.ts
 // WebMCP tool definitions for aunova.net
 // Loaded as <script type="module"> in the base layout
-// Provides structured, callable tools to AI agents via navigator.modelContext
+// Provides structured, callable tools to AI agents via navigator.modelContext.
+// Every tool reads /api/company-info.json, which is generated from the same
+// copy as the pages, so tool answers never drift from the site.
 
 import '@mcp-b/global';
+
+interface CompanyInfo {
+  name: string;
+  url: string;
+  description: string;
+  slogan: string;
+  contactPoint: { email: string; availableLanguage: string[] };
+  makesOffer: { itemOffered: { name: string; description: string; url: string } }[];
+  technologies: { name: string; description: string; typicalUses: string[]; url: string }[];
+  encryptionDeepDives: { name: string; url: string }[];
+  combined: { summary: string; example: string };
+  impact: { name: string; description: string }[];
+  products: { name: string; formerly?: string; description: string; url: string }[];
+  legalEntities: { name: string; address: string; registration: string }[];
+  links: { services: string; contact: string; booking: string };
+}
+
+let companyInfo: Promise<CompanyInfo> | undefined;
+
+function loadCompanyInfo(): Promise<CompanyInfo> {
+  companyInfo ??= fetch('/api/company-info.json')
+    .then((response) => {
+      if (!response.ok) throw new Error(`company-info.json returned HTTP ${response.status}`);
+      return response.json() as Promise<CompanyInfo>;
+    })
+    .catch((error: unknown) => {
+      companyInfo = undefined; // allow a retry on the next call
+      throw error;
+    });
+  return companyInfo;
+}
+
+async function respond(build: (info: CompanyInfo) => unknown) {
+  try {
+    const info = await loadCompanyInfo();
+    return { content: [{ type: 'text' as const, text: JSON.stringify(build(info), null, 2) }] };
+  } catch (error) {
+    return {
+      content: [{ type: 'text' as const, text: `Could not load Aunova company data: ${String(error)}` }],
+      isError: true,
+    };
+  }
+}
 
 // Guard: polyfill may skip init if Chrome has partial native API
 const ctx = navigator.modelContext;
 
 if (!ctx || typeof ctx.registerTool !== 'function') {
   console.warn(
-    '[Aunova WebMCP] navigator.modelContext not available or incomplete — skipping tool registration',
+    '[Aunova WebMCP] navigator.modelContext not available or incomplete, skipping tool registration',
   );
 } else {
   try {
-    // ---- Tool: System Families ----
     ctx.registerTool({
-      name: 'explore_system_families',
+      name: 'get_aunova_overview',
       description:
-        'Get structured information about Aunova system families including Greenblocks ' +
-        '(community impact infrastructure for sustainability) and future system families ' +
-        'in development. Returns scope, capabilities, partnership status, and URLs.',
-      inputSchema: {
-        type: 'object',
-        properties: {
-          family: {
-            type: 'string',
-            description: 'Which system family to explore',
-            enum: ['greenblocks', 'all', 'future'],
-          },
-        },
-        required: ['family'],
-      },
-      async execute(args: { family: string }) {
-        const families = {
-          greenblocks: {
-            name: 'Greenblocks by Aunova',
-            status: 'Active - seeking founding partners',
-            category: 'Community Impact Infrastructure',
-            description:
-              'Foundational infrastructure layer for sustainable, healthy, living communities.',
-            capabilities: [
-              'Verified sustainability and environmental impact data across assets and operations',
-              'Accountable ESG and environmental reporting infrastructures',
-              'Incentive systems that financially reward provable sustainable action',
-              'New economic and operational models powered by trusted environmental data',
-            ],
-            url: 'https://aunova.net/greenblocks',
-            partnership_model: 'Maximum 2-3 founding partners per system family',
-          },
-          future: [
-            { name: 'Human data and identity infrastructure', status: 'In development' },
-            { name: 'Responsible AI and governance layers', status: 'In development' },
-            { name: 'Healthcare and care-tech systems', status: 'In development' },
-            { name: 'Privacy-preserving computation platforms', status: 'In development' },
-          ],
-        };
-
-        const result =
-          args.family === 'greenblocks'
-            ? families.greenblocks
-            : args.family === 'future'
-              ? { future_families: families.future }
-              : families;
-
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-      },
-    });
-
-    // ---- Tool: Partnership Criteria ----
-    ctx.registerTool({
-      name: 'get_partnership_criteria',
-      description:
-        'Returns Aunova partnership criteria, strategic alignment questions, partnership ' +
-        'stages, and next steps. Helps potential partners assess fit before scheduling a call.',
+        'Structured overview of Aunova, a software development company: positioning, the four ' +
+        'technologies it combines, why its work matters, legal entities and contact paths.',
       inputSchema: { type: 'object', properties: {} },
-      async execute() {
-        return {
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify(
-                {
-                  model: 'Long-term systems partnership (not vendor relationship)',
-                  max_partners_per_family: '2-3 founding partners',
-                  alignment_questions: [
-                    'Solving a mission-critical problem for society or the environment?',
-                    'Thinking in decades, valuing shared foundational infrastructure?',
-                    'Ready to apply strict principles for responsible system design and governance?',
-                    'Exploring tokenized incentives and novel ecosystems for measurable impact?',
-                    'Prepared to move beyond vendor transactions to true partnership?',
-                    'Aligned to invest both capital and strategic effort over a long-term horizon?',
-                  ],
-                  not_a_fit: ['Short-term projects', 'Feature factories', 'Cosmetic solutions'],
-                  stages: [
-                    'Strategic Alignment',
-                    'Co-Design',
-                    'Proof of Concept',
-                    'System Development',
-                    'Long-Term Alliance',
-                  ],
-                  next_step: {
-                    action: 'Schedule a strategic conversation',
-                    url: 'https://cal.com/ngmisl/aunova',
-                  },
-                },
-                null,
-                2,
-              ),
-            },
-          ],
-        };
-      },
+      execute: () =>
+        respond((info) => ({
+          name: info.name,
+          description: info.description,
+          tagline: info.slogan,
+          technologies: info.technologies.map((technology) => technology.name),
+          combined: info.combined.summary,
+          why_it_matters: info.impact,
+          legal_entities: info.legalEntities.map((entity) => entity.name),
+          languages: info.contactPoint.availableLanguage,
+          contact: {
+            start_a_project: info.links.contact,
+            booking: info.links.booking,
+            email: info.contactPoint.email,
+            website: info.url,
+          },
+        })),
     });
 
-    // ---- Tool: Schedule Call ----
     ctx.registerTool({
-      name: 'schedule_strategic_call',
+      name: 'list_services',
       description:
-        'Provides booking link and preparation guidance for a strategic conversation ' +
-        'with Aunova leadership. Use when a potential partner wants to explore collaboration.',
+        'What Aunova builds and the four technologies it combines, with links to the detailed ' +
+        'service pages.',
+      inputSchema: { type: 'object', properties: {} },
+      execute: () =>
+        respond((info) => ({
+          services: info.makesOffer.map(({ itemOffered }) => ({
+            name: itemOffered.name,
+            description: itemOffered.description,
+            url: itemOffered.url,
+          })),
+          technologies: info.technologies,
+          encryption_deep_dives: info.encryptionDeepDives,
+          combined: info.combined,
+          services_page: info.links.services,
+        })),
+    });
+
+    ctx.registerTool({
+      name: 'list_products',
+      description: 'Products designed and built by Aunova, with descriptions and URLs.',
+      inputSchema: { type: 'object', properties: {} },
+      execute: () => respond((info) => ({ products: info.products })),
+    });
+
+    ctx.registerTool({
+      name: 'book_a_call',
+      description:
+        'Booking link, contact page and preparation notes for a first call with Aunova about a ' +
+        'project. Surface the link to the user; do not book on their behalf without confirmation.',
       inputSchema: {
         type: 'object',
         properties: {
           context: {
             type: 'string',
-            description:
-              'Brief context about what the potential partner wants to discuss (optional)',
+            description: 'What the user wants to build or discuss (optional)',
           },
         },
       },
-      async execute(args: { context?: string }) {
-        const response: Record<string, string> = {
-          booking_url: 'https://cal.com/ngmisl/aunova',
-          what_to_expect:
-            'Focused conversation about strategic alignment, system-level needs, and partnership fit.',
-          preparation: 'Review the partnership criteria questions beforehand.',
-        };
-        if (args.context) response.partner_context = args.context;
-        return { content: [{ type: 'text', text: JSON.stringify(response, null, 2) }] };
-      },
-    });
-
-    // ---- Tool: Company Overview ----
-    ctx.registerTool({
-      name: 'get_aunova_overview',
-      description:
-        'Structured overview of Aunova: mission, philosophy, operational base, ' +
-        'differentiators, domains of work, and contact information.',
-      inputSchema: { type: 'object', properties: {} },
-      async execute() {
-        return {
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify(
-                {
-                  name: 'Aunova',
-                  legal_entity: 'Aunova OU (Estonian company)',
-                  operations: 'Valencia, Spain',
-                  tagline:
-                    'Long-term systems partner for human- and planet-critical infrastructure',
-                  philosophy:
-                    'Not a software vendor. Long-term systems partners co-building foundational ' +
-                    'digital infrastructure for domains where failure has real human or ' +
-                    'environmental consequences.',
-                  differentiators: [
-                    'Human and planet-critical focus',
-                    'Systems for decades, not products for quarters',
-                    'Partnership over vendor relationships',
-                    'Selective, high-trust collaboration',
-                    'Measurable real-world impact',
-                  ],
-                  domains: [
-                    'Sustainability and environmental infrastructure',
-                    'Human data and identity',
-                    'Responsible AI and governance',
-                    'Healthcare and care-tech',
-                    'Privacy-preserving computation',
-                  ],
-                  languages: ['English', 'Spanish'],
-                  contact: {
-                    schedule: 'https://cal.com/ngmisl/aunova',
-                    website: 'https://aunova.net',
-                    linkedin: 'https://www.linkedin.com/company/aunova-ou/',
-                  },
-                },
-                null,
-                2,
-              ),
-            },
-          ],
-        };
-      },
+      execute: (args: { context?: string }) =>
+        respond((info) => ({
+          booking_url: info.links.booking,
+          contact_page: info.links.contact,
+          what_to_prepare:
+            'A short description of the problem, who it is for, and any constraints such as ' +
+            'timeline, data sensitivity or existing systems.',
+          ...(args.context ? { project_context: args.context } : {}),
+        })),
     });
 
     console.log('[Aunova WebMCP] 4 tools registered');

@@ -1,0 +1,93 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  /** Dark background image from the v2 set in public/images. */
+  image: string;
+}
+
+const { eyebrow, title, lead, image } = Astro.props;
+---
+
+<section class="page-hero band-dark">
+  <div class="page-hero__media" aria-hidden="true">
+    <img
+      src={image}
+      alt=""
+      width="1536"
+      height="1024"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="container page-hero__inner">
+    <slot name="before" />
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p class="page-hero__lead">{lead}</p>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(4.5rem, 3rem + 6vw, 8.5rem) clamp(3.5rem, 2.5rem + 4vw, 6rem);
+  }
+
+  .page-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .page-hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% center;
+  }
+
+  .page-hero__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(15, 10, 9, 0.94) 0%,
+      rgba(15, 10, 9, 0.78) 45%,
+      rgba(15, 10, 9, 0.3) 100%
+    );
+  }
+
+  .page-hero__inner {
+    max-width: var(--max-width);
+  }
+
+  .page-hero h1 {
+    max-width: 48rem;
+    margin-bottom: var(--space-lg);
+    font-size: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .page-hero__lead {
+    max-width: 40rem;
+    margin-bottom: 0;
+    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+    line-height: 1.65;
+    color: var(--color-on-dark-muted);
+  }
+
+  @media (max-width: 720px) {
+    .page-hero__media::after {
+      background: linear-gradient(180deg, rgba(15, 10, 9, 0.7), rgba(15, 10, 9, 0.92));
+    }
+  }
+</style>

@@ -1,4 +1,6 @@
 ---
+import { contact, positioning, SITE_URL } from '../utils/company';
+
 export interface Props {
   title?: string;
   description?: string;
@@ -7,20 +9,23 @@ export interface Props {
   publishDate?: string;
   author?: string;
   canonical?: string;
+  lang?: 'en' | 'es';
 }
 
 const {
-  title = 'Aunova - Long-Term Systems Partner for Human & Planet-Critical Infrastructure',
-  description = 'We partner with institutions to build foundational digital infrastructure for domains where failure has real human or environmental consequences.',
-  image = '/images/og-preview.webp',
+  title = 'Aunova | Software development that cares for the planet, people and the future',
+  description = positioning.en,
+  image = '/images/v2/og.jpg',
   type = 'website',
   publishDate,
   author = 'Aunova Team',
-  canonical
+  canonical,
+  lang = 'en',
 } = Astro.props;
 
-const siteUrl = 'https://aunova.net';
+const siteUrl = SITE_URL;
 const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const imageType = /\.jpe?g$/i.test(image) ? 'image/jpeg' : /\.png$/i.test(image) ? 'image/png' : 'image/webp';
 const canonicalUrl = canonical || Astro.url.href;
 
 // Organization schema
@@ -29,15 +34,12 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'Aunova',
   url: siteUrl,
-  logo: `${siteUrl}/images/logo.webp`,
-  description: 'Long-term systems partner co-building foundational digital infrastructure for domains where failure has real human or environmental consequences.',
-  sameAs: [
-    'https://bsky.app/profile/aunova.net',
-    'https://github.com/aunova'
-  ],
+  logo: `${siteUrl}/images/logo-new.png`,
+  description: positioning.en,
+  sameAs: [contact.linkedin, contact.bluesky, contact.github],
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'christian@aunova.net',
+    email: contact.email,
     contactType: 'sales',
     availableLanguage: ['English', 'Spanish']
   }
@@ -77,7 +79,7 @@ const articleSchema = type === 'article' ? {
     name: 'Aunova',
     logo: {
       '@type': 'ImageObject',
-      url: `${siteUrl}/images/logo.webp`
+      url: `${siteUrl}/images/logo-new.png`
     }
   },
   mainEntityOfPage: {
@@ -91,7 +93,7 @@ const isServicePage = Astro.url.pathname.includes('/services/');
 const serviceSchema = isServicePage ? {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: title.split(' - ')[0],
+  name: title.split(/ [|-] /)[0],
   provider: {
     '@type': 'Organization',
     name: 'Aunova'
@@ -102,7 +104,7 @@ const serviceSchema = isServicePage ? {
     '@type': 'Place',
     name: 'Worldwide'
   },
-  serviceType: 'Technology Consulting'
+  serviceType: 'Software development'
 } : null;
 ---
 
@@ -112,12 +114,12 @@ const serviceSchema = isServicePage ? {
 <meta property="og:image" content={fullImageUrl} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:type" content="image/webp" />
+<meta property="og:image:type" content={imageType} />
 <meta property="og:image:alt" content={title} />
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:site_name" content="Aunova" />
-<meta property="og:locale" content="en_US" />
+<meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
 
 <!-- Twitter Card Tags -->
 <meta name="twitter:card" content="summary_large_image" />

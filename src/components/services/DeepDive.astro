@@ -1,0 +1,242 @@
+---
+// An Encryption deep-dive page (FHE, zero-knowledge proofs), in either language.
+import { ArrowLeft, ArrowRight } from "lucide-astro";
+import PageLayout from "../../layouts/PageLayout.astro";
+import { getTranslation, type Language } from "../../utils/i18n";
+import CtaBand from "../sections/CtaBand.astro";
+import PageHero from "../sections/PageHero.astro";
+
+export interface DeepDiveContent {
+  /** Document title and meta description */
+  title: string;
+  description: string;
+  heading: string;
+  lead: string;
+  overviewTitle: string;
+  overview: string[];
+  featuresTitle: string;
+  features: { title: string; text: string; points: string[] }[];
+  useCases: { title: string; text: string }[];
+  ctaTitle: string;
+  ctaText: string;
+  /** The sibling deep dive under Encryption */
+  related: { href: string; label: string };
+}
+
+interface Props {
+  lang: Language;
+  content: DeepDiveContent;
+}
+
+const { lang, content } = Astro.props;
+const t = getTranslation(lang);
+---
+
+<PageLayout title={content.title} description={content.description} lang={lang}>
+  <PageHero
+    eyebrow={t.deepDive.eyebrow}
+    title={content.heading}
+    lead={content.lead}
+    image="/images/v2/encryption.webp"
+  >
+    <a slot="before" class="deep-back" href={`/${lang}/services#encryption`}>
+      <ArrowLeft size={16} aria-hidden="true" />
+      {t.deepDive.back}
+    </a>
+  </PageHero>
+
+  <section class="section">
+    <div class="container deep-overview">
+      <h2 class="reveal">{content.overviewTitle}</h2>
+      <div class="deep-overview__text reveal">
+        {content.overview.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section deep-features">
+    <div class="container">
+      <header class="section-head reveal">
+        <h2>{content.featuresTitle}</h2>
+      </header>
+      <ul class="deep-features__grid">
+        {
+          content.features.map((feature) => (
+            <li class="deep-feature reveal">
+              <h3>{feature.title}</h3>
+              <p>{feature.text}</p>
+              <ul>
+                {feature.points.map((point) => (
+                  <li>{point}</li>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-head reveal">
+        <h2>{t.deepDive.useCases}</h2>
+      </header>
+      <div class="deep-uses">
+        {
+          content.useCases.map((useCase) => (
+            <div class="deep-use reveal">
+              <h3>{useCase.title}</h3>
+              <p>{useCase.text}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p class="deep-related reveal">
+        <span>{t.deepDive.related}:</span>
+        <a class="link-arrow" href={content.related.href}>
+          {content.related.label}
+          <ArrowRight size={18} aria-hidden="true" />
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <CtaBand lang={lang} title={content.ctaTitle} text={content.ctaText} />
+</PageLayout>
+
+<style>
+  .deep-back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-xl);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-on-dark-muted);
+  }
+
+  .deep-back:hover {
+    color: var(--color-on-dark);
+    text-decoration: none;
+  }
+
+  .deep-overview {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2rem, 1rem + 4vw, 5rem);
+  }
+
+  .deep-overview h2 {
+    font-size: var(--text-display);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+  }
+
+  .deep-overview__text p {
+    font-size: var(--text-lg);
+    line-height: 1.75;
+  }
+
+  .deep-features {
+    background-color: color-mix(in srgb, var(--color-sand) 55%, var(--color-background));
+  }
+
+  .deep-features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .deep-feature {
+    margin: 0;
+    padding: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+    background-color: var(--color-background-elevated);
+    border-top: 3px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+  }
+
+  .deep-feature h3 {
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  }
+
+  .deep-feature p {
+    color: var(--color-text-muted);
+  }
+
+  .deep-feature ul {
+    margin: var(--space-md) 0 0;
+    padding: var(--space-md) 0 0;
+    border-top: 1px solid var(--color-card-border);
+    list-style: none;
+  }
+
+  .deep-feature li {
+    position: relative;
+    margin-bottom: var(--space-xs);
+    padding-left: 1.25rem;
+    font-size: var(--text-body-sm);
+  }
+
+  .deep-feature li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary);
+  }
+
+  .deep-uses {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .deep-use {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .deep-use h3 {
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
+  }
+
+  .deep-use p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  .deep-related {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm);
+    margin: var(--space-3xl) 0 0;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 960px) {
+    .deep-features__grid,
+    .deep-uses {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .deep-overview,
+    .deep-features__grid,
+    .deep-uses {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

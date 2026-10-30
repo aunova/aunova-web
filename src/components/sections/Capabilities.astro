@@ -1,0 +1,185 @@
+---
+import {
+  ArrowRight,
+  BrainCircuit,
+  ChartColumn,
+  Code,
+  Link2,
+  ShieldCheck,
+} from "lucide-astro";
+import { getTranslation, type Language } from "../../utils/i18n";
+
+interface Props {
+  lang: Language;
+  /** Section id, used for in-page anchors. */
+  id?: string;
+  /** Services page: show the typical deliverables of each capability. */
+  detailed?: boolean;
+}
+
+const { lang, id = "services", detailed = false } = Astro.props;
+const t = getTranslation(lang);
+
+const icons = {
+  software: Code,
+  ai: BrainCircuit,
+  records: Link2,
+  privacy: ShieldCheck,
+  analytics: ChartColumn,
+} as const;
+---
+
+<section id={id} class:list={["section", "capabilities", { "capabilities--detailed": detailed }]}>
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">{t.capabilities.eyebrow}</p>
+      <h2>{t.capabilities.title}</h2>
+      <p>{t.capabilities.intro}</p>
+    </header>
+
+    <ul class="capabilities__grid">
+      {
+        t.capabilities.items.map((item) => {
+          const Icon = icons[item.id as keyof typeof icons];
+          return (
+            <li class="capability reveal">
+              <span class="capability__icon" aria-hidden="true">
+                <Icon size={22} stroke-width={1.75} />
+              </span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              {detailed && (
+                <ul class="capability__points">
+                  {item.points.map((point) => (
+                    <li>{point}</li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    {
+      !detailed && (
+        <a class="link-arrow capabilities__more" href={`/${lang}/services`}>
+          {t.capabilities.more}
+          <ArrowRight size={18} aria-hidden="true" />
+        </a>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .capabilities__grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--space-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .capability {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+    background-color: var(--color-background-elevated);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-2xl);
+    transition:
+      border-color var(--transition-base),
+      translate var(--transition-base),
+      box-shadow var(--transition-base);
+  }
+
+  /* Two wide cards, then three: an editorial rhythm for five items */
+  .capability:nth-child(-n + 2) {
+    grid-column: span 3;
+  }
+
+  .capability:hover {
+    border-color: color-mix(in srgb, var(--color-primary) 35%, var(--color-card-border));
+    box-shadow: var(--shadow-md);
+    /* `translate`, not `transform`: the scroll reveal owns `transform` */
+    translate: 0 -2px;
+  }
+
+  .capability__icon {
+    display: inline-grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-sm);
+    border-radius: var(--radius-full);
+    background-color: color-mix(in srgb, var(--color-sand) 70%, transparent);
+    color: var(--color-primary);
+  }
+
+  .capability h3 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+    line-height: 1.25;
+  }
+
+  .capability p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  .capability__points {
+    margin: var(--space-md) 0 0;
+    padding: var(--space-md) 0 0;
+    border-top: 1px solid var(--color-card-border);
+    list-style: none;
+  }
+
+  .capability__points li {
+    position: relative;
+    margin-bottom: var(--space-xs);
+    padding-left: 1.25rem;
+    font-size: var(--text-body-sm);
+  }
+
+  .capability__points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary);
+  }
+
+  .capabilities__more {
+    margin-top: var(--space-2xl);
+  }
+
+  @media (max-width: 960px) {
+    .capabilities__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .capability,
+    .capability:nth-child(-n + 2) {
+      grid-column: span 1;
+    }
+
+    .capability:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .capabilities__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,362 @@
+---
+import { contactStrings, type ContactLang } from "../i18n/contact";
+
+interface Props {
+  lang: ContactLang;
+}
+
+const { lang } = Astro.props;
+const f = contactStrings[lang].form;
+---
+
+<div class="contact-form-root" data-contact-form>
+  <form
+    class="contact-form"
+    novalidate
+    data-submit={f.submit}
+    data-sending={f.sending}
+    data-retry={f.retry}
+    data-email-invalid={f.emailInvalid}
+    data-message-required={f.messageRequired}
+  >
+    <fieldset class="contact-fields">
+      <div class="form-group">
+        <label for="contact-email">{f.email}</label>
+        <input
+          type="email"
+          id="contact-email"
+          name="email"
+          autocomplete="email"
+          maxlength="254"
+          required
+          aria-describedby="contact-email-error"
+        />
+        <p class="field-error" id="contact-email-error" hidden></p>
+      </div>
+
+      <div class="form-group">
+        <label for="contact-company">
+          {f.company} <span class="optional">{f.optional}</span>
+        </label>
+        <input
+          type="text"
+          id="contact-company"
+          name="company"
+          autocomplete="organization"
+          maxlength="200"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="contact-message">{f.message}</label>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows="6"
+          maxlength="4000"
+          required
+          aria-describedby="contact-message-error"></textarea>
+        <p class="field-error" id="contact-message-error" hidden></p>
+      </div>
+
+      <button type="submit" class="contact-submit" data-submit-button>
+        {f.submit}
+      </button>
+    </fieldset>
+
+    <p class="send-error" role="alert" data-send-error hidden>{f.error}</p>
+
+    <p class="encrypted-note">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <rect x="4" y="11" width="16" height="10" rx="2"></rect>
+        <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+      </svg>
+      <span>{f.encrypted}</span>
+    </p>
+
+    <p class="consent">
+      {f.consentBefore} <a href="/en/privacy">{f.consentLink}</a>{f.consentAfter}
+    </p>
+  </form>
+
+  <div class="contact-success" role="status" tabindex="-1" data-success hidden>
+    <p class="success-title">{f.successTitle}</p>
+    <p class="success-text">{f.successText}</p>
+  </div>
+</div>
+
+<script>
+  import "../lib/polyfills";
+  import { composeDmBody, sanitizeEmail, sendDM, RELAYS } from "../lib/sendDM";
+
+  /** Every enquiry from this site is tagged so it can be told apart from aunova.ae. */
+  const SITE_SOURCE = "aunova.net";
+
+  type Field = HTMLInputElement | HTMLTextAreaElement;
+
+  function showFieldError(field: Field, message: string) {
+    const error = document.getElementById(`${field.id}-error`);
+    field.setAttribute("aria-invalid", "true");
+    if (error) {
+      error.textContent = message;
+      error.hidden = false;
+    }
+  }
+
+  function clearFieldError(field: Field) {
+    const error = document.getElementById(`${field.id}-error`);
+    field.removeAttribute("aria-invalid");
+    if (error) error.hidden = true;
+  }
+
+  for (const root of document.querySelectorAll<HTMLElement>("[data-contact-form]")) {
+    const form = root.querySelector("form") as HTMLFormElement;
+    const fieldset = form.querySelector("fieldset") as HTMLFieldSetElement;
+    const button = form.querySelector("[data-submit-button]") as HTMLButtonElement;
+    const sendError = form.querySelector("[data-send-error]") as HTMLElement;
+    const success = root.querySelector("[data-success]") as HTMLElement;
+    const emailField = form.elements.namedItem("email") as HTMLInputElement;
+    const companyField = form.elements.namedItem("company") as HTMLInputElement;
+    const messageField = form.elements.namedItem("message") as HTMLTextAreaElement;
+    const text = form.dataset;
+    let sending = false;
+
+    for (const field of [emailField, messageField]) {
+      field.addEventListener("input", () => clearFieldError(field));
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (sending) return;
+
+      const email = sanitizeEmail(emailField.value);
+      const message = messageField.value.trim();
+      const invalid: Field[] = [];
+      if (!email) {
+        showFieldError(emailField, text.emailInvalid ?? "");
+        invalid.push(emailField);
+      }
+      if (!message) {
+        showFieldError(messageField, text.messageRequired ?? "");
+        invalid.push(messageField);
+      }
+      if (invalid.length) {
+        invalid[0].focus();
+        return;
+      }
+
+      sending = true;
+      sendError.hidden = true;
+      fieldset.disabled = true;
+      button.setAttribute("aria-busy", "true");
+      button.textContent = text.sending ?? "";
+
+      try {
+        const body = composeDmBody({
+          email,
+          company: companyField.value,
+          message,
+          source: `${SITE_SOURCE}${location.pathname}`,
+        });
+        await sendDM(body, RELAYS);
+        form.hidden = true;
+        success.hidden = false;
+        success.focus();
+      } catch {
+        sendError.hidden = false;
+        button.textContent = text.retry ?? "";
+      } finally {
+        sending = false;
+        fieldset.disabled = false;
+        button.removeAttribute("aria-busy");
+      }
+    });
+  }
+</script>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    min-width: 0;
+  }
+
+  .contact-fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    min-width: 0;
+  }
+
+  .form-group label {
+    font-weight: 600;
+    font-size: var(--text-sm);
+    color: var(--color-text);
+  }
+
+  .optional {
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font: inherit;
+    font-size: var(--text-base);
+    background: var(--color-background);
+    color: var(--color-text);
+    transition: border-color var(--transition-fast);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 15%, transparent);
+  }
+
+  .form-group [aria-invalid="true"] {
+    border-color: var(--color-burgundy-soft);
+  }
+
+  .field-error,
+  .send-error {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--color-burgundy-soft);
+  }
+
+  .send-error {
+    padding: var(--space-md);
+    border-left: 3px solid var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 6%, var(--color-background));
+    border-radius: var(--radius-sm);
+  }
+
+  .contact-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: var(--space-md) var(--space-2xl);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font: inherit;
+    font-weight: 600;
+    font-size: var(--text-base);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .contact-submit:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .contact-submit:disabled {
+    cursor: progress;
+    opacity: 0.75;
+  }
+
+  .encrypted-note {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .encrypted-note svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .consent {
+    margin: 0;
+    font-size: var(--text-xs);
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
+  .consent a {
+    color: var(--color-link);
+    text-decoration: underline;
+  }
+
+  .contact-success {
+    padding: var(--space-xl);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    background: color-mix(in srgb, var(--color-primary) 6%, var(--color-background));
+    outline: none;
+  }
+
+  .success-title {
+    margin: 0 0 var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    color: var(--color-primary);
+  }
+
+  .success-text {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .contact-form[hidden],
+  .contact-success[hidden],
+  .field-error[hidden],
+  .send-error[hidden] {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-submit:hover:not(:disabled) {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-form,
+    .contact-fields {
+      gap: var(--space-md);
+    }
+
+    .contact-submit {
+      padding: var(--space-md) var(--space-lg);
+    }
+  }
+</style>

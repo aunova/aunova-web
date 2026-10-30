@@ -1,3 +1,5 @@
+import { technologyList } from "./company";
+
 export const languages = {
   en: "English",
   es: "Español",
@@ -7,281 +9,278 @@ export type Language = keyof typeof languages;
 
 export const defaultLang: Language = "en";
 
+// The technology names come from src/utils/company.ts so the term
+// "Data Analytics" lives in one place across pages, feeds and agent surfaces.
+const techEn = technologyList("en");
+const techEs = technologyList("es");
+
 export const translations = {
   en: {
+    meta: {
+      homeTitle:
+        "Aunova | Software development that cares for the planet, people and the future",
+      homeDescription: `Software development company combining ${techEn} into one solution, built with care for the environment, humanity and the future society.`,
+      servicesTitle: "Services | Aunova",
+      servicesDescription: `Custom software, AI systems and agents, verifiable records, privacy-preserving data systems and data analytics. Aunova combines ${techEn} into one solution.`,
+    },
     nav: {
-      home: "Home",
-      systemFamilies: "System Families",
-      partnership: "Partnership",
-      about: "About",
-      blog: "Blog",
-      contact: "Contact",
-      howWePartner: "How we partner",
-      whoWePartnerWith: "Who we partner with",
+      primary: "Main navigation",
+      home: "Aunova home",
+      services: "Services",
+      technology: "Technology",
+      impact: "Impact",
+      work: "Our work",
+      process: "Process",
+      bookCall: "Book a call",
+      menu: "Menu",
+      language: "Language",
+      newTab: "opens in a new tab",
     },
     hero: {
-      title:
-        "We partner with institutions to build the human- and planet-critical systems their future depends on.",
-      subtitle:
-        "We are not a software vendor. We are long-term systems partners, co-building foundational digital infrastructure for domains where failure has real human or environmental consequences.",
-      supportingLine:
-        "We work with a small number of aligned organizations to design systems that protect people, respect the planet, and endure.",
-      cta: {
-        primary: "Begin a Strategic Conversation",
-        secondary: "Explore our partnership model",
-      },
+      eyebrow: "Software development company",
+      title: "Software that cares for the planet, its people and our future.",
+      subtitle: `Aunova is a software development company. We combine ${techEn} into one solution that fits your problem, built with care for the environment, for humanity and for the future society.`,
+      primaryCta: "Start a project",
+      secondaryCta: "What we build",
     },
-    differentCompany: {
-      title: "A Different Kind of Technology Company",
-      body: [
-        "Aunova exists to partner with forward-looking companies and institutions to design and build foundational systems of trust, sustainability, and responsibility.",
-        "We work in domains where technology directly shapes human wellbeing and planetary outcomes. Our role is not to deliver features, but to co-create the long-term infrastructure our partners and their ecosystems will depend on.",
-        "We engage selectively, build for decades, and design systems meant to become shared layers within the worlds they serve.",
-      ],
-      callout:
-        "Our flagship system is <strong>Greenblocks</strong>, a Digital Building Passport that brings verified trust and transparency to premium real estate. Now deploying in Dubai.",
-      principles: [
-        {
-          title: "Human-and planet-critical focus",
-          description: "Our work impacts people and the environment.",
-        },
-        {
-          title: "Long-term systems, not short-term products",
-          description: "We design for decades, not quarters.",
-        },
-        {
-          title: "Partnership over vendor relationships",
-          description: "We co-build, not just sell.",
-        },
-        {
-          title: "Selectivity and high-trust collaboration",
-          description: "We choose our partners carefully.",
-        },
-        {
-          title: "Long-term relevance",
-          description: "Enduring value, not disposable trends.",
-        },
-        {
-          title: "Measurable real-world impact",
-          description: "Success measured in adoption and outcomes.",
-        },
-      ],
-    },
-    systemFamilies: {
-      title: "System Families We Are Developing With Partners",
+    capabilities: {
+      eyebrow: "What we build",
+      title: "Software that solves real problems",
       intro:
-        "Aunova builds families of systems designed to become shared infrastructure layers within the ecosystems they serve. Greenblocks, our Digital Building Passport for premium real estate, is live and deploying in Dubai. Further system families are in development with future partners.",
-      sustainability: {
-        name: "Greenblocks by Aunova",
-        status: "Now live · Dubai",
-        category: "Digital Building Passport",
-        tagline:
-          "Verified trust and transparency for premium real estate.",
-        description:
-          "Greenblocks is a trust, transparency, and reputation layer for premium real estate. It turns developer claims into structured, verifiable, comparable data at asset level.",
-        examples: [
-          "Verified performance data across the asset lifecycle",
-          "Reputation as a measurable asset attribute, not a brand exercise",
-          "Buyer-comparable projects, judged on substance",
-          "Building intelligence operators, regulators, and investors can query",
-        ],
-        closingLine:
-          "Now deploying in Dubai with premium residential developers.",
+        "From a first prototype to a platform in daily use, we design, build and run software end to end. We choose the technology that fits the problem, never the other way round.",
+      more: "Explore our services",
+      items: [
+        {
+          id: "software",
+          title: "Custom software and platforms",
+          text: "Web and mobile apps, internal tools, APIs and complete platforms, built to be reliable, secure and easy to maintain.",
+          points: [
+            "Web and mobile applications",
+            "Internal tools and back-office systems",
+            "APIs and integrations with the systems you already use",
+            "Modernizing and maintaining existing software",
+          ],
+        },
+        {
+          id: "ai",
+          title: "AI systems and agents",
+          text: "Assistants, document understanding, automation and AI agents that work with your data and your processes, with people kept in control.",
+          points: [
+            "Assistants grounded in your own documents and data",
+            "Document understanding and data extraction",
+            "Workflow automation and agents with human review",
+            "Evaluation, guardrails and monitoring",
+          ],
+        },
+        {
+          id: "records",
+          title: "Verifiable records and blockchain",
+          text: "Tamper-evident records, digital passports and signed audit trails that others can check for themselves, on public or private ledgers.",
+          points: [
+            "Tamper-evident records and audit trails",
+            "Digital passports and certificates",
+            "Smart contracts on public or private ledgers",
+            "Signed, time-stamped data that others can verify",
+          ],
+        },
+        {
+          id: "privacy",
+          title: "Privacy-preserving data systems",
+          text: "End-to-end encryption, zero-knowledge proofs and encrypted computation for data that has to stay private, even while it is used.",
+          points: [
+            "End-to-end encryption and key management",
+            "Zero-knowledge proofs for selective disclosure",
+            "Computation on encrypted data",
+            "Privacy by design to support GDPR obligations",
+          ],
+        },
+        {
+          id: "analytics",
+          title: "Data analytics and dashboards",
+          text: "Data pipelines, metrics and dashboards that turn scattered data into clear decisions people can trust.",
+          points: [
+            "Data pipelines and data quality checks",
+            "Metrics, reporting and dashboards",
+            "Forecasting and anomaly detection",
+            "Impact reporting built on verifiable data",
+          ],
+        },
+      ],
+    },
+    convergence: {
+      eyebrow: "Our technology",
+      title: "Four technologies. One solution.",
+      intro:
+        "Each one is powerful on its own. Combined, they cover each other's gaps: AI that reasons over data, encryption that keeps it private, a blockchain layer that makes the record verifiable, and analytics that turns it into decisions.",
+      steps: {
+        ai: "AI reads, reasons and automates. It understands documents, finds patterns and answers questions over your own data, so people spend their time on decisions instead of busywork.",
+        blockchain:
+          "A blockchain layer makes the record verifiable. Every important entry is time-stamped and tamper-evident, so anyone with access can check what happened and when, without having to trust a single party.",
+        analytics:
+          "Analytics turns data into decisions. Clean pipelines, honest metrics and clear dashboards show what is really going on and what to do next.",
+        encryption:
+          "Encryption keeps it private. Data stays protected at rest, in transit and, with techniques such as zero-knowledge proofs and homomorphic encryption, even while it is being used.",
       },
-      future: {
-        title: "Future system families",
-        items: [
-          "Human data and identity infrastructure",
-          "Responsible AI and governance layers",
-          "Healthcare and care-tech systems",
-          "Privacy-preserving computation platforms",
-        ],
-        note: "In development with future partners.",
+      combined: {
+        eyebrow: "Combined",
+        title: "One solution",
+        text: "We design the four as one system, so each covers what the others cannot.",
+        exampleLabel: "A plain example",
+        example:
+          "A company wants to prove its sustainability figures. AI reads the energy invoices and meter data and extracts the numbers. Encryption keeps customer and supplier details private. A blockchain record time-stamps every verified figure, so it cannot be quietly changed later. Analytics turns the record into a report that buyers, investors and auditors can check for themselves.",
       },
     },
-    partnership: {
-      title: "From Shared Vision to Shared Infrastructure",
+    impact: {
+      eyebrow: "Why it matters",
+      title: "Built for the planet, its people and the society ahead",
       intro:
-        "At Aunova, we believe foundational infrastructure begins with alignment and ambition, not requirements.",
-      stepsTitle: "The partnership journey",
+        "Technology shapes how we live, so we take it seriously. Three things weigh in every decision we make.",
+      items: [
+        {
+          id: "planet",
+          title: "Environment",
+          text: "We build software that helps measure, prove and reduce environmental impact, with data that can be checked instead of claims that have to be believed. And we design our own systems to run lean.",
+        },
+        {
+          id: "people",
+          title: "Humanity",
+          text: "Technology should serve people. We protect privacy by design, keep humans in control of AI and make tools that people can understand and trust.",
+        },
+        {
+          id: "future",
+          title: "Future society",
+          text: "Society runs more and more on digital systems. We build open, verifiable and secure foundations, so people can trust what those systems tell them, today and in the years ahead.",
+        },
+      ],
+    },
+    work: {
+      eyebrow: "Our work",
+      title: "Built by Aunova",
+      intro:
+        "Products we design, build and run ourselves. Each one puts the same principles to work.",
+      formerly: "Formerly",
+      items: {
+        ati: {
+          tag: "Real estate · Dubai",
+          text: "One trusted, verifiable record for real-estate projects: the Digital Building Passport.",
+          link: "Visit aunova.ae",
+        },
+        casabook: {
+          tag: "Short-stay hosting",
+          text: "Multilingual digital guidebooks for short-stay hosts, so every guest finds the answers in their own language.",
+          link: "Visit casabook.app",
+        },
+        "metaend-grade": {
+          tag: "AI readiness",
+          text: "Scans a website the way an AI agent sees it and grades its agent-readiness from A to F.",
+          link: "Visit metaend Grade",
+        },
+      },
+    },
+    process: {
+      eyebrow: "How we work",
+      title: "A clear process, from first call to running system",
+      intro:
+        "Short loops, visible progress and no surprises. You always know what we are building and why.",
       steps: [
         {
-          number: 1,
-          title: "Strategic Alignment",
-          description:
-            "We assess human and planetary stakes, long-term relevance, and system-level necessity.",
+          title: "Discover",
+          text: "We learn your problem, your users and your constraints, and agree on what success looks like.",
         },
         {
-          number: 2,
-          title: "Co-Design",
-          description:
-            "We define the system ambition together — its role, responsibilities, and long-term architecture.",
+          title: "Design",
+          text: "We shape the architecture and choose the right mix of AI, blockchain, analytics and encryption. Nothing more than the problem needs.",
         },
         {
-          number: 3,
-          title: "Proof of Concept",
-          description:
-            "We build a focused, functional prototype to validate the core value proposition.",
+          title: "Build",
+          text: "We build in short iterations you can see and test, with security and privacy built in from day one.",
         },
         {
-          number: 4,
-          title: "System Development",
-          description:
-            "We scale the prototype into production-grade, ecosystem-ready infrastructure.",
-        },
-        {
-          number: 5,
-          title: "Long-Term Alliance",
-          description:
-            "We evolve, govern, and maintain the system as a shared, long-lived asset.",
+          title: "Run & improve",
+          text: "We launch, monitor and keep improving, and we hand over everything you need to own what we built.",
         },
       ],
-      callout:
-        "We engage with a maximum of 2–3 founding partners per <strong>system family</strong>.",
-      closingQuote:
-        "Our success is not defined by launch dates, but by the enduring value our systems provide.",
     },
-    partnerCriteria: {
-      title: "Is This Model Right For You?",
-      intro: "Do you see your institution reflected in the following strategic principles?\nIf so, we should talk.",
-      criteria: [
-        {
-          question: "Are you looking to solve a mission-critical problem",
-          continuation: "for society or the environment?",
-        },
-        {
-          question: "Do you think in decades and see the value in shared,",
-          continuation: "foundational infrastructure?",
-        },
-        {
-          question: "Are you ready to apply strict principles",
-          continuation: "to ensure responsible system design and governance?",
-        },
-        {
-          question: "Do you want to explore tokenized incentives and novel",
-          continuation: "ecosystems for measurable impact?",
-        },
-        {
-          question: "Are you prepared to move beyond vendor transactions",
-          continuation: "to true partnership?",
-        },
-        {
-          question: "Are you aligned to invest both capital and strategic effort",
-          continuation: "over a long-term horizon?",
-        },
-      ],
-      boundary:
-        "We are not the right partner for short-term projects, feature factories, or cosmetic solutions.",
-      closingStatement: "We build for the long term.",
+    cta: {
+      title: "Have a project in mind?",
+      text: "Tell us what you want to build. We reply with honest feedback and a clear next step.",
+      primary: "Start a project",
+      secondary: "Book a call",
     },
-    whyAunova: {
-      title: "Why This Model Exists",
-      intro: [
-        "The systems the future depends on—environmental, identity, intelligent—won't be built through one-off projects or sole-source vendors.",
-        "Institutions must come together to build digital infrastructure that serves the common good and is stewarded for the long term.",
-      ],
-      cards: [
-        {
-          title: "Responsibility Over Rent-Seeking",
-          description: "We co-own critical platforms with aligned institutions, not build proprietary lock-in schemes.",
+    servicesPage: {
+      eyebrow: "Services",
+      title: "Software development, from first idea to running system",
+      lead: `We design, build and run software that combines ${techEn}. Each solution is built with care for the environment, for people and for the future society.`,
+      techTitle: "The four technologies, and what each brings",
+      techIntro:
+        "We combine them as the problem requires, and only where they add real value.",
+      typicalUses: "Typical uses",
+      tech: {
+        ai: {
+          text: "Language models, retrieval over your own data, classic machine learning and agents. We choose the model for the task and evaluate it before it goes live.",
+          uses: [
+            "Document intake and data extraction",
+            "Search and question answering over your data",
+            "Forecasting and classification",
+            "Automation with human review",
+          ],
         },
-        {
-          title: "Systems That Outlast Us",
-          description: "True partnerships that plan in decades, not quarters.",
+        blockchain: {
+          text: "Public or private ledgers and smart contracts, used when several parties need a shared record that no single party can quietly change.",
+          uses: [
+            "Audit trails",
+            "Digital product and building passports",
+            "Certificates and credentials",
+            "Processes shared between organizations",
+          ],
         },
-        {
-          title: "Skin In The Game",
-          description: "Our team invests personally in the domains and communities we serve.",
+        analytics: {
+          text: "Pipelines, models and dashboards that turn raw data into clear, decision-ready information.",
+          uses: [
+            "Operational dashboards",
+            "Impact and sustainability reporting",
+            "Forecasting and anomaly detection",
+            "Data quality monitoring",
+          ],
         },
-      ],
-      closing: "We are driven to build better systems because the future is our shared legacy.",
-      cta: {
-        title: "Begin a Conversation About Co-Creation",
-        description: "Reach out if you’re ready to discuss co-defining and owning infrastructure that matters.",
-        button: "Explore a Systems Partnership",
+        encryption: {
+          text: "Modern cryptography that protects data at rest, in transit and in use, and proves facts without revealing the data behind them.",
+          uses: [
+            "End-to-end encryption and key management",
+            "Zero-knowledge proofs",
+            "Homomorphic encryption",
+            "Post-quantum signatures",
+          ],
+        },
       },
+      deepDives: "Deep dives",
+      fhe: "Fully homomorphic encryption",
+      zk: "Zero-knowledge proofs",
     },
-    engagementCards: {
-      sectionTitle: "Start a Strategic Discussion",
-      subtitles: [
-        "Is your institution committed to building infrastructure for the long term?",
-        "Let's explore what's possible together.",
-      ],
-      cards: [
-        {
-          title: "Schedule a Call",
-          description: "Book a consultation to discuss your vision.",
-          button: "Book a Call",
-        },
-        {
-          title: "Ask a Question",
-          description: "Send us your questions via email.",
-          button: "Email Us",
-        },
-        {
-          title: "Partnership Criteria",
-          description: "Learn about Aunova's approach to partnerships.",
-          button: "Review Criteria",
-        },
-        {
-          title: "Joint Ventures",
-          description: "Discuss collaborative investment opportunities.",
-          button: "Propose a Venture",
-        },
-      ],
-      closingText: "Reach out to see if we should build together.",
-      closingButton: "Let's Talk",
-    },
-    contact: {
-      title: "Begin a Strategic Conversation",
-      intro:
-        "We are currently developing our system families with a small number of aligned partners. We welcome conversations with institutions building toward a long-term, human- and planet-positive future.",
-      form: {
-        name: "Name",
-        email: "Email",
-        organization: "Organization",
-        systemFamily: "Which system family aligns with your vision?",
-        systemFamilyOptions: [
-          "Greenblocks (Digital Building Passport)",
-          "Human Data & Identity",
-          "Responsible AI & Governance",
-          "Healthcare & Care-Tech",
-          "Privacy-Preserving Computation",
-          "Other / Not sure yet",
-        ],
-        criticalSystem: "What critical system does your future depend on?",
-        timeHorizon: "What is your strategic time horizon?",
-        timeHorizonOptions: ["3–5 years", "5–10+ years"],
-        submit: "Send Message",
-      },
-      closing: "We respond selectively and thoughtfully to every inquiry.",
+    deepDive: {
+      eyebrow: "Encryption deep dive",
+      back: "All services",
+      related: "Also under Encryption",
+      useCases: "Where it helps",
     },
     footer: {
+      tagline:
+        "Software development that cares for the planet, its people and the future society.",
       company: "Company",
-      resources: "Resources",
+      products: "Our products",
       connect: "Connect",
-      legal: "Legal",
+      services: "Services",
+      contact: "Contact",
+      blog: "Blog",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       newsletterPrivacy: "Newsletter Privacy Notice",
-      scheduleCall: "Schedule Call",
+      bookCall: "Book a call",
       rights: "All rights reserved.",
-      builtWith:
-        "Building systems that protect people and respect the planet.",
     },
     cookie: {
       message: "We respect your privacy. This site uses no tracking cookies.",
       accept: "Understood",
-    },
-    about: {
-      title: "About Aunova",
-      description: [
-        "Aunova was founded on the belief that the next era of technology will not be defined by more software, but by better systems — systems that protect people, respect the planet, and earn long-term trust.",
-        "As technology becomes embedded into everything, responsibility can no longer be an afterthought. Infrastructure must be designed with care, governance, and long-term consequences in mind.",
-        "Aunova exists to work alongside organizations who share this responsibility.",
-      ],
-      credibility:
-        "Our team invests personally in the domains and communities we serve, approaching our work not as vendors, but as long-term stakeholders in the outcomes.",
     },
     blog: {
       title: "Blog",
@@ -295,278 +294,274 @@ export const translations = {
         news: "News",
       },
     },
-    error: {
-      "404": {
-        title: "Page Not Found",
-        description: "The page you're looking for doesn't exist.",
-        button: "Go Home",
-      },
-    },
   },
   es: {
+    meta: {
+      homeTitle:
+        "Aunova | Desarrollo de software que cuida del planeta, las personas y el futuro",
+      homeDescription: `Empresa de desarrollo de software que combina ${techEs} en una sola solución, pensada para cuidar del medio ambiente, de la humanidad y de la sociedad del futuro.`,
+      servicesTitle: "Servicios | Aunova",
+      servicesDescription: `Software a medida, sistemas de IA y agentes, registros verificables, sistemas de datos que protegen la privacidad y analítica de datos. Aunova combina ${techEs} en una sola solución.`,
+    },
     nav: {
-      home: "Inicio",
-      systemFamilies: "Familias de Sistemas",
-      partnership: "Alianzas",
-      about: "Sobre nosotros",
-      blog: "Blog",
-      contact: "Contacto",
-      howWePartner: "Cómo trabajamos",
-      whoWePartnerWith: "Nuestros socios",
+      primary: "Navegación principal",
+      home: "Inicio de Aunova",
+      services: "Servicios",
+      technology: "Tecnología",
+      impact: "Impacto",
+      work: "Proyectos",
+      process: "Proceso",
+      bookCall: "Reservar llamada",
+      menu: "Menú",
+      language: "Idioma",
+      newTab: "se abre en una pestaña nueva",
     },
     hero: {
-      title:
-        "Colaboramos con instituciones para construir los sistemas críticos de los que dependen el futuro de la sociedad y del planeta.",
-      subtitle:
-        "Más que un proveedor de software, actuamos como socios de sistemas a largo plazo, co-creando infraestructura digital esencial en ámbitos donde las decisiones tecnológicas tienen consecuencias reales para la sociedad y el medio ambiente.",
-      supportingLine:
-        "Trabajamos con un número reducido de organizaciones alineadas con nuestra visión para diseñar sistemas que protejan a las personas, respeten el planeta y perduren en el tiempo.",
-      cta: {
-        primary: "Iniciar una conversación estratégica",
-        secondary: "Explorar nuestro modelo de colaboración",
-      },
+      eyebrow: "Empresa de desarrollo de software",
+      title: "Software que cuida del planeta, de las personas y de nuestro futuro.",
+      subtitle: `Aunova es una empresa de desarrollo de software. Combinamos ${techEs} en una sola solución a la medida de tu problema, pensada para cuidar del medio ambiente, de la humanidad y de la sociedad del futuro.`,
+      primaryCta: "Empezar un proyecto",
+      secondaryCta: "Qué construimos",
     },
-    differentCompany: {
-      title: "Una empresa tecnológica diferente",
-      body: [
-          "Aunova existe para colaborar con empresas e instituciones visionarias en el diseño y construcción de sistemas fundamentales basados en confianza, sostenibilidad y responsabilidad.",
-          "Trabajamos en ámbitos donde la tecnología influye directamente en el bienestar de las personas y en los resultados ambientales. Nuestro papel no es entregar funcionalidades, sino co-crear la infraestructura a largo plazo de la que dependerán nuestros socios y sus ecosistemas.",
-          "Nos comprometemos de forma selectiva, construimos pensando en décadas y diseñamos sistemas destinados a convertirse en capas compartidas dentro de los entornos a los que sirven.",
-      ],
-      callout:
-        "Nuestro sistema insignia es <strong>Greenblocks</strong>, un Pasaporte Digital de Edificio que aporta confianza y transparencia verificadas al sector inmobiliario premium. Ahora en despliegue en Dubái.",
-      principles: [
-        {
-          title: "Enfoque crítico para las personas y el planeta",
-          description: "Nuestro trabajo tiene impacto directo en las personas y el medio ambiente.",
-        },
-        {
-          title: "Sistemas a largo plazo, no productos a corto plazo",
-          description: "Diseñamos para décadas, no para trimestres.",
-        },
-        {
-          title: "Colaboración por encima de la relación proveedor-cliente",
-          description: "Co-creamos, no solo vendemos.",
-        },
-        {
-          title: "Selectividad y colaboración de alta confianza",
-          description: "Elegimos a nuestros socios con rigor y cuidado.",
-        },
-        {
-          title: "Relevancia duradera",
-          description: "Valor que perdura, no tendencias pasajeras.",
-        },
-        {
-          title: "Impacto real y medible",
-          description: "El éxito se mide por la adopción y los resultados en el mundo real.",
-        },
-      ],
-    },
-    systemFamilies: {
-      title: "Familias de sistemas que desarrollamos con nuestros socios",
+    capabilities: {
+      eyebrow: "Qué construimos",
+      title: "Software que resuelve problemas reales",
       intro:
-        "Aunova construye familias de sistemas diseñadas para convertirse en capas de infraestructura compartida dentro de los ecosistemas a los que sirven. Greenblocks, nuestro Pasaporte Digital de Edificio para el sector inmobiliario premium, está en marcha y desplegándose en Dubái. Otras familias de sistemas están en desarrollo con futuros socios.",
-      sustainability: {
-        name: "Sistemas ambientales y de sostenibilidad",
-        status: "En vivo · Dubái",
-        category: "Pasaporte Digital de Edificio",
-        tagline:
-          "Confianza y transparencia verificadas para el sector inmobiliario premium.",
-        description:
-          "Greenblocks es una capa de confianza, transparencia y reputación para el sector inmobiliario premium. Convierte las afirmaciones de los promotores en datos estructurados, verificables y comparables a nivel de activo.",
-        examples: [
-          "Datos de desempeño verificados a lo largo del ciclo de vida del activo",
-          "Reputación como atributo medible del activo, no como ejercicio de marca",
-          "Proyectos comparables para el comprador, juzgados por su sustancia",
-          "Inteligencia del edificio que operadores, reguladores e inversores pueden consultar",
-        ],
-        closingLine:
-          "Ahora en despliegue en Dubái con promotores residenciales premium.",
+        "Desde un primer prototipo hasta una plataforma de uso diario, diseñamos, construimos y operamos software de principio a fin. Elegimos la tecnología que encaja con el problema, nunca al revés.",
+      more: "Ver nuestros servicios",
+      items: [
+        {
+          id: "software",
+          title: "Software y plataformas a medida",
+          text: "Aplicaciones web y móviles, herramientas internas, APIs y plataformas completas, fiables, seguras y fáciles de mantener.",
+          points: [
+            "Aplicaciones web y móviles",
+            "Herramientas internas y sistemas de gestión",
+            "APIs e integraciones con los sistemas que ya usas",
+            "Modernización y mantenimiento de software existente",
+          ],
+        },
+        {
+          id: "ai",
+          title: "Sistemas de IA y agentes",
+          text: "Asistentes, comprensión de documentos, automatización y agentes de IA que trabajan con tus datos y tus procesos, siempre con personas al mando.",
+          points: [
+            "Asistentes basados en tus propios documentos y datos",
+            "Comprensión de documentos y extracción de datos",
+            "Automatización de procesos y agentes con revisión humana",
+            "Evaluación, salvaguardas y supervisión",
+          ],
+        },
+        {
+          id: "records",
+          title: "Registros verificables y blockchain",
+          text: "Registros a prueba de manipulaciones, pasaportes digitales y trazas de auditoría firmadas que otros pueden comprobar por sí mismos, en redes públicas o privadas.",
+          points: [
+            "Registros a prueba de manipulaciones y trazas de auditoría",
+            "Pasaportes digitales y certificados",
+            "Contratos inteligentes en redes públicas o privadas",
+            "Datos firmados y sellados en el tiempo que otros pueden verificar",
+          ],
+        },
+        {
+          id: "privacy",
+          title: "Sistemas de datos que protegen la privacidad",
+          text: "Cifrado de extremo a extremo, pruebas de conocimiento cero y computación cifrada para datos que deben seguir siendo privados, incluso mientras se usan.",
+          points: [
+            "Cifrado de extremo a extremo y gestión de claves",
+            "Pruebas de conocimiento cero para la divulgación selectiva",
+            "Computación sobre datos cifrados",
+            "Privacidad desde el diseño para ayudar a cumplir el RGPD",
+          ],
+        },
+        {
+          id: "analytics",
+          title: "Analítica de datos y cuadros de mando",
+          text: "Flujos de datos, métricas y cuadros de mando que convierten datos dispersos en decisiones claras y fiables.",
+          points: [
+            "Flujos de datos y controles de calidad",
+            "Métricas, informes y cuadros de mando",
+            "Previsión y detección de anomalías",
+            "Informes de impacto basados en datos verificables",
+          ],
+        },
+      ],
+    },
+    convergence: {
+      eyebrow: "Nuestra tecnología",
+      title: "Cuatro tecnologías. Una solución.",
+      intro:
+        "Cada una es potente por sí sola. Combinadas, cubren las carencias de las demás: IA que razona sobre los datos, cifrado que los mantiene privados, una capa blockchain que hace verificable el registro y analítica que lo convierte en decisiones.",
+      steps: {
+        ai: "La IA lee, razona y automatiza. Entiende documentos, detecta patrones y responde preguntas sobre tus propios datos, para que las personas dediquen su tiempo a decidir y no a tareas repetitivas.",
+        blockchain:
+          "Una capa blockchain hace verificable el registro. Cada entrada importante queda sellada en el tiempo y a prueba de manipulaciones, de modo que cualquiera con acceso puede comprobar qué ocurrió y cuándo, sin tener que confiar en una sola parte.",
+        analytics:
+          "La analítica convierte los datos en decisiones. Flujos de datos limpios, métricas honestas y cuadros de mando claros muestran qué está pasando de verdad y qué hacer a continuación.",
+        encryption:
+          "El cifrado mantiene la privacidad. Los datos quedan protegidos en reposo, en tránsito e incluso mientras se usan, gracias a técnicas como las pruebas de conocimiento cero y el cifrado homomórfico.",
       },
-      future: {
-        title: "Futuras familias de sistemas (en desarrollo)",
-        items: [
-          "Infraestructura de datos humanos e identidad",
-          "Capas de IA responsable y gobernanza",
-          "Sistemas de salud y tecnología de cuidado",
-          "Plataformas de computación que preservan la privacidad",
-        ],
-        note: "En desarrollo con futuros socios.",
+      combined: {
+        eyebrow: "Combinadas",
+        title: "Una sola solución",
+        text: "Diseñamos las cuatro como un único sistema, para que cada una cubra lo que las demás no pueden.",
+        exampleLabel: "Un ejemplo sencillo",
+        example:
+          "Una empresa quiere demostrar sus cifras de sostenibilidad. La IA lee las facturas de energía y los datos de los contadores y extrae las cifras. El cifrado mantiene privados los datos de clientes y proveedores. Un registro blockchain sella en el tiempo cada cifra verificada, para que nadie pueda modificarla después sin que se note. La analítica convierte el registro en un informe que compradores, inversores y auditores pueden comprobar por sí mismos.",
       },
     },
-    partnership: {
-      title: "De visión compartida a infraestructura compartida",
+    impact: {
+      eyebrow: "Por qué importa",
+      title: "Pensado para el planeta, para las personas y para la sociedad que viene",
       intro:
-        "No empezamos con documentos de requisitos. Empezamos con alineación estratégica. Nuestras colaboraciones son a largo plazo, selectivas y se estructuran en torno a la construcción de sistemas que se convierten en activos compartidos.",
-
-      stepsTitle: "El viaje de colaboración",
-
+        "La tecnología define cómo vivimos, así que nos la tomamos en serio. Tres cosas pesan en cada decisión que tomamos.",
+      items: [
+        {
+          id: "planet",
+          title: "Medio ambiente",
+          text: "Construimos software que ayuda a medir, demostrar y reducir el impacto ambiental, con datos que se pueden comprobar en lugar de afirmaciones que hay que creer. Y diseñamos nuestros propios sistemas para que consuman lo justo.",
+        },
+        {
+          id: "people",
+          title: "Humanidad",
+          text: "La tecnología debe estar al servicio de las personas. Protegemos la privacidad desde el diseño, mantenemos a las personas al mando de la IA y creamos herramientas que se entienden y en las que se puede confiar.",
+        },
+        {
+          id: "future",
+          title: "Sociedad del futuro",
+          text: "La sociedad funciona cada vez más sobre sistemas digitales. Construimos bases abiertas, verificables y seguras, para que las personas puedan confiar en lo que esos sistemas les dicen, hoy y en los años que vienen.",
+        },
+      ],
+    },
+    work: {
+      eyebrow: "Nuestro trabajo",
+      title: "Hecho por Aunova",
+      intro:
+        "Productos que diseñamos, construimos y operamos nosotros mismos. Cada uno pone en práctica los mismos principios.",
+      formerly: "Antes",
+      items: {
+        ati: {
+          tag: "Inmobiliario · Dubái",
+          text: "Un único registro fiable y verificable para proyectos inmobiliarios: el Pasaporte Digital del Edificio.",
+          link: "Visitar aunova.ae",
+        },
+        casabook: {
+          tag: "Alquiler de corta estancia",
+          text: "Guías digitales multilingües para anfitriones de alquiler de corta estancia, para que cada huésped encuentre las respuestas en su idioma.",
+          link: "Visitar casabook.app",
+        },
+        "metaend-grade": {
+          tag: "Preparación para IA",
+          text: "Analiza un sitio web tal como lo ve un agente de IA y califica su preparación para agentes de la A a la F.",
+          link: "Visitar metaend Grade",
+        },
+      },
+    },
+    process: {
+      eyebrow: "Cómo trabajamos",
+      title: "Un proceso claro, desde la primera llamada hasta el sistema en marcha",
+      intro:
+        "Ciclos cortos, avances visibles y sin sorpresas. Siempre sabes qué estamos construyendo y por qué.",
       steps: [
         {
-          number: 1,
-          title: "Alineación estratégica",
-          description:
-            "Analizamos conjuntamente las implicaciones para las personas y el planeta, la relevancia a largo plazo y la necesidad a nivel de sistema.",
+          title: "Descubrir",
+          text: "Entendemos tu problema, a tus usuarios y tus limitaciones, y acordamos qué significa el éxito.",
         },
         {
-          number: 2,
-          title: "Co-diseño",
-          description:
-            "Definimos juntos la ambición del sistema: su propósito, responsabilidades y arquitectura a largo plazo.",
+          title: "Diseñar",
+          text: "Definimos la arquitectura y elegimos la combinación adecuada de IA, blockchain, analítica y cifrado. Nada más de lo que el problema necesita.",
         },
         {
-          number: 3,
-          title: "Prueba de concepto (PoC)",
-          description:
-            "Construimos un prototipo funcional y enfocado para validar el valor central y la lógica del sistema.",
+          title: "Construir",
+          text: "Construimos en iteraciones cortas que puedes ver y probar, con la seguridad y la privacidad integradas desde el primer día.",
         },
         {
-          number: 4,
-          title: "Desarrollo del sistema",
-          description:
-            "Escalamos el prototipo hasta convertirlo en infraestructura de grado productivo, lista para integrarse en el ecosistema.",
-        },
-        {
-          number: 5,
-          title: "Colaboración a largo plazo",
-          description:
-            "Evolucionamos, gobernamos y mantenemos el sistema como un activo compartido y duradero.",
+          title: "Operar y mejorar",
+          text: "Lanzamos, supervisamos y seguimos mejorando, y te entregamos todo lo necesario para que lo construido sea tuyo.",
         },
       ],
-
-      callout:
-        "Nos comprometemos de forma deliberada con un número limitado de socios fundadores por familia de sistemas para proteger la profundidad, la responsabilidad y la integridad del sistema.",
     },
-    partnerCriteria: {
-      title: "¿Es este modelo de colaboración adecuado para ti?",
-      intro: "Aunova colabora con organizaciones que:",
-      criteria: [
-        "construyen pensando en horizontes de 10 años o más",
-        "operan en ámbitos con impacto real en la sociedad o el medio ambiente",
-        "buscan co-crear infraestructura, no comprar software",
-        "están dispuestas a invertir en sistemas y asumir responsabilidad compartida",
-        "priorizan la confianza a largo plazo frente a la entrega a corto plazo",
-      ],
-      boundary:
-        "No somos el socio adecuado para proyectos a corto plazo, fábricas de funcionalidades o soluciones puramente cosméticas.",
-      closingStatement: "Construimos para el largo plazo.",
+    cta: {
+      title: "¿Tienes un proyecto en mente?",
+      text: "Cuéntanos qué quieres construir. Te responderemos con una opinión honesta y un siguiente paso claro.",
+      primary: "Empezar un proyecto",
+      secondary: "Reservar una llamada",
     },
-
-    whyAunova: {
-      title: "Por qué existe este modelo",
-      intro: [
-        "Los sistemas de los que depende el futuro -ambientales, de identidad e inteligentes— no se construirán mediante proyectos puntuales ni a través de proveedores aislados.",
-        "Las instituciones deben unirse para construir infraestructura digital que sirva al bien común y sea gestionada con visión de largo plazo.",
-      ],
-      cards: [
-        {
-          title: "Responsabilidad por encima del rentismo",
-          description:
-            "Co-poseemos plataformas críticas con instituciones alineadas, en lugar de crear dependencias propietarias.",
+    servicesPage: {
+      eyebrow: "Servicios",
+      title: "Desarrollo de software, desde la primera idea hasta el sistema en marcha",
+      lead: `Diseñamos, construimos y operamos software que combina ${techEs}. Cada solución está pensada para cuidar del medio ambiente, de las personas y de la sociedad del futuro.`,
+      techTitle: "Las cuatro tecnologías y lo que aporta cada una",
+      techIntro:
+        "Las combinamos según lo que pide el problema, y solo donde aportan valor real.",
+      typicalUses: "Usos habituales",
+      tech: {
+        ai: {
+          text: "Modelos de lenguaje, búsqueda sobre tus propios datos, aprendizaje automático clásico y agentes. Elegimos el modelo según la tarea y lo evaluamos antes de ponerlo en producción.",
+          uses: [
+            "Recepción de documentos y extracción de datos",
+            "Búsqueda y respuestas sobre tus datos",
+            "Previsión y clasificación",
+            "Automatización con revisión humana",
+          ],
         },
-        {
-          title: "Sistemas que nos trascienden",
-          description:
-            "Verdaderas colaboraciones pensadas en décadas, no en trimestres.",
+        blockchain: {
+          text: "Redes públicas o privadas y contratos inteligentes, cuando varias partes necesitan un registro compartido que ninguna pueda modificar sin que se note.",
+          uses: [
+            "Trazas de auditoría",
+            "Pasaportes digitales de productos y edificios",
+            "Certificados y credenciales",
+            "Procesos compartidos entre organizaciones",
+          ],
         },
-        {
-          title: "Compromiso personal",
-          description:
-            "Nuestro equipo se involucra personalmente en los ámbitos y comunidades a las que servimos.",
+        analytics: {
+          text: "Flujos de datos, modelos y cuadros de mando que convierten datos en bruto en información clara y lista para decidir.",
+          uses: [
+            "Cuadros de mando operativos",
+            "Informes de impacto y sostenibilidad",
+            "Previsión y detección de anomalías",
+            "Supervisión de la calidad de los datos",
+          ],
         },
-      ],
-      closing:
-        "Nos mueve construir mejores sistemas porque el futuro es nuestro legado compartido.",
-      cta: {
-        title: "Inicia una conversación sobre co-creación",
-        description:
-          "Contáctanos si estás listo para discutir la co-definición y la propiedad compartida de infraestructura que realmente importa.",
-        button: "Explorar una colaboración de sistemas",
+        encryption: {
+          text: "Criptografía moderna que protege los datos en reposo, en tránsito y en uso, y que demuestra hechos sin revelar los datos que hay detrás.",
+          uses: [
+            "Cifrado de extremo a extremo y gestión de claves",
+            "Pruebas de conocimiento cero",
+            "Cifrado homomórfico",
+            "Firmas poscuánticas",
+          ],
+        },
       },
+      deepDives: "En profundidad",
+      fhe: "Cifrado totalmente homomórfico",
+      zk: "Pruebas de conocimiento cero",
     },
-    engagementCards: {
-      sectionTitle: "Inicia una conversación estratégica",
-      subtitles: [
-        "¿Está tu institución comprometida con construir infraestructura a largo plazo?",
-        "Exploremos juntos lo que es posible.",
-      ],
-      cards: [
-        {
-          title: "Agendar una llamada",
-          description: "Reserva una conversación para compartir tu visión.",
-          button: "Agendar llamada",
-        },
-        {
-          title: "Hacer una pregunta",
-          description: "Envíanos tus preguntas por correo electrónico.",
-          button: "Escríbenos",
-        },
-        {
-          title: "Criterios de colaboración",
-          description: "Conoce cómo trabaja Aunova con sus socios.",
-          button: "Revisar criterios",
-        },
-        {
-          title: "Empresas conjuntas",
-          description: "Explora oportunidades de inversión colaborativa.",
-          button: "Proponer una iniciativa",
-        },
-      ],
-      closingText: "Contáctanos para ver si tiene sentido construir juntos.",
-      closingButton: "Hablemos",
-    },
-    contact: {
-      title: "Iniciar una conversación estratégica",
-      intro:
-        "Actualmente estamos desarrollando nuestras familias de sistemas con un número reducido de socios alineados. Damos la bienvenida a conversaciones con instituciones que estén construyendo, con visión de largo plazo, un futuro positivo para las personas y el planeta.",
-      form: {
-        name: "Nombre",
-        email: "Correo electrónico",
-        organization: "Organización",
-        systemFamily: "¿Qué familia de sistemas se alinea con tu visión?",
-        systemFamilyOptions: [
-          "Greenblocks (Pasaporte Digital de Edificio)",
-          "Datos humanos e identidad",
-          "IA responsable y gobernanza",
-          "Salud y tecnologías de cuidado",
-          "Computación que preserva la privacidad",
-          "Otro / Aún no estoy seguro",
-        ],
-        criticalSystem: "¿De qué sistema crítico depende tu futuro?",
-        timeHorizon: "¿Cuál es tu horizonte estratégico?",
-        timeHorizonOptions: ["3–5 años", "5–10+ años"],
-        submit: "Enviar mensaje",
-      },
-      closing:
-        "Respondemos de manera selectiva y reflexiva a cada consulta.",
+    deepDive: {
+      eyebrow: "Cifrado en profundidad",
+      back: "Todos los servicios",
+      related: "También en Cifrado",
+      useCases: "Dónde ayuda",
     },
     footer: {
+      tagline:
+        "Desarrollo de software que cuida del planeta, de las personas y de la sociedad del futuro.",
       company: "Empresa",
-      resources: "Recursos",
+      products: "Nuestros productos",
       connect: "Conectar",
-      legal: "Legal",
-      privacy: "Política de Privacidad",
-      terms: "Términos de Servicio",
+      services: "Servicios",
+      contact: "Contacto",
+      blog: "Blog",
+      privacy: "Política de privacidad",
+      terms: "Términos del servicio",
       newsletterPrivacy: "Aviso de privacidad del boletín",
-      scheduleCall: "Agendar Llamada",
-      rights: "© 2025 Aunova. Todos los derechos reservados.",
-      builtWith:
-        "Construyendo sistemas que protegen a las personas y respetan el planeta.",
+      bookCall: "Reservar una llamada",
+      rights: "Todos los derechos reservados.",
     },
     cookie: {
       message:
         "Respetamos tu privacidad. Este sitio no usa cookies de rastreo.",
       accept: "Entendido",
-    },
-    about: {
-      title: "Sobre Aunova",
-      description: [
-        "Aunova fue fundada con la creencia de que la próxima era de la tecnología no estará definida por más software, sino por mejores sistemas — sistemas que protejan a las personas, respeten el planeta y ganen confianza a largo plazo.",
-        "A medida que la tecnología se integra en todo, la responsabilidad ya no puede ser una ocurrencia tardía. La infraestructura debe diseñarse con cuidado, gobernanza y consecuencias a largo plazo en mente.",
-        "Aunova existe para trabajar junto a organizaciones que comparten esta responsabilidad.",
-      ],
-      credibility:
-        "Nuestro equipo invierte personalmente en los dominios y comunidades a los que servimos, abordando nuestro trabajo no como proveedores, sino como partes interesadas a largo plazo en los resultados.",
     },
     blog: {
       title: "Blog",
@@ -581,20 +576,16 @@ export const translations = {
         news: "Noticias",
       },
     },
-    error: {
-      "404": {
-        title: "Página No Encontrada",
-        description: "La página que buscas no existe.",
-        button: "Ir al Inicio",
-      },
-    },
   },
-} as const;
+};
 
-export type TranslationKey = keyof typeof translations.en;
+/** The English table is canonical; the Spanish one must provide every key. */
+export type Dictionary = typeof translations.en;
 
-export function getTranslation(lang: Language = defaultLang) {
-  return translations[lang] || translations[defaultLang];
+export function getTranslation(lang: Language = defaultLang): Dictionary {
+  // Returning the Spanish table as `Dictionary` is also the compile-time
+  // check that it mirrors the English keys.
+  return translations[lang] ?? translations[defaultLang];
 }
 
 export function getCurrentLanguage(url: URL): Language {

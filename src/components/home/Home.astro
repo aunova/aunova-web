@@ -1,0 +1,25 @@
+---
+// The home page, shared by / (English) and /es/ (Spanish).
+import type { Language } from "../../utils/i18n";
+import Capabilities from "../sections/Capabilities.astro";
+import CtaBand from "../sections/CtaBand.astro";
+import Process from "../sections/Process.astro";
+import Convergence from "./Convergence.astro";
+import Hero from "./Hero.astro";
+import Impact from "./Impact.astro";
+import Work from "./Work.astro";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+---
+
+<Hero lang={lang} />
+<Capabilities lang={lang} />
+<Convergence lang={lang} />
+<Impact lang={lang} />
+<Work lang={lang} />
+<Process lang={lang} withImage />
+<CtaBand lang={lang} />

@@ -1,0 +1,142 @@
+---
+import { getTranslation, type Language } from "../../utils/i18n";
+
+interface Props {
+  lang: Language;
+  /** Home page: show the craft image next to the steps. */
+  withImage?: boolean;
+}
+
+const { lang, withImage = false } = Astro.props;
+const t = getTranslation(lang);
+---
+
+<section id="process" class:list={["section", "process", { "process--image": withImage }]}>
+  <div class="container process__grid">
+    <div class="process__intro">
+      <header class="section-head reveal">
+        <p class="eyebrow">{t.process.eyebrow}</p>
+        <h2>{t.process.title}</h2>
+        <p>{t.process.intro}</p>
+      </header>
+      {
+        withImage && (
+          <div class="process__media reveal">
+            <img
+              src="/images/v2/build.webp"
+              alt=""
+              width="1536"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        )
+      }
+    </div>
+
+    <ol class="process__steps">
+      {
+        t.process.steps.map((step, index) => (
+          <li class="process-step reveal">
+            <span class="process-step__number" aria-hidden="true">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .process__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(2.5rem, 1rem + 5vw, 6rem);
+    align-items: start;
+  }
+
+  .process__intro {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-xl));
+  }
+
+  .process__media {
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-night);
+  }
+
+  .process__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .process__steps {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* The thread that links the steps */
+  .process__steps::before {
+    content: "";
+    position: absolute;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    width: 1px;
+    background-color: var(--color-border);
+  }
+
+  .process-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: var(--space-lg);
+    margin: 0;
+    padding-block: var(--space-lg);
+  }
+
+  .process-step__number {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-primary);
+    font-size: var(--text-ui);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .process-step h3 {
+    margin: 0.55rem 0 var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  }
+
+  .process-step p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .process__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .process__intro {
+      position: static;
+    }
+  }
+</style>

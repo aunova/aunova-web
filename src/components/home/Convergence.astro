@@ -1,0 +1,416 @@
+---
+import { technologyKeys, technologyNames } from "../../utils/company";
+import { getTranslation, type Language } from "../../utils/i18n";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+const names = technologyNames[lang];
+const images = {
+  ai: "/images/v2/ai.webp",
+  blockchain: "/images/v2/blockchain.webp",
+  analytics: "/images/v2/analytics.webp",
+  encryption: "/images/v2/encryption.webp",
+} as const;
+---
+
+<section id="technology" class="conv band-dark section" data-convergence>
+  <div class="container conv__inner">
+    <header class="section-head conv__head" data-conv-head>
+      <p class="eyebrow">{t.convergence.eyebrow}</p>
+      <h2>{t.convergence.title}</h2>
+      <p>{t.convergence.intro}</p>
+    </header>
+
+    <div class="conv__stage">
+      <ol class="conv__steps">
+        {
+          technologyKeys.map((key, index) => (
+            <li class="conv__step" data-step>
+              <div class="conv__media">
+                <img
+                  src={images[key]}
+                  alt=""
+                  width="1536"
+                  height="1024"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="conv__text">
+                <span class="conv__index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")} / 04
+                </span>
+                <h3>{names[key]}</h3>
+                <p>{t.convergence.steps[key]}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div class="conv__combined" data-combined>
+        <div class="conv__diagram" aria-hidden="true">
+          <svg viewBox="0 0 400 400" focusable="false">
+            <circle class="conv__orbit" cx="200" cy="200" r="158"></circle>
+            <line data-wire pathLength="1" x1="88" y1="88" x2="200" y2="200"></line>
+            <line data-wire pathLength="1" x1="312" y1="88" x2="200" y2="200"></line>
+            <line data-wire pathLength="1" x1="312" y1="312" x2="200" y2="200"></line>
+            <line data-wire pathLength="1" x1="88" y1="312" x2="200" y2="200"></line>
+          </svg>
+          {
+            technologyKeys.map((key) => (
+              <span class="conv__chip" data-chip={key}>
+                {names[key]}
+              </span>
+            ))
+          }
+          <span class="conv__core" data-core></span>
+        </div>
+        <div class="conv__summary">
+          <p class="eyebrow">{t.convergence.combined.eyebrow}</p>
+          <h3>{t.convergence.combined.title}</h3>
+          <p class="conv__lead">{t.convergence.combined.text}</p>
+          <p class="conv__example">
+            <strong>{t.convergence.combined.exampleLabel}:</strong>
+            {t.convergence.combined.example}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="conv__progress" aria-hidden="true"><span data-progress></span></div>
+  </div>
+</section>
+
+<style>
+  /* ----- Static layout: no JS, reduced motion, small screens ----- */
+
+  .conv {
+    position: relative;
+    background:
+      radial-gradient(60% 50% at 100% 0%, rgba(87, 13, 11, 0.35), transparent 70%),
+      var(--color-night);
+  }
+
+  .conv__steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 1rem + 3vw, 3.5rem) var(--space-xl);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .conv__step {
+    display: grid;
+    gap: var(--space-lg);
+    align-content: start;
+    margin: 0;
+  }
+
+  .conv__media {
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-night-raised);
+  }
+
+  .conv__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .conv__index {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--color-ember);
+  }
+
+  .conv__text h3 {
+    margin: var(--space-xs) 0 var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.75rem);
+    line-height: 1.1;
+  }
+
+  .conv__text p {
+    max-width: 34rem;
+    margin: 0;
+    color: var(--color-on-dark-muted);
+  }
+
+  .conv__combined {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2rem, 1rem + 4vw, 5rem);
+    align-items: center;
+    margin-top: clamp(3rem, 2rem + 4vw, 6rem);
+    padding: clamp(1.75rem, 1.25rem + 2vw, 3.5rem);
+    border: 1px solid var(--color-line-dark);
+    border-radius: var(--radius-2xl);
+    background:
+      radial-gradient(70% 90% at 25% 50%, rgba(122, 36, 32, 0.32), transparent 70%),
+      var(--color-night-raised);
+  }
+
+  .conv__diagram {
+    position: relative;
+    width: 100%;
+    max-width: 26rem;
+    aspect-ratio: 1;
+    margin-inline: auto;
+  }
+
+  .conv__diagram svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .conv__orbit {
+    fill: none;
+    stroke: var(--color-line-dark);
+    stroke-dasharray: 2 6;
+  }
+
+  .conv__diagram line {
+    stroke: var(--color-ember);
+    stroke-width: 1.5;
+    stroke-opacity: 0.7;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+
+  .conv__chip {
+    position: absolute;
+    translate: -50% -50%;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid rgba(232, 160, 140, 0.45);
+    border-radius: var(--radius-full);
+    background-color: var(--color-night);
+    font-size: var(--text-ui);
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--color-on-dark);
+  }
+
+  .conv__chip[data-chip="ai"] {
+    left: 22%;
+    top: 22%;
+  }
+
+  .conv__chip[data-chip="blockchain"] {
+    left: 78%;
+    top: 22%;
+  }
+
+  .conv__chip[data-chip="analytics"] {
+    left: 78%;
+    top: 78%;
+  }
+
+  .conv__chip[data-chip="encryption"] {
+    left: 22%;
+    top: 78%;
+  }
+
+  .conv__core {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 22%;
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    border-radius: var(--radius-full);
+    background: radial-gradient(
+      circle,
+      #fff3e8 0%,
+      var(--color-ember) 30%,
+      rgba(122, 36, 32, 0.6) 62%,
+      transparent 72%
+    );
+    box-shadow: 0 0 60px rgba(232, 160, 140, 0.35);
+  }
+
+  .conv__summary h3 {
+    margin-bottom: var(--space-md);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+    line-height: 1.05;
+  }
+
+  .conv__lead {
+    font-size: var(--text-lg);
+  }
+
+  .conv__example {
+    margin: 0;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-line-dark);
+    color: var(--color-on-dark-muted);
+  }
+
+  .conv__example strong {
+    color: var(--color-ember);
+    font-weight: 600;
+  }
+
+  .conv__progress {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .conv:not(.is-live) :is(.conv__head, .conv__step, .conv__combined) {
+        /* Longhands: see the note on .reveal in global.css */
+        animation-name: reveal-up;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 60%;
+      }
+    }
+  }
+
+  @media (max-width: 860px) {
+    .conv__steps,
+    .conv__combined {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ----- Pinned narrative: set by the GSAP enhancement on large screens ----- */
+
+  .conv.is-live {
+    padding-block: 0;
+  }
+
+  .conv.is-live .conv__inner {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    height: calc(100svh - var(--header-height));
+    padding-block: clamp(1.5rem, 4vh, 3rem) clamp(1.25rem, 3vh, 2rem);
+  }
+
+  .conv.is-live .conv__head {
+    max-width: 52rem;
+    margin-bottom: clamp(1rem, 3vh, 2rem);
+  }
+
+  .conv.is-live .conv__head h2 {
+    margin-bottom: var(--space-sm);
+    font-size: clamp(2rem, 1.4rem + 1.6vw, 2.9rem);
+  }
+
+  .conv.is-live .conv__head p {
+    font-size: var(--text-body);
+  }
+
+  .conv.is-live .conv__stage {
+    position: relative;
+    min-height: 0;
+    /* Lets the diagram size itself to the stage height (cqh) */
+    container-type: size;
+  }
+
+  .conv.is-live .conv__steps {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+
+  .conv.is-live .conv__step {
+    position: absolute;
+    inset: 0;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2rem, 4vw, 5rem);
+    align-items: center;
+  }
+
+  .conv.is-live .conv__text {
+    order: -1;
+  }
+
+  .conv.is-live .conv__media {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .conv.is-live .conv__combined {
+    position: absolute;
+    inset: 0;
+    grid-template-rows: minmax(0, 1fr);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .conv.is-live .conv__diagram {
+    width: min(26rem, 100%, 100cqh);
+  }
+
+  .conv.is-live .conv__progress {
+    display: block;
+    height: 2px;
+    margin-top: clamp(1rem, 2.5vh, 1.75rem);
+    background-color: var(--color-line-dark);
+  }
+
+  .conv.is-live .conv__progress span {
+    display: block;
+    height: 100%;
+    background-color: var(--color-ember);
+    transform-origin: left center;
+  }
+</style>
+
+<style is:global>
+  /* Lenis smooth scrolling (home pages only, started with the narrative) */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis:not(.lenis-autoToggle).lenis-stopped {
+    overflow: clip;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  // The pinned GSAP + Lenis narrative loads only where it can run: large
+  // screens with motion allowed. Everywhere else the static layout stays.
+  const LIVE_QUERY =
+    "(min-width: 900px) and (min-height: 640px) and (prefers-reduced-motion: no-preference)";
+  const section = document.querySelector<HTMLElement>("[data-convergence]");
+
+  if (section) {
+    const query = window.matchMedia(LIVE_QUERY);
+    const load = () => {
+      import("../../scripts/convergence")
+        .then(({ mountConvergence }) => mountConvergence(section, LIVE_QUERY))
+        .catch((error: unknown) => console.warn("[convergence] static layout kept:", error));
+    };
+    if (query.matches) load();
+    else {
+      const onChange = (event: MediaQueryListEvent) => {
+        if (!event.matches) return;
+        query.removeEventListener("change", onChange);
+        load();
+      };
+      query.addEventListener("change", onChange);
+    }
+  }
+</script>

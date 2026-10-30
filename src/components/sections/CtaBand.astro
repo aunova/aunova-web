@@ -1,0 +1,71 @@
+---
+import { contact } from "../../utils/company";
+import { getTranslation, type Language } from "../../utils/i18n";
+
+interface Props {
+  lang: Language;
+  /** Optional page-specific heading and text; defaults to the shared call to action. */
+  title?: string;
+  text?: string;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+const title = Astro.props.title ?? t.cta.title;
+const text = Astro.props.text ?? t.cta.text;
+---
+
+<section id="start" class="cta-band band-dark flush-footer">
+  <div class="container cta-band__inner reveal">
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <div class="cta-band__actions">
+      <a class="button button--light" href={`/${lang}/contact`}>{t.cta.primary}</a>
+      <a
+        class="button button--ghost"
+        href={contact.booking}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t.cta.secondary}<span class="sr-only"> ({t.nav.newTab})</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-band {
+    padding-block: clamp(5rem, 3.5rem + 6vw, 9rem);
+    background:
+      radial-gradient(70% 120% at 85% 0%, rgba(122, 36, 32, 0.55), transparent 62%),
+      radial-gradient(50% 90% at 0% 100%, rgba(87, 13, 11, 0.45), transparent 60%),
+      var(--color-night);
+  }
+
+  .cta-band__inner {
+    max-width: 52rem;
+    text-align: center;
+  }
+
+  .cta-band h2 {
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-display);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .cta-band p {
+    max-width: 36rem;
+    margin: 0 auto var(--space-2xl);
+    font-size: var(--text-lg);
+    color: var(--color-on-dark-muted);
+  }
+
+  .cta-band__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+</style>

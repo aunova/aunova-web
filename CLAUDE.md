@@ -453,60 +453,21 @@ property: attr(attribute-name type(<type>), fallback-value);
 
 ## Content Strategy
 
-### Greenblocks (`/greenblocks` and `/es/greenblocks`)
+### Positioning (2026 redesign)
 
-**Current positioning (post-REES Dubai, May 2026):** Greenblocks is a Digital Building Passport for premium real estate, deployed at asset level. Direct commercial client is Dubai premium residential developers; buyers, investors, and regulators are surrounding stakeholders the passport serves. Category: verified real estate. Product: infrastructure.
+Aunova is a software development company whose development solutions care about the environment, humanity and the future society, using cutting-edge technologies, combining AI, Blockchain, Data Analytics and Encryption to deliver the best solution. Tone: confident, concrete, warm; a builder you can hire. Lead with what we build and why it matters, then how (the four technologies, combined). BRAND.md has the messaging, voice and truth rules.
 
-The page (`src/pages/greenblocks.astro`) was rewritten in May 2026 from the prior "community impact infrastructure" framing. Reference brief used for the rewrite specified eight section replacements and is now reflected in the live page. Spanish version (`src/pages/es/greenblocks.astro`) **still carries the old framing** and is queued for translation as a separate task.
+- **Copy**: every page string (EN + ES) lives in `src/utils/i18n.ts`; shared facts (positioning sentence, technology names, products, contact links, legal entities) live in `src/utils/company.ts`. "DA" in the owner's brief is read as Data Analytics and is swappable there.
+- **Machine-readable surfaces** (`llms.txt`, `llms-full.txt`, `agents.txt`, `/api/company-info.json`, `/ai-metadata.json`, the WebMCP tools) are generated from those two modules; never hand-write positioning into them.
+- **Voice rules**: no em dashes in visible copy, no contractions, no hype words, none of the old manifesto framing.
 
-**Brand voice rules for Greenblocks copy** (verified by `grep -nE '—|don\\'t|won\\'t|...'` before commit):
-- No contractions ("we are" not "we're")
-- No em dashes — use periods, colons, or new lines instead
-- No hype words
+### Services
 
-**Design tokens (`.gb-page` scope):**
-- `--gb-accent` `#3b5d3b` — brand green, used for primary highlights, CTAs, problem-tile accent stripes, and the "credibility gap" headline emphasis. **This is the brand color** — when in doubt, use this.
-- `--gb-warm` `#8b7355` — warm tan, secondary palette only. Do not use for brand-level emphasis (an earlier wiring of `.gb-warm` to this token broke the credibility-gap highlight; the class now points at `--gb-accent`).
-- `--gb-bg-primary` `#f5f1eb` (cream), `--gb-bg-secondary` `#ebe7df`, `--gb-bg-card` `#ffffff`
-- `--gb-text-primary` `#2d2d2d`, `--gb-text-secondary` `#5a5a5a`, `--gb-text-muted` `#666666` (was `#8a8a8a` — failed WCAG AA on cream backgrounds, darkened during the harden pass)
+What we build: custom software and platforms, AI systems and agents, verifiable records and blockchain, privacy-preserving data systems, data analytics and dashboards. `/en/services` and `/es/services` render `components/services/ServicesPage.astro`; the Encryption deep dives (`/{en,es}/services/fhe`, `/{en,es}/services/zero-knowledge`) render `components/services/DeepDive.astro` with page-specific content.
 
-**Visual assets pending design refresh** (briefed but not yet replaced):
-- `public/images/greenblocks-hero.webp` — generic sustainable-community render; replace with Dubai-flavored premium residential visual
-- `public/images/greenblocks-icons.webp` — original three wellness icons; the hero references it but the problem section no longer uses it (replaced with flat tile list during distill)
-- `public/images/the-shift-arrow.webp` — review against new four From/To pairs
-- `public/images/og-preview.webp` — update so LinkedIn previews carry the new narrative
+### Aunova Trust Infrastructure (formerly Greenblocks)
 
-**Page structure (current):** Hero → "Premium real estate has a credibility gap" (with three flat tiles) → "From claims to proof" (four pairs) → "Greenblocks is infrastructure" (with `flow-chart-infrastructure.webp` passport diagram) → "What Greenblocks enables" (4-up enables grid, flagged for redesign) → "How we deploy" → "Set the standard" CTA.
-
-### Service Pillars Content
-
-#### 1. Zero-Knowledge & Privacy Tooling
-
-- zkSNARKs/zkSTARKs implementation
-- Privacy-preserving smart contracts
-- Anonymous credential systems
-- Confidential computing solutions
-
-#### 2. Generative AI + Web3 Integration
-
-- On-chain AI model deployment
-- Decentralized AI inference
-- NFT generation with AI
-- DAO governance automation
-
-#### 3. Hybrid ZK-AI Applications
-
-- Privacy-preserving machine learning
-- Federated learning on blockchain
-- Confidential AI computations
-- Verifiable AI outputs
-
-#### 4. Decentralized Infrastructure & Dev Tools
-
-- Smart contract development frameworks
-- Blockchain testing suites
-- DApp deployment pipelines
-- Cross-chain integration tools
+The real-estate product (Digital Building Passport, Dubai) now lives on https://aunova.ae. `/greenblocks` and `/es/greenblocks` redirect there (`astro.config.mjs`). On aunova.net it appears only as a modest "Our work" card linking straight to https://aunova.ae, never to the old greenblocks path.
 
 ### Blog Migration
 

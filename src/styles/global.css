@@ -69,8 +69,14 @@
   --color-gray-800: #262626;
   --color-gray-900: #171717;
 
-  /* System Family Accent */
-  --color-greenblocks: #3b8f5a;
+  /* Dark bands (hero, technology, call to action, footer) */
+  --color-night: #0f0a09;
+  --color-night-raised: #1b1312;
+  --color-on-dark: #f5f0f0;
+  --color-on-dark-muted: rgba(245, 240, 240, 0.74);
+  --color-line-dark: rgba(232, 216, 214, 0.16);
+  /* Warm highlight taken from the imagery; for small accents on dark bands only */
+  --color-ember: #e8a08c;
 
   /* Semantic Tokens */
   --color-primary: var(--color-burgundy);
@@ -95,6 +101,7 @@
 
   /* Type Scale */
   --text-hero: clamp(2.5rem, 1.9rem + 2.4vw, 4rem);
+  --text-display: clamp(2rem, 1.35rem + 2.6vw, 3.5rem);
   --text-h1: clamp(1.875rem, 1.6rem + 1.6vw, 2.75rem);
   --text-h2: clamp(1.375rem, 1.2rem + 0.9vw, 1.875rem);
   --text-h3: clamp(1.125rem, 1.05rem + 0.5vw, 1.25rem);
@@ -198,6 +205,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 1rem);
   overflow-x: clip;
 }
 
@@ -208,25 +216,8 @@ body {
   overflow-x: clip;
 }
 
-body.menu-open {
-  overflow: hidden;
-  touch-action: none;
-}
-
 main {
   flex: 1;
-  animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* --------------------------------------------------------------------------
@@ -442,6 +433,206 @@ button {
 }
 
 /* --------------------------------------------------------------------------
+   Page transitions: native cross-document View Transitions, no JS router
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 260ms;
+}
+
+/* --------------------------------------------------------------------------
+   Sections, headings and bands
+   -------------------------------------------------------------------------- */
+
+.section {
+  padding-block: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+}
+
+.section-head {
+  max-width: 46rem;
+  margin-bottom: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+
+.section-head h2 {
+  font-size: var(--text-display);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin-bottom: var(--space-lg);
+}
+
+.section-head p {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  max-width: 40rem;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+/* Dark cinematic band: dark image or colour, scrim, light text */
+.band-dark {
+  background-color: var(--color-night);
+  color: var(--color-on-dark);
+}
+
+.band-dark :is(h1, h2, h3, h4, p, li) {
+  color: inherit;
+}
+
+.band-dark .section-head p,
+.band-dark .muted {
+  color: var(--color-on-dark-muted);
+}
+
+.band-dark .eyebrow {
+  color: var(--color-ember);
+}
+
+.band-dark ::selection {
+  background-color: var(--color-ember);
+  color: var(--color-night);
+}
+
+.band-dark :focus-visible {
+  outline-color: var(--color-ember);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons and links
+   -------------------------------------------------------------------------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.button:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.button--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.button--primary:hover {
+  background-color: var(--color-primary-hover);
+  color: var(--color-white);
+}
+
+.button--light {
+  background-color: var(--color-on-dark);
+  color: var(--color-night);
+}
+
+.button--light:hover {
+  background-color: var(--color-white);
+  color: var(--color-night);
+}
+
+.button--ghost {
+  border-color: currentColor;
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+.button--ghost:hover {
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
+  color: var(--color-primary);
+}
+
+.band-dark .button--ghost,
+.band-dark .button--ghost:hover {
+  color: var(--color-on-dark);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.link-arrow svg {
+  transition: transform var(--transition-fast);
+}
+
+.link-arrow:hover {
+  text-decoration: none;
+}
+
+.link-arrow:hover svg {
+  transform: translateX(3px);
+}
+
+.band-dark .link-arrow {
+  color: var(--color-ember);
+}
+
+/* --------------------------------------------------------------------------
+   Scroll-driven reveals: progressive, content is fully visible without them
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* Longhands on purpose: the `animation` shorthand cannot set a timeline,
+       and the CSS minifier would otherwise fold view() into it. */
+    .reveal {
+      animation-name: reveal-up;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 75%;
+    }
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Reduced Motion
    -------------------------------------------------------------------------- */
 
@@ -453,5 +644,11 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }

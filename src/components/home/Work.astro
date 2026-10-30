@@ -1,0 +1,134 @@
+---
+import { ArrowUpRight } from "lucide-astro";
+import { products } from "../../utils/company";
+import { getTranslation, type Language } from "../../utils/i18n";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+---
+
+<section id="work" class="section work">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">{t.work.eyebrow}</p>
+      <h2>{t.work.title}</h2>
+      <p>{t.work.intro}</p>
+    </header>
+
+    <ul class="work__list">
+      {
+        products.map((product) => {
+          const copy = t.work.items[product.id];
+          return (
+            <li class="work-card reveal">
+              <p class="work-card__tag">{copy.tag}</p>
+              <h3>{product.name}</h3>
+              {product.formerly && (
+                <p class="work-card__formerly">
+                  {t.work.formerly} {product.formerly}
+                </p>
+              )}
+              <p class="work-card__text">{copy.text}</p>
+              <a class="link-arrow work-card__link" href={product.url} target="_blank" rel="noopener">
+                {copy.link}
+                <span class="sr-only"> ({t.nav.newTab})</span>
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .work {
+    background-color: color-mix(in srgb, var(--color-sand) 55%, var(--color-background));
+  }
+
+  .work__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .work-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: clamp(1.75rem, 1.4rem + 1vw, 2.5rem);
+    background-color: var(--color-background-elevated);
+    border-top: 3px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition:
+      box-shadow var(--transition-base),
+      translate var(--transition-base);
+  }
+
+  .work-card:hover {
+    box-shadow: var(--shadow-lg);
+    translate: 0 -3px;
+  }
+
+  .work-card__tag {
+    margin-bottom: var(--space-md);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .work-card h3 {
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 1.3rem + 0.7vw, 1.875rem);
+    line-height: 1.2;
+  }
+
+  .work-card__formerly {
+    margin-bottom: 0;
+    font-size: var(--text-body-sm);
+    color: var(--color-text-muted);
+  }
+
+  .work-card__text {
+    flex: 1;
+    margin: var(--space-md) 0 var(--space-xl);
+    color: var(--color-text-muted);
+  }
+
+  /* The whole card is the link target */
+  .work-card__link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  .work-card__link:focus-visible {
+    outline: none;
+  }
+
+  .work-card:has(.work-card__link:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 900px) {
+    .work__list {
+      grid-template-columns: 1fr;
+      max-width: 36rem;
+    }
+  }
+</style>

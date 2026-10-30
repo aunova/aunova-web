@@ -1,645 +1,460 @@
 ---
+import { contact } from "../../utils/company";
 import { getCurrentLanguage, getTranslation } from "../../utils/i18n";
 
 const currentLang = getCurrentLanguage(Astro.url);
 const t = getTranslation(currentLang);
-const otherLang = currentLang === "en" ? "es" : "en";
 
-// Build language switch URLs for both languages
+// Language switch URLs for the current page
 const pathname = Astro.url.pathname;
-
-// Get path without language prefix
 const pathWithoutLang = pathname.replace(/^\/(en|es)/, "") || "/";
-
-// Build URLs for each language
 const enUrl = pathWithoutLang === "/" ? "/" : `/en${pathWithoutLang}`;
-const esUrl = `/es${pathWithoutLang === "/" ? "" : pathWithoutLang}`;
+const esUrl = `/es${pathWithoutLang === "/" ? "/" : pathWithoutLang}`;
 
-// Determine home link based on current language
-const homeLink = currentLang === "es" ? "/es" : "/";
+// Section anchors live on the home page of the current language
+const homeLink = currentLang === "es" ? "/es/" : "/";
+const navItems = [
+  { id: "services", label: t.nav.services },
+  { id: "technology", label: t.nav.technology },
+  { id: "impact", label: t.nav.impact },
+  { id: "work", label: t.nav.work },
+  { id: "process", label: t.nav.process },
+];
 ---
 
-<header class="header">
-  <nav class="nav container">
-    <a
-      href={homeLink}
-      class="logo"
-      aria-label="Aunova home"
-      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-    >
-      <span class="logo-text">Aunova</span>
-    </a>
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a href={homeLink} class="logo" aria-label={t.nav.home}>Aunova</a>
 
-    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button
+      class="menu-toggle"
+      type="button"
+      popovertarget="site-menu"
+      aria-label={t.nav.menu}
+    >
+      <span class="menu-toggle__bar"></span>
+      <span class="menu-toggle__bar"></span>
     </button>
 
-    <div class="nav-links">
-      <a href={`${homeLink}#different-company`} class="nav-link">{t.nav.about}</a>
-      <a href={`${homeLink}#system-families`} class="nav-link"
-        >{t.nav.systemFamilies}</a
-      >
-      <a href={`${homeLink}#partnership`} class="nav-link"
-        >{t.nav.howWePartner}</a
-      >
-      <a href={`${homeLink}#why-aunova`} class="nav-link"
-        >{currentLang === "es" ? "Por qué existe Aunova" : "Why Aunova Exists"}</a
-      >
+    <div id="site-menu" class="site-menu" popover>
+      <nav class="site-nav" aria-label={t.nav.primary}>
+        <ul>
+          {
+            navItems.map((item) => (
+              <li>
+                <a href={`${homeLink}#${item.id}`} data-section={item.id}>
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
 
-      <div class="nav-actions">
+      <div class="site-menu__actions">
         <a
-          href="https://cal.com/ngmisl/aunova"
-          class="cta-button"
+          href={contact.booking}
+          class="button button--primary site-menu__cta"
           target="_blank"
           rel="noopener noreferrer"
         >
-          {t.hero.cta.primary}
+          {t.nav.bookCall}<span class="sr-only"> ({t.nav.newTab})</span>
         </a>
 
-        <div class="language-dropdown">
-          <button class="language-toggle" aria-label="Select language" aria-expanded="false">
-            <span class="current-lang">{currentLang.toUpperCase()}</span>
-            <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <details class="lang">
+          <summary>
+            <span class="sr-only">{t.nav.language}: </span>
+            {currentLang.toUpperCase()}
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path
+                d="M3 4.5L6 7.5L9 4.5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
-          </button>
-          <div class="language-menu">
-            <a href={enUrl} class:list={["language-option", { active: currentLang === "en" }]}>
-              EN
-            </a>
-            <a href={esUrl} class:list={["language-option", { active: currentLang === "es" }]}>
-              ES
-            </a>
-          </div>
-        </div>
+          </summary>
+          <ul class="lang__menu">
+            <li>
+              <a
+                href={enUrl}
+                hreflang="en"
+                lang="en"
+                aria-current={currentLang === "en" ? "true" : undefined}
+                >English</a
+              >
+            </li>
+            <li>
+              <a
+                href={esUrl}
+                hreflang="es"
+                lang="es"
+                aria-current={currentLang === "es" ? "true" : undefined}
+                >Español</a
+              >
+            </li>
+          </ul>
+        </details>
       </div>
     </div>
-  </nav>
+  </div>
 </header>
 
 <style>
-  .header {
+  .site-header {
     position: sticky;
     top: 0;
     z-index: var(--z-sticky);
-    background-color: var(--color-background-header, var(--color-background));
-    border-bottom: 1px solid var(--color-border);
-    backdrop-filter: blur(10px);
-    height: 72px;
+    height: var(--header-height);
+    background-color: color-mix(in srgb, var(--color-background) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+    view-transition-name: site-header;
   }
 
-  .nav {
+  .site-header__bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
-    position: relative;
+    gap: var(--space-lg);
+    height: 100%;
   }
 
   .logo {
-    display: flex;
-    align-items: center;
-    color: var(--color-text);
-    transition: opacity var(--transition-fast);
-  }
-
-  .logo:hover {
-    opacity: 0.8;
-    text-decoration: none;
-  }
-
-  .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.02em;
     color: var(--color-primary);
   }
 
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 20px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    position: relative;
-    z-index: 1001;
+  .logo:hover {
+    text-decoration: none;
+    opacity: 0.85;
   }
 
-  .menu-toggle span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: var(--color-primary);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-    transform-origin: center;
-    position: relative;
-  }
-
-  .menu-toggle.active span:nth-child(1) {
-    transform: translateY(8.5px) rotate(45deg);
-  }
-
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-
-  .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-8.5px) rotate(-45deg);
-  }
-
-  .nav-links {
+  /* Wide screens: the menu is an ordinary inline row (popover styles reset) */
+  .site-menu {
     display: flex;
     align-items: center;
     gap: var(--space-xl);
+    position: static;
+    inset: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    overflow: visible;
   }
 
-  .nav-link {
-    color: var(--color-text);
-    font-weight: 500;
-    transition: all var(--transition-fast);
+  .site-nav ul {
     display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: var(--space-sm) 0;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: inherit;
-    font-family: inherit;
+    gap: var(--space-lg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
-  .nav-link:hover {
-    color: var(--color-primary);
-    text-decoration: none;
+  .site-nav li {
+    margin: 0;
   }
 
-  .nav-link:focus,
-  .nav-link:active,
-  .nav-link.active,
-  .nav-link[aria-current="page"] {
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-
-  .dropdown {
+  .site-nav a {
     position: relative;
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: var(--space-sm);
-    min-width: 250px;
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all var(--transition-base);
-  }
-
-  .dropdown:hover .dropdown-menu,
-  .dropdown:focus-within .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .dropdown-item {
     display: block;
-    padding: var(--space-sm) var(--space-md);
+    padding-block: var(--space-sm);
+    font-size: 0.9375rem;
+    font-weight: 500;
     color: var(--color-text);
-    transition: background-color var(--transition-fast);
   }
 
-  .dropdown-item:hover {
-    background-color: color-mix(
-      in srgb,
-      var(--color-primary) 5%,
-      var(--color-background)
-    );
+  .site-nav a:hover,
+  .site-nav a[aria-current] {
+    color: var(--color-primary);
     text-decoration: none;
   }
 
-  .nav-actions {
+  .site-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+  }
+
+  .site-nav a[aria-current]::after {
+    transform: scaleX(1);
+  }
+
+  .site-menu__actions {
     display: flex;
     align-items: center;
     gap: var(--space-md);
-    margin-left: var(--space-xl);
   }
 
-  .cta-button {
-    padding: 8px 24px;
-    background-color: var(--color-primary);
-    color: white;
-    border-radius: 9999px;
-    font-weight: 600;
-    font-size: var(--text-ui);
-    transition: all var(--transition-fast);
-    white-space: nowrap;
+  .site-menu__cta {
+    min-height: 2.5rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9375rem;
   }
 
-  .cta-button:hover {
-    background-color: var(--color-primary-hover);
-    text-decoration: none;
-    transform: translateY(-1px);
-  }
-
-  /* Language dropdown */
-  .language-dropdown {
+  /* Language switcher: native <details>, works without JavaScript */
+  .lang {
     position: relative;
   }
 
-  .language-toggle {
-    display: flex;
+  .lang summary {
+    display: inline-flex;
     align-items: center;
-    gap: 4px;
-    padding: 6px 10px;
-    background-color: transparent;
+    gap: 6px;
+    min-height: 2.5rem;
+    padding: 0 12px;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    color: var(--color-text);
+    border-radius: var(--radius-full);
     font-size: var(--text-sm);
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--color-text);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    list-style: none;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
   }
 
-  .language-toggle:hover {
+  .lang summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .lang summary:hover {
     border-color: var(--color-primary);
     color: var(--color-primary);
   }
 
-  .dropdown-icon {
-    transition: transform var(--transition-fast);
-  }
-
-  .language-toggle[aria-expanded="true"] .dropdown-icon {
+  .lang[open] summary svg {
     transform: rotate(180deg);
   }
 
-  .language-menu {
+  .lang__menu {
     position: absolute;
-    top: calc(100% + 4px);
+    top: calc(100% + 6px);
     right: 0;
-    background-color: var(--color-background);
+    z-index: var(--z-dropdown);
+    min-width: 9rem;
+    margin: 0;
+    padding: 4px;
+    list-style: none;
+    background-color: var(--color-background-elevated);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-sm);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-4px);
-    transition: all var(--transition-fast);
-    z-index: 100;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
   }
 
-  .language-dropdown.open .language-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  .lang__menu li {
+    margin: 0;
   }
 
-  .language-option {
+  .lang__menu a {
     display: block;
-    padding: 6px 12px;
-    color: var(--color-text);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
     font-size: var(--text-sm);
-    text-align: center;
-    transition: background-color var(--transition-fast);
+    color: var(--color-text);
   }
 
-  .language-option:first-child {
-    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  }
-
-  .language-option:last-child {
-    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-  }
-
-  .language-option:hover {
-    background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background));
+  .lang__menu a:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 6%, transparent);
     text-decoration: none;
   }
 
-  .language-option.active {
+  .lang__menu a[aria-current] {
     color: var(--color-primary);
     font-weight: 600;
-    background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background));
   }
 
-  /* Mobile styles */
-  @media (max-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  /* Narrow screens: the menu is a native popover, so it opens without JS */
+  @media (max-width: 960px) {
     .menu-toggle {
-      display: flex;
-    }
-
-    .nav-links {
-      position: fixed;
-      top: var(--header-height);
-      right: 0;
-      width: 100vw;
-      height: calc(100vh - var(--header-height));
-      max-height: calc(100vh - var(--header-height));
-      background: #ffffff;
+      display: inline-flex;
       flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      padding: var(--space-2xl) var(--space-xl);
-      padding-bottom: calc(var(--space-xl) + env(safe-area-inset-bottom));
-      gap: var(--space-lg);
-      transform: translateX(100%);
-      visibility: hidden;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
-      z-index: var(--z-modal);
-      overflow-y: auto;
-      overflow-x: hidden;
-      -webkit-overflow-scrolling: touch;
-      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+      justify-content: center;
+      gap: 6px;
+      width: 44px;
+      height: 44px;
+      padding: 0 10px;
+      margin-right: -10px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
     }
 
-    .nav-links.active {
-      transform: translateX(0);
-      visibility: visible;
+    .menu-toggle__bar {
+      display: block;
+      height: 2px;
+      border-radius: 1px;
+      background-color: var(--color-primary);
+      transition: transform var(--transition-base);
     }
 
+    @supports selector(:popover-open) {
+      .site-menu:not(:popover-open) {
+        display: none;
+      }
 
-    .dropdown-menu {
-      position: static;
+      .site-menu:popover-open {
+        position: fixed;
+        inset: var(--header-height) 0 0 0;
+        width: auto;
+        height: auto;
+        max-width: none;
+        max-height: none;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: var(--space-2xl);
+        padding: var(--space-xl) var(--space-lg)
+          calc(var(--space-xl) + env(safe-area-inset-bottom));
+        background-color: var(--color-background);
+        border-top: 1px solid var(--color-border);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      /* The panel starts below the header; let clicks reach the header toggle */
+      .site-menu::backdrop {
+        background: transparent;
+        pointer-events: none;
+      }
+
+      .site-menu .site-nav ul {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .site-menu .site-nav a {
+        padding-block: var(--space-md);
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .site-menu .site-nav a::after {
+        display: none;
+      }
+
+      .site-menu .site-menu__actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .site-menu .site-menu__cta {
+        min-height: 3rem;
+        font-size: 1rem;
+      }
+
+      .site-menu .lang summary {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .site-menu .lang__menu {
+        position: static;
+        margin-top: var(--space-sm);
+        box-shadow: none;
+      }
+
+      :global(html:has(.site-menu:popover-open)) {
+        overflow: hidden;
+      }
+
+      .site-header:has(.site-menu:popover-open) .menu-toggle__bar:first-child {
+        transform: translateY(4px) rotate(45deg);
+      }
+
+      .site-header:has(.site-menu:popover-open) .menu-toggle__bar:last-child {
+        transform: translateY(-4px) rotate(-45deg);
+      }
+    }
+
+    /* Browsers without the Popover API keep the call button and language */
+    @supports not selector(:popover-open) {
+      .menu-toggle,
+      .site-nav {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 960px) and (prefers-reduced-motion: no-preference) {
+    .site-menu:popover-open {
+      animation: menu-in 220ms ease-out;
+    }
+  }
+
+  @keyframes menu-in {
+    from {
       opacity: 0;
-      visibility: hidden;
-      max-height: 0;
-      overflow: hidden;
-      transform: none;
-      margin-top: 0;
-      margin-left: var(--space-md);
-      box-shadow: none;
-      border: none;
-      background-color: transparent;
-      transition: all 0.3s ease;
-    }
-
-    .dropdown-toggle[aria-expanded="true"] + .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      max-height: 300px;
-      margin-top: var(--space-sm);
-    }
-
-    .nav-link {
-      font-size: var(--text-lg);
-      padding: var(--space-md) 0;
-      width: 100%;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .nav-link:last-of-type {
-      border-bottom: none;
-    }
-
-    .nav-actions {
-      margin-left: 0;
-      margin-top: var(--space-xl);
-      width: 100%;
-      flex-direction: column;
-      align-items: stretch;
-      gap: var(--space-md);
-    }
-
-    .cta-button {
-      text-align: center;
-      width: 100%;
-      padding: var(--space-md) var(--space-lg);
-    }
-
-    .language-dropdown {
-      width: 100%;
-    }
-
-    .language-toggle {
-      width: 100%;
-      justify-content: space-between;
-      padding: var(--space-md) var(--space-lg);
-    }
-
-    .language-menu {
-      position: static;
-      width: 100%;
-      box-shadow: none;
-      border: none;
-      border-top: 1px solid var(--color-border);
-      border-radius: 0;
-      margin-top: var(--space-sm);
-      max-height: 0;
-      overflow: hidden;
-    }
-
-    .language-dropdown.open .language-menu {
-      max-height: 200px;
-    }
-
-    .language-option {
-      padding: var(--space-md) var(--space-lg);
-      border-radius: 0;
-    }
-
-    .language-option:first-child,
-    .language-option:last-child {
-      border-radius: 0;
+      transform: translateY(-8px);
     }
   }
 </style>
 
-<script is:inline>
-  document.addEventListener("astro:page-load", () => {
-    var menuToggle = document.querySelector(".menu-toggle");
-    var navLinks = document.querySelector(".nav-links");
-    var dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+<script>
+  // Progressive enhancements only: navigation works without this script.
+  const menu = document.getElementById("site-menu");
+  const lang = document.querySelector<HTMLDetailsElement>(".site-header .lang");
 
-    if (menuToggle) {
-      // internal menu toggle logic...
-      // To be safe with View Transitions, we should clone/replace to clean listeners too
-      var newMenuToggle = menuToggle.cloneNode(true);
-      if (menuToggle.parentNode) {
-        menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
-        menuToggle = newMenuToggle;
-      }
-
-      menuToggle.addEventListener("click", function () {
-        var isOpen = navLinks && navLinks.classList.toggle("active");
-        menuToggle.classList.toggle("active");
-        menuToggle.setAttribute("aria-expanded", String(isOpen));
-
-        // Prevent body scroll when menu is open
-        if (isOpen) {
-          document.body.classList.add("menu-open");
-          document.body.style.position = "fixed";
-          document.body.style.width = "100%";
-          document.body.style.top = "-" + window.scrollY + "px";
-        } else {
-          var scrollY = document.body.style.top;
-          document.body.classList.remove("menu-open");
-          document.body.style.position = "";
-          document.body.style.width = "";
-          document.body.style.top = "";
-          window.scrollTo(0, parseInt(scrollY || "0") * -1);
-        }
-      });
+  // Close the mobile menu once a link inside it is chosen.
+  menu?.addEventListener("click", (event) => {
+    const link = (event.target as Element).closest("a");
+    if (link && typeof menu.hidePopover === "function" && menu.matches(":popover-open")) {
+      menu.hidePopover();
     }
-
-    // Language dropdown toggle
-    var languageDropdown = document.querySelector(".language-dropdown");
-    var languageToggle = document.querySelector(".language-toggle");
-
-    if (languageToggle && languageDropdown) {
-      var newLangToggle = languageToggle.cloneNode(true);
-      if (languageToggle.parentNode) {
-        languageToggle.parentNode.replaceChild(newLangToggle, languageToggle);
-        languageToggle = newLangToggle;
-      }
-
-      languageToggle.addEventListener("click", function (e) {
-        e.stopPropagation();
-        var isOpen = languageDropdown.classList.toggle("open");
-        languageToggle.setAttribute("aria-expanded", String(isOpen));
-      });
-    }
-
-    // Close menu and language dropdown when clicking outside
-    document.addEventListener("click", function (e) {
-      var target = e.target;
-      var menuContains = menuToggle && menuToggle.contains(target);
-      var navContains = navLinks && navLinks.contains(target);
-      var langDropdownContains = languageDropdown && languageDropdown.contains(target);
-
-      // Close language dropdown if clicking outside of it
-      if (!langDropdownContains && languageDropdown) {
-        languageDropdown.classList.remove("open");
-        if (languageToggle) {
-          languageToggle.setAttribute("aria-expanded", "false");
-        }
-      }
-
-      if (!menuContains && !navContains) {
-        if (navLinks && navLinks.classList.contains("active")) {
-          var scrollY = document.body.style.top;
-          navLinks.classList.remove("active");
-          if (menuToggle) {
-            menuToggle.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
-          }
-          document.body.classList.remove("menu-open");
-          document.body.style.position = "";
-          document.body.style.width = "";
-          document.body.style.top = "";
-          window.scrollTo(0, parseInt(scrollY || "0") * -1);
-        }
-      }
-    });
-
-    // Close menu when clicking on a link and handle active state
-    var navLinkElements = document.querySelectorAll(".nav-links a");
-    var sections = document.querySelectorAll("section[id]");
-
-    // Helper to set active link
-    function setActiveLink(id) {
-      navLinkElements.forEach((link) => {
-        var href = link.getAttribute("href");
-        // Check if href matches id (handling potential language prefix)
-        if (
-          href &&
-          (href === `#${id}` ||
-            href.endsWith(`/#${id}`) ||
-            href.endsWith(`/${id}`))
-        ) {
-          link.classList.add("active");
-        } else {
-          link.classList.remove("active");
-        }
-      });
-    }
-
-    // specific manual click handler
-    navLinkElements.forEach(function (link) {
-      link.addEventListener("click", function (e) {
-        // Remove active from all
-        navLinkElements.forEach((l) => l.classList.remove("active"));
-        // Add to current
-        this.classList.add("active");
-
-        if (navLinks && navLinks.classList.contains("active")) {
-          // ... existing mobile menu closing logic ...
-          var scrollY = document.body.style.top;
-          navLinks.classList.remove("active");
-          if (menuToggle) {
-            menuToggle.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
-          }
-          document.body.classList.remove("menu-open");
-          document.body.style.position = "";
-          document.body.style.width = "";
-          document.body.style.top = "";
-          window.scrollTo(0, parseInt(scrollY || "0") * -1);
-        }
-
-        // Handle smooth scrolling for anchor links
-        var href = link.getAttribute("href");
-        if (href) {
-          // Check for hash
-          var hashIndex = href.indexOf("#");
-          if (hashIndex !== -1) {
-            var targetId = href.substring(hashIndex + 1);
-            // If it's on the same page (or we are already there logic could be added)
-            // For now, let default behavior or simple ID lookup work
-            var targetElement = document.getElementById(targetId);
-            if (targetElement) {
-              // Update active state manually for immediate feedback
-              // setActiveLink(targetId); // Included in click above
-            }
-          }
-        }
-      });
-    });
-
-    // Scroll Spy using IntersectionObserver
-    var observerOptions = {
-      root: null,
-      rootMargin: "-20% 0px -60% 0px", // Trigger when section is near top/middle
-      threshold: 0,
-    };
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveLink(entry.target.id);
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
-    dropdownToggles.forEach(function (toggle) {
-      // Clone and replace to avoid duplicate listeners
-      var newToggle = toggle.cloneNode(true);
-      toggle.parentNode.replaceChild(newToggle, toggle);
-
-      newToggle.addEventListener("click", function (e) {
-        e.preventDefault();
-        var isOpen = newToggle.getAttribute("aria-expanded") === "true";
-        newToggle.setAttribute("aria-expanded", String(!isOpen));
-      });
-    });
   });
+
+  // Close the language list on outside click or Escape.
+  document.addEventListener("click", (event) => {
+    if (lang?.open && !lang.contains(event.target as Node)) lang.open = false;
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lang?.open) {
+      lang.open = false;
+      lang.querySelector("summary")?.focus();
+    }
+  });
+
+  // Mark the nav link of the home section in view.
+  const links = new Map<string, HTMLAnchorElement>();
+  document
+    .querySelectorAll<HTMLAnchorElement>(".site-nav a[data-section]")
+    .forEach((link) => links.set(link.dataset.section ?? "", link));
+
+  const sections = [...links.keys()]
+    .map((id) => document.getElementById(id))
+    .filter((section): section is HTMLElement => section !== null);
+
+  if (sections.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          links.forEach((link, id) => {
+            if (id === entry.target.id) link.setAttribute("aria-current", "true");
+            else link.removeAttribute("aria-current");
+          });
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    sections.forEach((section) => observer.observe(section));
+  }
 </script>
