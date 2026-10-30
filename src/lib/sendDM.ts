@@ -59,6 +59,18 @@ function sanitizeLine(value: string, max: number): string {
     .slice(0, max);
 }
 
+/** Like sanitizeLine, but keeps the visitor's line breaks: normalizes CR/LF to LF, strips every other control/format char per line, and caps blank runs at one empty line. */
+function sanitizeMultiline(value: string, max: number): string {
+  return value
+    .replace(/\r\n?/g, "\n")
+    .split("\n")
+    .map((line) => line.replace(/[\p{Cc}\p{Cf}]+/gu, " ").replace(/[^\S\n]+/g, " ").trim())
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim()
+    .slice(0, max);
+}
+
 /** Validate + normalize an optional contact email. Returns '' when empty or clearly invalid. */
 export function sanitizeEmail(value: string): string {
   const v = sanitizeLine(value, 254);
@@ -87,8 +99,9 @@ export function composeDmBody(opts: {
   if (email) header.push(`Email: ${email}`);
   if (company) header.push(`Company: ${company}`);
   if (source) header.push(`Source: ${source}`);
-  const body = sanitizeLine(opts.message, 4000);
-  return header.length ? `${header.join("\n")}\n\n${body}` : body;
+  const body = sanitizeMultiline(opts.message, 4000);
+  // "Message:" fences the body, so a body line like "Email: …" can never pass for a header.
+  return header.length ? `${header.join("\n")}\n\nMessage:\n${body}` : body;
 }
 
 const TWO_DAYS = 2 * 24 * 60 * 60;
