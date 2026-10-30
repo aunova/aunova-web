@@ -1,0 +1,91 @@
+---
+import { getTranslation, type Language } from "../../utils/i18n";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+const images: Record<string, string> = {
+  planet: "/images/v2/planet.webp",
+  people: "/images/v2/people.webp",
+  future: "/images/v2/future.webp",
+};
+---
+
+<section id="impact" class="section impact">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">{t.impact.eyebrow}</p>
+      <h2>{t.impact.title}</h2>
+      <p>{t.impact.intro}</p>
+    </header>
+
+    <div class="impact__grid">
+      {
+        t.impact.items.map((item) => (
+          <article class="impact-card reveal">
+            <div class="impact-card__media">
+              <img
+                src={images[item.id]}
+                alt=""
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .impact__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+  }
+
+  .impact-card__media {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    margin-bottom: var(--space-lg);
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-night);
+  }
+
+  .impact-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: scale 600ms ease;
+  }
+
+  .impact-card:hover .impact-card__media img {
+    scale: 1.04;
+  }
+
+  .impact-card h3 {
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 1.25rem + 0.8vw, 2rem);
+  }
+
+  .impact-card p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .impact__grid {
+      grid-template-columns: 1fr;
+      max-width: 36rem;
+    }
+  }
+</style>

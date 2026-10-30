@@ -1,4 +1,12 @@
 ---
-// Spanish services page - redirects to English until Spanish content is ready
-return Astro.redirect("/en/services");
+import ServicesPage from "../../components/services/ServicesPage.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
+import { getTranslation } from "../../utils/i18n";
+
+const lang = "es";
+const t = getTranslation(lang);
 ---
+
+<PageLayout title={t.meta.servicesTitle} description={t.meta.servicesDescription} lang={lang}>
+  <ServicesPage lang={lang} />
+</PageLayout>

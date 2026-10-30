@@ -2,27 +2,36 @@
 
 ## Brand Positioning
 
-**Who We Are**: Aunova is a long-term systems partner for human- and planet-critical infrastructure.
+**Who We Are**: Aunova is a software development company whose development solutions care about the environment, humanity and the future society, using cutting-edge technologies, combining AI, Blockchain, Data Analytics and Encryption to deliver the best solution.
 
-**What We Do**: We co-build foundational digital infrastructure for domains where failure has real human or environmental consequences.
+**What We Do**: We design, build and run software: custom software and platforms, AI systems and agents, verifiable records and blockchain, privacy-preserving data systems, and data analytics and dashboards.
 
-**How We're Different**: We are not a software vendor. We engage selectively, build for decades, and design systems meant to become shared layers within the worlds they serve.
+**How We're Different**: The four technologies are strongest combined. AI that reasons over data, encryption that keeps it private, a blockchain layer that makes the record verifiable, and analytics that turns it into decisions. Built for impact on the planet, on people and on the society we are heading into.
+
+**Products we can show** (as "Our work", described modestly, linked out, no metrics):
+- Aunova Trust Infrastructure (formerly Greenblocks): one trusted, verifiable record for real-estate projects, the Digital Building Passport. Dubai. https://aunova.ae
+- CasaBook: multilingual digital guidebooks for short-stay hosts. https://casabook.app
+- metaend Grade: scans a website the way an AI agent sees it and grades its agent-readiness from A to F. https://metaend-grade.fly.dev
+
+**Entities**: Aunova OÜ (Estonia) and Aunova Technologies Ltd (DIFC, Dubai).
 
 ---
 
 ## Core Messaging
 
 ### Primary Headline
-> We partner with institutions to build the human- and planet-critical systems their future depends on.
+> Software that cares for the planet, its people and our future.
 
 ### Subheadline
-> We are not a software vendor. We are long-term systems partners, co-building foundational digital infrastructure for domains where failure has real human or environmental consequences.
+> Aunova is a software development company. We combine AI, Blockchain, Data Analytics and Encryption into one solution that fits your problem, built with care for the environment, for humanity and for the future society.
 
 ### Supporting Line
-> We work with a small number of aligned organizations to design systems that protect people, respect the planet, and endure.
+> Four technologies. One solution.
 
 ### Primary CTA
-> Begin a Strategic Conversation
+> Start a project (secondary: Book a call)
+
+"DA" in the owner's brief is read as Data Analytics. On the site the term comes from `src/utils/company.ts`, so it can be swapped in one place.
 
 ---
 
@@ -30,18 +39,19 @@
 
 | Attribute | Description |
 |-----------|-------------|
-| **Professional** | Serious about long-term impact, not casual or trendy |
-| **Mission-Driven** | Every word reflects purpose and responsibility |
-| **Selective** | We choose partners carefully; language reflects exclusivity |
-| **Long-Term** | 10+ year horizons; we think in decades, not sprints |
-| **Warm but Formal** | Approachable expertise, not cold corporate speak |
+| **Confident** | We know how to build this and say so plainly, without hype |
+| **Concrete** | Name what we build and what it does; examples over abstractions |
+| **Warm** | A builder you can hire, not an exclusive club |
+| **Purposeful** | Care for the environment, humanity and the future society shows in the work, not in slogans |
+| **Honest** | Modest about products, exact about technology, no claims we cannot back |
 
 ### Writing Guidelines
-- Use "we" and "our partners" language
-- Avoid jargon and buzzwords
-- Be direct about what we don't do (boundary statements)
-- Lead with purpose, not features
-- Emphasize shared responsibility and co-creation
+- Lead with what we build and why it matters, then how (the four technologies, combined)
+- Use "we" and "you"; write to the person with the problem
+- No em dashes in visible copy: use commas, colons and full stops
+- No contractions and no hype words ("revolutionary", "game-changer", "cutting-edge" outside the positioning sentence)
+- Drop the old manifesto framing entirely: no vendor disclaimer, no exclusivity or selection language, no "system families", no partner criteria
+- Truth rules: no invented clients, logos, testimonials, numbers, team size, years, certifications or awards. No claim that a regulator, government body or the DLD backs, approves, certifies or works with an Aunova product. No customer or payment claims for metaend Grade, no user or sign-up claims for Tideproof, no licensing claims for WasmBox
 
 ---
 
@@ -164,59 +174,52 @@
 
 ## Component Patterns
 
-### Buttons
+### Buttons (`.button` in global.css)
 
-**Primary Button**
-- Background: `--color-burgundy`
-- Text: White
-- Padding: `0.5rem 2rem`
-- Border radius: `0.5rem`
-- Hover: Slightly darker, subtle lift (`translateY(-2px)`)
+**Primary** (`.button--primary`, light backgrounds)
+- Background: `--color-burgundy`, text white
+- Pill shape (`border-radius: 9999px`), minimum height 48px
+- Hover: darker burgundy, subtle lift
 
-**Outline Button**
-- Background: Transparent
-- Border: `2px solid --color-burgundy`
-- Text: `--color-burgundy`
-- Hover: Fill with burgundy, text white
+**Light** (`.button--light`, dark bands)
+- Background: stone, text near-black
+
+**Ghost** (`.button--ghost`)
+- Transparent with a `currentColor` border; burgundy on light, stone on dark bands
 
 ### Cards
-- Background: `--color-sand-light` or white
-- Border: `1px solid` sand-dark or very subtle
-- Border radius: `0.75rem` - `1rem`
-- Padding: `1.5rem` - `2rem`
-- Hover: Subtle lift, slightly stronger border
+- Background: white on stone, or white on a light sand band
+- Border: `1px solid` sand, or a 3px burgundy top rule for product and feature cards
+- Border radius: `0.75rem` - `1.25rem`
+- Padding: `1.5rem` - `2.5rem`
+- Hover: subtle lift (`translate`, not `transform`, so it composes with scroll reveals)
 
 ### Section Headers
-- Centered text
-- Title in burgundy or dark
-- Subtitle in muted gray
-- Generous vertical spacing (`4rem` - `6rem`)
+- Left-aligned: small uppercase eyebrow, serif title, muted intro (max ~40rem)
+- Generous vertical spacing (`4.5rem` - `8.5rem` section padding)
 
 ---
 
-## System Families Visual Identity
+## Layout and Bands
 
-### Future Families (Placeholder Style)
-- Muted/gray treatment
-- "In development" label
-- Consistent icon style but desaturated
+- Light editorial body (stone background, serif headings, generous whitespace)
+- Dark cinematic bands for the hero, the technology narrative, calls to action and the footer: dark image or near-black, a scrim, light text, ember (`#e8a08c`) for small accents only
+- Section headers are left-aligned: eyebrow, serif title, muted intro
 
 ---
 
 ## Photography & Imagery
 
-### Hero Image Style
-- Architectural imagery with green/sustainable elements
-- Golden hour lighting preferred
-- Human scale (people in environment)
-- Modern, forward-looking architecture
-- Nature integrated with built environment
+### Image Style (`public/images/v2/`)
+- Dark, cinematic, abstract-photoreal, one consistent grade: near-black with burgundy and warm ember light
+- Hero: the earth at dawn with a luminous data network (`hero.webp`)
+- One image per technology (`ai.webp`, `blockchain.webp`, `analytics.webp`, `encryption.webp`), one per "why it matters" theme (`planet.webp`, `people.webp`, `future.webp`) and one for craft (`build.webp`)
+- Social card: `og.jpg` (1200x630, no text)
 
 ### Image Treatment
-- Format: WebP with fallback
-- Lazy loading for non-critical images
-- Aspect ratios: 16:9 for heroes, 4:3 for cards
-- Subtle overlay for text readability if needed
+- Format: WebP, 3:2 at 1536x1024, with explicit width and height
+- Lazy loading for everything below the hero
+- A scrim wherever text sits on an image
 
 ---
 
@@ -242,8 +245,6 @@
   --color-text: var(--color-black);
   --color-text-muted: #525252;
   --color-border: var(--color-sand-dark);
-  
-  /* System Families */
 }
 ```
 
@@ -264,8 +265,8 @@
 ### Do
 - Use burgundy as the primary accent color
 - Keep designs clean with ample whitespace
-- Lead with mission and purpose
-- Use warm, inviting imagery
+- Lead with what we build and why it matters for the planet, people and society
+- Use the dark cinematic v2 imagery, always behind a scrim when text sits on it
 - Maintain consistent spacing and typography
 
 ### Don't

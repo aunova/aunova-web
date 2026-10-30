@@ -1,7 +1,20 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
+import {
+  contact,
+  entities,
+  positioning,
+  products,
+  SITE_URL,
+  technologyKeys,
+  technologyNames,
+} from "../utils/company";
+import { translations } from "../utils/i18n";
 
 export const GET: APIRoute = async () => {
+  const t = translations.en;
+  const names = technologyNames.en;
+
   // Get all blog posts
   const blogPosts = await getCollection("blog", ({ data }) => !data.draft);
 
@@ -12,80 +25,61 @@ export const GET: APIRoute = async () => {
 
   const content = `# Aunova
 
-> Aunova is a technology consultancy specializing in Zero-Knowledge proofs, Fully Homomorphic Encryption (FHE), AI & Web3 integration, and privacy-preserving infrastructure. We partner with institutions to build human- and planet-critical systems their future depends on. Our current flagship is Greenblocks, a Digital Building Passport for premium real estate, now deploying in Dubai.
+> ${positioning.en}
 
-Aunova is NOT a software vendor. We are a long-term systems partner that co-builds mission-critical infrastructure with aligned organizations. We work selectively with 2-3 founding partners per system family, designing for decades rather than quarters.
+${t.convergence.intro}
 
-## Company Information
+## Company
 
-- **Legal Entity**: Aunova OU, Tallinn, Estonia
+- **Legal entities**: ${entities.map((entity) => `${entity.name} (${entity.place.en})`).join(" and ")}
 - **Founded**: 2023
-- **Website**: https://aunova.net
-- **Contact**: christian@aunova.net
-- **Booking**: https://cal.com/ngmisl/aunova
+- **Website**: ${SITE_URL}
+- **Contact**: ${contact.email}
+- **Booking**: ${contact.booking}
 - **Languages**: English, Spanish
 
-## Core Services
+## What We Build
 
-### Zero-Knowledge & Privacy Tooling
-Circuit design and optimization, zkSNARKs/zkSTARKs implementation, trusted setup ceremonies, proof generation and verification, privacy-preserving smart contracts, ZK rollup development, zero-knowledge identity solutions.
+${t.capabilities.items.map((item) => `- **${item.title}**: ${item.text}`).join("\n")}
 
-### Fully Homomorphic Encryption (FHE)
-Compute on encrypted data without decryption, encrypted AI inference, private analytics, confidential computing for sensitive workloads.
+## The Four Technologies
 
-### AI & Web3 Integration
-On-chain AI model deployment, decentralized inference networks, AI-powered smart contracts, machine learning oracles, tokenized AI marketplaces, verifiable AI outputs.
+${technologyKeys.map((key) => `- **${names[key]}**: ${t.servicesPage.tech[key].text}`).join("\n")}
 
-### Hybrid ZK-AI Solutions
-Privacy-preserving machine learning, federated learning on blockchain, confidential AI computations, verifiable AI outputs, ZK-wrapped ML models.
+**Combined, one solution**: ${t.convergence.combined.text} ${t.convergence.combined.example}
 
-### Infrastructure & Dev Tools
-Smart contract development frameworks, blockchain testing suites, DApp deployment pipelines, cross-chain integration tools, security audits.
+## Why It Matters
 
-## Technical Expertise
+${t.impact.items.map((item) => `- **${item.title}**: ${item.text}`).join("\n")}
 
-- **Cryptography**: ZK-SNARKs, ZK-STARKs, PLONK, Groth16, Bulletproofs, Homomorphic Encryption
-- **Blockchain**: Ethereum, Polygon, Arbitrum, StarkNet, zkSync, Optimism
-- **Languages**: Solidity, Rust, Cairo, TypeScript, Python, Go, Clojure
-- **Frameworks**: Circom, SnarkJS, Noir, Halo2, Hardhat, Foundry
-- **AI/ML**: TensorFlow, PyTorch, ONNX, Federated Learning
+## Our Work (built by Aunova)
 
-## Industry Focus
-
-Financial Services, Healthcare, Supply Chain, Gaming, Government, Real Estate, Data Analytics
-
-## Current System Family
-
-**Greenblocks**: Digital Building Passport for premium real estate. Greenblocks is the trust, transparency, and reputation infrastructure layer for premium real estate, delivered at asset level. It turns developer claims about sustainability, wellness, community, construction quality, operational reliability, and regulatory readiness into structured, verifiable, comparable data. Currently deploying in Dubai with premium residential developers. Category: verified real estate. Product: infrastructure. Greenblocks is not a sustainability platform, ESG dashboard, or wellness app.
-
-## Partnership Criteria
-
-We engage with organizations that:
-1. Solve mission-critical problems for society or environment
-2. Think in decades, not quarters
-3. Commit to responsible system design principles
-4. Are open to tokenized incentive structures
-5. Seek true partnership, not vendor transactions
-6. Bring long-term capital and strategic investment
+${products
+  .map(
+    (product) =>
+      `- [${product.name}](${product.url})${product.formerly ? ` (formerly ${product.formerly})` : ""}: ${t.work.items[product.id].text}`
+  )
+  .join("\n")}
 
 ## Pages
 
-- [Homepage](https://aunova.net/): Main landing page with company overview and positioning
-- [Services](https://aunova.net/en/services): Overview of all service offerings
-- [Zero-Knowledge Services](https://aunova.net/en/services/zero-knowledge): ZK proof implementation details
-- [FHE Services](https://aunova.net/en/services/fhe): Fully Homomorphic Encryption offerings
-- [Greenblocks](https://aunova.net/greenblocks): Digital Building Passport for premium real estate (deploying in Dubai)
-- [Contact](https://aunova.net/en/contact): Partnership inquiry form
-- [Blog](https://aunova.net/en/blog): Technical articles and insights
-- [Privacy Policy](https://aunova.net/en/privacy): GDPR-compliant privacy policy
-- [Terms of Service](https://aunova.net/en/terms): Terms and conditions
-- [Newsletter Privacy Notice](https://aunova.net/en/privacy/newsletter): Privacy notice for the Model Organism email newsletter
-- [ModelMeter Privacy Notice](https://aunova.net/en/privacy/modelmeter): Privacy notice for the ModelMeter Android app
+- [Homepage](${SITE_URL}/): What Aunova builds, the four technologies, why it matters, our work and how we work
+- [Services](${SITE_URL}/en/services): Capabilities and the four technologies in detail
+- [Fully Homomorphic Encryption](${SITE_URL}/en/services/fhe): Encryption deep dive, computing on encrypted data
+- [Zero-Knowledge Proofs](${SITE_URL}/en/services/zero-knowledge): Encryption deep dive, proving facts without revealing data
+- [Contact](${SITE_URL}/en/contact): Start a project
+- [Blog](${SITE_URL}/en/blog): Technical articles and insights
+- [Privacy Policy](${SITE_URL}/en/privacy): GDPR privacy policy
+- [Terms of Service](${SITE_URL}/en/terms): Terms and conditions
+- [Newsletter Privacy Notice](${SITE_URL}/en/privacy/newsletter): Privacy notice for the Model Organism email newsletter
+- [ModelMeter Privacy Notice](${SITE_URL}/en/privacy/modelmeter): Privacy notice for the ModelMeter Android app
 
 ## API
 
-- [Company Info API](https://aunova.net/api/company-info.json): Structured JSON-LD data about Aunova for programmatic access
-- [Full LLM Context](https://aunova.net/llms-full.txt): Complete content in single file for comprehensive AI consumption
+- [Company Info API](${SITE_URL}/api/company-info.json): schema.org Organization JSON-LD with services, technologies, products and contact points
+- [AI Metadata](${SITE_URL}/ai-metadata.json): The same company facts in a flat JSON layout
+- [Full LLM Context](${SITE_URL}/llms-full.txt): Complete content in a single file for comprehensive AI consumption
+- [Agent Manifest](${SITE_URL}/agents.txt): Capabilities and conduct expectations for autonomous agents
 
 ## Blog Articles
 
@@ -93,7 +87,7 @@ ${sortedPosts
   .slice(0, 15)
   .map((post) => {
     const slug = post.id.replace(/^en\//, "").replace(/\.mdx?$/, "");
-    return `- [${post.data.title}](https://aunova.net/en/blog/${slug}): ${post.data.description.slice(0, 100)}${post.data.description.length > 100 ? "..." : ""}`;
+    return `- [${post.data.title}](${SITE_URL}/en/blog/${slug}): ${post.data.description.slice(0, 100)}${post.data.description.length > 100 ? "..." : ""}`;
   })
   .join("\n")}
 
@@ -103,11 +97,11 @@ ${sortedPosts
   .slice(15)
   .map((post) => {
     const slug = post.id.replace(/^en\//, "").replace(/\.mdx?$/, "");
-    return `- [${post.data.title}](https://aunova.net/en/blog/${slug})`;
+    return `- [${post.data.title}](${SITE_URL}/en/blog/${slug})`;
   })
   .join("\n")}
-- [Spanish Homepage](https://aunova.net/es/): Spanish language version
-- [Spanish Services](https://aunova.net/es/services): Services in Spanish
+- [Spanish Homepage](${SITE_URL}/es/): Spanish language version
+- [Spanish Services](${SITE_URL}/es/services): Services in Spanish
 `;
 
   return new Response(content, {

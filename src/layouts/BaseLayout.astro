@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import SEO from "../components/SEO.astro";
+import { positioning } from "../utils/company";
 
 export interface Props {
   title: string;
@@ -13,9 +14,9 @@ export interface Props {
 }
 
 const {
-  title = "Aunova - Long-Term Systems Partner for Human & Planet-Critical Infrastructure",
-  description = "We partner with institutions to build foundational digital infrastructure for domains where failure has real human or environmental consequences.",
-  image = "/images/og-preview.webp",
+  title = "Aunova | Software development that cares for the planet, people and the future",
+  description = positioning.en,
+  image = "/images/v2/og.jpg",
   lang = "en",
   type = "website",
   publishDate,
@@ -23,13 +24,11 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
-    <ClientRouter />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -83,6 +82,7 @@ import { ClientRouter } from "astro:transitions";
       publishDate={publishDate}
       author={author}
       canonical={canonicalURL.href}
+      lang={lang}
     />
 
     <!-- Language Alternates -->
