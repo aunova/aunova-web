@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/PageLayout.astro";
 
-// Version BB-PRIVACY-v1.2, in force from 2026-11-02. Every statement about the app is
+// Version BB-PRIVACY-v1.3, in force from 2026-11-02. Every statement about the app is
 // backed by the BluBelt source (aunova/blubelt: the Android manifest, build.gradle.kts,
 // blubelt-core transfer/store and the monetization crate). Change this page in the same
 // release that changes what the app does.
@@ -135,7 +135,7 @@ const metadata = {
             them is for anything the training log does:
           </p>
           <ul class="legal-list" data-android-permissions="android.permission.ACCESS_ADSERVICES_AD_ID android.permission.ACCESS_ADSERVICES_ATTRIBUTION android.permission.ACCESS_ADSERVICES_TOPICS android.permission.ACCESS_NETWORK_STATE android.permission.FOREGROUND_SERVICE android.permission.INTERNET android.permission.WAKE_LOCK com.android.vending.BILLING com.google.android.gms.permission.AD_ID">
-            <li><strong>Internet</strong> and <strong>network state</strong>, to fetch an ad and the consent form.</li>
+            <li><strong>Internet</strong> and <strong>network state</strong>, to fetch an ad and the consent form, and for Google's other software in the app.</li>
             <li><strong>Advertising ID</strong> and Android's <strong>ad services</strong> (ad ID, attribution and topics), because Google's ad software uses them.</li>
             <li><strong>Google Play Billing</strong>, for the Pro purchase.</li>
             <li><strong>Wake lock</strong> and <strong>foreground service</strong>, which Google's software declares for its own background work.</li>
@@ -252,9 +252,10 @@ const metadata = {
           </p>
           <p>
             The app reads from Google Play only what it needs: whether Pro is on sale to this Google
-            account, whether this account owns it, and the purchase token Google uses to identify the
-            purchase. The app uses that token only to confirm the purchase to Google Play. It is not
-            sent to us.
+            account, whether this account owns it and whether that purchase has already been
+            confirmed to Google Play, and the purchase token Google uses to identify the purchase.
+            The app uses that token only to confirm the purchase to Google Play. It is not sent to
+            us.
           </p>
           <p>
             Aunova OÜ, as the Google Play developer, can see an order record for each sale in Google
@@ -423,9 +424,14 @@ const metadata = {
         <div class="legal-section">
           <h2>Version and effective date</h2>
           <p>
-            Version <strong>BB-PRIVACY-v1.2</strong>, in force from <strong>2 November 2026</strong>.
+            Version <strong>BB-PRIVACY-v1.3</strong>, in force from <strong>2 November 2026</strong>.
           </p>
           <ul class="legal-list">
+            <li>
+              <strong>1.3</strong> says that the app also reads from Google Play whether a purchase
+              has already been confirmed to Google Play, and that the permissions for the internet
+              and network state are also used by Google's other software in the app.
+            </li>
             <li>
               <strong>1.2</strong> says that uninstalling the app does not delete a file you
               exported, that your log leaves your phone only if you move it yourself, that some of
