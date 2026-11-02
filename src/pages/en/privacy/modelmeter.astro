@@ -111,7 +111,7 @@ const metadata = {
             code declares two of them; Google's ad, consent and billing software adds the rest. None
             of them is for anything the check does:
           </p>
-          <ul class="legal-list">
+          <ul class="legal-list" data-android-permissions="android.permission.ACCESS_ADSERVICES_AD_ID android.permission.ACCESS_ADSERVICES_ATTRIBUTION android.permission.ACCESS_ADSERVICES_TOPICS android.permission.ACCESS_NETWORK_STATE android.permission.FOREGROUND_SERVICE android.permission.INTERNET android.permission.WAKE_LOCK com.android.vending.BILLING com.google.android.gms.permission.AD_ID">
             <li><strong>Internet</strong> and <strong>network state</strong>, to fetch an ad and the consent form.</li>
             <li><strong>Advertising ID</strong> and Android's <strong>ad services</strong> (ad ID, attribution and topics), because Google's ad software uses them.</li>
             <li><strong>Google Play Billing</strong>, for the remove-ads purchase.</li>
