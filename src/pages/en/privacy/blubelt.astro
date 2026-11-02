@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/PageLayout.astro";
 
-// Version BB-PRIVACY-v1.1, in force from 2026-11-03. Every statement about the app is
+// Version BB-PRIVACY-v1.2, in force from 2026-11-02. Every statement about the app is
 // backed by the BluBelt source (aunova/blubelt: the Android manifest, build.gradle.kts,
 // blubelt-core transfer/store and the monetization crate). Change this page in the same
 // release that changes what the app does.
@@ -17,7 +17,7 @@ const metadata = {
     <div class="container">
       <div class="legal-header">
         <h1 class="legal-title">BluBelt Privacy Notice</h1>
-        <p class="legal-updated">Last updated: November 3, 2026</p>
+        <p class="legal-updated">Last updated: November 2, 2026</p>
       </div>
 
       <div class="legal-content">
@@ -94,7 +94,8 @@ const metadata = {
             <li>There is no analytics and no crash reporting of our own.</li>
             <li>
               <strong>Clear All Data</strong> in Settings deletes your sessions and resets the list
-              of martial arts. Uninstalling the app deletes everything it saved.
+              of martial arts. Uninstalling the app deletes your log from your phone. A file you
+              exported is yours and stays where you put it.
             </li>
           </ul>
           <p>
@@ -110,6 +111,10 @@ const metadata = {
             file, and <strong>Import Data</strong> reads such a file back. Both use Android's own
             file picker, so you choose where the file goes and which file to read. The app sees only
             the one file you pick.
+          </p>
+          <p>
+            The file is plain text (JSON): each session's date, martial art and a random ID the app
+            gave it, and your list of martial arts. It is not encrypted.
           </p>
           <p>
             If you save the file to a cloud folder, such as Google Drive, that service stores it
@@ -141,11 +146,18 @@ const metadata = {
           <h2>Ads in the free version</h2>
           <p>
             The free version can show one banner ad at the bottom of the screen, and only if you
-            have agreed (see <strong>Consent for ads</strong>). Google's ad software, its consent
-            form and Google Play's purchase library are the only parts of the app that use the
-            network. BluBelt's own code makes no network call. The ad comes from Google AdMob,
+            have agreed (see <strong>Consent for ads</strong>). The ad comes from Google AdMob,
             through the Google Mobile Ads SDK, and runs under Aunova Technologies Ltd's AdMob
             account. If you have not agreed, no ad is requested.
+          </p>
+          <p>
+            BluBelt's own code makes no network call. Only Google's software inside the app uses
+            the network: the ad software with its consent form, Google Play's purchase library, and
+            the libraries that come with them. Some of it does so whether or not you agree to ads.
+            Each time the app starts, it asks Google Play whether your Google account owns Pro.
+            Unless Google Play has already confirmed that it does, Google's consent tool also checks
+            with Google whether it needs to ask you. Neither check carries anything from your
+            training log.
           </p>
           <p>
             Once you have agreed, Google states that its Mobile Ads SDK collects and shares the
@@ -239,9 +251,10 @@ const metadata = {
             your card or any other payment details.
           </p>
           <p>
-            The app reads from Google Play only what it needs: whether this Google account owns
-            Pro, and the purchase token Google uses to identify it. The app uses that token only to
-            confirm the purchase to Google Play. It is not sent to us.
+            The app reads from Google Play only what it needs: whether Pro is on sale to this Google
+            account, whether this account owns it, and the purchase token Google uses to identify the
+            purchase. The app uses that token only to confirm the purchase to Google Play. It is not
+            sent to us.
           </p>
           <p>
             Aunova OÜ, as the Google Play developer, can see an order record for each sale in Google
@@ -281,14 +294,15 @@ const metadata = {
           <ul class="legal-list">
             <li>
               <strong>Your training log</strong> involves no processing of personal data by us. It
-              stays on your phone and nothing leaves it.
+              stays on your phone and we never receive it. It leaves your phone only if you move it
+              yourself, for example as a file you export with Pro.
             </li>
             <li>
               <strong>Ads.</strong> Consent is the only basis, for every user. Aunova OÜ and Aunova
               Technologies Ltd rely on your consent for having the ad software store and read
               information on your phone, and collect your data and send it to Google: GDPR Article
               6(1)(a), and the consent rules for information stored on your device. For Aunova
-              Technologies Ltd, this is also consent under the DIFC Data Protection Law 2020. No ad
+              Technologies Ltd, this is also consent under Article 10(a) of the DIFC Data Protection Law 2020. No ad
               is requested without your consent, and you can withdraw it at any time (see
               <strong>Consent for ads</strong>). Google relies on its own lawful bases for what it
               does with the data afterwards; see Google's privacy policy.
@@ -311,8 +325,12 @@ const metadata = {
           <p>Neither Aunova company receives any data about you from the app, so neither keeps any.</p>
           <ul class="legal-list">
             <li>
-              <strong>Your training log and your answer about ads</strong> stay on your phone until
-              you clear them, clear the app's storage or uninstall the app.
+              <strong>Your training log</strong> stays on your phone until you delete it, clear
+              BluBelt's storage or uninstall the app. A file you exported stays where you put it.
+            </li>
+            <li>
+              <strong>Your answer about ads</strong> stays on your phone until you change it, clear
+              BluBelt's storage or uninstall the app.
             </li>
             <li>
               <strong>Order records</strong> stay in Google Play Console. Aunova OÜ keeps them for
@@ -405,8 +423,29 @@ const metadata = {
         <div class="legal-section">
           <h2>Version and effective date</h2>
           <p>
-            Version <strong>BB-PRIVACY-v1.1</strong>, in force from <strong>3 November 2026</strong>.
+            Version <strong>BB-PRIVACY-v1.2</strong>, in force from <strong>2 November 2026</strong>.
           </p>
+          <ul class="legal-list">
+            <li>
+              <strong>1.2</strong> says that uninstalling the app does not delete a file you
+              exported, that your log leaves your phone only if you move it yourself, that some of
+              Google's software in the app contacts Google whether or not you agree to ads, which
+              article of the DIFC law the consent for ads rests on, what the app reads from Google
+              Play, how long your answer about ads is kept, and that an exported file is not
+              encrypted.
+            </li>
+            <li>
+              <strong>1.1</strong>, published on 2 November 2026 but wrongly dated 3 November,
+              corrected three statements: which parts of the app use the network, when Settings
+              shows the <strong>Privacy options</strong> button, and the name of the
+              <strong>Restore purchase</strong> button.
+            </li>
+            <li>
+              <strong>1.0</strong>, 2 November 2026, was the first version. Its Permissions section
+              was reworded twice that day without a new version number. The reworded list is the
+              one on this page.
+            </li>
+          </ul>
           <p>This notice is pending review by qualified counsel. It is not legal advice.</p>
         </div>
       </div>
