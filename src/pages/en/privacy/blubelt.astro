@@ -125,12 +125,15 @@ const metadata = {
             and restore works without one.
           </p>
           <p>
-            The app does declare two permissions that Android grants without asking. Both are there
-            for Google's ad software, not for anything the training log does:
+            The app does declare permissions that Android grants without asking. BluBelt's own code
+            declares two of them; Google's ad, consent and billing software adds the rest. None of
+            them is for anything the training log does:
           </p>
           <ul class="legal-list">
-            <li><strong>Internet</strong>, to fetch an ad and the consent form.</li>
-            <li><strong>Advertising ID</strong>, because Google's ad software reads your phone's advertising ID.</li>
+            <li><strong>Internet</strong> and <strong>network state</strong>, to fetch an ad and the consent form.</li>
+            <li><strong>Advertising ID</strong> and Android's <strong>ad services</strong> (ad ID, attribution and topics), because Google's ad software uses them.</li>
+            <li><strong>Google Play Billing</strong>, for the Pro purchase.</li>
+            <li><strong>Wake lock</strong> and <strong>foreground service</strong>, which Google's software declares for its own background work.</li>
           </ul>
         </div>
 
