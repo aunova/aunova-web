@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/PageLayout.astro";
 
-// Version MM-PRIVACY-v1.4, in force from 2026-11-02 (v1.3: 2026-10-27). Every statement about the app is
+// Version MM-PRIVACY-v1.5, in force from 2026-11-02 (v1.4: 2026-11-02, v1.3: 2026-10-27). Every statement about the app is
 // backed by the ModelMeter source (privacy_points in modelmeter-ui/src/viewmodel.rs,
 // the Android manifest and build.gradle.kts). Change this page in the same release
 // that changes what the app does.
@@ -92,8 +92,9 @@ const metadata = {
             <li>The check runs entirely on the phone. It works offline.</li>
             <li>What ModelMeter works out about your device is never sent anywhere, to us or to anyone else.</li>
             <li>
-              ModelMeter does not save any of it to the phone's storage. The only thing saved on the
-              phone is your answer about ads, explained under <strong>Consent for ads</strong>.
+              ModelMeter's own code does not save any of it to the phone's storage. Your answer about
+              ads is saved on the phone by Google's consent tool, as explained under
+              <strong>Consent for ads</strong>.
             </li>
             <li>There is no account and no sign-in.</li>
             <li>There is no analytics and no crash reporting of our own.</li>
@@ -112,7 +113,7 @@ const metadata = {
             of them is for anything the check does:
           </p>
           <ul class="legal-list" data-android-permissions="android.permission.ACCESS_ADSERVICES_AD_ID android.permission.ACCESS_ADSERVICES_ATTRIBUTION android.permission.ACCESS_ADSERVICES_TOPICS android.permission.ACCESS_NETWORK_STATE android.permission.FOREGROUND_SERVICE android.permission.INTERNET android.permission.WAKE_LOCK com.android.vending.BILLING com.google.android.gms.permission.AD_ID">
-            <li><strong>Internet</strong> and <strong>network state</strong>, to fetch an ad and the consent form.</li>
+            <li><strong>Internet</strong> and <strong>network state</strong>, to fetch an ad and the consent form, and for Google's other software in the app.</li>
             <li><strong>Advertising ID</strong> and Android's <strong>ad services</strong> (ad ID, attribution and topics), because Google's ad software uses them.</li>
             <li><strong>Google Play Billing</strong>, for the remove-ads purchase.</li>
             <li><strong>Wake lock</strong> and <strong>foreground service</strong>, which Google's software declares for its own background work.</li>
@@ -123,10 +124,18 @@ const metadata = {
           <h2>Ads in the free version</h2>
           <p>
             The free version can show one banner ad, on the Models screen only, and only if you have
-            agreed (see <strong>Consent for ads</strong>). The ad is the one part of the app that
-            uses the network on its own. It comes from Google AdMob, through the Google Mobile Ads
-            SDK, and runs under Aunova Technologies Ltd's AdMob account. If you have not agreed, no
-            ad is requested.
+            agreed (see <strong>Consent for ads</strong>). The ad comes from Google AdMob, through
+            the Google Mobile Ads SDK, and runs under Aunova Technologies Ltd's AdMob account. If
+            you have not agreed, no ad is requested.
+          </p>
+          <p>
+            ModelMeter's own code makes no network call. Only Google's software inside the app uses
+            the network: the ad software with its consent form, Google Play's purchase library, and
+            the libraries that come with them. Some of it does so whether or not you agree to ads.
+            Each time the app starts, it asks Google Play whether your Google account owns the
+            remove-ads purchase. Unless Google Play has already confirmed that it does, Google's
+            consent tool also checks with Google whether it needs to ask you. Neither check carries
+            anything from your device check.
           </p>
           <p>
             Once you have agreed, Google states that its Mobile Ads SDK collects and shares the
@@ -183,14 +192,16 @@ const metadata = {
             ModelMeter's own storage on your phone, in the standard format of the IAB Transparency
             and Consent Framework. It does this so that you are not asked every time you open the
             app, and so that Google's ad software can read what you allowed it to do. Your answer is
-            not sent to us. Apart from it, ModelMeter saves nothing about you on the phone.
+            not sent to us. ModelMeter's own code saves nothing else about you on the phone.
+            Google's ad, consent and purchase software inside the app may keep data of its own
+            there; that is covered by Google's policies, linked above.
           </p>
           <p>
-            <strong>Changing your mind.</strong> The About screen has a
-            <strong>Privacy options</strong> button. It reopens Google's consent form, so you can
-            change your answer or withdraw consent at any time. If you withdraw consent, you stop
-            seeing the ad: from then on, no ad is requested. Withdrawing does not affect what
-            happened before.
+            <strong>Changing your mind.</strong> Where Google's consent tool says one is required,
+            the About screen has a <strong>Privacy options</strong> button. It reopens Google's
+            consent form, so you can change your answer or withdraw consent at any time. If you
+            withdraw consent, you stop seeing the ad: from then on, no ad is requested. Withdrawing
+            does not affect what happened before.
           </p>
           <p>You can also:</p>
           <ul class="legal-list">
@@ -200,8 +211,10 @@ const metadata = {
             </li>
             <li>
               <strong>Clear ModelMeter's storage</strong> in Android settings, under Apps, then
-              ModelMeter. That deletes your saved answer, and you are asked again the next time the
-              app would request an ad.
+              ModelMeter. That deletes the copy of your answer saved on your phone. Google's consent
+              tool may also keep a record of your answer on Google's side, so clearing the storage
+              does not promise that you are asked again. Where the <strong>Privacy options</strong>
+              button is shown, use it to change your answer.
             </li>
             <li>
               <strong>Buy the remove-ads option</strong>, described below. When Google Play
@@ -226,10 +239,11 @@ const metadata = {
             your card or any other payment details.
           </p>
           <p>
-            The app reads from Google Play only what it needs to remove the ad: whether this
-            Google account owns the purchase, and the purchase token Google uses to identify it.
-            The app uses that token only to confirm the purchase to Google Play. It is not sent
-            to us.
+            The app reads from Google Play only what it needs: whether the remove-ads purchase is
+            on sale to this Google account, whether this account owns it and whether that purchase
+            has already been confirmed to Google Play, and the purchase token Google uses to
+            identify the purchase. The app uses that token only to confirm the purchase to Google
+            Play. It is not sent to us.
           </p>
           <p>
             Aunova OÜ, as the Google Play developer, can see an order record for each sale in Google
@@ -305,7 +319,8 @@ const metadata = {
           <ul class="legal-list">
             <li>
               <strong>Your answer about ads</strong> stays on your phone until you change it, clear
-              ModelMeter's storage or uninstall the app.
+              ModelMeter's storage or uninstall the app. Google's consent tool may keep its own
+              record of it, which is set by Google's policies.
             </li>
             <li>
               <strong>Order records</strong> stay in Google Play Console. Aunova OÜ keeps them for
@@ -397,8 +412,44 @@ const metadata = {
         <div class="legal-section">
           <h2>Version and effective date</h2>
           <p>
-            Version <strong>MM-PRIVACY-v1.4</strong>, in force from <strong>2 November 2026</strong>. Version 1.3 (27 October 2026) said the app declares two permissions; 1.4 lists all nine the shipped app has.
+            Version <strong>MM-PRIVACY-v1.5</strong>, in force from <strong>2 November 2026</strong>.
           </p>
+          <ul class="legal-list">
+            <li>
+              <strong>1.5</strong> says that some of Google's software in the app contacts Google
+              whether or not you agree to ads, and that the app asks Google Play at every start;
+              that the <strong>Privacy options</strong> button appears only where Google's consent
+              tool says one is required; what the app reads from Google Play, including whether the
+              purchase is on sale to your account; that clearing the app's storage does not promise
+              that you are asked about ads again; and that Google's own software in the app may keep
+              data of its own.
+            </li>
+            <li>
+              <strong>1.4</strong>, 2 November 2026, listed all nine permissions the shipped app
+              has. Version 1.3 had said the app declares two.
+            </li>
+            <li>
+              <strong>1.3</strong>, 27 October 2026, asked for consent from every user, named both
+              Aunova companies, described the Do not consent option and what Google's consent tool
+              saves, and said the Privacy options button is always on the About screen (1.5
+              corrects this). It removed the 1.2 statement that refusing consent does not
+              necessarily remove the ad. Later that day its consent sentence was reworded, to say
+              that no ad is requested unless you agree, without a new version number.
+            </li>
+            <li>
+              <strong>1.2</strong>, 27 October 2026, said that refusing or withdrawing consent does
+              not necessarily remove the ad.
+            </li>
+            <li>
+              <strong>1.1</strong>, 27 October 2026, named Aunova Technologies Ltd and said the
+              Privacy options button appears only where Google's consent tool says one is required.
+            </li>
+            <li>
+              <strong>1.0</strong>, 27 October 2026, was the first version. Two minutes later it
+              gained the sentence about the three-second start-up rule, without a new version
+              number.
+            </li>
+          </ul>
           <p>This notice is pending review by qualified counsel. It is not legal advice.</p>
         </div>
       </div>
