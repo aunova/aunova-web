@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/PageLayout.astro";
 
-// Version BB-PRIVACY-v1.3, in force from 2026-11-02. Every statement about the app is
+// Version BB-PRIVACY-v1.4, in force from 2026-11-04. Every statement about the app is
 // backed by the BluBelt source (aunova/blubelt: the Android manifest, build.gradle.kts,
 // blubelt-core transfer/store and the monetization crate). Change this page in the same
 // release that changes what the app does.
@@ -17,7 +17,7 @@ const metadata = {
     <div class="container">
       <div class="legal-header">
         <h1 class="legal-title">BluBelt Privacy Notice</h1>
-        <p class="legal-updated">Last updated: November 2, 2026</p>
+        <p class="legal-updated">Last updated: November 4, 2026</p>
       </div>
 
       <div class="legal-content">
@@ -86,16 +86,18 @@ const metadata = {
           <h2>Your training log stays on your phone</h2>
           <p>
             BluBelt saves what you enter in a database in the app's own storage on your phone: each
-            training session (its date and the martial art) and your list of martial arts.
+            training session (its date and the martial art), your list of martial arts and your
+            <strong>Sessions per stripe</strong> setting.
           </p>
           <ul class="legal-list">
             <li>It is never sent anywhere, to us or to anyone else. The app works offline.</li>
             <li>There is no account, no sign-in and no cloud copy.</li>
             <li>There is no analytics and no crash reporting of our own.</li>
             <li>
-              <strong>Clear All Data</strong> in Settings deletes your sessions and resets the list
-              of martial arts. Uninstalling the app deletes your log from your phone. A file you
-              exported is yours and stays where you put it.
+              <strong>Clear All Data</strong> in Settings deletes your sessions, resets the list of
+              martial arts and sets <strong>Sessions per stripe</strong> back to 40. Uninstalling the
+              app deletes your log from your phone. A file you exported is yours and stays where you
+              put it.
             </li>
           </ul>
           <p>
@@ -107,14 +109,16 @@ const metadata = {
         <div class="legal-section">
           <h2>Backup and restore (Pro)</h2>
           <p>
-            With Pro, <strong>Export Data</strong> writes your sessions and martial arts list to a
-            file, and <strong>Import Data</strong> reads such a file back. Both use Android's own
+            With Pro, <strong>Export Data</strong> writes your sessions, your martial arts list and
+            your <strong>Sessions per stripe</strong> setting to a file, and
+            <strong>Import Data</strong> reads such a file back. Both use Android's own
             file picker, so you choose where the file goes and which file to read. The app sees only
             the one file you pick.
           </p>
           <p>
             The file is plain text (JSON): each session's date, martial art and a random ID the app
-            gave it, and your list of martial arts. It is not encrypted.
+            gave it, your list of martial arts and your <strong>Sessions per stripe</strong> number.
+            It is not encrypted.
           </p>
           <p>
             If you save the file to a cloud folder, such as Google Drive, that service stores it
@@ -157,7 +161,9 @@ const metadata = {
             Each time the app starts, it asks Google Play whether your Google account owns Pro.
             Unless Google Play has already confirmed that it does, Google's consent tool also checks
             with Google whether it needs to ask you. Neither check carries anything from your
-            training log.
+            training log. From version 1.0.2 of the app, Google's ad software is set to wait with its
+            own app measurement until BluBelt starts the ad software, which it does only after you
+            agree.
           </p>
           <p>
             Once you have agreed, Google states that its Mobile Ads SDK collects and shares the
@@ -221,7 +227,11 @@ const metadata = {
             Settings has a <strong>Privacy options</strong>
             button. It reopens Google's consent form, so you can change your answer or withdraw
             consent at any time. If you withdraw consent, you stop seeing the ad: from then on, no
-            ad is requested. Withdrawing does not affect what happened before.
+            ad is requested. Withdrawing does not affect what happened before. From version 1.0.2
+            of the app, BluBelt requests an ad only while that button is in Settings, so anyone who
+            can see an ad can withdraw from there. If Google's consent tool stops showing the
+            button, for example because you are now in another country, BluBelt stops requesting
+            ads.
           </p>
           <p>You can also:</p>
           <ul class="legal-list">
@@ -424,9 +434,16 @@ const metadata = {
         <div class="legal-section">
           <h2>Version and effective date</h2>
           <p>
-            Version <strong>BB-PRIVACY-v1.3</strong>, in force from <strong>2 November 2026</strong>.
+            Version <strong>BB-PRIVACY-v1.4</strong>, in force from <strong>4 November 2026</strong>.
           </p>
           <ul class="legal-list">
+            <li>
+              <strong>1.4</strong> says that from version 1.0.2 of the app, BluBelt requests an ad
+              only while the <strong>Privacy options</strong> button is shown, and that Google's ad
+              software is set to wait with its own app measurement until the app starts it; and it
+              adds the <strong>Sessions per stripe</strong> setting to what the app saves, what
+              <strong>Clear All Data</strong> resets and what an exported file contains.
+            </li>
             <li>
               <strong>1.3</strong> says that the app also reads from Google Play whether a purchase
               has already been confirmed to Google Play, and that the permissions for the internet
