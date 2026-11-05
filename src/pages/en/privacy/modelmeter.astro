@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/PageLayout.astro";
 
-// Version MM-PRIVACY-v1.5, in force from 2026-11-02 (v1.4: 2026-11-02, v1.3: 2026-10-27). Every statement about the app is
+// Version MM-PRIVACY-v1.6, in force from 2026-11-05 (v1.5: 2026-11-02, v1.4: 2026-11-02, v1.3: 2026-10-27). Every statement about the app is
 // backed by the ModelMeter source (privacy_points in modelmeter-ui/src/viewmodel.rs,
 // the Android manifest and build.gradle.kts). Change this page in the same release
 // that changes what the app does.
@@ -17,7 +17,7 @@ const metadata = {
     <div class="container">
       <div class="legal-header">
         <h1 class="legal-title">ModelMeter Privacy Notice</h1>
-        <p class="legal-updated">Last updated: November 2, 2026</p>
+        <p class="legal-updated">Last updated: November 5, 2026</p>
       </div>
 
       <div class="legal-content">
@@ -135,7 +135,9 @@ const metadata = {
             Each time the app starts, it asks Google Play whether your Google account owns the
             remove-ads purchase. Unless Google Play has already confirmed that it does, Google's
             consent tool also checks with Google whether it needs to ask you. Neither check carries
-            anything from your device check.
+            anything from your device check. From version 1.0.5 of the app, Google's ad software is
+            set to wait with its own app measurement until ModelMeter starts the ad software, which
+            it does only after you agree.
           </p>
           <p>
             Once you have agreed, Google states that its Mobile Ads SDK collects and shares the
@@ -201,7 +203,10 @@ const metadata = {
             the About screen has a <strong>Privacy options</strong> button. It reopens Google's
             consent form, so you can change your answer or withdraw consent at any time. If you
             withdraw consent, you stop seeing the ad: from then on, no ad is requested. Withdrawing
-            does not affect what happened before.
+            does not affect what happened before. From version 1.0.5 of the app, ModelMeter requests
+            an ad only while that button is on the About screen, so anyone who can see an ad can
+            withdraw from there. If Google's consent tool stops showing the button, for example
+            because you are now in another country, ModelMeter stops requesting ads.
           </p>
           <p>You can also:</p>
           <ul class="legal-list">
@@ -412,11 +417,16 @@ const metadata = {
         <div class="legal-section">
           <h2>Version and effective date</h2>
           <p>
-            Version <strong>MM-PRIVACY-v1.5</strong>, in force from <strong>2 November 2026</strong>.
+            Version <strong>MM-PRIVACY-v1.6</strong>, in force from <strong>5 November 2026</strong>.
           </p>
           <ul class="legal-list">
             <li>
-              <strong>1.5</strong> says that some of Google's software in the app contacts Google
+              <strong>1.6</strong> says that from version 1.0.5 of the app, ModelMeter requests an ad
+              only while the <strong>Privacy options</strong> button is shown, and that Google's ad
+              software is set to wait with its own app measurement until the app starts it.
+            </li>
+            <li>
+              <strong>1.5</strong>, 2 November 2026, said that some of Google's software in the app contacts Google
               whether or not you agree to ads, and that the app asks Google Play at every start;
               that the <strong>Privacy options</strong> button appears only where Google's consent
               tool says one is required; what the app reads from Google Play, including whether the
