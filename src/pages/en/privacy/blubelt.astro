@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/PageLayout.astro";
 
-// Version BB-PRIVACY-v1.4, in force from 2026-11-04. Every statement about the app is
+// Version BB-PRIVACY-v1.5, in force from 2026-11-06 (v1.4: 2026-11-04). Every statement about the app is
 // backed by the BluBelt source (aunova/blubelt: the Android manifest, build.gradle.kts,
 // blubelt-core transfer/store and the monetization crate). Change this page in the same
 // release that changes what the app does.
@@ -17,7 +17,7 @@ const metadata = {
     <div class="container">
       <div class="legal-header">
         <h1 class="legal-title">BluBelt Privacy Notice</h1>
-        <p class="legal-updated">Last updated: November 4, 2026</p>
+        <p class="legal-updated">Last updated: November 6, 2026</p>
       </div>
 
       <div class="legal-content">
@@ -135,14 +135,15 @@ const metadata = {
           </p>
           <p>
             The app does declare permissions that Android grants without asking. BluBelt's own code
-            declares two of them; Google's ad, consent and billing software adds the rest. None of
-            them is for anything the training log does:
+            declares two of them; Google's ad, consent and billing software and Android's support
+            library add the rest. None of them is for anything the training log does:
           </p>
-          <ul class="legal-list" data-android-permissions="android.permission.ACCESS_ADSERVICES_AD_ID android.permission.ACCESS_ADSERVICES_ATTRIBUTION android.permission.ACCESS_ADSERVICES_TOPICS android.permission.ACCESS_NETWORK_STATE android.permission.FOREGROUND_SERVICE android.permission.INTERNET android.permission.WAKE_LOCK com.android.vending.BILLING com.google.android.gms.permission.AD_ID">
-            <li><strong>Internet</strong> and <strong>network state</strong>, to fetch an ad and the consent form, and for Google's other software in the app.</li>
-            <li><strong>Advertising ID</strong> and Android's <strong>ad services</strong> (ad ID, attribution and topics), because Google's ad software uses them.</li>
-            <li><strong>Google Play Billing</strong>, for the Pro purchase.</li>
-            <li><strong>Wake lock</strong> and <strong>foreground service</strong>, which Google's software declares for its own background work.</li>
+          <ul class="legal-list" data-android-permissions="android.permission.ACCESS_ADSERVICES_AD_ID android.permission.ACCESS_ADSERVICES_ATTRIBUTION android.permission.ACCESS_ADSERVICES_TOPICS android.permission.ACCESS_NETWORK_STATE android.permission.FOREGROUND_SERVICE android.permission.INTERNET android.permission.WAKE_LOCK com.android.vending.BILLING com.aunova.blubelt.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION com.google.android.gms.permission.AD_ID">
+            <li data-android-permissions="android.permission.INTERNET android.permission.ACCESS_NETWORK_STATE"><strong>Internet</strong> and <strong>network state</strong>, to fetch an ad and the consent form, and for Google's other software in the app.</li>
+            <li data-android-permissions="com.google.android.gms.permission.AD_ID android.permission.ACCESS_ADSERVICES_AD_ID android.permission.ACCESS_ADSERVICES_ATTRIBUTION android.permission.ACCESS_ADSERVICES_TOPICS"><strong>Advertising ID</strong> and Android's <strong>ad services</strong> (ad ID, attribution and topics), because Google's ad software uses them.</li>
+            <li data-android-permissions="com.android.vending.BILLING"><strong>Google Play Billing</strong>, for the Pro purchase.</li>
+            <li data-android-permissions="android.permission.WAKE_LOCK android.permission.FOREGROUND_SERVICE"><strong>Wake lock</strong> and <strong>foreground service</strong>, which Google's software declares for its own background work.</li>
+            <li data-android-permissions="com.aunova.blubelt.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"><strong>Private receivers</strong> (a permission named after the app), which Android's support library declares so that only BluBelt itself can send messages to its own internal parts. Android never shows it to you, and it gives no other app access to anything.</li>
           </ul>
         </div>
 
@@ -434,14 +435,19 @@ const metadata = {
         <div class="legal-section">
           <h2>Version and effective date</h2>
           <p>
-            Version <strong>BB-PRIVACY-v1.4</strong>, in force from <strong>4 November 2026</strong>.
+            Version <strong>BB-PRIVACY-v1.5</strong>, in force from <strong>6 November 2026</strong>.
           </p>
           <ul class="legal-list">
             <li>
-              <strong>1.4</strong> says that from version 1.0.2 of the app, BluBelt requests an ad
+              <strong>1.5</strong> says that from version 1.0.4 of the app, the list of permissions
+              includes the one Android's support library uses to keep the app's internal parts
+              private.
+            </li>
+            <li>
+              <strong>1.4</strong>, 4 November 2026, said that from version 1.0.2 of the app, BluBelt requests an ad
               only while the <strong>Privacy options</strong> button is shown, and that Google's ad
               software is set to wait with its own app measurement until the app starts it; and it
-              adds the <strong>Sessions per stripe</strong> setting to what the app saves, what
+              added the <strong>Sessions per stripe</strong> setting to what the app saves, what
               <strong>Clear All Data</strong> resets and what an exported file contains.
             </li>
             <li>

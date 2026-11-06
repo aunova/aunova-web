@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/PageLayout.astro";
 
-// Version MM-PRIVACY-v1.6, in force from 2026-11-05 (v1.5: 2026-11-02, v1.4: 2026-11-02, v1.3: 2026-10-27). Every statement about the app is
+// Version MM-PRIVACY-v1.7, in force from 2026-11-06 (v1.6: 2026-11-05, v1.5: 2026-11-02, v1.4: 2026-11-02, v1.3: 2026-10-27). Every statement about the app is
 // backed by the ModelMeter source (privacy_points in modelmeter-ui/src/viewmodel.rs,
 // the Android manifest and build.gradle.kts). Change this page in the same release
 // that changes what the app does.
@@ -17,7 +17,7 @@ const metadata = {
     <div class="container">
       <div class="legal-header">
         <h1 class="legal-title">ModelMeter Privacy Notice</h1>
-        <p class="legal-updated">Last updated: November 5, 2026</p>
+        <p class="legal-updated">Last updated: November 6, 2026</p>
       </div>
 
       <div class="legal-content">
@@ -109,14 +109,15 @@ const metadata = {
           </p>
           <p>
             The app does declare permissions that Android grants without asking. ModelMeter's own
-            code declares two of them; Google's ad, consent and billing software adds the rest. None
-            of them is for anything the check does:
+            code declares two of them; Google's ad, consent and billing software and Android's
+            support library add the rest. None of them is for anything the check does:
           </p>
-          <ul class="legal-list" data-android-permissions="android.permission.ACCESS_ADSERVICES_AD_ID android.permission.ACCESS_ADSERVICES_ATTRIBUTION android.permission.ACCESS_ADSERVICES_TOPICS android.permission.ACCESS_NETWORK_STATE android.permission.FOREGROUND_SERVICE android.permission.INTERNET android.permission.WAKE_LOCK com.android.vending.BILLING com.google.android.gms.permission.AD_ID">
-            <li><strong>Internet</strong> and <strong>network state</strong>, to fetch an ad and the consent form, and for Google's other software in the app.</li>
-            <li><strong>Advertising ID</strong> and Android's <strong>ad services</strong> (ad ID, attribution and topics), because Google's ad software uses them.</li>
-            <li><strong>Google Play Billing</strong>, for the remove-ads purchase.</li>
-            <li><strong>Wake lock</strong> and <strong>foreground service</strong>, which Google's software declares for its own background work.</li>
+          <ul class="legal-list" data-android-permissions="android.permission.ACCESS_ADSERVICES_AD_ID android.permission.ACCESS_ADSERVICES_ATTRIBUTION android.permission.ACCESS_ADSERVICES_TOPICS android.permission.ACCESS_NETWORK_STATE android.permission.FOREGROUND_SERVICE android.permission.INTERNET android.permission.WAKE_LOCK com.android.vending.BILLING com.aunova.modelmeter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION com.google.android.gms.permission.AD_ID">
+            <li data-android-permissions="android.permission.INTERNET android.permission.ACCESS_NETWORK_STATE"><strong>Internet</strong> and <strong>network state</strong>, to fetch an ad and the consent form, and for Google's other software in the app.</li>
+            <li data-android-permissions="com.google.android.gms.permission.AD_ID android.permission.ACCESS_ADSERVICES_AD_ID android.permission.ACCESS_ADSERVICES_ATTRIBUTION android.permission.ACCESS_ADSERVICES_TOPICS"><strong>Advertising ID</strong> and Android's <strong>ad services</strong> (ad ID, attribution and topics), because Google's ad software uses them.</li>
+            <li data-android-permissions="com.android.vending.BILLING"><strong>Google Play Billing</strong>, for the remove-ads purchase.</li>
+            <li data-android-permissions="android.permission.WAKE_LOCK android.permission.FOREGROUND_SERVICE"><strong>Wake lock</strong> and <strong>foreground service</strong>, which Google's software declares for its own background work.</li>
+            <li data-android-permissions="com.aunova.modelmeter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"><strong>Private receivers</strong> (a permission named after the app), which Android's support library declares so that only ModelMeter itself can send messages to its own internal parts. Android never shows it to you, and it gives no other app access to anything.</li>
           </ul>
         </div>
 
@@ -417,11 +418,16 @@ const metadata = {
         <div class="legal-section">
           <h2>Version and effective date</h2>
           <p>
-            Version <strong>MM-PRIVACY-v1.6</strong>, in force from <strong>5 November 2026</strong>.
+            Version <strong>MM-PRIVACY-v1.7</strong>, in force from <strong>6 November 2026</strong>.
           </p>
           <ul class="legal-list">
             <li>
-              <strong>1.6</strong> says that from version 1.0.5 of the app, ModelMeter requests an ad
+              <strong>1.7</strong> says that from version 1.0.6 of the app, the list of permissions
+              includes the one Android's support library uses to keep the app's internal parts
+              private.
+            </li>
+            <li>
+              <strong>1.6</strong>, 5 November 2026, said that from version 1.0.5 of the app, ModelMeter requests an ad
               only while the <strong>Privacy options</strong> button is shown, and that Google's ad
               software is set to wait with its own app measurement until the app starts it.
             </li>
