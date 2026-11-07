@@ -1,0 +1,102 @@
+---
+title: "How We Ship Android Micro-Apps: Rust, a Template That Remembers, and an Agent Team With a Human at the Gates"
+description: "ModelMeter and BluBelt are live on Google Play. Here is the stack behind them, how Cowork:Alice runs a release, and how every mistake we make becomes a guard instead of a note."
+publishDate: 2026-11-07
+category: technical
+tags:
+  - android
+  - rust
+  - slint
+  - micro-apps
+  - cowork-alice
+  - ai-agents
+  - modelmeter
+  - blubelt
+  - google-play
+author: "Aunova Team"
+image: "/images/blog/android-micro-apps-cover.webp"
+imageAlt: "The BluBelt and ModelMeter Google Play feature graphics on a dark background: a pixel-art blue belt, and a green gauge"
+---
+
+On 5 November 2026 two small Android apps went live on Google Play under Aunova OÜ. ModelMeter tells you which local AI models your phone can run. BluBelt is a training log for martial artists. Neither app is big, and that is the point. What we want to show is how they got there: one Rust codebase shape, one reusable template, a team of AI agents doing much of the building and checking, and a human who signs off on everything that goes out.
+
+This post walks through all of it, including the parts that did not go to plan.
+
+**Try them on Google Play:** [ModelMeter](https://play.google.com/store/apps/details?id=com.aunova.modelmeter) and [BluBelt](https://play.google.com/store/apps/details?id=com.aunova.blubelt). Both are free.
+
+## Two apps, one shape
+
+ModelMeter reads your phone's hardware and lists which local AI models fit on it. It shows the math rather than a bare verdict: the fit check uses total RAM, and each model's detail page spells out how the number was reached, so you can check our reasoning instead of taking it on trust.
+
+<div class="grid grid-cols-3 gap-3">
+  <img src="/images/blog/android-micro-apps-modelmeter-scan.webp" alt="ModelMeter scan screen listing the device's total RAM, available memory, free storage, chip, Android version, CPU cores and Vulkan support" width="540" height="1200" loading="lazy" decoding="async" />
+  <img src="/images/blog/android-micro-apps-modelmeter-models.webp" alt="ModelMeter models screen with size and tag filters and a Runs well group, each model showing its download size and the RAM it needs" width="540" height="1200" loading="lazy" decoding="async" />
+  <img src="/images/blog/android-micro-apps-modelmeter-detail.webp" alt="ModelMeter detail page for one small chat model, adding the model file and a context reserve, then comparing the total with the device's RAM and free storage" width="540" height="1200" loading="lazy" decoding="async" />
+</div>
+
+*ModelMeter: the hardware scan, the models that fit, and the math for one of them. Captured on an Android emulator.*
+
+BluBelt is a martial-arts training log built on the BJJ belt system. You log a session, your belt fills in stripe by stripe, and the Stats screen breaks your training down per martial art for any date range you choose. Sessions per stripe are configurable, because no two gyms count the same way. It works offline, needs no account, and the log stays on your phone.
+
+<div class="grid grid-cols-3 gap-3">
+  <img src="/images/blog/android-micro-apps-blubelt-belt.webp" alt="BluBelt home screen: a pixel-art blue belt with three stripes, the total session count, and a progress bar to the next stripe" width="540" height="960" loading="lazy" decoding="async" />
+  <img src="/images/blog/android-micro-apps-blubelt-log.webp" alt="BluBelt log screen with weekly, monthly and streak counters and a form to log a session by date and martial art" width="540" height="960" loading="lazy" decoding="async" />
+  <img src="/images/blog/android-micro-apps-blubelt-stats.webp" alt="BluBelt stats screen with range buttons for week, month, year, all time and custom, and sessions broken down per martial art" width="540" height="960" loading="lazy" decoding="async" />
+</div>
+
+*BluBelt: the belt, the log, and Stats per martial art.*
+
+BluBelt is a native rebuild of an existing web app (a PWA). The rebuild was also our chance to fix its date bugs: dates are now local, and weeks and months follow the calendar.
+
+Both apps are free with one banner ad, shown only after consent. Pro is a one-time purchase that removes the ads, and BluBelt Pro also adds backup and restore.
+
+## The stack
+
+Each app is written in Rust, with the UI in Slint, and packaged for Android with Gradle. A small Java shim bridges Rust to Google's SDKs through JNI: Google Mobile Ads with Google's consent tool (UMP), and Play Billing. R8 shrinks the Java bridge. Builds target arm64, with 16 KB page alignment and target SDK 36.
+
+The reason for this shape is reuse. The shared parts live in starter crates that every new app pulls in, and the platform-specific surface stays down to one small shim.
+
+That shim is also where the stack bites. Rust calls Java methods by name, and R8, doing its job, renames or removes code it believes nobody uses. Left alone, that produces an app that builds cleanly and breaks the first time Rust reaches across the bridge. So a JNI gate refuses a release build if R8 renamed or removed anything Rust calls by name. The failure moves from a user's phone to our build.
+
+## The template
+
+The apps share a reusable micro-app template: a generator script, starter crates, and a playbook. The playbook holds more than 80 recorded traps, and each one names the guard or test that now prevents it.
+
+The guards are not advice. A verifier refuses a release bundle on any of 22 checks. Some examples: test ad ids still present, the wrong signing key, missing 16 KB alignment, a permission list that differs from the live privacy page, a missing ad-measurement delay. Every guard was fed its bad input once, so we could watch it refuse. A guard that has never said no is a guess.
+
+Here is the honest number. BluBelt, the second app, went from generated project to Google Play internal testing in 26 hours 37 minutes of wall-clock time. Our target was one day, and we missed it. The overrun was QA rounds, not template steps. That distinction matters to us: the template did its part, and the extra hours went into checking the work.
+
+## How Cowork:Alice runs a release
+
+Cowork:Alice is Aunova's multi-agent company, running on the omp coding harness. Alice is the orchestrator: she plans the work and delegates it to department heads, each with a defined area. Linus leads code, Ferris is the Rust specialist, Vera handles compliance, and there are others.
+
+Karl is the one we would point to first. He is an adversarial reviewer who assumes the work is broken and verifies by acting. He runs the tests, kills mutants to make sure the tests can fail at all, and re-derives numbers instead of trusting the ones he was handed. His job is to turn "it works" from something stated into something shown.
+
+Then come the owner's gates. Agents draft; the owner approves anything public, any payment, and every store submission. Decisions about the business stay with the human. The agents do a great deal of the work between those gates, the building, reviewing and checking, but nothing goes to Google Play, and no post like this one goes out, without a person saying yes.
+
+## Continuous learning, told straight
+
+Every mistake goes to two places. It goes into the template's playbook as a trap, with the guard that prevents it. And it goes into a shared knowledge base that the agents search before they start work, so the next agent meets the lesson before it meets the problem.
+
+We also keep a ledger of which behavioural fixes worked, and its finding is the most useful thing this whole effort has taught us. Mechanical guards and tests are the fixes measured as working. Written rules on their own, a sentence added to an agent's instructions, have never been measured as working. So wherever a lesson can become a guard, it does. A check that the build enforces does not depend on anyone remembering it.
+
+A current example, with its status stated plainly. A recent release round ran for 12 hours. Out of it came a new rule (fix the scope before work starts, and build right after the reviewer passes) and changes to the agent definitions. It is still untested. The next release is where it gets measured, and the result goes into the ledger either way.
+
+## Privacy and consent
+
+No ad without consent. Ads appear only while the Privacy options button is shown, so anyone who sees an ad has a way to withdraw. Google's ad measurement waits for consent too, and the release verifier refuses a bundle that is missing that delay. Each app has its own privacy notice, for [ModelMeter](/en/privacy/modelmeter) and for [BluBelt](/en/privacy/blubelt), and the same verifier checks that the app's permission list matches what the live notice says.
+
+## What's next
+
+The template exists so that the next app starts where BluBelt ended, with every recorded trap already guarded. The next release is also the first measurement of the new scope rule. If it helps, the ledger will show it. If it does not, that gets recorded too, and the lesson goes looking for a guard instead.
+
+In the meantime, both apps are on Google Play:
+
+- **[ModelMeter](https://play.google.com/store/apps/details?id=com.aunova.modelmeter)**: see which local AI models fit your phone, and why.
+- **[BluBelt](https://play.google.com/store/apps/details?id=com.aunova.blubelt)**: log your training and watch your belt fill in, offline and without an account.
+
+Both are free with one banner ad after consent, and Pro removes the ads with a one-time purchase.
+
+---
+
+*Aunova builds software that combines AI, Blockchain, Data Analytics and Encryption where the problem needs them. To talk about a project, reach out through [aunova.net](/en/contact).*
