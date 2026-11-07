@@ -1,0 +1,12 @@
+---
+import AppsPage from "../../components/apps/AppsPage.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
+import { getTranslation } from "../../utils/i18n";
+
+const lang = "en";
+const t = getTranslation(lang);
+---
+
+<PageLayout title={t.meta.appsTitle} description={t.meta.appsDescription} lang={lang}>
+  <AppsPage lang={lang} />
+</PageLayout>

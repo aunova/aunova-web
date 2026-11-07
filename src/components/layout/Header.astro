@@ -11,15 +11,19 @@ const pathWithoutLang = pathname.replace(/^\/(en|es)/, "") || "/";
 const enUrl = pathWithoutLang === "/" ? "/" : `/en${pathWithoutLang}`;
 const esUrl = `/es${pathWithoutLang === "/" ? "/" : pathWithoutLang}`;
 
-// Section anchors live on the home page of the current language
+// Section anchors live on the home page of the current language; an item
+// with its own `href` is a page of its own.
 const homeLink = currentLang === "es" ? "/es/" : "/";
-const navItems = [
+const appsLink = `/${currentLang}/apps`;
+const navItems: { id: string; label: string; href?: string }[] = [
   { id: "services", label: t.nav.services },
   { id: "technology", label: t.nav.technology },
   { id: "impact", label: t.nav.impact },
   { id: "work", label: t.nav.work },
   { id: "process", label: t.nav.process },
+  { id: "apps", label: t.nav.apps, href: appsLink },
 ];
+const currentPath = pathname.replace(/\/$/, "");
 ---
 
 <header class="site-header">
@@ -40,13 +44,24 @@ const navItems = [
       <nav class="site-nav" aria-label={t.nav.primary}>
         <ul>
           {
-            navItems.map((item) => (
-              <li>
-                <a href={`${homeLink}#${item.id}`} data-section={item.id}>
-                  {item.label}
-                </a>
-              </li>
-            ))
+            navItems.map((item) =>
+              item.href ? (
+                <li>
+                  <a
+                    href={item.href}
+                    aria-current={currentPath === item.href ? "page" : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ) : (
+                <li>
+                  <a href={`${homeLink}#${item.id}`} data-section={item.id}>
+                    {item.label}
+                  </a>
+                </li>
+              ),
+            )
           }
         </ul>
       </nav>
