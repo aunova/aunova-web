@@ -1,0 +1,232 @@
+---
+// The apps gallery, shared by /en/apps and /es/apps. The apps are in src/utils/apps.ts.
+import { ArrowUpRight } from "lucide-astro";
+import { apps } from "../../utils/apps";
+import { getTranslation, type Language } from "../../utils/i18n";
+import PageHero from "../sections/PageHero.astro";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = getTranslation(lang);
+---
+
+<PageHero
+  eyebrow={t.appsPage.eyebrow}
+  title={t.appsPage.title}
+  lead={t.appsPage.lead}
+  image="/images/v2/build.webp"
+/>
+
+{
+  apps.map((app, index) => {
+    const copy = app.copy[lang];
+    return (
+      <section
+        id={app.id}
+        class:list={["section", "app", { "app--alt": index % 2 === 1 }]}
+        aria-labelledby={`${app.id}-title`}
+      >
+        <div class="container app__inner">
+          <div class="app__body reveal">
+            <div class="app__head">
+              <img
+                class="app__icon"
+                src={app.icon}
+                alt=""
+                width="96"
+                height="96"
+                loading="lazy"
+                decoding="async"
+              />
+              <div>
+                <h2 id={`${app.id}-title`}>{app.name}</h2>
+                <p class="app__pitch">{copy.pitch}</p>
+              </div>
+            </div>
+
+            <ul class="app__details">
+              {copy.details.map((line) => (
+                <li>{line}</li>
+              ))}
+            </ul>
+
+            <p class="app__pricing">{copy.pricing}</p>
+
+            <div class="app__actions">
+              <a
+                class="button button--primary"
+                href={app.playUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.appsPage.getOnPlay}
+                <span class="sr-only"> ({t.nav.newTab})</span>
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+              <a class="link-arrow" href={app.privacyUrl} hreflang="en">
+                {t.appsPage.privacyNotice(app.name)}
+              </a>
+            </div>
+          </div>
+
+          <ul class="app__shots" aria-label={t.appsPage.screenshots(app.name)}>
+            {app.screenshots.map((shot) => (
+              <li>
+                <img
+                  src={shot.src}
+                  alt={shot.alt[lang]}
+                  width={shot.width}
+                  height={shot.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    );
+  })
+}
+
+<section class="section apps-note">
+  <div class="container">
+    <p>
+      {t.appsPage.note} <a href={`/${lang}/contact`}>{t.appsPage.noteLink}</a>.
+    </p>
+  </div>
+</section>
+
+<style>
+  .app--alt {
+    background-color: color-mix(in srgb, var(--color-sand) 55%, var(--color-background));
+  }
+
+  .app__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2rem, 1.5rem + 3vw, 4.5rem);
+    align-items: center;
+  }
+
+  .app__head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .app__icon {
+    flex: none;
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .app__head h2 {
+    margin-bottom: var(--space-xs);
+    font-size: clamp(2rem, 1.6rem + 1.4vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+
+  .app__pitch {
+    margin: 0;
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+  }
+
+  .app__details {
+    margin: 0 0 var(--space-lg);
+    padding-left: 1.25rem;
+  }
+
+  .app__details li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .app__details li::marker {
+    color: var(--color-primary);
+  }
+
+  .app__pricing {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--text-body-sm);
+    color: var(--color-text-muted);
+    background-color: var(--color-background-elevated);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-md);
+  }
+
+  .app__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md) var(--space-xl);
+  }
+
+  /* Screenshots: one row at a fixed height, scrolling sideways when it overflows */
+  .app__shots {
+    display: flex;
+    gap: var(--space-md);
+    margin: 0;
+    padding: var(--space-xs) var(--space-xs) var(--space-md);
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  }
+
+  .app__shots li {
+    flex: none;
+    margin: 0;
+    scroll-snap-align: start;
+  }
+
+  .app__shots img {
+    display: block;
+    width: auto;
+    height: 23rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .apps-note {
+    padding-block: var(--space-3xl);
+    text-align: center;
+  }
+
+  .apps-note p {
+    max-width: 40rem;
+    margin: 0 auto;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .app__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .app__shots img {
+      height: 24rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .app__head {
+      gap: var(--space-md);
+    }
+
+    .app__icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+    }
+  }
+</style>

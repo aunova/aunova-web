@@ -22,6 +22,9 @@ export const translations = {
       homeDescription: `Software development company combining ${techEn} into one solution, built with care for the environment, humanity and the future society.`,
       servicesTitle: "Services | Aunova",
       servicesDescription: `Custom software, AI systems and agents, verifiable records, privacy-preserving data systems and data analytics. Aunova combines ${techEn} into one solution.`,
+      appsTitle: "Apps | Aunova",
+      appsDescription:
+        "Android apps built by Aunova in Rust with Slint: BluBelt, a martial arts training log on the BJJ belt system, and ModelMeter, which shows which local AI models your phone can run.",
     },
     nav: {
       primary: "Main navigation",
@@ -31,10 +34,21 @@ export const translations = {
       impact: "Impact",
       work: "Our work",
       process: "Process",
+      apps: "Apps",
       bookCall: "Book a call",
       menu: "Menu",
       language: "Language",
       newTab: "opens in a new tab",
+    },
+    appsPage: {
+      eyebrow: "Apps",
+      title: "Small apps, built by Aunova.",
+      lead: "Android apps we design and build in Rust with Slint. Each one does one job and explains itself plainly.",
+      getOnPlay: "Get it on Google Play",
+      privacyNotice: (app: string) => `${app} privacy notice`,
+      screenshots: (app: string) => `${app} screenshots`,
+      note: "Both apps are made by Aunova and built in Rust with Slint. Need an app of your own?",
+      noteLink: "Tell us what it should do",
     },
     hero: {
       eyebrow: "Software development company",
@@ -302,6 +316,9 @@ export const translations = {
       homeDescription: `Empresa de desarrollo de software que combina ${techEs} en una sola solución, pensada para cuidar del medio ambiente, de la humanidad y de la sociedad del futuro.`,
       servicesTitle: "Servicios | Aunova",
       servicesDescription: `Software a medida, sistemas de IA y agentes, registros verificables, sistemas de datos que protegen la privacidad y analítica de datos. Aunova combina ${techEs} en una sola solución.`,
+      appsTitle: "Apps | Aunova",
+      appsDescription:
+        "Apps para Android creadas por Aunova en Rust con Slint: BluBelt, un registro de entrenamiento de artes marciales con el sistema de cinturones del BJJ, y ModelMeter, que muestra qué modelos de IA locales puede ejecutar tu teléfono.",
     },
     nav: {
       primary: "Navegación principal",
@@ -311,10 +328,21 @@ export const translations = {
       impact: "Impacto",
       work: "Proyectos",
       process: "Proceso",
+      apps: "Apps",
       bookCall: "Reservar llamada",
       menu: "Menú",
       language: "Idioma",
       newTab: "se abre en una pestaña nueva",
+    },
+    appsPage: {
+      eyebrow: "Apps",
+      title: "Apps pequeñas, hechas por Aunova.",
+      lead: "Apps para Android que diseñamos y desarrollamos en Rust con Slint. Cada una hace una sola cosa y se explica con claridad.",
+      getOnPlay: "Disponible en Google Play",
+      privacyNotice: (app: string) => `Aviso de privacidad de ${app} (en inglés)`,
+      screenshots: (app: string) => `Capturas de pantalla de ${app}`,
+      note: "Las dos apps son de Aunova y están desarrolladas en Rust con Slint. ¿Necesitas una app propia?",
+      noteLink: "Cuéntanos qué debe hacer",
     },
     hero: {
       eyebrow: "Empresa de desarrollo de software",
