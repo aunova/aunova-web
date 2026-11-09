@@ -1,0 +1,564 @@
+---
+import Layout from "../../../layouts/PageLayout.astro";
+
+// Version CR-PRIVACY-v1.0, in force from 2026-11-09 (ISO here; "Month D, YYYY" in the header;
+// "D Month YYYY" in the version section; all three = the actual go-live day). Target path:
+// aunova-web src/pages/en/privacy/carrecord.astro. Structure: BluBelt notice BB-PRIVACY-v1.5, minus
+// everything that exists only because of ads (AdMob, UMP consent, Aunova Technologies Ltd, DIFC).
+// Every statement about the app is backed by the CarRecord scope (cowork
+// projects/micro-app-portfolio/2026-11-09-carrecord-scope.md) and the facts the orchestrator relayed on
+// 2026-11-09, including the owner's decision that the Mulkiya reader is Google ML Kit text recognition,
+// bundled Latin model (com.google.mlkit:text-recognition), no Firebase. Statements that rest on
+// Google's documentation are listed in Compliance's report and decisions for this version.
+// Re-check against the release build before go-live; these depend on slice 3, not yet built:
+//   - bundled thick-client text recognition (model asset in the bundle, getIsThickClient() true, no
+//     model download), and no Firebase product SDK (internal encoder/component artifacts allowed);
+//   - ML Kit runs only when the user photographs the Mulkiya (typing the VIN never starts it);
+//   - the Mulkiya photo is discarded after reading and is never stored or exported;
+//   - the PDF is kept in the app's own storage and leaves only through the share sheet;
+//   - the permission list: to be confirmed against the final merged manifest (orchestrator).
+// Change this page in the same release that changes what the app does.
+const metadata = {
+  title: "CarRecord Privacy Notice - Aunova",
+  description:
+    "How the CarRecord Android app handles data: your car records, photos and documents stay on your phone, there are no ads and no account, and the paid PDF report goes through Google Play.",
+};
+---
+
+<Layout title={metadata.title} description={metadata.description}>
+  <section class="legal-page">
+    <div class="container">
+      <div class="legal-header">
+        <h1 class="legal-title">CarRecord Privacy Notice</h1>
+        <p class="legal-updated">Last updated: November 9, 2026</p>
+      </div>
+
+      <div class="legal-content">
+        <div class="legal-section">
+          <h2>About this notice</h2>
+          <p class="legal-intro">
+            This notice covers one thing: the <strong>CarRecord</strong> app for Android
+            (package <code>com.aunova.carrecord</code>). CarRecord walks you through the checks to
+            make before you buy a used car in the United Arab Emirates, and puts what you found into
+            one dated PDF record of the car. This notice explains what happens to data when you use
+            it.
+          </p>
+          <p>
+            It does not cover the rest of aunova.net, which has its own
+            <a href="/en/privacy">privacy policy</a>.
+          </p>
+          <p>The short version:</p>
+          <ul class="legal-list">
+            <li>
+              What you enter, photograph or attach stays on your phone. It is never sent to us. It
+              leaves your phone only if you move it yourself, for example by sharing the PDF.
+            </li>
+            <li>
+              There are no ads, and we have no account, no sign-in, no cloud, no analytics and no
+              crash reporting of our own.
+            </li>
+            <li>
+              The official checks happen on the government websites, in your browser. The app holds
+              no government login and sends those websites nothing.
+            </li>
+            <li>
+              To read the Mulkiya photo, the app uses Google's ML Kit, on your phone. Google states
+              that the photo and the text read from it are not sent to Google, but that ML Kit sends
+              Google metrics about how it performs and is used. This notice says what.
+            </li>
+            <li>
+              The PDF report is paid for through Google Play. Aunova receives nothing about you from
+              the app; it sees only Google's order record for each sale.
+            </li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>Who is responsible, and how to reach us</h2>
+          <p>
+            <strong>Aunova OÜ</strong>, Ahtri tn 12, 15551 Tallinn, Harju maakond, Estonia
+            (registry code 16837438, VAT: EE102670613). Aunova OÜ makes CarRecord and publishes it
+            on Google Play. It is responsible for the app, the purchase, the order records and the
+            emails you send us.
+          </p>
+          <p>
+            You can reach Aunova OÜ by email at
+            <a href="mailto:chris@aunova.net">chris@aunova.net</a>, or by post at the address above.
+          </p>
+          <p>
+            Aunova OÜ has not appointed a Data Protection Officer. Data protection is handled
+            internally, and the email address above reaches the person responsible for it.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Your car records stay on your phone</h2>
+          <p>
+            CarRecord saves what you enter for each car in the app's own storage on your phone. That
+            includes the car's VIN, plate number and registration expiry, its make, model and year,
+            the result of each official check with its source, date and the file you attached, your
+            inspection answers and photos, your test drive notes, the price range you typed, your
+            verdict and the PDF record.
+          </p>
+          <ul class="legal-list">
+            <li>It is never sent to us, or to anyone else, by the app.</li>
+            <li>There is no account, no sign-in and no cloud copy.</li>
+            <li>There is no analytics and no crash reporting of our own.</li>
+            <li>
+              Clearing CarRecord's storage in your phone's Android settings, or uninstalling the
+              app, deletes your records, photos and attached documents from the app. A PDF you
+              shared stays wherever you sent it.
+            </li>
+          </ul>
+          <p>
+            Because we hold no copy, we cannot restore your records if you lose your phone or clear
+            the app.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>The Mulkiya photo</h2>
+          <p>
+            To start a record, you can type the VIN or photograph the car's registration card (the
+            Mulkiya). If you photograph it, CarRecord reads three things from the photo, on your
+            phone: the VIN, the plate number and the expiry date. You check them before they are
+            saved.
+          </p>
+          <p>
+            To read the text, CarRecord uses Google's ML Kit text recognition. Its model is built
+            into the app, so nothing has to be downloaded first. Google states that ML Kit processes
+            the image fully on the phone, and that it does not send the image, or the text it reads
+            from it, to Google's servers.
+          </p>
+          <p>
+            The photo is then discarded. CarRecord does not store it, does not put it in the PDF and
+            does not keep anything else printed on the card, such as the owner's name or
+            nationality.
+          </p>
+          <p>
+            The photo is taken with your phone's own camera app, which hands it to CarRecord. Some
+            camera apps also keep a copy of their own; whether yours does depends on your camera
+            app, not on CarRecord.
+          </p>
+          <p>
+            <strong>What ML Kit sends to Google.</strong> Google states that ML Kit may contact
+            Google's servers from time to time, for things like bug fixes, updated models and
+            information about which hardware it can use, and that it sends Google metrics about how
+            it performs and is used in the app. Google lists this data as:
+          </p>
+          <ul class="legal-list">
+            <li>
+              <strong>Device information</strong>, such as your phone's manufacturer, model, Android
+              version and build, and the hardware it has for machine learning.
+            </li>
+            <li><strong>App information</strong>: CarRecord's package name and version.</li>
+            <li>
+              <strong>Per-installation identifiers</strong>, which Google says are not intended to
+              uniquely identify a user or a phone.
+            </li>
+            <li>
+              <strong>Performance metrics</strong>, such as how long a reading took.
+            </li>
+            <li>
+              <strong>How the feature was used</strong>: its settings (such as the image format and
+              resolution), the size of its input and output, its version, the type of each event
+              (such as starting the feature or reading an image) and any error codes.
+            </li>
+          </ul>
+          <p>
+            Google states that it uses this data for diagnostics and usage analytics: to measure
+            performance, debug, maintain and improve ML Kit, and to detect misuse or abuse. Google
+            states that it encrypts this data in transit and does not pass it to third parties. The
+            sources are Google's <a href="https://developers.google.com/ml-kit/terms">ML Kit terms
+            and privacy statement</a> and its
+            <a href="https://developers.google.com/ml-kit/android-data-disclosure">ML Kit data
+            disclosure for Android</a>, which Google keeps up to date. Google uses this data under its
+            own rules, described in <a href="https://policies.google.com/privacy">Google's privacy
+            policy</a>, which says Google may process information on servers outside the country
+            where you live. None of this data reaches Aunova.
+          </p>
+          <p>
+            ML Kit runs only when you photograph the Mulkiya. If you type the VIN instead, the app
+            does not use it.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Photos and documents you attach</h2>
+          <p>
+            Inspection photos are also taken with your phone's own camera app. CarRecord keeps each
+            one in its own storage, with the record it belongs to. The note about camera apps above
+            applies here too.
+          </p>
+          <p>
+            To attach a document, such as the RTA vehicle status certificate or a screenshot of a
+            check, you pick the file with Android's own file picker. The app sees only the file you
+            pick, and keeps a copy of it in its own storage, with the record.
+          </p>
+          <p>
+            Documents you attach can contain other people's data. An RTA report, for example, can
+            contain details of the car's owner. CarRecord treats them like the rest of your record:
+            they stay on your phone, and they go into the PDF.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>The PDF record, and sharing it</h2>
+          <p>
+            The PDF record includes the car's VIN and plate number, each check with its source, date
+            and result, your inspection answers, notes and photos, your verdict and the documents you
+            attached. CarRecord keeps it in its own storage on your phone.
+          </p>
+          <p>
+            You share it only through Android's share sheet, by choosing the app or person to send
+            it to. From then on, the copy you sent is held by that app, and by the person you sent it
+            to, under their own rules. We never receive it.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Official checks, listing searches and other links</h2>
+          <p>
+            Some things in CarRecord open a web address or another app. Tapping one hands it to your
+            browser or to that app and leaves CarRecord. From there, the site or app you use and its
+            own privacy policy apply.
+          </p>
+          <ul class="legal-list">
+            <li>
+              <strong>The official checks</strong> open the government website for each check, such
+              as RTA's, in your browser. CarRecord shows you what to enter; you enter it yourself.
+              The app holds no government login, sends those websites nothing and does not read what
+              they show you. You file the result in CarRecord yourself.
+            </li>
+            <li>
+              <strong>The listing search</strong> opens a search on Dubizzle or YallaMotor in your
+              browser. The search link carries the car's make, model and year, so that the site can
+              show similar cars. You type the low and high price you saw into CarRecord yourself.
+            </li>
+            <li>
+              <strong>Add to calendar</strong>, after a purchase, opens your calendar app with an
+              entry filled in, for example for the RTA transfer. Nothing is saved until you save it
+              there, and then your calendar app holds it.
+            </li>
+            <li>
+              <strong>The privacy link</strong> opens this notice on aunova.net.
+            </li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>Permissions</h2>
+          <p>
+            CarRecord never asks you to grant a permission. It needs none of the ones Android prompts
+            for: no camera, no location, no contacts, no files, no phone state. Photos come from your
+            camera app and documents from Android's file picker, which need none.
+          </p>
+          <p>
+            The app does declare permissions that Android grants without asking. None of them is for
+            anything your records do:
+          </p>
+          <ul class="legal-list" data-android-permissions="android.permission.ACCESS_NETWORK_STATE android.permission.INTERNET com.android.vending.BILLING com.aunova.carrecord.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION">
+            <li data-android-permissions="android.permission.INTERNET android.permission.ACCESS_NETWORK_STATE"><strong>Internet</strong> and <strong>network state</strong>, which Google's software in the app uses: Google's purchase library and ML Kit, both described in this notice. CarRecord's own code makes no network call.</li>
+            <li data-android-permissions="com.android.vending.BILLING"><strong>Google Play Billing</strong>, for buying a PDF report.</li>
+            <li data-android-permissions="com.aunova.carrecord.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"><strong>Private receivers</strong> (a permission named after the app), which Android's support library declares so that only CarRecord itself can send messages to its own internal parts. Android never shows it to you, and it gives no other app access to anything.</li>
+          </ul>
+          <p>
+            Google's purchase library also brings in Google's location library. CarRecord declares
+            no location permission, so the app cannot read your phone's location.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>The PDF report purchase</h2>
+          <p>
+            The checklist is free. Exporting the PDF of a record costs <strong>AED 49</strong>, as an
+            in-app purchase on Google Play. One purchase unlocks the PDF of one record; exporting that
+            record again is free.
+          </p>
+          <p>
+            The purchase runs through Google Play Billing. Google handles the payment. We never see
+            your card or any other payment details.
+          </p>
+          <p>
+            The app reads from Google Play only what it needs: whether the report is on sale to this
+            Google account, your purchase of it and that purchase's state, and the purchase token
+            Google uses to identify the purchase. Google describes the purchase token as a unique
+            identifier that represents the user and the product they bought. The app uses that token
+            only with Google Play, to confirm the purchase and mark it as used, so that you can buy a
+            report for your next car. It is not sent to us.
+          </p>
+          <p>
+            Google states that its purchase library, from version 6 onwards, also logs how the
+            library is used, such as whether a request succeeded or failed, and problems connecting
+            to Google Play, and that Google uses this to improve the library and to support errors.
+            Google requires new apps to use version 8 or later of the library. We know of no fuller
+            description from Google of what this logging contains. It carries nothing from your
+            records, and none of it reaches Aunova.
+          </p>
+          <p>
+            Aunova OÜ, as the Google Play developer, can see an order record for each sale in Google
+            Play Console. Google decides what it contains. It includes an order number, the date, the
+            product, the price and tax, the buyer's country and the model of phone used for the
+            purchase, and in some cases the buyer's city, region and postcode. Aunova OÜ uses it only
+            for its accounts.
+          </p>
+          <p>
+            Google uses what it receives through Google Play under its own rules, and may process it
+            outside your country, including in the United States. See the
+            <a href="https://play.google.com/about/play-terms/">Google Play Terms of Service</a> and
+            <a href="https://policies.google.com/privacy">Google's privacy policy</a>.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Our lawful basis</h2>
+          <ul class="legal-list">
+            <li>
+              <strong>Your car records</strong>, photos and documents involve no processing of
+              personal data by us. They stay on your phone and we never receive them. They leave your
+              phone only if you move them yourself, for example by sharing the PDF.
+            </li>
+            <li>
+              <strong>The purchase.</strong> Aunova OÜ handles the purchase status so that your PDF
+              report unlocks, because that is necessary to give you what you paid for: GDPR Article
+              6(1)(b). Keeping order records for its accounts is a legal obligation: Article 6(1)(c).
+              Google relies on its own lawful bases for what it does with data it receives through
+              Google Play; see Google's privacy policy.
+            </li>
+            <li>
+              <strong>ML Kit's metrics.</strong> Aunova OÜ builds ML Kit into the app so that it can
+              read the Mulkiya on your phone, without sending the photo anywhere. Where Aunova OÜ
+              needs a lawful basis for the metrics ML Kit then sends to Google, it relies on its
+              legitimate interest in offering that on-phone reader: Article 6(1)(f). You can object,
+              and you can avoid ML Kit altogether by typing the VIN instead. Google relies on its own
+              lawful bases for what it does with the metrics; see Google's privacy policy.
+            </li>
+            <li>
+              <strong>If you email us</strong>, Aunova OÜ uses your message to answer it, on the
+              basis of its legitimate interest in replying to you: Article 6(1)(f).
+            </li>
+          </ul>
+          <p>Aunova OÜ makes no decision about you automatically.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>How long we keep it</h2>
+          <p>Aunova OÜ receives no data about you from the app, so it keeps none.</p>
+          <ul class="legal-list">
+            <li>
+              <strong>Your car records</strong>, photos, attached documents and PDFs stay on your
+              phone until you clear CarRecord's storage or uninstall the app. A PDF you shared stays
+              wherever you sent it.
+            </li>
+            <li>
+              <strong>Order records</strong> stay in Google Play Console. Aunova OÜ keeps them for as
+              long as accounting law requires.
+            </li>
+            <li>
+              <strong>Emails you send us</strong> are kept until your question is settled, and then
+              deleted.
+            </li>
+          </ul>
+          <p>
+            What Google keeps from Google Play and from ML Kit is set by Google's policies, linked
+            above.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Your rights</h2>
+          <p>
+            You have the following rights over any personal data we hold about you. Exercising any of
+            them is free, and you never have to justify asking.
+          </p>
+          <ul class="legal-list">
+            <li><strong>Access</strong> to the data and a copy of it. GDPR Article 15.</li>
+            <li><strong>Rectification</strong> of inaccurate data. Article 16.</li>
+            <li><strong>Erasure</strong> of your data. Article 17.</li>
+            <li><strong>Restriction</strong> of what we do with it. Article 18.</li>
+            <li><strong>Portability</strong> of the data you gave us. Article 20.</li>
+            <li><strong>Objection</strong> to processing based on our legitimate interest. Article 21.</li>
+            <li>
+              <strong>Complain</strong> to a supervisory authority, and seek a remedy in court. See
+              below.
+            </li>
+          </ul>
+          <p>
+            Because the app sends us nothing, we usually cannot link any data to you from CarRecord
+            alone. Your records are on your phone and under your control. For data Google holds about
+            your purchase or from ML Kit, use Google's own tools, described in
+            <a href="https://policies.google.com/privacy">Google's privacy policy</a>.
+          </p>
+          <p>
+            To ask us, email <a href="mailto:chris@aunova.net">chris@aunova.net</a> or write to the
+            postal address above. You do not need to cite a law or fill in a form. We answer without
+            undue delay and within one month of receiving your request. If a request is complex, or we
+            receive many, we may extend that by up to two further months. If we do, we tell you within
+            the first month, and why (GDPR Article 12(3)).
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Complaining to a supervisory authority</h2>
+          <p>
+            We would rather hear from you first, but you do not have to come to us at all. You can
+            complain to the data protection authority of the country where you live, where you work,
+            or where you think the problem happened, and you may seek a remedy in court.
+          </p>
+          <p>
+            The authority for Aunova OÜ is the <strong>Estonian Data Protection
+            Inspectorate</strong> (<em>Andmekaitse Inspektsioon</em>), Tatari 39, 10134 Tallinn,
+            Estonia. Telephone +372 627 4135. Website <a href="https://www.aki.ee">www.aki.ee</a>.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Children</h2>
+          <p>CarRecord is not directed at children.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Changes to this notice</h2>
+          <p>
+            We update this notice when what the app does changes, and the version and date change
+            with it. If a new version of the app sends anything new off the phone, this notice
+            changes first.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h2>Version and effective date</h2>
+          <p>
+            Version <strong>CR-PRIVACY-v1.0</strong>, in force from <strong>9 November 2026</strong>.
+            This is the first version.
+          </p>
+          <p>This notice is pending review by qualified counsel. It is not legal advice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: var(--space-3xl) 0 var(--space-5xl);
+    min-height: calc(100vh - var(--header-height));
+  }
+
+  .legal-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .legal-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background-size: 200% 200%;
+    animation: gradient-shift 5s ease infinite;
+  }
+
+  .legal-updated {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .legal-section h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text);
+  }
+
+  .legal-intro {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-section p {
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-md) 0;
+  }
+
+  .legal-list li {
+    position: relative;
+    padding-left: var(--space-xl);
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
+    color: var(--color-text-muted);
+  }
+
+  .legal-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .legal-list li strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .legal-section a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: opacity var(--transition-fast);
+  }
+
+  .legal-section a:hover {
+    opacity: 0.8;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Mobile styles */
+  @media (max-width: 640px) {
+    .legal-page {
+      padding: var(--space-2xl) 0 var(--space-3xl);
+    }
+
+    .legal-header {
+      margin-bottom: var(--space-2xl);
+      padding-bottom: var(--space-xl);
+    }
+
+    .legal-section {
+      margin-bottom: var(--space-xl);
+    }
+
+    .legal-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .legal-intro {
+      font-size: 1rem;
+    }
+  }
+</style>
