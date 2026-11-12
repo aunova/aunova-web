@@ -47,7 +47,7 @@ export const translations = {
       getOnPlay: "Get it on Google Play",
       privacyNotice: (app: string) => `${app} privacy notice`,
       screenshots: (app: string) => `${app} screenshots`,
-      note: "Both apps are made by Aunova and built in Rust with Slint. Need an app of your own?",
+      note: "Every app here is made by Aunova and built in Rust with Slint. Need an app of your own?",
       noteLink: "Tell us what it should do",
     },
     hero: {
@@ -341,7 +341,7 @@ export const translations = {
       getOnPlay: "Disponible en Google Play",
       privacyNotice: (app: string) => `Aviso de privacidad de ${app} (en inglés)`,
       screenshots: (app: string) => `Capturas de pantalla de ${app}`,
-      note: "Las dos apps son de Aunova y están desarrolladas en Rust con Slint. ¿Necesitas una app propia?",
+      note: "Todas estas apps son de Aunova y están desarrolladas en Rust con Slint. ¿Necesitas una app propia?",
       noteLink: "Cuéntanos qué debe hacer",
     },
     hero: {

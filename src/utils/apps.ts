@@ -159,4 +159,73 @@ export const apps: readonly MicroApp[] = [
       },
     ],
   },
+  {
+    id: "carrecord",
+    name: "CarReport",
+    icon: "/images/apps/carrecord-icon.webp",
+    copy: {
+      en: {
+        pitch: "Check a used car in the UAE step by step, then keep one dated PDF record of it.",
+        details: [
+          "Type the VIN, or photograph the Mulkiya: the VIN, plate number and expiry date are read on your phone, and the photo is then discarded.",
+          "For each official check, such as the RTA vehicle status certificate, the app says what to enter and opens the official website in your browser; you file the result.",
+          "A 47-point inspection, including flood-damage signs, an A/C test with a 10-minute timer and a timed test drive.",
+          "Your verdict lists every issue and everything that was not checked.",
+          "One dated PDF of the record, kept on your phone and shared through Android's share sheet.",
+        ],
+        pricing: "The checklist is free. The PDF of a record costs AED 49 through Google Play, once per record. UAE only.",
+      },
+      es: {
+        pitch: "Revisa un coche usado en los EAU paso a paso y guarda un registro en PDF con fecha.",
+        details: [
+          "Escribe el VIN o fotografía la Mulkiya: el VIN, la matrícula y la fecha de vencimiento se leen en tu teléfono, y después la foto se descarta.",
+          "Para cada verificación oficial, como el certificado de estado del vehículo de la RTA, la app indica qué introducir y abre el sitio web oficial en tu navegador; tú registras el resultado.",
+          "Una inspección de 47 puntos, con señales de daños por inundación, una prueba del aire acondicionado con temporizador de 10 minutos y una prueba de conducción cronometrada.",
+          "Tu veredicto enumera cada problema y todo lo que no se revisó.",
+          "Un PDF del registro con fecha, guardado en tu teléfono y compartido mediante el menú de compartir de Android.",
+        ],
+        pricing: "La lista de verificación es gratis. El PDF de un registro cuesta 49 AED a través de Google Play, una vez por registro. Solo en los EAU.",
+      },
+    },
+    playUrl: "https://play.google.com/store/apps/details?id=com.aunova.carrecord",
+    privacyUrl: "/en/privacy/carrecord",
+    screenshots: [
+      {
+        src: "/images/apps/carrecord-01-home.webp",
+        alt: {
+          en: "Records tab: one saved record of a Toyota Land Cruiser at 2 of 6 steps, with a New record button.",
+          es: "Pestaña Records: un registro guardado de un Toyota Land Cruiser en el paso 2 de 6, con un botón New record.",
+        },
+        width: 540,
+        height: 960,
+      },
+      {
+        src: "/images/apps/carrecord-02-record-steps.webp",
+        alt: {
+          en: "A record's steps: the car with its VIN done, 2 of 7 official checks filed, the 47-point inspection with one fail, then A/C test, price range and verdict.",
+          es: "Los pasos de un registro: el coche con su VIN completado, 2 de 7 verificaciones oficiales registradas, la inspección de 47 puntos con un fallo y después la prueba del aire acondicionado, el rango de precios y el veredicto.",
+        },
+        width: 540,
+        height: 960,
+      },
+      {
+        src: "/images/apps/carrecord-06-mulkiya-read.webp",
+        alt: {
+          en: "The car screen: a VIN read from a Mulkiya photo, with the manufacturer, country and model year decoded from it.",
+          es: "Pantalla del coche: un VIN leído de una foto de la Mulkiya, con el fabricante, el país y el año del modelo obtenidos a partir de él.",
+        },
+        width: 540,
+        height: 960,
+      },
+      {
+        src: "/images/apps/carrecord-05-verdict.webp",
+        alt: {
+          en: "The verdict: issues found, listing the EVG check refused by the seller and failed panel gaps, with the choice to walk away.",
+          es: "El veredicto: problemas encontrados, con la verificación EVG rechazada por el vendedor y los huecos entre paneles con fallo, y la opción de no comprar.",
+        },
+        width: 540,
+        height: 960,
+      },
+    ],
+  },
 ];
