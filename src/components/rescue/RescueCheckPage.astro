@@ -96,12 +96,12 @@ const checkIcons = [Wrench, FileText, KeyRound, ShieldAlert];
         <h2>{c.checkTitle}</h2>
         <p>{c.checkIntro}</p>
       </header>
-      <ol class="rc-checks">
+      <ol class="rc-checks" data-qa-row>
         {
           c.checks.map((check, i) => {
             const Icon = checkIcons[i];
             return (
-              <li class="rc-check">
+              <li class="rc-check" data-qa-card>
                 <span class="rc-check__icon" aria-hidden="true">
                   <Icon size={22} />
                 </span>
