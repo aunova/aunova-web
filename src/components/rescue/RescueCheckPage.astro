@@ -71,7 +71,7 @@ const checkIcons = [Wrench, FileText, KeyRound, ShieldAlert];
     </div>
   </PageHero>
 
-  <section class="section">
+  <section class="section rc-familiar-pin">
     <div class="container rc-familiar">
       <header>
         <h2>{c.familiarTitle}</h2>
@@ -79,8 +79,8 @@ const checkIcons = [Wrench, FileText, KeyRound, ShieldAlert];
       </header>
       <ul class="rc-ticklist">
         {
-          c.familiar.map((item) => (
-            <li>
+          c.familiar.map((item, i) => (
+            <li style={`--i:${i}`}>
               <span class="rc-box" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
                   <path d="M5.5 12.5l4.5 4.5 8.5-9.5" pathLength="1" />
@@ -281,9 +281,11 @@ const checkIcons = [Wrench, FileText, KeyRound, ShieldAlert];
     line-height: 1.5;
   }
 
-  /* Each box ticks itself as its line scrolls up the screen. Without
-     scroll-driven animation support, or with reduced motion, the boxes are
-     simply shown ticked; the PDF prints them empty, for the reader to tick. */
+  /* While the tall section scrolls past, its inner block is pinned under the
+     header and the boxes tick one after another, then hold for a short pause.
+     Without scroll-driven animation support, with reduced motion, or on a
+     screen too short to hold the block, the boxes are simply shown ticked;
+     the PDF prints them empty, for the reader to tick. */
   .rc-box {
     position: absolute;
     left: 0;
@@ -312,18 +314,35 @@ const checkIcons = [Wrench, FileText, KeyRound, ShieldAlert];
 
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
-      /* Longhands on purpose, as in global.css: the shorthand cannot carry a timeline. */
-      .rc-ticklist li {
-        view-timeline-name: --rc-line;
-        view-timeline-axis: block;
-      }
+      /* Longhands on purpose, as in global.css: the shorthand cannot carry a timeline.
+         `screen` keeps the pin out of print; the heights are where the block fits. */
+      @media screen and (min-width: 861px) and (min-height: 640px),
+        screen and (min-width: 360px) and (max-width: 860px) and (min-height: 800px) {
+        .rc-familiar-pin {
+          height: 220vh;
+          padding-block: 0;
+          view-timeline-name: --rc-familiar;
+          view-timeline-axis: block;
+          /* The timeline runs exactly while the inner block is pinned. */
+          view-timeline-inset: var(--header-height) 0;
+        }
 
-      .rc-box path {
-        animation-name: rc-tick-draw;
-        animation-timing-function: ease-out;
-        animation-fill-mode: both;
-        animation-timeline: --rc-line;
-        animation-range: contain 10% contain 24%;
+        .rc-familiar-pin > .rc-familiar {
+          position: sticky;
+          top: var(--header-height);
+          min-height: calc(100svh - var(--header-height));
+          align-content: center;
+          padding-block: var(--space-lg);
+        }
+
+        /* Ticks 1 to 5 draw from 6% to 62% of the pin; the rest is the pause. */
+        .rc-box path {
+          animation-name: rc-tick-draw;
+          animation-timing-function: ease-out;
+          animation-fill-mode: both;
+          animation-timeline: --rc-familiar;
+          animation-range: contain calc(6% + var(--i) * 12%) contain calc(14% + var(--i) * 12%);
+        }
       }
     }
   }
@@ -586,7 +605,13 @@ const checkIcons = [Wrench, FileText, KeyRound, ShieldAlert];
       gap: 5mm 8mm;
     }
 
+    .rc-familiar-pin {
+      height: auto !important;
+    }
+
     .rc-familiar {
+      position: static !important;
+      min-height: 0 !important;
       grid-template-columns: 1fr;
       gap: 2mm;
     }
