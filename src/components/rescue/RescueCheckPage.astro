@@ -78,7 +78,18 @@ const checkIcons = [Wrench, FileText, KeyRound, ShieldAlert];
         <p class="rc-familiar__note">{c.familiarNote}</p>
       </header>
       <ul class="rc-ticklist">
-        {c.familiar.map((item) => <li>{item}</li>)}
+        {
+          c.familiar.map((item) => (
+            <li>
+              <span class="rc-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5.5 12.5l4.5 4.5 8.5-9.5" pathLength="1" />
+                </svg>
+              </span>
+              {item}
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>
@@ -270,15 +281,60 @@ const checkIcons = [Wrench, FileText, KeyRound, ShieldAlert];
     line-height: 1.5;
   }
 
-  .rc-ticklist li::before {
-    content: "";
+  /* Each box ticks itself as its line scrolls up the screen. Without
+     scroll-driven animation support, or with reduced motion, the boxes are
+     simply shown ticked; the PDF prints them empty, for the reader to tick. */
+  .rc-box {
     position: absolute;
     left: 0;
     top: calc(var(--space-md) + 0.1em);
+    display: flex;
     width: 1.5rem;
     height: 1.5rem;
     border: 2px solid var(--color-primary);
     border-radius: var(--radius-md);
+  }
+
+  .rc-box svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 3.25;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .rc-box path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      /* Longhands on purpose, as in global.css: the shorthand cannot carry a timeline. */
+      .rc-ticklist li {
+        view-timeline-name: --rc-line;
+        view-timeline-axis: block;
+      }
+
+      .rc-box path {
+        animation-name: rc-tick-draw;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+        animation-timeline: --rc-line;
+        animation-range: contain 10% contain 24%;
+      }
+    }
+  }
+
+  @keyframes rc-tick-draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
   }
 
   .rc-house {
@@ -606,6 +662,15 @@ const checkIcons = [Wrench, FileText, KeyRound, ShieldAlert];
 
     .rc-print-only {
       display: block;
+    }
+
+    .rc-box {
+      animation: none !important;
+      background: none !important;
+    }
+
+    .rc-box svg {
+      display: none;
     }
 
     .rc-print-head {
