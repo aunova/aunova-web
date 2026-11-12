@@ -1,0 +1,131 @@
+---
+import RescueCheckPage, { type RescueCheckContent } from "../../components/rescue/RescueCheckPage.astro";
+
+const content: RescueCheckContent = {
+  title: "Rescue Check: ¿de verdad es tuya la app que pagaste? | Aunova",
+  description:
+    "Pagaste a una agencia para crear tu app. Revisamos, con palabras sencillas, qué recibiste por tu dinero, qué es tuyo y qué hacer a continuación.",
+  eyebrow: "Aunova Rescue Check",
+  heading: "¿De verdad es tuya la app que pagaste?",
+  lead: "Pagaste a una agencia para crear tu app. Ahora no tienes claro qué recibiste ni quién tiene realmente el control. Lo averiguamos por ti y te lo explicamos con palabras sencillas.",
+  bookLabel: "Reservar una llamada",
+  pdfLabel: "Descargar en PDF",
+  pdfHref: "/downloads/aunova-rescue-check-es.pdf",
+  printUrl: "aunova.net/es/rescue-check",
+  familiarTitle: "¿Te suena esto?",
+  familiar: [
+    "La agencia tiene todos los accesos. Tú no.",
+    "No puedes cambiar nada sin pedírselo primero.",
+    "Pagas facturas mensuales por cosas que no entiendes del todo.",
+    "Una función que creías pagada ahora es un \u201cextra\u201d.",
+    "No sabes bien qué recibiste por tu dinero.",
+  ],
+  familiarNote: "Si al menos una es cierta, el Rescue Check es para ti.",
+  houseTitle: "Por qué importa",
+  house:
+    "Piensa en una casa. La pagaste, pero el constructor se quedó con las llaves, las escrituras y el código de la alarma. Puedes vivir en ella solo mientras él te deje. Con una app pasa lo mismo: quien tiene el código y las cuentas es quien la controla.",
+  checkTitle: "Qué revisamos",
+  checkIntro: "Cuatro cosas, siempre.",
+  checks: [
+    {
+      title: "Qué se construyó",
+      question: "¿Recibiste lo que pagaste?",
+      text: "Miramos dentro de la app y la comparamos con lo que pagaste. ¿Se construyó de verdad para ti, o es sobre todo el producto de otra empresa con tu nombre encima?",
+    },
+    {
+      title: "Qué se prometió",
+      question: "¿El trabajo coincide con el contrato?",
+      text: "Ponemos tu contrato y tus facturas al lado de lo entregado y anotamos cada diferencia.",
+    },
+    {
+      title: "Quién es dueño de qué",
+      question: "¿Es tuyo o de la agencia?",
+      text: "La app, tu dirección web, los servidores donde funciona, los datos de tus clientes y las contraseñas. Para cada cosa averiguamos si es tuya, de la agencia o de nadie.",
+    },
+    {
+      title: "Riesgos ocultos",
+      question: "¿Queda algo abierto?",
+      text: "Buscamos contraseñas y claves de acceso olvidadas dentro de la app, donde cualquiera con acceso podría usarlas.",
+    },
+  ],
+  getTitle: "Qué recibes",
+  gets: [
+    "Un informe corto con palabras sencillas, con los problemas más serios primero.",
+    "Una lista de todo lo que necesita tu app y de quién tiene cada parte.",
+    "Una lista de tareas en orden: qué pedir a tu agencia, qué cambiar y qué recuperar.",
+    "Una llamada para explicártelo todo y responder a tus preguntas.",
+    "Si lo quieres, un precio para hacernos cargo de la app o rehacerla. Tú decides. El informe es tuyo en cualquier caso.",
+  ],
+  stepsTitle: "Cómo funciona",
+  steps: [
+    {
+      title: "Reserva una llamada",
+      text: "Cuéntanos sobre tu app y lo que te preocupa. Después te enviamos un precio fijo. No empezamos hasta que lo aceptes.",
+    },
+    {
+      title: "Danos acceso",
+      text: "Solo necesitamos mirar, no cambiar. Si no sabes cómo darnos acceso, te decimos exactamente qué pedirle a tu agencia.",
+    },
+    {
+      title: "Revisamos",
+      text: "Normalmente de 3 a 5 días laborables desde que tenemos acceso.",
+    },
+    {
+      title: "Recibes las respuestas",
+      text: "El informe, las listas y una llamada para repasarlos. Después eliges qué hacer.",
+    },
+  ],
+  wordsTitle: "Palabras que usamos",
+  words: [
+    {
+      term: "El código",
+      meaning:
+        "Las instrucciones de la app, como la receta de un plato. Quien tiene la receta puede volver a hacerlo, o cambiarlo.",
+    },
+    {
+      term: "Las cuentas",
+      meaning:
+        "Los servicios donde vive tu app: la dirección web, los servidores, las tiendas de apps y el correo. Cada una tiene un dueño.",
+    },
+    {
+      term: "Claves de acceso",
+      meaning:
+        "Contraseñas secretas que permiten a tu app usar otros servicios. Quien las tiene puede usar esos servicios, y la factura puede llegarte a ti.",
+    },
+    {
+      term: "Acceso de solo lectura",
+      meaning: "Permiso para mirar sin cambiar nada. Es todo lo que necesitamos.",
+    },
+  ],
+  notTitle: "Lo que el Rescue Check no es",
+  nots: [
+    {
+      title: "No es asesoría legal",
+      text: "Comparamos lo prometido con lo entregado. Para pasos legales, habla con un abogado.",
+    },
+    {
+      title: "No es una reparación",
+      text: "No cambiamos nada en tu app ni en tus cuentas, salvo que nos lo pidas por escrito.",
+    },
+    {
+      title: "No es una reconstrucción",
+      text: "Si la quieres, te la presupuestamos aparte, después de la revisión.",
+    },
+  ],
+  privateTitle: "Tu información es privada",
+  privateText: [
+    "Solo tú recibes el informe. No publicamos nada y no compartimos nada con tu agencia.",
+    "Usamos herramientas de IA para ayudar a leer el código y el contrato, bajo las condiciones de confidencialidad que firmas antes de empezar. Una persona revisa cada hallazgo.",
+    "Si encontramos una contraseña que sigue en uso, te avisamos enseguida, en privado, con los pasos para cambiarla.",
+  ],
+  finalTitle: "Descubre qué es realmente tuyo",
+  finalText:
+    "Reserva una llamada y cuéntanos sobre tu app. Recibes un precio fijo antes de empezar y pagas por transferencia bancaria.",
+  emailLabel: "O escribe a Chris",
+  email: "chris@aunova.net",
+  entityLine:
+    "El Rescue Check es un servicio de Aunova OÜ, Tallinn, Estonia. Trabajamos en remoto, con clientes de cualquier país.",
+};
+---
+
+<RescueCheckPage lang="es" content={content} />

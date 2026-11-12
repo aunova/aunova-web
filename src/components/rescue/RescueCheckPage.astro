@@ -1,0 +1,627 @@
+---
+// The Aunova Rescue Check service page, in either language. Written for
+// non-technical founders; the same markup prints to the downloadable PDF.
+import { CalendarDays, Check, Download, FileText, KeyRound, Mail, ShieldAlert, Wrench } from "lucide-astro";
+import PageLayout from "../../layouts/PageLayout.astro";
+import { contact } from "../../utils/company";
+import type { Language } from "../../utils/i18n";
+import PageHero from "../sections/PageHero.astro";
+
+export interface RescueCheckContent {
+  /** Document title and meta description */
+  title: string;
+  description: string;
+  eyebrow: string;
+  heading: string;
+  lead: string;
+  bookLabel: string;
+  pdfLabel: string;
+  pdfHref: string;
+  /** Printed at the top of the PDF, e.g. "aunova.net/en/rescue-check" */
+  printUrl: string;
+  familiarTitle: string;
+  familiar: string[];
+  familiarNote: string;
+  houseTitle: string;
+  house: string;
+  checkTitle: string;
+  checkIntro: string;
+  /** Exactly four, in the order: built, promised, ownership, hidden risks */
+  checks: { title: string; question: string; text: string }[];
+  getTitle: string;
+  gets: string[];
+  stepsTitle: string;
+  steps: { title: string; text: string }[];
+  wordsTitle: string;
+  words: { term: string; meaning: string }[];
+  notTitle: string;
+  nots: { title: string; text: string }[];
+  privateTitle: string;
+  privateText: string[];
+  finalTitle: string;
+  finalText: string;
+  emailLabel: string;
+  email: string;
+  entityLine: string;
+}
+
+interface Props {
+  lang: Language;
+  content: RescueCheckContent;
+}
+
+const { lang, content: c } = Astro.props;
+const checkIcons = [Wrench, FileText, KeyRound, ShieldAlert];
+---
+
+<PageLayout title={c.title} description={c.description} lang={lang}>
+  <PageHero eyebrow={c.eyebrow} title={c.heading} lead={c.lead} image="/images/v2/build.webp">
+    <p slot="before" class="rc-print-only rc-print-head">
+      Aunova Rescue Check · {c.printUrl} · {c.email}
+    </p>
+    <div class="rc-actions rc-no-print">
+      <a class="button button--light" href={contact.booking} target="_blank" rel="noopener noreferrer">
+        <CalendarDays size={18} aria-hidden="true" />
+        {c.bookLabel}
+      </a>
+      <a class="button button--ghost" href={c.pdfHref} download>
+        <Download size={18} aria-hidden="true" />
+        {c.pdfLabel}
+      </a>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="container rc-familiar">
+      <header>
+        <h2>{c.familiarTitle}</h2>
+        <p class="rc-familiar__note">{c.familiarNote}</p>
+      </header>
+      <ul class="rc-ticklist">
+        {c.familiar.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section rc-house">
+    <div class="container rc-house__inner">
+      <h2>{c.houseTitle}</h2>
+      <p>{c.house}</p>
+    </div>
+  </section>
+
+  <section class="section rc-check-section">
+    <div class="container">
+      <header class="section-head">
+        <h2>{c.checkTitle}</h2>
+        <p>{c.checkIntro}</p>
+      </header>
+      <ol class="rc-checks">
+        {
+          c.checks.map((check, i) => {
+            const Icon = checkIcons[i];
+            return (
+              <li class="rc-check">
+                <span class="rc-check__icon" aria-hidden="true">
+                  <Icon size={22} />
+                </span>
+                <h3>
+                  <span class="rc-check__num">{i + 1}.</span> {check.title}
+                </h3>
+                <p class="rc-check__question">{check.question}</p>
+                <p>{check.text}</p>
+              </li>
+            );
+          })
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section rc-get">
+    <div class="container rc-two">
+      <div>
+        <h2>{c.getTitle}</h2>
+        <ul class="rc-gets">
+          {
+            c.gets.map((item) => (
+              <li>
+                <Check size={20} aria-hidden="true" />
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <h2>{c.stepsTitle}</h2>
+        <ol class="rc-steps">
+          {
+            c.steps.map((step, i) => (
+              <li>
+                <span class="rc-steps__num" aria-hidden="true">{i + 1}</span>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section-head">
+        <h2>{c.wordsTitle}</h2>
+      </header>
+      <dl class="rc-words">
+        {
+          c.words.map((word) => (
+            <div>
+              <dt>{word.term}</dt>
+              <dd>{word.meaning}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <section class="section rc-last">
+    <div class="container rc-two">
+      <div>
+        <h2>{c.notTitle}</h2>
+        <ul class="rc-nots">
+          {
+            c.nots.map((item) => (
+              <li>
+                <strong>{item.title}.</strong> {item.text}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <h2>{c.privateTitle}</h2>
+        {c.privateText.map((paragraph) => <p class="rc-private">{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="rc-final band-dark flush-footer">
+    <div class="container rc-final__inner">
+      <h2>{c.finalTitle}</h2>
+      <p>{c.finalText}</p>
+      <div class="rc-actions rc-actions--center">
+        <a class="button button--light" href={contact.booking} target="_blank" rel="noopener noreferrer">
+          <CalendarDays size={18} aria-hidden="true" />
+          {c.bookLabel}
+        </a>
+        <a class="button button--ghost" href={`mailto:${c.email}`}>
+          <Mail size={18} aria-hidden="true" />
+          {c.emailLabel}
+        </a>
+      </div>
+      <p class="rc-print-only rc-print-contact">
+        {contact.booking.replace("https://", "")} · {c.email}
+      </p>
+      <p class="rc-entity">{c.entityLine}</p>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .rc-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+  }
+
+  .rc-actions--center {
+    justify-content: center;
+  }
+
+  .rc-actions :global(svg) {
+    margin-right: var(--space-sm);
+  }
+
+  .rc-print-only {
+    display: none;
+  }
+
+  .rc-familiar {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2rem, 1rem + 4vw, 5rem);
+    align-items: start;
+  }
+
+  .rc-familiar h2,
+  .rc-house h2,
+  .rc-get h2,
+  .rc-last h2 {
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-display);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+  }
+
+  .rc-familiar__note {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .rc-ticklist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rc-ticklist li {
+    position: relative;
+    padding: var(--space-md) 0 var(--space-md) 2.75rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--text-lg);
+    line-height: 1.5;
+  }
+
+  .rc-ticklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: calc(var(--space-md) + 0.1em);
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+  }
+
+  .rc-house {
+    background-color: color-mix(in srgb, var(--color-sand) 55%, var(--color-background));
+  }
+
+  .rc-house__inner {
+    max-width: 52rem;
+  }
+
+  .rc-house p {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.75rem);
+    line-height: 1.5;
+  }
+
+  .rc-checks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rc-check {
+    padding: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+    background-color: var(--color-background-elevated);
+    border-top: 3px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+  }
+
+  .rc-check__icon {
+    display: inline-flex;
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+  }
+
+  .rc-check h3 {
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  }
+
+  .rc-check__num {
+    color: var(--color-primary);
+  }
+
+  .rc-check__question {
+    font-weight: 600;
+  }
+
+  .rc-check p:last-child {
+    margin-bottom: 0;
+    color: var(--color-text-muted);
+  }
+
+  .rc-get {
+    background-color: color-mix(in srgb, var(--color-sand) 55%, var(--color-background));
+  }
+
+  .rc-two {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 1rem + 4vw, 5rem);
+  }
+
+  .rc-gets,
+  .rc-steps,
+  .rc-nots {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rc-gets li {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+    font-size: var(--text-lg);
+    line-height: 1.5;
+  }
+
+  .rc-gets :global(svg) {
+    flex: none;
+    margin-top: 0.2em;
+    color: var(--color-primary);
+  }
+
+  .rc-steps li {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .rc-steps__num {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: 700;
+  }
+
+  .rc-steps h3 {
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
+  }
+
+  .rc-steps p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  .rc-words {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-xl) clamp(2rem, 1rem + 4vw, 5rem);
+    margin: 0;
+  }
+
+  .rc-words div {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .rc-words dt {
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
+    font-weight: 700;
+  }
+
+  .rc-words dd {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  .rc-nots li {
+    margin-bottom: var(--space-md);
+    font-size: var(--text-lg);
+    line-height: 1.5;
+  }
+
+  .rc-private {
+    font-size: var(--text-lg);
+    line-height: 1.6;
+  }
+
+  .rc-final {
+    padding-block: clamp(5rem, 3.5rem + 6vw, 9rem);
+    background:
+      radial-gradient(70% 120% at 85% 0%, rgba(122, 36, 32, 0.55), transparent 62%),
+      radial-gradient(50% 90% at 0% 100%, rgba(87, 13, 11, 0.45), transparent 60%),
+      var(--color-night);
+  }
+
+  .rc-final__inner {
+    max-width: 52rem;
+    text-align: center;
+  }
+
+  .rc-final h2 {
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-display);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .rc-final p {
+    max-width: 36rem;
+    margin-inline: auto;
+    font-size: var(--text-lg);
+  }
+
+  .rc-entity {
+    margin-top: var(--space-2xl);
+    font-size: var(--text-sm) !important;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 860px) {
+    .rc-familiar,
+    .rc-checks,
+    .rc-two,
+    .rc-words {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* The PDF is this page printed: light background, no site chrome, no buttons. */
+  @media print {
+    @page {
+      size: A4;
+      margin: 14mm 14mm 16mm;
+    }
+
+    :global(.site-header),
+    :global(.site-footer),
+    :global(.cookie-notice),
+    :global(.page-hero__media),
+    .rc-no-print,
+    .rc-actions {
+      display: none !important;
+    }
+
+    :global(.reveal) {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    :global(html),
+    :global(body) {
+      min-height: 0 !important;
+      background: #fff !important;
+    }
+
+    .rc-check-section {
+      break-before: page;
+    }
+
+    .rc-get .rc-two > div,
+    .rc-last .rc-two > div,
+    .rc-words,
+    .rc-final {
+      break-inside: avoid;
+    }
+
+    :global(.page-hero),
+    .rc-final,
+    .rc-house,
+    .rc-get {
+      padding-block: 0 !important;
+      margin: 0 0 6mm;
+      background: none !important;
+    }
+
+    .rc-checks,
+    .rc-words,
+    .rc-two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 5mm 8mm;
+    }
+
+    .rc-familiar {
+      grid-template-columns: 1fr;
+      gap: 2mm;
+    }
+
+    .rc-check {
+      padding: 5mm;
+    }
+
+    h2,
+    h3 {
+      break-after: avoid;
+    }
+
+    :global(.page-hero :is(h1, p)),
+    .rc-final :is(h2, p) {
+      color: var(--color-charcoal) !important;
+    }
+
+    :global(.section) {
+      padding-block: 0 !important;
+      margin-bottom: 6mm;
+    }
+
+    :global(.page-hero h1) {
+      font-size: 26pt !important;
+    }
+
+    .rc-familiar h2,
+    .rc-house h2,
+    .rc-get h2,
+    .rc-last h2,
+    .rc-final h2,
+    :global(.section-head h2) {
+      font-size: 18pt !important;
+      margin-bottom: 4mm !important;
+    }
+
+    .rc-ticklist li,
+    .rc-house p {
+      font-size: 11pt !important;
+    }
+
+    .rc-gets li,
+    .rc-nots li,
+    .rc-private,
+    .rc-final p,
+    .rc-check p,
+    .rc-steps p,
+    .rc-words dd {
+      font-size: 10pt !important;
+      line-height: 1.4 !important;
+    }
+
+    .rc-steps li {
+      margin-bottom: 3mm;
+    }
+
+    .rc-words {
+      gap: 3mm 8mm;
+    }
+
+    .rc-check,
+    .rc-steps li,
+    .rc-words div,
+    .rc-ticklist li {
+      break-inside: avoid;
+    }
+
+    .rc-check {
+      border: 1px solid var(--color-card-border);
+      border-top: 3px solid var(--color-primary);
+    }
+
+    .rc-print-only {
+      display: block;
+    }
+
+    .rc-print-head {
+      margin-bottom: 6mm;
+      font-size: 9pt;
+      color: var(--color-primary) !important;
+    }
+
+    .rc-print-contact {
+      font-weight: 700;
+    }
+
+    .rc-final__inner {
+      max-width: none;
+      padding-top: 6mm;
+      border-top: 2px solid var(--color-primary);
+    }
+  }
+</style>
